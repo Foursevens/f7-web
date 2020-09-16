@@ -2,5 +2,7 @@
   "name": "f7-web",
   "version": "1.0.0",
   "private": true,
-  "workspaces": []
+  "workspaces": [
+    "design/"
+  ]
 }
