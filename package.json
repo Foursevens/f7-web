@@ -2,10 +2,6 @@
   "name": "f7-web",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "design/",
-    "site/"
-  ],
   "scripts": {
     "lint": "eslint --cache --fix '**/*.{js,jsx}'"
   },
@@ -16,5 +12,9 @@
     "eslint-config-noise-node": "^0.7.0",
     "eslint-config-noise-react": "^0.7.0",
     "prettier": "^2.1.2"
-  }
+  },
+  "workspaces": [
+    "design/",
+    "site/"
+  ]
 }

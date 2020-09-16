@@ -10,8 +10,23 @@
       }
     },
     {
+      "files": ["cms/config/**"],
+      "rules": {
+        "no-magic-numbers": "off"
+      }
+    },
+    {
       "files": ["design/stories/**", "site/pages/**"],
-      "extends": ["noise-browser", "noise-react"]
+      "extends": ["noise-browser", "noise-react"],
+      "rules": {
+        "react/jsx-props-no-spreading": "off"
+      }
+    },
+    {
+      "files": ["design/stories/**.stories.jsx"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
     }
   ]
 }

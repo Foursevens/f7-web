@@ -2,7 +2,12 @@
   "name": "@f7-web/design",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
+  },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -14,9 +19,5 @@
     "@storybook/react": "^6.0.21",
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1"
-  },
-  "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   }
 }

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {
@@ -12,7 +14,7 @@ module.exports = ({ env }) => ({
         password: env('DATABASE_PASSWORD', 'strapi'),
         ssl: env.bool('DATABASE_SSL', false),
       },
-      options: {}
+      options: {},
     },
   },
 });
