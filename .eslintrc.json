@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "extends": ["noise"],
+  "overrides": [
+    {
+      "files": ["cms/**"],
+      "extends": ["noise-node"],
+      "globals": {
+        "strapi": true
+      }
+    },
+    {
+      "files": ["design/stories/**", "site/pages/**"],
+      "extends": ["noise-browser", "noise-react"]
+    }
+  ]
+}

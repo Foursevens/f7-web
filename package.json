@@ -5,5 +5,16 @@
   "workspaces": [
     "design/",
     "site/"
-  ]
+  ],
+  "scripts": {
+    "lint": "eslint --cache --fix '**/*.{js,jsx}'"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-noise": "^0.7.0",
+    "eslint-config-noise-browser": "^0.7.0",
+    "eslint-config-noise-node": "^0.7.0",
+    "eslint-config-noise-react": "^0.7.0",
+    "prettier": "^2.1.2"
+  }
 }
