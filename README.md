@@ -4,7 +4,7 @@
 
 ### Setup CMS
 
-Create a environment config file at `./env.local`.
+Create a environment config file at `.env.local`.
 
 ```ini
 DATABASE_CLIENT=postgres
