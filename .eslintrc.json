@@ -27,6 +27,23 @@
       "rules": {
         "import/no-anonymous-default-export": "off"
       }
+    },
+    {
+      "files": ["site/pages/**"],
+      "rules": {
+        "import/no-internal-modules": [
+          "error",
+          {
+            "allow": ["**/*.css", "next/head"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["site/pages/_*.jsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
     }
   ]
 }
