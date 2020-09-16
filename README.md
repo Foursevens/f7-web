@@ -4,7 +4,7 @@
 
 ### Setup CMS
 
-Create a environment config file at `.env.local`.
+Create an environment config file at `.env.local`.
 
 ```ini
 DATABASE_CLIENT=postgres
@@ -24,7 +24,7 @@ Create docker containers.
 docker-compose up
 ```
 
-Wait for all containers to initialize. This can take up to 10 minutes.
+Wait for all containers to initialise. This can take up to 10 minutes.
 
 ### Start CMS
 
