@@ -35,3 +35,9 @@ docker-compose start --detach
 ```
 
 Wait for all containers to start. This can take up to a minute. Go the the [CMS page](http://localhost:1337).
+
+### Start Design Storybook
+
+```sh
+yarn workspace @f7-web/design storybook
+```
