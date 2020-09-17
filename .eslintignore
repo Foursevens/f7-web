@@ -3,4 +3,5 @@ cms/build/
 cms/exports/
 cms/public/
 !design/.storybook/
+design/storybook-static/
 site/.next/
