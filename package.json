@@ -7,6 +7,9 @@
     "node": "^12 || ^14"
   },
   "scripts": {
+    "build:cms": "npm --prefix cms/ run build",
+    "heroku-postbuild": "yarn build:cms",
+    "heroku-prebuild": "npm --prefix cms/ install",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
