@@ -24,7 +24,7 @@
       }
     },
     {
-      "files": ["design/stories/**", "site/pages/**"],
+      "files": ["design/components/**", "site/pages/**"],
       "extends": ["noise-browser"]
     },
     {
@@ -39,7 +39,7 @@
       "extends": ["noise-ts"]
     },
     {
-      "files": ["design/stories/**.stories.{js,jsx,ts,tsx}"],
+      "files": ["design/components/**.stories.{js,jsx,ts,tsx}"],
       "rules": {
         "import/no-anonymous-default-export": "off",
         "import/no-internal-modules": [
@@ -56,7 +56,7 @@
         "import/no-internal-modules": [
           "error",
           {
-            "allow": ["**/*.css", "next/app", "next/head"]
+            "allow": ["**/*.css", "next/app", "next/head", "next/link"]
           }
         ]
       }
