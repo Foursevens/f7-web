@@ -5,3 +5,4 @@ cms/public/
 !design/.storybook/
 design/storybook-static/
 site/.next/
+site/next-env.d.ts
