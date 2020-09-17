@@ -2,6 +2,7 @@
   "name": "f7-web",
   "version": "1.0.0",
   "private": true,
+  "repository": "git@github.com:Foursevens/f7-web.git",
   "engines": {
     "node": "^12 || ^14"
   },
