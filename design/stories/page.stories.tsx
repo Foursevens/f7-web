@@ -1,14 +1,15 @@
+import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import * as HeaderStories from './header.stories';
-import { Page } from './page';
+import { Page, PageProps } from './page';
 
 export default {
   title: 'Example/Page',
   component: Page,
 };
 
-const Template = (args) => <Page {...args} />;
+const Template: Story<PageProps> = (args) => <Page {...args} />;
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {

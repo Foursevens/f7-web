@@ -1,6 +1,7 @@
+import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { Button } from './button';
+import { Button, ButtonProps } from './button';
 
 export default {
   title: 'Example/Button',
@@ -10,7 +11,9 @@ export default {
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args): React.ReactElement => (
+  <Button {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

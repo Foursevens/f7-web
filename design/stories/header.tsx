@@ -1,15 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Button } from './button';
 import './header.css';
 
+export interface HeaderProps {
+  onCreateAccount: (event: React.MouseEvent) => void;
+  onLogin: (event: React.MouseEvent) => void;
+  onLogout: (event: React.MouseEvent) => void;
+  user?: Record<string, unknown>;
+}
+
 export const Header = ({
-  user,
+  onCreateAccount: handleCreateAccount,
   onLogin: handleLogin,
   onLogout: handleLogout,
-  onCreateAccount: handleCreateAccount,
-}) => (
+  user,
+}: HeaderProps): React.ReactElement => (
   <header>
     <div className="wrapper">
       <div>
@@ -54,14 +60,3 @@ export const Header = ({
     </div>
   </header>
 );
-
-Header.propTypes = {
-  onCreateAccount: PropTypes.func.isRequired,
-  onLogin: PropTypes.func.isRequired,
-  onLogout: PropTypes.func.isRequired,
-  user: PropTypes.shape({}),
-};
-
-Header.defaultProps = {
-  user: null,
-};
