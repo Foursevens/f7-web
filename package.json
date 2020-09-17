@@ -7,7 +7,8 @@
     "node": "^12 || ^14"
   },
   "scripts": {
-    "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
+    "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@types/node": "^12.12.61",
