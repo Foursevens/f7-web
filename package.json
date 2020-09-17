@@ -2,6 +2,9 @@
   "name": "f7-web",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "≥12"
+  },
   "scripts": {
     "lint": "eslint --cache --fix '**/*.{js,jsx}'"
   },
