@@ -2,4 +2,5 @@ cms/.cache/
 cms/build/
 cms/exports/
 cms/public/
+!design/.storybook/
 site/.next/
