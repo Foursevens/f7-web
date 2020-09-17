@@ -10,7 +10,7 @@ Create an environment config file at `.env.local`.
 DATABASE_CLIENT=postgres
 DATABASE_HOST=db
 DATABASE_NAME=api
-DATABASE_PASSWORD=strapi
+DATABASE_PASSWORD=[anything-you-like]
 DATABASE_PORT=5432
 DATABASE_USERNAME=strapi
 POSTGRES_DB=${DATABASE_NAME}
