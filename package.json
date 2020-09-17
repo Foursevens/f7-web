@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "≥12"
+    "node": "^12 || ^14"
   },
   "scripts": {
     "lint": "eslint --cache --fix '**/*.{js,jsx}'"
