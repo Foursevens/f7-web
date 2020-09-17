@@ -39,7 +39,7 @@ Wait for all containers to start. This can take up to a minute. Go the the [CMS 
 ### Start Design Storybook
 
 ```sh
-yarn workspace @f7-web/design storybook
+yarn workspace @f7-web/design dev
 ```
 
 ### Start Site

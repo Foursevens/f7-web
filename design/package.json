@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build-storybook": "build-storybook",
-    "storybook": "start-storybook -p 6006"
+    "build": "build-storybook",
+    "dev": "start-storybook -p 6006"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
