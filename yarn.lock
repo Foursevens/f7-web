@@ -5125,55 +5125,55 @@ eslint-ast-utils@^1.1.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
-eslint-config-noise-browser@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise-browser/-/eslint-config-noise-browser-0.7.0.tgz#72e18d5ddff4845812847a5e21a3c9c9bca5870c"
-  integrity sha512-crPhbtzyIDVYiZiH6+dDFAoL+XPGyFFyNyDVRTr6K81e+UutjlsILCAV8qhQNDubeucCQ+zBDZHxe2CD9cU66Q==
+eslint-config-noise-browser@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise-browser/-/eslint-config-noise-browser-0.8.0.tgz#564e74119f04383ce076b4284c793522f1b59ba1"
+  integrity sha512-l/XJglWod7BnDZmkF7ikbGssA5qIhqg97q9N6kKkn97GB3Czc6Gcq8mbIoNcKoeK+tflxesjW+vnyd22W8MP3g==
   dependencies:
-    eslint-plugin-unicorn "^21.0.0"
+    eslint-plugin-unicorn "^22.0.0"
 
-eslint-config-noise-node@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise-node/-/eslint-config-noise-node-0.7.0.tgz#5081020a88b4e57f589702d5b3a0406bedc90e77"
-  integrity sha512-JUmKBJ/AcJHlFaJ/IwaVCEYletErLys3p4aACfZDULNms8163dBRkrnBF5E8xDkPxvxwrsGsBG/Pem/Ut1rHMQ==
+eslint-config-noise-node@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise-node/-/eslint-config-noise-node-0.8.0.tgz#ecb57a045d0005106a775194a46b5016db0a5f56"
+  integrity sha512-nsC/F39ZqtMoiLOdi2pA2ehAax7oXVXNVoVhwS+AueaYoCyOODT/w24tDAUOuYL0VlTglSqxRum1saR7t2/h0A==
   dependencies:
     eslint-plugin-node "^11.1.0"
-    eslint-plugin-unicorn "^21.0.0"
+    eslint-plugin-unicorn "^22.0.0"
 
-eslint-config-noise-react@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise-react/-/eslint-config-noise-react-0.7.0.tgz#e9a43089c78e2253c6c8d6b7d2f09a84f42076e4"
-  integrity sha512-0cuOY6F1MaCiDfRFVtq3dRdzwLj1F2k6NlnbLcTlmSMAMkiz6SEv4QlihAb2A24Z4mdCAbWHTADG73OzGs6umg==
+eslint-config-noise-react@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise-react/-/eslint-config-noise-react-0.8.0.tgz#96e9e887f7e5c2ededbdf9cb5bb247005120efe6"
+  integrity sha512-dV8eb100EbXzV0Jbdn0wgOoGpn0ZCDlVPWmAZ5Y2N4XLnmYTvqSf8HzjXdl9vG6uefIcvkoBA25T6Wm8TYVYHw==
   dependencies:
     eslint-config-prettier "^6.11.0"
-    eslint-noise-utils "^0.7.0"
+    eslint-noise-utils "^0.8.0"
     eslint-plugin-import "^2.22.0"
     eslint-plugin-jsx-a11y "^6.3.0"
     eslint-plugin-react "^7.20.0"
     eslint-plugin-react-hooks "^4.1.0"
 
-eslint-config-noise-ts@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise-ts/-/eslint-config-noise-ts-0.7.0.tgz#27b2f40a4eabb5d7a18bd843ccec394b20425dda"
-  integrity sha512-YU7pAc5U9qLQBMHlcWcAVygbyZICeZkElRxwPKbuU2Qf283ba7FlQXPjIbQn0gLtf/EnEH6nwzq3yhsnd65U5w==
+eslint-config-noise-ts@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise-ts/-/eslint-config-noise-ts-0.8.0.tgz#c72f819879c965b7307471f7f8c0890cce6c6797"
+  integrity sha512-19m20x9BKWCUzoSLNu0ODjh+V/iwAVYAo0JQczxDLrvAykXxeEE/IsqO+L6eP3uFMD8rlw5iZtu/WVR0VUAEpA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.10.0"
     "@typescript-eslint/parser" "^3.10.0"
     eslint-import-resolver-typescript "^2.3.0"
     eslint-plugin-import "^2.22.0"
 
-eslint-config-noise@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise/-/eslint-config-noise-0.7.0.tgz#9f54a44dfd21d7b9d3446fbb891050f0350a9ca4"
-  integrity sha512-tKzP2wEBDRGEucmgXiuY0LKVEXeJJKkLRN9Jr2TnGyz5pc8/c+4HstIrvvCb4H8YDp+isxrxqxvki0UT/G8OvA==
+eslint-config-noise@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise/-/eslint-config-noise-0.8.0.tgz#ddb08c5b7bdf3c839a2eab09b529f32d1d171fb1"
+  integrity sha512-1bNTVau104B8ces82YFm/h1BJyxSh1sS1LD7RcAU9b3dG5v80IrsY0+ZtuKlVUZnmjKa7URX74CabF4Hkd9WnQ==
   dependencies:
     confusing-browser-globals "^1.0.9"
     eslint-config-prettier "^6.11.0"
-    eslint-noise-utils "^0.7.0"
+    eslint-noise-utils "^0.8.0"
     eslint-plugin-import "^2.22.0"
     eslint-plugin-prettier "^3.1.0"
     eslint-plugin-promise "^4.2.0"
-    eslint-plugin-unicorn "^21.0.0"
+    eslint-plugin-unicorn "^22.0.0"
     prettier "^2.1.0"
     prettier-plugin-package "^1.0.0"
 
@@ -5211,10 +5211,10 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-noise-utils@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-noise-utils/-/eslint-noise-utils-0.7.0.tgz#39f2e4ff66430a196179de82812e005726293d1a"
-  integrity sha512-l9SOkMv6n3cuDw7OnXQuoHhaGKMbPngCGNrPTMiIvkJTwulU9O5J2lUNH/6F8qz2UNpcVkbiWBvRFKOG6fmcHA==
+eslint-noise-utils@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-noise-utils/-/eslint-noise-utils-0.8.0.tgz#b8dc7d56e1afd153ce530eebd58ccc42129ac03b"
+  integrity sha512-luXTZMStKMoD0t9vjPfeBFVciLXHaiXvVnIbxDt4QMI81otY2w7atHakjzdhC4li3RQ+URLSAmZiTQ4BuX38Pg==
   dependencies:
     lodash "^4.17.15"
 
@@ -5308,18 +5308,18 @@ eslint-plugin-react@^7.20.0:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-unicorn@^21.0.0:
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-21.0.0.tgz#7e3a8b0f725f003619e1f40d769939ecd8d708d0"
-  integrity sha512-S8v7+v4gZTQPj4pKKvexhgSUaLQSyItvxW2SVZDaX9Iu5IjlAmF2eni+L6w8a2aqshxgU8Lle4FIAVDtuejSKQ==
+eslint-plugin-unicorn@^22.0.0:
+  version "22.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-22.0.0.tgz#46a93d8de393b865e04c2057a4ed3510864dd3be"
+  integrity sha512-jXPOauNiVFYLr+AeU3l21Ao+iDl/G08vUWui21RCI2L1TJIIoJvAMjMR6I+QPKr8FgIumzuR6gzDKCtEx2IkzA==
   dependencies:
     ci-info "^2.0.0"
     clean-regexp "^1.0.0"
     eslint-ast-utils "^1.1.0"
-    eslint-template-visitor "^2.0.0"
+    eslint-template-visitor "^2.2.1"
     eslint-utils "^2.1.0"
     import-modules "^2.0.0"
-    lodash "^4.17.15"
+    lodash "^4.17.20"
     pluralize "^8.0.0"
     read-pkg-up "^7.0.1"
     regexp-tree "^0.1.21"
@@ -5343,7 +5343,7 @@ eslint-scope@^5.0.0, eslint-scope@^5.1.0:
     esrecurse "^4.3.0"
     estraverse "^4.1.1"
 
-eslint-template-visitor@^2.0.0:
+eslint-template-visitor@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/eslint-template-visitor/-/eslint-template-visitor-2.2.1.tgz#2dccb1ab28fa7429e56ba6dd0144def2d89bc2d6"
   integrity sha512-q3SxoBXz0XjPGkUpwGVAwIwIPIxzCAJX1uwfVc8tW3v7u/zS7WXNH3I2Mu2MDz2NgSITAyKLRaQFPHu/iyKxDQ==
@@ -7377,7 +7377,7 @@ lodash.zip@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.zip/-/lodash.zip-4.2.0.tgz#ec6662e4896408ed4ab6c542a3990b72cc080020"
   integrity sha1-7GZi5IlkCO1KtsVCo5kLcswIACA=
 
-lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19:
+lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
