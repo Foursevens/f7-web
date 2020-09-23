@@ -20,6 +20,10 @@
     },
     "title_nl": {
       "type": "string"
+    },
+    "reference": {
+      "type": "string",
+      "required": true
     }
   }
 }
