@@ -8,9 +8,11 @@
   },
   "scripts": {
     "build:cms": "npm --prefix cms/ run build",
+    "design": "yarn workspace @f7-web/design",
     "heroku-postbuild": "yarn build:cms",
     "heroku-prebuild": "npm --prefix cms/ install",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
+    "site": "yarn workspace @f7-web/site",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
