@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props: layoutData };
 };
 
-export default function Home({ mainMenu }: Props): React.ReactElement {
+export default function Home({ headerMenu }: Props): React.ReactElement {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,7 +24,7 @@ export default function Home({ mainMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <MainLayoutContainer headerMenu={mainMenu}>
+      <MainLayoutContainer headerMenu={headerMenu}>
         <main className={styles.main}>
           <h1 className={styles.title}>
             Welcome to <a href="https://nextjs.org">Next.js!</a>

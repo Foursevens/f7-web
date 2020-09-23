@@ -15,7 +15,7 @@ export interface MainLayoutMenu {
 }
 
 export interface MainLayoutData {
-  mainMenu: MainLayoutMenu;
+  headerMenu: MainLayoutMenu;
 }
 
 export async function getMainLayoutData(): Promise<MainLayoutData> {
@@ -49,7 +49,7 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
     throw new Error('Menu with reference "main" not found.');
   }
   return {
-    mainMenu: {
+    headerMenu: {
       menuItems: mainMenu.menu_items.map(
         ({ title_en, ...rest }): MainLayoutMenuItem => ({
           ...rest,
