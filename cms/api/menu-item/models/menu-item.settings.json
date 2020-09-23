@@ -23,6 +23,10 @@
     },
     "href": {
       "type": "string"
+    },
+    "highlight": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
