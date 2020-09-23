@@ -2,8 +2,11 @@
   "name": "@f7-web/design",
   "version": "1.0.0",
   "private": true,
+  "main": "dist/index.js",
   "scripts": {
-    "build": "build-storybook",
+    "build": "yarn build:components && yarn build:storybook",
+    "build:components": "tsc -b tsconfig.components.json",
+    "build:storybook": "build-storybook",
     "dev": "start-storybook -p 6006"
   },
   "dependencies": {
@@ -17,6 +20,8 @@
     "@storybook/addon-links": "^6.0.21",
     "@storybook/react": "^6.0.21",
     "babel-loader": "^8.1.0",
-    "react-is": "^16.13.1"
-  }
+    "react-is": "^16.13.1",
+    "typescript": "^4.0.2"
+  },
+  "types": "dist/index.d.ts"
 }

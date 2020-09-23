@@ -3,6 +3,7 @@ cms/build/
 cms/exports/
 cms/public/
 !design/.storybook/
+design/dist/
 design/storybook-static/
 site/.next/
 site/next-env.d.ts

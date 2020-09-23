@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist/",
+    "module": "CommonJS",
+    "rootDir": "components/",
+    "noEmit": false,
+    "sourceMap": true,
+    "target": "es2015"
+  },
+  "include": ["components/"],
+  "exclude": ["**/*.stories.tsx"]
+}

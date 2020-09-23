@@ -7,14 +7,14 @@
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["dom", "es2017"],
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2020"
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

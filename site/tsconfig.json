@@ -1,10 +1,13 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
     "allowJs": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "module": "esnext",
+    "noEmit": true,
+    "target": "esnext"
   },
   "include": ["next-environment.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [{ "path": "../design/tsconfig.components.json" }]
 }

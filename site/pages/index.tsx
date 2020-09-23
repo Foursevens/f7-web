@@ -1,7 +1,11 @@
+import { Menu } from '@f7-web/design';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import styles from '../styles/Home.module.css';
+
+const items = [{ title: 'test', href: '/test' }];
 
 export default function Home(): React.ReactElement {
   return (
@@ -10,7 +14,11 @@ export default function Home(): React.ReactElement {
         <title>Create Next App</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-
+      <Menu>
+        {items.map(({ href, title }) => (
+          <Link href={href}>{title}</Link>
+        ))}
+      </Menu>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
