@@ -8,6 +8,5 @@
     "target": "esnext"
   },
   "include": ["next-environment.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "references": [{ "path": "../design/tsconfig.components.json" }]
+  "exclude": ["node_modules"]
 }
