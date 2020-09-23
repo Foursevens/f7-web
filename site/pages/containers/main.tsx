@@ -12,8 +12,8 @@ export interface MenuItem {
 export type Menu = MenuItem[];
 
 interface Props {
-  children: React.ReactNode | React.ReactNodeArray;
-  headerMenu?: Menu;
+  children: React.ReactNode;
+  headerMenu: Menu;
 }
 
 export function MainContainer({
@@ -24,9 +24,11 @@ export function MainContainer({
     <div>
       <header>
         <Menu>
-          {headerMenu?.map(({ href, title_en }) => (
-            <Link href={href}>{title_en}</Link>
-          )) ?? []}
+          {headerMenu.map(({ href, title_en }) => (
+            <Link key={title_en} href={href}>
+              {title_en}
+            </Link>
+          ))}
         </Menu>
       </header>
       <main>{children}</main>
