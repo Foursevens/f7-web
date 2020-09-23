@@ -1,3 +1,4 @@
+import { createApolloFetch } from 'apollo-fetch';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -15,21 +16,17 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const response = await fetch('http://localhost:1337/graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query: `query {
-        menus {
-          menu_items {
-            href
-            title_en
-          }
+  const client = createApolloFetch({ uri: 'http://localhost:1337/graphql' });
+  const { data } = (await client({
+    query: `query {
+      menus {
+        menu_items {
+          href
+          title_en
         }
-      }`,
-    }),
-  });
-  const { data } = (await response.json()) as Props;
+      }
+    }`,
+  })) as Props;
   return { props: { data } };
 };
 
