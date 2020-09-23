@@ -4,6 +4,7 @@ const client = createApolloFetch({ uri: 'http://localhost:1337/graphql' });
 
 export interface MainLayoutMenuItem {
   id: string;
+  highlight: boolean;
   href: string;
   title: string;
 }
@@ -23,6 +24,7 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
       menus {
         menu_items {
           id
+          highlight
           href
           title_en
         }
@@ -32,7 +34,12 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
   })) as {
     data: {
       menus: Array<{
-        menu_items: Array<{ id: string; href: string; title_en: string }>;
+        menu_items: Array<{
+          id: string;
+          highlight: boolean;
+          href: string;
+          title_en: string;
+        }>;
         reference: string;
       }>;
     };
@@ -44,9 +51,8 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
   return {
     mainMenu: {
       menuItems: mainMenu.menu_items.map(
-        ({ id, href, title_en }): MainLayoutMenuItem => ({
-          id,
-          href,
+        ({ title_en, ...rest }): MainLayoutMenuItem => ({
+          ...rest,
           title: title_en,
         }),
       ),

@@ -1,4 +1,4 @@
-import { Menu } from '@f7-web/design';
+import { Menu, MenuItem } from '@f7-web/design';
 import Link from 'next/link';
 import React from 'react';
 
@@ -18,10 +18,10 @@ export function MainLayoutContainer({
     <div>
       <header>
         <Menu>
-          {headerMenu.menuItems.map(({ id, href, title }) => (
-            <Link key={id} href={href}>
-              {title}
-            </Link>
+          {headerMenu.menuItems.map((item) => (
+            <MenuItem key={item.id} highlight={item.highlight}>
+              <Link href={item.href}>{item.title}</Link>
+            </MenuItem>
           ))}
         </Menu>
       </header>
