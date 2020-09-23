@@ -5,7 +5,8 @@
     "jsx": "preserve",
     "module": "esnext",
     "noEmit": true,
-    "target": "esnext"
+    "target": "esnext",
+    "isolatedModules": true
   },
   "include": ["next-environment.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

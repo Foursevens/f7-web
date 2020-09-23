@@ -1,36 +1,22 @@
-import { createApolloFetch } from 'apollo-fetch';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
 import styles from '../styles/Home.module.css';
-import { MainContainer } from './containers';
+import {
+  MainLayoutData,
+  MainLayoutContainer,
+  getMainLayoutData,
+} from './layout';
 
-interface Props {
-  data: {
-    menus: Array<{
-      menu_items: Array<{ href: string; title_en: string }>;
-      title_en: string;
-    }>;
-  };
-}
+interface Props extends MainLayoutData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const client = createApolloFetch({ uri: 'http://localhost:1337/graphql' });
-  const { data } = (await client({
-    query: `query {
-      menus {
-        menu_items {
-          href
-          title_en
-        }
-      }
-    }`,
-  })) as Props;
-  return { props: { data } };
+  const layoutData = await getMainLayoutData();
+  return { props: layoutData };
 };
 
-export default function Home({ data }: Props): React.ReactElement {
+export default function Home({ mainMenu }: Props): React.ReactElement {
   return (
     <div className={styles.container}>
       <Head>
@@ -38,7 +24,7 @@ export default function Home({ data }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <MainContainer headerMenu={data.menus[0].menu_items}>
+      <MainLayoutContainer headerMenu={mainMenu}>
         <main className={styles.main}>
           <h1 className={styles.title}>
             Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -79,7 +65,7 @@ export default function Home({ data }: Props): React.ReactElement {
             </a>
           </div>
         </main>
-      </MainContainer>
+      </MainLayoutContainer>
     </div>
   );
 }

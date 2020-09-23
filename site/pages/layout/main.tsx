@@ -3,20 +3,14 @@ import Link from 'next/link';
 import React from 'react';
 
 import styles from '../../styles/Home.module.css';
-
-export interface MenuItem {
-  title_en: string;
-  href: string;
-}
-
-export type Menu = MenuItem[];
+import { MainLayoutMenu } from './data';
 
 interface Props {
   children: React.ReactNode;
-  headerMenu: Menu;
+  headerMenu: MainLayoutMenu;
 }
 
-export function MainContainer({
+export function MainLayoutContainer({
   children,
   headerMenu,
 }: Props): React.ReactElement {
@@ -24,9 +18,9 @@ export function MainContainer({
     <div>
       <header>
         <Menu>
-          {headerMenu.map(({ href, title_en }) => (
-            <Link key={title_en} href={href}>
-              {title_en}
+          {headerMenu.menuItems.map(({ id, href, title }) => (
+            <Link key={id} href={href}>
+              {title}
             </Link>
           ))}
         </Menu>
