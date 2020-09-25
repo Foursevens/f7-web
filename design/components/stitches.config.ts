@@ -10,6 +10,15 @@ export const { styled, css } = createStyled({
       $secondary1: '#f7b32b',
       $white1: '#fff',
     },
+    fonts: {
+      $avenir:
+        'Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+    },
+    fontWeights: {
+      $normal: 'normal',
+      $medium: '500',
+      $dark: '900',
+    },
     space: {
       $small: '10px',
       $medium: '15px',
@@ -17,6 +26,8 @@ export const { styled, css } = createStyled({
       $xlarge: '40px',
     },
   },
-  // breakpoints: {},
-  // utils: {},
+});
+
+css.global({
+  body: { fontFamily: '$avenir' },
 });

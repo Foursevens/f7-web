@@ -51,6 +51,7 @@ export const MenuItem = styled('div', {
 
   a: {
     color: 'inherit',
+    fontWeight: '$medium',
     textDecoration: 'none',
   },
 });
