@@ -24,7 +24,7 @@
       }
     },
     {
-      "files": ["design/components/**", "site/pages/**"],
+      "files": ["design/components/**", "site/src/**"],
       "extends": ["noise-browser"]
     },
     {
@@ -45,7 +45,7 @@
       }
     },
     {
-      "files": ["site/pages/**/*.{jsx,tsx}"],
+      "files": ["site/src/**/*.{jsx,tsx}"],
       "rules": {
         "jsx-a11y/anchor-is-valid": "off"
       }

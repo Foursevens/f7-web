@@ -6,7 +6,7 @@ import {
   MainLayoutData,
   MainLayoutContainer,
   getMainLayoutData,
-} from './layout';
+} from '../layout';
 
 interface Props extends MainLayoutData {}
 

@@ -7,9 +7,10 @@
     "node": "^12 || ^14"
   },
   "scripts": {
-    "build": "yarn build:cms && yarn build:components",
+    "build": "yarn build:cms && yarn build:components && yarn build:site",
     "build:cms": "npm --prefix cms/ run build",
     "build:components": "yarn design build:components",
+    "build:site": "yarn site build",
     "design": "yarn workspace @f7-web/design",
     "heroku-prebuild": "npm --prefix cms/ install",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
