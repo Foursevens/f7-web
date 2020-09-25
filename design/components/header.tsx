@@ -1,62 +1,37 @@
 import React from 'react';
 
-import { Button } from './button';
-import './header.css';
+import { MenuProps } from './menu';
+import { styled } from './stitches.config';
 
 export interface HeaderProps {
-  onCreateAccount: (event: React.MouseEvent) => void;
-  onLogin: (event: React.MouseEvent) => void;
-  onLogout: (event: React.MouseEvent) => void;
-  user?: Record<string, unknown>;
+  children: [
+    React.ReactElement<HTMLImageElement>,
+    React.ReactElement<MenuProps>,
+  ];
 }
 
-export const Header = ({
-  onCreateAccount: handleCreateAccount,
-  onLogin: handleLogin,
-  onLogout: handleLogout,
-  user,
-}: HeaderProps): React.ReactElement => (
-  <header>
-    <div className="wrapper">
-      <div>
-        <svg
-          height="32"
-          viewBox="0 0 32 32"
-          width="32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g fill="none" fillRule="evenodd">
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
-            />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1>Acme</h1>
-      </div>
-      <div>
-        {user ? (
-          <Button label="Log out" onClick={handleLogout} size="small" />
-        ) : (
-          <>
-            <Button label="Log in" onClick={handleLogin} size="small" />
-            <Button
-              label="Sign up"
-              onClick={handleCreateAccount}
-              primary
-              size="small"
-            />
-          </>
-        )}
-      </div>
-    </div>
-  </header>
-);
+const StyledHeader = styled('header', {
+  width: 1262,
+  height: 102,
+  display: 'flex',
+  alignItems: 'center',
+  padding: '$small',
+  backgroundColor: '$primary2',
+  '> * + *': { marginLeft: '$medium' },
+});
+
+const LogoWrapper = styled('div', { height: 45, flexGrow: 1 });
+
+export function Header({
+  children: [logo, menu],
+}: HeaderProps): React.ReactElement {
+  const constrainedLogo = React.cloneElement(logo, {
+    style: ({ maxHeight: '100%' } as any) as CSSStyleDeclaration,
+  });
+  return (
+    <StyledHeader>
+      <LogoWrapper>{constrainedLogo}</LogoWrapper>
+      {menu}
+    </StyledHeader>
+  );
+}

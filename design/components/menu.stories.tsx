@@ -5,7 +5,7 @@ import { Menu, MenuItem, MenuProps } from './menu';
 
 export default {
   component: Menu,
-  title: 'Example / Menu',
+  title: 'Example/Menu',
 };
 
 const Template: Story<MenuProps> = (args): React.ReactElement => (

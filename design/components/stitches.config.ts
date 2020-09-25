@@ -6,6 +6,7 @@ export const { styled, css } = createStyled({
     colors: {
       $primaryDark1: '#162a2b',
       $primary1: '#367d7e',
+      $primary2: '#e1ecec',
       $secondary1: '#f7b32b',
       $white1: '#fff',
     },

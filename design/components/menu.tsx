@@ -8,7 +8,7 @@ export interface MenuProps {
     | Array<React.ReactElement<{ key: string }>>;
 }
 
-const List = styled('ul', { margin: 0 });
+const List = styled('ul', { margin: 0, padding: 0 });
 
 const ListItem = styled('li', {
   display: 'inline-block',
@@ -51,6 +51,7 @@ export const MenuItem = styled('div', {
 
   a: {
     color: 'inherit',
+    textDecoration: 'none',
   },
 });
 

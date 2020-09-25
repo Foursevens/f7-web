@@ -1,7 +1,8 @@
-import { Menu, MenuItem } from '@f7-web/design';
+import { Header, Menu, MenuItem } from '@f7-web/design';
 import Link from 'next/link';
 import React from 'react';
 
+import logo from '../../assets/logo-full.png';
 import styles from '../../styles/Home.module.css';
 import { MainLayoutMenu } from './data';
 
@@ -16,7 +17,8 @@ export function MainLayoutContainer({
 }: Props): React.ReactElement {
   return (
     <div>
-      <header>
+      <Header>
+        <img alt="Foursevens logo" src="./logo-full.png" />
         <Menu>
           {headerMenu.menuItems.map((item) => (
             <MenuItem key={item.id} highlight={item.highlight}>
@@ -24,7 +26,7 @@ export function MainLayoutContainer({
             </MenuItem>
           ))}
         </Menu>
-      </header>
+      </Header>
       <main>{children}</main>
       <footer className={styles.footer}>
         <a
