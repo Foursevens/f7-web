@@ -23,7 +23,7 @@ export default function CasesPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>Cases</h1>
+        <h2>Cases</h2>
       </MainLayoutContainer>
     </>
   );

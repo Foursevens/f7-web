@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '@f7-web/design/globals.css';
 import type { AppProps } from 'next/app';
 import React from 'react';
 

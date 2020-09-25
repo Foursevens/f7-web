@@ -43,6 +43,12 @@
       "rules": {
         "import/no-anonymous-default-export": "off"
       }
+    },
+    {
+      "files": ["site/pages/**/*.{jsx,tsx}"],
+      "rules": {
+        "jsx-a11y/anchor-is-valid": "off"
+      }
     }
   ]
 }

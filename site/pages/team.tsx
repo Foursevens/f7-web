@@ -23,7 +23,7 @@ export default function TeamPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>Team</h1>
+        <h2>Team</h2>
       </MainLayoutContainer>
     </>
   );

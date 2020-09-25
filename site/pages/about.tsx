@@ -23,7 +23,7 @@ export default function AboutPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>About</h1>
+        <h2>About</h2>
       </MainLayoutContainer>
     </>
   );

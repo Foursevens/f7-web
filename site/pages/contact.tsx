@@ -23,7 +23,7 @@ export default function ContactPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>Contact</h1>
+        <h2>Contact</h2>
       </MainLayoutContainer>
     </>
   );

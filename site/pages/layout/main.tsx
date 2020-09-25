@@ -1,9 +1,7 @@
-import { Header, Menu, MenuItem } from '@f7-web/design';
+import { Container, Header, Menu, MenuItem } from '@f7-web/design';
 import Link from 'next/link';
 import React from 'react';
 
-import logo from '../../assets/logo-full.png';
-import styles from '../../styles/Home.module.css';
 import { MainLayoutMenu } from './data';
 
 interface Props {
@@ -16,28 +14,25 @@ export function MainLayoutContainer({
   headerMenu,
 }: Props): React.ReactElement {
   return (
-    <div>
-      <Header>
-        <img alt="Foursevens logo" src="./logo-full.png" />
-        <Menu>
-          {headerMenu.menuItems.map((item) => (
-            <MenuItem key={item.id} highlight={item.highlight}>
-              <Link href={item.href}>{item.title}</Link>
-            </MenuItem>
-          ))}
-        </Menu>
-      </Header>
+    <>
+      <Container>
+        <h1 className="sr-only">Foursevens</h1>
+        <Header>
+          <Link href="/">
+            <a>
+              <img alt="Foursevens logo" src="./logo-full.png" />
+            </a>
+          </Link>
+          <Menu>
+            {headerMenu.menuItems.map((item) => (
+              <MenuItem key={item.id} highlight={item.highlight}>
+                <Link href={item.href}>{item.title}</Link>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Header>
+      </Container>
       <main>{children}</main>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Powered by{' '}
-          <img alt="Vercel Logo" className={styles.logo} src="/vercel.svg" />
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }

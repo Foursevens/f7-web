@@ -23,7 +23,7 @@ export default function JobsPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>About</h1>
+        <h2>Jobs</h2>
       </MainLayoutContainer>
     </>
   );

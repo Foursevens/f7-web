@@ -25,7 +25,7 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h1>Services</h1>
+        <h2>Services</h2>
       </MainLayoutContainer>
     </>
   );
