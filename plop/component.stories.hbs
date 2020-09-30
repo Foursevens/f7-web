@@ -1,0 +1,18 @@
+import { Story } from '@storybook/react/types-6-0';
+import React from 'react';
+
+import { {{ titleCase name }}, {{ titleCase name }}Props } from './{{ kebabCase name }}';
+
+export default {
+  title: 'Example/{{  titleCase name }}',
+  component: {{  titleCase name }},
+};
+
+const Template: Story<{{  titleCase name }}Props> = (args): React.ReactElement => (
+  <{{  titleCase name }} {...args} />
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  children: 'Lorem Ipsum',
+};
