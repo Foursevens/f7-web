@@ -11,7 +11,7 @@
     "build:cms": "npm --prefix cms/ run build",
     "build:components": "yarn design build:components",
     "build:site": "yarn site build",
-    "build:vercel": "yarn build:components && yarn build:site",
+    "build:vercel": "yarn build:components && yarn build:site && mv site/public/ public/",
     "design": "yarn workspace @f7-web/design",
     "install:cms": "npm --prefix cms/ install",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
