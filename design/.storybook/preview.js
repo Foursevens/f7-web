@@ -1,5 +1,7 @@
-import '../globals.css';
+'use strict';
 
-export const parameters = {
+require('../globals.css');
+
+module.exports.parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
 };

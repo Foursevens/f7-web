@@ -5,13 +5,17 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.stories.{js,jsx,ts,tsx}"]
+        "devDependencies": [
+          "**/*.stories.{js,jsx,ts,tsx}",
+          "design/*.js",
+          "design/.storybook/*.js"
+        ]
       }
     ]
   },
   "overrides": [
     {
-      "files": ["cms/**"],
+      "files": ["cms/**", "design/*.js", "design/.storybook/*.js"],
       "extends": ["noise-node"],
       "globals": {
         "strapi": true
