@@ -42,6 +42,14 @@ Wait for all containers to start. This can take up to a minute. Go the the [CMS 
 yarn design dev
 ```
 
+#### Compile Design
+
+Next.js can only use the compiled assets of our design. When working on the design / site you should enable the component builder in watch mode.
+
+```sh
+yarn design build:components --watch
+```
+
 ### Start Site
 
 ```sh
