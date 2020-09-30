@@ -1,5 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import {
@@ -24,6 +25,13 @@ export default function CasesPage({ headerMenu }: Props): React.ReactElement {
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
         <h2>Cases</h2>
+        <ul>
+          <li>
+            <Link href="/cases/test">
+              <a>Test case</a>
+            </Link>
+          </li>
+        </ul>
       </MainLayoutContainer>
     </>
   );

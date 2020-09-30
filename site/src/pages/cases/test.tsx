@@ -1,13 +1,12 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 
 import {
   MainLayoutData,
   MainLayoutContainer,
   getMainLayoutData,
-} from '../layout';
+} from '../../layout';
 
 interface Props extends MainLayoutData {}
 
@@ -16,27 +15,17 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props: layoutData };
 };
 
-export default function Home({ headerMenu }: Props): React.ReactElement {
+export default function CaseDetailPage({
+  headerMenu,
+}: Props): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Foursevens</title>
+        <title>Foursevens Test Case</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <p>Homepage</p>
-        <ul>
-          <li>
-            <Link href="/cases/test">
-              <a>Test case</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/stories/test">
-              <a>Test story</a>
-            </Link>
-          </li>
-        </ul>
+        <h2>Test Case</h2>
       </MainLayoutContainer>
     </>
   );
