@@ -22,7 +22,7 @@ Default.args = {
       <a href="/">Cases</a>
     </MenuItem>,
     <MenuItem key="3">
-      <a href="/">Stories</a>
+      <a href="/">Services</a>
     </MenuItem>,
   ],
 };
@@ -37,7 +37,7 @@ WithActive.args = {
       <a href="/">Cases</a>
     </MenuItem>,
     <MenuItem key="3">
-      <a href="/">Stories</a>
+      <a href="/">Services</a>
     </MenuItem>,
   ],
 };
@@ -52,7 +52,7 @@ WithHighlight.args = {
       <a href="/">Cases</a>
     </MenuItem>,
     <MenuItem key="3">
-      <a href="/">Stories</a>
+      <a href="/">Services</a>
     </MenuItem>,
     <MenuItem key="4" highlight="yes">
       <a href="/">Contact</a>
