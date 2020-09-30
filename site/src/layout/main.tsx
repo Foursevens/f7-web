@@ -23,7 +23,7 @@ export function MainLayoutContainer({
         <Header>
           <Link href="/">
             <a>
-              <img alt="Foursevens logo" src="./logo-full.png" />
+              <img alt="Foursevens logo" src="/logo-full.png" />
             </a>
           </Link>
           <Menu>
