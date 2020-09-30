@@ -1,4 +1,4 @@
-.cache/
 build/
 exports/
-public/
+public/uploads/
+!public/uploads/.gitkeep
