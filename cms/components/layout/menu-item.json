@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_menu_items",
+  "info": {
+    "name": "Menu Item",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "title_en": {
+      "type": "string",
+      "required": true
+    },
+    "title_fr": {
+      "type": "string"
+    },
+    "title_nl": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "highlight": {
+      "type": "boolean"
+    }
+  }
+}
