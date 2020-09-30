@@ -35,6 +35,11 @@ a {
   text-decoration: none;
 }
 
+svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
