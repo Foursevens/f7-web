@@ -34,7 +34,10 @@ Start the docker containers.
 docker-compose start --detach
 ```
 
-Wait for all containers to start. This can take up to a minute. Go the the [CMS page](http://localhost:1337).
+Wait for all containers to start. This can take up to a minute. Then you can go to various of the CMS pages.
+
+- [Strapi admin page](http://localhost:1337/admin)
+- [GraphQl playground](http://localhost:1337/graphql)
 
 ### Start Design Storybook
 

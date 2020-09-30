@@ -8,7 +8,13 @@ export interface MenuProps {
     | Array<React.ReactElement<{ key: string }>>;
 }
 
-const List = styled('ul', { margin: 0, padding: 0 });
+const List = styled('ul', {
+  display: 'inline-flex',
+  alignItems: 'center',
+  height: 40,
+  margin: 0,
+  padding: 0,
+});
 
 const ListItem = styled('li', {
   display: 'inline-block',
@@ -30,18 +36,19 @@ export function Menu({ children }: MenuProps): React.ReactElement {
 export const MenuItem = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  height: 40,
 
   color: '$primary1',
-  fontSize: 15,
+  fontSize: '0.9375em', // 15px
   textTransform: 'lowercase',
 
   variants: {
+    active: {
+      no: {},
+      yes: {},
+    },
     highlight: {
-      false: {
-        padding: '0 $large',
-      },
-      true: {
+      no: {},
+      yes: {
         padding: '$small $large',
         border: '1px solid $secondary1',
         borderRadius: 100,
@@ -56,6 +63,31 @@ export const MenuItem = styled('div', {
   },
 });
 
+MenuItem.compoundVariant(
+  { active: 'yes', highlight: 'yes' },
+  {
+    backgroundColor: '$secondary1',
+    color: '$white1',
+  },
+);
+
+MenuItem.compoundVariant(
+  { active: 'yes', highlight: 'no' },
+  {
+    position: 'relative',
+    '::after': {
+      content: `""`,
+      position: 'absolute',
+      display: 'block',
+      width: 'calc(100% + 10px)',
+      marginTop: 25,
+      marginInline: -5,
+      borderBottom: '2px solid $secondary1',
+    },
+  },
+);
+
 MenuItem.defaultProps = {
-  highlight: false,
+  active: 'no',
+  highlight: 'no',
 };

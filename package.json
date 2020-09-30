@@ -13,8 +13,9 @@
     "build:site": "yarn site build",
     "build:vercel": "yarn build:components && yarn build:site",
     "design": "yarn workspace @f7-web/design",
-    "heroku-prebuild": "npm --prefix cms/ install",
+    "install:cms": "npm --prefix cms/ install",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
+    "postinstall": "yarn install:cms",
     "site": "yarn workspace @f7-web/site",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
