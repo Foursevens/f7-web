@@ -9,11 +9,9 @@
     "timestamps": true
   },
   "attributes": {
-    "menu_items": {
-      "collection": "menu-item"
-    },
     "title_en": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title_fr": {
       "type": "string"
@@ -24,6 +22,12 @@
     "reference": {
       "type": "string",
       "required": true
+    },
+    "menu_items": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "component": "layout.menu-item"
     }
   }
 }
