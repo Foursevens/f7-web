@@ -53,7 +53,7 @@ interface PropsBase {
   tag?: string;
   title: string;
   image: string;
-  imagePosition: 'start' | 'end';
+  imagePosition?: 'start' | 'end';
 }
 
 export type ContentBlockProps =
