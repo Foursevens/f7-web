@@ -18,33 +18,25 @@ Start the docker containers.
 docker-compose start --detach
 ```
 
-### Start CMS
+### Start development
+
+Install all dependencies.
 
 ```sh
-yarn cms start
+yarn install
 ```
 
-These are the various CMS pages.
+We will automatically start all processes on post-install with pm2.
+
+#### CMS
 
 - [Strapi admin page](http://localhost:1337/admin)
 - [GraphQl playground](http://localhost:1337/graphql)
 
-### Start Design Storybook
+#### Design
 
-```sh
-yarn design dev
-```
+- [Storybook](http://localhost:6006)
 
-#### Compile Design
+#### Site
 
-Next.js can only use the compiled assets of our design. When working on the design / site you should enable the component builder in watch mode.
-
-```sh
-yarn design build:components --watch
-```
-
-### Start Site
-
-```sh
-yarn site dev
-```
+- [Foursevens Local](http://localhost:3000)
