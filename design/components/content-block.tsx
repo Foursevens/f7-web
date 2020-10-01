@@ -37,6 +37,9 @@ const StyledContent = styled('div', {
     flexFlow: 'column nowrap',
     marginBottom: '$large',
 
+    // order tag to top
+    '> *:nth-child(2)': { order: -1 },
+
     '* + *': {
       marginTop: '$small',
     },
