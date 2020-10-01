@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@react-aria/link": "^3.1.1",
-    "@stitches/react": "^0.0.2",
+    "@stitches/react": "0.0.3-canary.2",
     "minireset.css": "^0.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

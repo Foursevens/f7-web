@@ -30,7 +30,7 @@ Default.args = {
 export const WithActive = Template.bind({});
 WithActive.args = {
   children: [
-    <MenuItem key="1" active="yes">
+    <MenuItem key="1" active>
       <a href="/">Home</a>
     </MenuItem>,
     <MenuItem key="2">
@@ -54,7 +54,7 @@ WithHighlight.args = {
     <MenuItem key="3">
       <a href="/">Services</a>
     </MenuItem>,
-    <MenuItem key="4" highlight="yes">
+    <MenuItem key="4" highlight>
       <a href="/">Contact</a>
     </MenuItem>,
   ],
@@ -72,7 +72,7 @@ WithActiveHighlight.args = {
     <MenuItem key="3">
       <a href="/">Services</a>
     </MenuItem>,
-    <MenuItem key="4" active="yes" highlight="yes">
+    <MenuItem key="4" active highlight>
       <a href="/">Contact</a>
     </MenuItem>,
   ],

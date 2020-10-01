@@ -30,8 +30,8 @@ export function MainLayoutContainer({
             {headerMenu.menuItems.map((item) => (
               <MenuItem
                 key={item.id}
-                active={isActive(item.href) ? 'yes' : 'no'}
-                highlight={item.highlight ? 'yes' : 'no'}
+                active={isActive(item.href)}
+                highlight={item.highlight}
               >
                 <Link href={item.href}>{item.title}</Link>
               </MenuItem>
