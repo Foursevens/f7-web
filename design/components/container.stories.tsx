@@ -1,7 +1,9 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
+import image from './assets/duurzaamheid.png';
 import { Container, ContainerProps } from './container';
+import { ContentBlock } from './content-block';
 import { LOREM } from './data';
 import { Paragraph } from './paragraph';
 
@@ -57,5 +59,21 @@ export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
   background: 'primary2',
   children: <Paragraph>{LOREM}</Paragraph>,
+  spacing: 'xlarge',
+};
+
+export const WithContentBlock = Template.bind({});
+WithContentBlock.args = {
+  background: 'primary2',
+  children: (
+    <ContentBlock
+      content={LOREM}
+      ctaChildren="Go on"
+      ctaHref="/"
+      image={image}
+      tag="Lorem Ipsum is simply dummy text"
+      title="Lorem Ipsum"
+    />
+  ),
   spacing: 'xlarge',
 };
