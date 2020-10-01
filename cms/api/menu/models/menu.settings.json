@@ -9,25 +9,26 @@
     "timestamps": true
   },
   "attributes": {
+    "menu_items": {
+      "component": "layout.menu-item",
+      "repeatable": true,
+      "required": true,
+      "type": "component"
+    },
+    "reference": {
+      "required": true,
+      "targetField": "title_en",
+      "type": "uid"
+    },
     "title_en": {
-      "type": "string",
-      "required": true
+      "required": true,
+      "type": "string"
     },
     "title_fr": {
       "type": "string"
     },
     "title_nl": {
       "type": "string"
-    },
-    "reference": {
-      "type": "string",
-      "required": true
-    },
-    "menu_items": {
-      "type": "component",
-      "repeatable": true,
-      "required": true,
-      "component": "layout.menu-item"
     }
   }
 }
