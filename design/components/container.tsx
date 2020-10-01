@@ -24,8 +24,8 @@ export const StyledContainer = styled('div', {
 });
 
 export interface ContainerProps {
-  background: 'primary2' | 'white1' | 'white2';
-  spacing: 'small' | 'medium' | 'large' | 'xlarge';
+  background?: 'primary2' | 'white1' | 'white2';
+  spacing?: 'small' | 'medium' | 'large' | 'xlarge';
   children: React.ReactNode;
 }
 
