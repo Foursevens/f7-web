@@ -7,15 +7,12 @@
     "node": "^12 || ^14"
   },
   "scripts": {
-    "build": "yarn build:cms && yarn build:components && yarn build:site",
-    "build:cms": "npm --prefix cms/ run build",
-    "build:components": "yarn design build:components",
-    "build:site": "yarn site build",
-    "build:vercel": "yarn build:components && yarn build:site && mv site/public/ public/",
+    "build:heroku": "yarn cms build && yarn design build:components && yarn site build",
+    "build:vercel": "yarn yarn design build:components && yarn site build && mv site/public/ public/",
+    "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
-    "install:cms": "npm --prefix cms/ install",
+    "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
-    "postinstall": "yarn install:cms",
     "site": "yarn workspace @f7-web/site",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
@@ -35,6 +32,7 @@
     "typescript": "^4.0.2"
   },
   "workspaces": [
+    "cms/",
     "design/",
     "site/"
   ]

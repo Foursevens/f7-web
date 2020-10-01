@@ -1,1 +1,1 @@
-web: npm --prefix cms/ start
+web: yarn cms start

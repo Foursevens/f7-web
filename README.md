@@ -21,7 +21,7 @@ docker-compose start --detach
 ### Start CMS
 
 ```sh
-npm --prefix cms/ start
+yarn cms start
 ```
 
 These are the various CMS pages.
