@@ -8,24 +8,9 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
-
-  cms:
-    depends_on:
-      - db
-    env_file: .env.local
-    image: strapi/strapi
-    restart: unless-stopped
-    volumes:
-      - ./cms:/srv/app
-    ports:
-      - 1337:1337
-
   db:
     env_file: .env.local
     image: postgres
     ports:
       - 5432:5432
     restart: unless-stopped
-
-volumes:
-  data:

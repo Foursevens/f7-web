@@ -2,31 +2,15 @@
 
 ## Local Development
 
-### Setup CMS
+### Setup CMS database
 
-Create an environment config file at `.env.local`.
-
-```ini
-DATABASE_CLIENT=postgres
-DATABASE_HOST=db
-DATABASE_NAME=api
-DATABASE_PASSWORD=[anything-you-like]
-DATABASE_PORT=5432
-DATABASE_USERNAME=strapi
-POSTGRES_DB=${DATABASE_NAME}
-POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-POSTGRES_USER=${DATABASE_USERNAME}
-```
-
-Create docker containers.
+Create docker containers to have a Postgres database.
 
 ```sh
 docker-compose up
 ```
 
-Wait for all containers to initialise. This can take up to 10 minutes.
-
-### Start CMS
+### Start CMS database
 
 Start the docker containers.
 
@@ -34,7 +18,13 @@ Start the docker containers.
 docker-compose start --detach
 ```
 
-Wait for all containers to start. This can take up to a minute. Then you can go to various of the CMS pages.
+### Start CMS
+
+```sh
+npm --prefix cms/ start
+```
+
+These are the various CMS pages.
 
 - [Strapi admin page](http://localhost:1337/admin)
 - [GraphQl playground](http://localhost:1337/graphql)
