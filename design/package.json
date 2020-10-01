@@ -7,7 +7,7 @@
     "build": "yarn build:components && yarn build:storybook",
     "build:components": "tsc -b tsconfig.components.json",
     "build:storybook": "build-storybook",
-    "dev": "start-storybook -p 6006"
+    "dev": "start-storybook --ci -p 6006"
   },
   "files": [
     "dist/"
