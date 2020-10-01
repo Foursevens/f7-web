@@ -1,7 +1,6 @@
 import { createStyled } from '@stitches/react';
 
 export const { styled, css } = createStyled({
-  // prefix: '',
   tokens: {
     colors: {
       $primaryDark1: '#162a2b',
@@ -9,6 +8,7 @@ export const { styled, css } = createStyled({
       $primary2: '#e1ecec',
       $secondary1: '#f7b32b',
       $white1: '#fff',
+      $white2: '#f7f7f7',
     },
     fonts: {
       $avenir:
