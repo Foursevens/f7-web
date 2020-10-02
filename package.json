@@ -11,10 +11,10 @@
     "build:vercel": "yarn yarn design build:components && yarn site build && mv site/public/ public/",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
+    "dev": "pm2 restart pm2-dev.yml",
     "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
-    "postinstall": "pm2 restart pm2-dev.yml",
     "site": "yarn workspace @f7-web/site",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
