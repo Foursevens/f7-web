@@ -42,9 +42,13 @@ export const MenuItem = styled('div', {
   textTransform: 'lowercase',
 
   variants: {
-    active: { true: {} },
+    active: {
+      no: {},
+      yes: {},
+    },
     highlight: {
-      true: {
+      no: {},
+      yes: {
         padding: '$small $large',
         border: '1px solid $secondary1',
         borderRadius: 100,
@@ -60,7 +64,7 @@ export const MenuItem = styled('div', {
 });
 
 MenuItem.compoundVariant(
-  { active: true, highlight: true },
+  { active: 'yes', highlight: 'yes' },
   {
     backgroundColor: '$secondary1',
     color: '$white1',
@@ -68,7 +72,7 @@ MenuItem.compoundVariant(
 );
 
 MenuItem.compoundVariant(
-  { active: true, highlight: false },
+  { active: 'yes', highlight: 'no' },
   {
     position: 'relative',
     '::after': {
@@ -84,6 +88,6 @@ MenuItem.compoundVariant(
 );
 
 MenuItem.defaultProps = {
-  active: false,
-  highlight: false,
+  active: 'no',
+  highlight: 'no',
 };
