@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "services",
+  "info": {
+    "name": "Services"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.content-block"
+    }
+  }
+}

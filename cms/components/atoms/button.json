@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_atoms_buttons",
+  "info": {
+    "name": "Button",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "text_en": {
+      "type": "string",
+      "required": true
+    },
+    "text_fr": {
+      "type": "string"
+    },
+    "text_nl": {
+      "type": "string"
+    }
+  }
+}
