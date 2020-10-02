@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build:heroku": "yarn cms build",
-    "build:vercel": "yarn yarn design build:components && yarn site build && mv site/public/ public/",
+    "build:vercel": "yarn design build:components && yarn site build && mv site/public/ public/",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
     "dev": "pm2 restart pm2-dev.yml",
