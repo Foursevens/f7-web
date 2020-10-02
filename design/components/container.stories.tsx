@@ -68,8 +68,7 @@ WithContentBlock.args = {
   children: (
     <ContentBlock
       content={LOREM}
-      ctaChildren="Go on"
-      ctaHref="/"
+      cta={{ href: '/', text: 'Go on' }}
       image={image}
       tag="Lorem Ipsum is simply dummy text"
       title="Lorem Ipsum"

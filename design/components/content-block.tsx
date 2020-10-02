@@ -49,24 +49,18 @@ const StyledContent = styled('div', {
   },
 });
 
-interface PropsBase {
+export interface ContentBlockProps {
   content: string;
-  ctaChildren?: React.ReactNode;
-  ctaHref?: string;
+  cta?: { href: string; target?: string; text: string };
   tag?: string;
   title: string;
   image: string;
   imagePosition?: 'start' | 'end';
 }
 
-export type ContentBlockProps =
-  | (PropsBase & { ctaHref: undefined; ctaChildren: undefined })
-  | (PropsBase & { ctaHref: string; ctaChildren: React.ReactNode });
-
 export function ContentBlock({
   content,
-  ctaChildren,
-  ctaHref,
+  cta,
   image,
   imagePosition = 'start',
   tag,
@@ -84,8 +78,10 @@ export function ContentBlock({
         </header>
         <main>
           <Paragraph>{content}</Paragraph>
-          {ctaHref == null ? null : (
-            <ButtonLink href={ctaHref}>{ctaChildren}</ButtonLink>
+          {cta == null ? null : (
+            <ButtonLink href={cta.href} target={cta.target}>
+              {cta.text}
+            </ButtonLink>
           )}
         </main>
       </StyledContent>

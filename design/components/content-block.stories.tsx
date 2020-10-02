@@ -33,8 +33,7 @@ WithImageAtEnd.args = {
 export const WithCta = Template.bind({});
 WithCta.args = {
   content: LOREM,
-  ctaChildren: 'Go on',
-  ctaHref: '/',
+  cta: { href: '/', text: 'Go on' },
   image,
   title: 'Lorem Ipsum',
 };

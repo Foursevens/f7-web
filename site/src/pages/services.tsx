@@ -1,4 +1,5 @@
-import { GetServerSideProps } from 'next';
+import { Container, ContentBlock } from '@f7-web/design';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
@@ -7,16 +8,19 @@ import {
   MainLayoutContainer,
   getMainLayoutData,
 } from '../layout';
+import { getServicesData, ServicesData } from '../services';
 
-interface Props extends MainLayoutData {}
+interface Props extends MainLayoutData, ServicesData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const layoutData = await getMainLayoutData();
-  return { props: layoutData };
+  const servicesData = await getServicesData();
+  return { props: { ...layoutData, ...servicesData } };
 };
 
 export default function ServicesPage({
   headerMenu,
+  services,
 }: Props): React.ReactElement {
   return (
     <>
@@ -25,7 +29,11 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h2>Services</h2>
+        <Container>
+          {services.map((service) => (
+            <ContentBlock key={service.id} {...service} />
+          ))}
+        </Container>
       </MainLayoutContainer>
     </>
   );
