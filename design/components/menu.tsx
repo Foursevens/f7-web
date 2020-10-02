@@ -80,9 +80,9 @@ MenuItem.compoundVariant(
       position: 'absolute',
       display: 'block',
       width: 'calc(100% + 10px)',
-      marginTop: 25,
-      marginInline: -5,
+      marginLeft: -5,
       borderBottom: '2px solid $secondary1',
+      transform: 'translateY(13px)',
     },
   },
 );
