@@ -10,7 +10,7 @@
   },
   "attributes": {
     "menu_items": {
-      "component": "layout.menu-item",
+      "component": "atoms.menu-item",
       "repeatable": true,
       "required": true,
       "type": "component"
