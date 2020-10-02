@@ -1,9 +1,4 @@
-import { createApolloFetch } from 'apollo-fetch';
-
-const apiBaseUrl = process.env.API_BASE_URL ?? 'http://localhost:1337';
-const client = createApolloFetch({
-  uri: `${apiBaseUrl}/graphql`,
-});
+import { client } from '../api';
 
 export interface MainLayoutMenuItem {
   id: string;
