@@ -1,3 +1,4 @@
+import { Container } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -25,7 +26,9 @@ export default function CaseDetailPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h2>Test Case</h2>
+        <Container>
+          <h2>Test Case</h2>
+        </Container>
       </MainLayoutContainer>
     </>
   );

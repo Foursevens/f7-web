@@ -1,3 +1,4 @@
+import { Container } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -24,14 +25,16 @@ export default function CasesPage({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <h2>Cases</h2>
-        <ul>
-          <li>
-            <Link href="/cases/test">
-              <a>Test case</a>
-            </Link>
-          </li>
-        </ul>
+        <Container>
+          <h2>Cases</h2>
+          <ul>
+            <li>
+              <Link href="/cases/test">
+                <a>Test case</a>
+              </Link>
+            </li>
+          </ul>
+        </Container>
       </MainLayoutContainer>
     </>
   );
