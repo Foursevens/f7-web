@@ -56,8 +56,8 @@ export function ContentBlock({
   title,
 }: ContentBlockProps): React.ReactElement {
   const sides = [
-    <StyledImageSide>
-      <img alt="decorative" aria-hidden="true" src={image.url} />
+    <StyledImageSide aria-hidden="true">
+      <img alt="decorative" src={image.url} />
     </StyledImageSide>,
     <StyledContentSide>
       <header>
