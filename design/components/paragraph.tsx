@@ -5,7 +5,7 @@ import { styled } from './stitches.config';
 const StyledParagraph = styled('p', {
   color: '$primaryDark1',
   fontFamily: '$avenir',
-  fontSize: '0.9375em',
+  fontSize: '1em', // 16px
   lineHeight: 1.5625,
 });
 
