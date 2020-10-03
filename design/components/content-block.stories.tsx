@@ -1,7 +1,8 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import image from './assets/duurzaamheid.png';
+import begeleiding from './assets/begeleiding.png';
+import duurzaamheid from './assets/duurzaamheid.png';
 import { ContentBlock, ContentBlockProps } from './content-block';
 import { LOREM } from './data';
 
@@ -17,14 +18,14 @@ const Template: Story<ContentBlockProps> = (args): React.ReactElement => (
 export const WithImageAtStart = Template.bind({});
 WithImageAtStart.args = {
   content: LOREM,
-  image: { position: 'start', url: image },
+  image: { position: 'start', url: duurzaamheid },
   title: 'Lorem Ipsum',
 };
 
 export const WithImageAtEnd = Template.bind({});
 WithImageAtEnd.args = {
   content: LOREM,
-  image: { position: 'end', url: image },
+  image: { position: 'end', url: duurzaamheid },
   title: 'Lorem Ipsum',
 };
 
@@ -35,18 +36,25 @@ WithImageNotLoading.args = {
   title: 'Lorem Ipsum',
 };
 
+export const WithVeryHighImage = Template.bind({});
+WithVeryHighImage.args = {
+  content: LOREM,
+  image: { position: 'start', url: begeleiding },
+  title: 'Lorem Ipsum',
+};
+
 export const WithCta = Template.bind({});
 WithCta.args = {
   content: LOREM,
   cta: { href: '/', text: 'Go on' },
-  image: { url: image },
+  image: { url: duurzaamheid },
   title: 'Lorem Ipsum',
 };
 
 export const WithTag = Template.bind({});
 WithTag.args = {
   content: LOREM,
-  image: { url: image },
+  image: { url: duurzaamheid },
   tag: 'Lorem Ipsum is simply dummy text',
   title: 'Lorem Ipsum',
 };

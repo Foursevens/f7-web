@@ -13,6 +13,10 @@ const StyledBlock = styled('section', {
     width: '50%',
   },
 
+  img: {
+    maxHeight: 400,
+  },
+
   variants: {
     imagePosition: {
       start: {
