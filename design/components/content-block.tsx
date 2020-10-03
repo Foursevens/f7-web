@@ -5,52 +5,38 @@ import { Paragraph } from './paragraph';
 import { styled } from './stitches.config';
 import { Tag } from './tag';
 
-const StyledBlock = styled('section', {
-  display: 'flex',
-  justifyItems: 'space-around',
-
-  '> *': {
-    width: '50%',
-  },
-
-  img: {
-    maxHeight: 400,
-  },
-
-  variants: {
-    imagePosition: {
-      start: {
-        '> *:nth-child(1)': { order: 1 },
-        '> *:nth-child(2)': { order: 2, paddingLeft: 96 },
-      },
-      end: {
-        '> *:nth-child(1)': { order: 2 },
-        '> *:nth-child(2)': { order: 1, paddingRight: 96 },
-      },
-    },
-  },
+const StyledImageSide = styled('div', {
+  img: { maxHeight: 400 },
 });
 
-const StyledContent = styled('div', {
+const StyledContentSide = styled('div', {
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'center',
+
+  '&:first-child': { paddingRight: 96 },
+  '&:last-child': { paddingLeft: 96 },
 
   header: {
     display: 'flex',
     flexFlow: 'column nowrap',
     marginBottom: '$large',
 
-    // order tag to top
-    '> *:nth-child(2)': { order: -1 },
-
-    '* + *': {
-      marginTop: '$small',
+    // select tag
+    '> *:nth-child(2)': {
+      marginBottom: '$small',
+      order: -1,
     },
   },
-  'main p': {
-    marginBottom: '$medium',
-  },
+
+  'main p': { marginBottom: '$medium' },
+});
+
+const StyledContentBlock = styled('section', {
+  display: 'flex',
+  justifyItems: 'space-around',
+
+  '> *': { width: '50%' },
 });
 
 export interface ContentBlockProps {
@@ -68,25 +54,30 @@ export function ContentBlock({
   tag,
   title,
 }: ContentBlockProps): React.ReactElement {
+  const sides = [
+    <StyledImageSide>
+      <img alt="decorative" aria-hidden="true" src={image.url} />
+    </StyledImageSide>,
+    <StyledContentSide>
+      <header>
+        <h1>{title}</h1>
+        {tag == null ? null : <Tag>{tag}</Tag>}
+      </header>
+      <main>
+        <Paragraph>{content}</Paragraph>
+        {cta == null ? null : (
+          <ButtonLink href={cta.href} target={cta.target}>
+            {cta.text}
+          </ButtonLink>
+        )}
+      </main>
+    </StyledContentSide>,
+  ];
   return (
-    <StyledBlock imagePosition={image.position ?? 'start'}>
-      <div>
-        <img alt="decorative" aria-hidden="true" src={image.url} />
-      </div>
-      <StyledContent>
-        <header>
-          <h1>{title}</h1>
-          <Tag>{tag}</Tag>
-        </header>
-        <main>
-          <Paragraph>{content}</Paragraph>
-          {cta == null ? null : (
-            <ButtonLink href={cta.href} target={cta.target}>
-              {cta.text}
-            </ButtonLink>
-          )}
-        </main>
-      </StyledContent>
-    </StyledBlock>
+    <StyledContentBlock>
+      {image.position == null || image.position === 'start'
+        ? sides
+        : sides.reverse()}
+    </StyledContentBlock>
   );
 }

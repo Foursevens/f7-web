@@ -39,21 +39,14 @@ WithImageNotLoading.args = {
 export const WithVeryHighImage = Template.bind({});
 WithVeryHighImage.args = {
   content: LOREM,
-  image: { position: 'start', url: begeleiding },
+  image: { position: 'end', url: begeleiding },
   title: 'Lorem Ipsum',
 };
 
-export const WithCta = Template.bind({});
-WithCta.args = {
+export const WithTagAndCta = Template.bind({});
+WithTagAndCta.args = {
   content: LOREM,
   cta: { href: '/', text: 'Go on' },
-  image: { url: duurzaamheid },
-  title: 'Lorem Ipsum',
-};
-
-export const WithTag = Template.bind({});
-WithTag.args = {
-  content: LOREM,
   image: { url: duurzaamheid },
   tag: 'Lorem Ipsum is simply dummy text',
   title: 'Lorem Ipsum',
