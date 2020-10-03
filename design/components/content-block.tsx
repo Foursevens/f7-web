@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ButtonLink } from './button-link';
-import { Paragraph } from './paragraph';
+import { RichText } from './rich-text';
 import { styled } from './stitches.config';
 import { Tag } from './tag';
 
@@ -65,7 +65,7 @@ export function ContentBlock({
         {tag == null ? null : <Tag>{tag}</Tag>}
       </header>
       <main>
-        <Paragraph>{content}</Paragraph>
+        <RichText>{content}</RichText>
         {cta == null ? null : (
           <ButtonLink href={cta.href} target={cta.target}>
             {cta.text}
