@@ -7,6 +7,7 @@ import { Tag } from './tag';
 
 const StyledImageSide = styled('div', {
   img: { maxHeight: 400 },
+  ':last-child': { textAlign: 'right' },
 });
 
 const StyledContentSide = styled('div', {
