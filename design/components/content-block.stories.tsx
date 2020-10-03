@@ -4,7 +4,7 @@ import React from 'react';
 import begeleiding from './assets/begeleiding.png';
 import duurzaamheid from './assets/duurzaamheid.png';
 import { ContentBlock, ContentBlockProps } from './content-block';
-import { LOREM } from './data';
+import { RICH_TEXT } from './data';
 
 export default {
   title: 'Example/ContentBlock',
@@ -17,35 +17,35 @@ const Template: Story<ContentBlockProps> = (args): React.ReactElement => (
 
 export const WithImageAtStart = Template.bind({});
 WithImageAtStart.args = {
-  content: LOREM,
+  content: RICH_TEXT,
   image: { position: 'start', url: duurzaamheid },
   title: 'Lorem Ipsum',
 };
 
 export const WithImageAtEnd = Template.bind({});
 WithImageAtEnd.args = {
-  content: LOREM,
+  content: RICH_TEXT,
   image: { position: 'end', url: duurzaamheid },
   title: 'Lorem Ipsum',
 };
 
 export const WithImageNotLoading = Template.bind({});
 WithImageNotLoading.args = {
-  content: LOREM,
+  content: RICH_TEXT,
   image: { position: 'start', url: 'not-found' },
   title: 'Lorem Ipsum',
 };
 
 export const WithVeryHighImage = Template.bind({});
 WithVeryHighImage.args = {
-  content: LOREM,
+  content: RICH_TEXT,
   image: { position: 'end', url: begeleiding },
   title: 'Lorem Ipsum',
 };
 
 export const WithTagAndCta = Template.bind({});
 WithTagAndCta.args = {
-  content: LOREM,
+  content: RICH_TEXT,
   cta: { href: '/', text: 'Go on' },
   image: { url: duurzaamheid },
   tag: 'Lorem Ipsum is simply dummy text',

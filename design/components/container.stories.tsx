@@ -4,7 +4,7 @@ import React from 'react';
 import image from './assets/duurzaamheid.png';
 import { Container, ContainerProps } from './container';
 import { ContentBlock } from './content-block';
-import { LOREM } from './data';
+import { RICH_TEXT } from './data';
 import { RichText } from './rich-text';
 
 export default {
@@ -19,46 +19,46 @@ const Template: Story<ContainerProps> = (args): React.ReactElement => (
 export const White1 = Template.bind({});
 White1.args = {
   background: 'white1',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
 };
 
 export const White2 = Template.bind({});
 White2.args = {
   background: 'white2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
 };
 
 export const Primary2 = Template.bind({});
 Primary2.args = {
   background: 'primary2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
 };
 
 export const Small = Template.bind({});
 Small.args = {
   background: 'primary2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
   spacing: 'small',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   background: 'primary2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
   spacing: 'medium',
 };
 
 export const Large = Template.bind({});
 Large.args = {
   background: 'primary2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
   spacing: 'large',
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
   background: 'primary2',
-  children: <RichText>{LOREM}</RichText>,
+  children: <RichText>{RICH_TEXT}</RichText>,
   spacing: 'xlarge',
 };
 
@@ -67,7 +67,7 @@ WithContentBlock.args = {
   background: 'primary2',
   children: (
     <ContentBlock
-      content={LOREM}
+      content={RICH_TEXT}
       cta={{ href: '/', text: 'Go on' }}
       image={{ url: image }}
       tag="Lorem Ipsum is simply dummy text"

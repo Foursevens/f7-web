@@ -19,5 +19,3 @@ export interface TagProps {
 export function Tag({ children }: TagProps): React.ReactElement {
   return <StyledWrapper>{children}</StyledWrapper>;
 }
-
-Tag.toString = () => `.f7-tag`;
