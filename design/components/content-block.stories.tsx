@@ -30,6 +30,14 @@ WithImageAtEnd.args = {
   title: 'Lorem Ipsum',
 };
 
+export const WithImageNotLoading = Template.bind({});
+WithImageNotLoading.args = {
+  content: LOREM,
+  image: 'not-found',
+  imagePosition: 'start',
+  title: 'Lorem Ipsum',
+};
+
 export const WithCta = Template.bind({});
 WithCta.args = {
   content: LOREM,

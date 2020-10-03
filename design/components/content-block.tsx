@@ -10,7 +10,7 @@ const StyledBlock = styled('section', {
   justifyItems: 'space-around',
 
   '> *': {
-    maxWidth: '50%',
+    width: '50%',
   },
 
   variants: {
