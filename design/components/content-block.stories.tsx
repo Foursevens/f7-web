@@ -17,24 +17,21 @@ const Template: Story<ContentBlockProps> = (args): React.ReactElement => (
 export const WithImageAtStart = Template.bind({});
 WithImageAtStart.args = {
   content: LOREM,
-  image,
-  imagePosition: 'start',
+  image: { position: 'start', url: image },
   title: 'Lorem Ipsum',
 };
 
 export const WithImageAtEnd = Template.bind({});
 WithImageAtEnd.args = {
   content: LOREM,
-  image,
-  imagePosition: 'end',
+  image: { position: 'end', url: image },
   title: 'Lorem Ipsum',
 };
 
 export const WithImageNotLoading = Template.bind({});
 WithImageNotLoading.args = {
   content: LOREM,
-  image: 'not-found',
-  imagePosition: 'start',
+  image: { position: 'start', url: 'not-found' },
   title: 'Lorem Ipsum',
 };
 
@@ -42,14 +39,14 @@ export const WithCta = Template.bind({});
 WithCta.args = {
   content: LOREM,
   cta: { href: '/', text: 'Go on' },
-  image,
+  image: { url: image },
   title: 'Lorem Ipsum',
 };
 
 export const WithTag = Template.bind({});
 WithTag.args = {
   content: LOREM,
-  image,
+  image: { url: image },
   tag: 'Lorem Ipsum is simply dummy text',
   title: 'Lorem Ipsum',
 };

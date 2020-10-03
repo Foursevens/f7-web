@@ -52,24 +52,22 @@ const StyledContent = styled('div', {
 export interface ContentBlockProps {
   content: string;
   cta?: { href: string; target?: string; text: string };
+  image: { position?: 'start' | 'end'; url: string };
   tag?: string;
   title: string;
-  image: string;
-  imagePosition?: 'start' | 'end';
 }
 
 export function ContentBlock({
   content,
   cta,
   image,
-  imagePosition = 'start',
   tag,
   title,
 }: ContentBlockProps): React.ReactElement {
   return (
-    <StyledBlock imagePosition={imagePosition}>
+    <StyledBlock imagePosition={image.position ?? 'start'}>
       <div>
-        <img alt="decorative" aria-hidden="true" src={image} />
+        <img alt="decorative" aria-hidden="true" src={image.url} />
       </div>
       <StyledContent>
         <header>

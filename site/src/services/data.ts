@@ -8,7 +8,7 @@ export interface Service {
   id: string;
   content: string;
   cta?: { href: string; text: string };
-  image: string;
+  image: { position: 'start' | 'end'; url: string };
   tag?: string;
   title: string;
 }
@@ -27,6 +27,7 @@ export async function getServicesData(): Promise<ServicesData> {
           image {
             url
           }
+          image_position
           tag_en
           title_en
         }
@@ -40,6 +41,7 @@ export async function getServicesData(): Promise<ServicesData> {
           cta?: { href: string; text_en: string };
           content_en: string;
           image: { url: string };
+          image_position: 'start' | 'end';
           tag_en?: string;
           title_en: string;
         }>;
@@ -48,14 +50,17 @@ export async function getServicesData(): Promise<ServicesData> {
   };
   return {
     services: data.service.services.map(
-      ({ id, content_en, cta, image, tag_en, title_en }) => {
+      ({ id, content_en, cta, image, image_position, tag_en, title_en }) => {
         const adaptedService: Partial<Service> = { id };
         if (cta != null) {
           adaptedService.cta = { href: cta.href, text: cta.text_en };
         }
         Object.assign(adaptedService, {
           content: content_en,
-          image: image.url,
+          image: {
+            position: image_position,
+            url: image.url,
+          },
           tag: tag_en,
           title: title_en,
         });
