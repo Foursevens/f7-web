@@ -17,6 +17,7 @@ const StyledAnchor = styled('a', {
   color: '$white1',
   stroke: '$white1',
   fontFamily: '$proxima',
+  fontWeight: '$medium',
   fontSize: '1em',
 
   variants: {
