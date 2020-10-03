@@ -17,7 +17,7 @@ export async function getServicesData(): Promise<ServicesData> {
   const { data } = (await client({
     query: `query {
       service {
-        services {
+        content_blocks {
           id
           content_en
           cta {
@@ -36,7 +36,7 @@ export async function getServicesData(): Promise<ServicesData> {
   })) as {
     data: {
       service: {
-        services: Array<{
+        content_blocks: Array<{
           id: string;
           cta?: { href: string; text_en: string };
           content_en: string;
@@ -49,7 +49,7 @@ export async function getServicesData(): Promise<ServicesData> {
     };
   };
   return {
-    services: data.service.services.map(
+    services: data.service.content_blocks.map(
       ({ id, content_en, cta, image, image_position, tag_en, title_en }) => {
         const adaptedService: Partial<Service> = { id };
         if (cta != null) {
