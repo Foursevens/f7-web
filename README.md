@@ -10,6 +10,8 @@ Create docker containers to have a Postgres database.
 docker-compose up
 ```
 
+This only has to be executed once.
+
 ### Start CMS database
 
 Start the docker containers.
@@ -36,6 +38,15 @@ yarn dev
 
 - [Strapi admin page](http://localhost:1337/admin)
 - [GraphQl playground](http://localhost:1337/graphql)
+
+##### CMS Database
+
+- [Database](http://localhost:8080)
+  - **System:** PostgreSQL
+  - **Server:** db
+  - **Username:** strapi
+  - **Password:** strapi
+  - **Database:** api
 
 #### Design
 
