@@ -27,16 +27,16 @@ WithoutFullStop.args = {
 export const WithSize1 = Template.bind({});
 WithSize1.args = {
   children: 'Eenvoudig fietsparkeren',
-  size: 'size1',
+  size: 1,
 };
 
 export const WithSize2 = Template.bind({});
 WithSize2.args = {
   children: 'Digitaal advies',
-  size: 'size2',
+  size: 2,
 };
 export const WithSize3 = Template.bind({});
 WithSize3.args = {
   children: 'Digitaal voor mens en planeet',
-  size: 'size3',
+  size: 3,
 };

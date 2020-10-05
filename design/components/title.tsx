@@ -12,9 +12,9 @@ const StyledTitle = styled('div', {
 
   variants: {
     size: {
-      size1: { fontSize: '$title1', lineHeight: 1.3 },
-      size2: { fontSize: '$title2', lineHeight: 1.27 },
-      size3: { fontSize: '$title3', lineHeight: 1.11 },
+      1: { fontSize: '$title1', lineHeight: 1.3 },
+      2: { fontSize: '$title2', lineHeight: 1.27 },
+      3: { fontSize: '$title3', lineHeight: 1.11 },
     },
   },
 });
@@ -23,14 +23,14 @@ export interface TitleProps {
   as?: string;
   children: string;
   fullStop?: boolean;
-  size?: 'size1' | 'size2' | 'size3';
+  size?: 1 | 2 | 3; // eslint-disable-line no-magic-numbers
 }
 
 export function Title({
   as,
   children,
   fullStop = true,
-  size = 'size1',
+  size = 1,
 }: TitleProps): React.ReactElement {
   return (
     <StyledTitle as={as} fullStop={fullStop} size={size}>
