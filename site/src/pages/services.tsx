@@ -1,5 +1,5 @@
 import { Container, ContentBlock } from '@f7-web/design';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
@@ -12,7 +12,7 @@ import { getServicesData, ServicesData } from '../services';
 
 interface Props extends MainLayoutData, ServicesData {}
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const layoutData = await getMainLayoutData();
   const servicesData = await getServicesData();
   return { props: { ...layoutData, ...servicesData } };
