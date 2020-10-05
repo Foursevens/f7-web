@@ -10,16 +10,14 @@
       "model": "file",
       "via": "related",
       "allowedTypes": ["images", "files", "videos"],
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "image_position": {
       "type": "enumeration",
       "enum": ["start", "end"]
     },
     "title_en": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "tag_en": {
       "type": "string"
@@ -28,8 +26,7 @@
       "type": "richtext"
     },
     "title_fr": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "tag_fr": {
       "type": "string"
@@ -38,8 +35,7 @@
       "type": "richtext"
     },
     "title_nl": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "tag_nl": {
       "type": "string"
@@ -49,7 +45,6 @@
     },
     "cta": {
       "type": "component",
-      "repeatable": false,
       "component": "atoms.button"
     }
   }
