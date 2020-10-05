@@ -1,16 +1,10 @@
 import { client } from '../api';
+import { ContentBlock } from '../types';
 
 export interface ServicesData {
-  services: Service[];
-}
-
-export interface Service {
-  id: string;
-  content: string;
-  cta?: { href: string; text: string };
-  image: { position: 'start' | 'end'; url: string };
-  tag?: string;
-  title: string;
+  service: null | {
+    contentBlocks: ContentBlock[];
+  };
 }
 
 export async function getServicesData(): Promise<ServicesData> {
@@ -35,7 +29,7 @@ export async function getServicesData(): Promise<ServicesData> {
     }`,
   })) as {
     data: {
-      service: {
+      service?: {
         content_blocks: Array<{
           id: string;
           cta?: { href: string; text_en: string };
@@ -48,24 +42,29 @@ export async function getServicesData(): Promise<ServicesData> {
       };
     };
   };
+  if (data.service == null) {
+    return { service: null };
+  }
   return {
-    services: data.service.content_blocks.map(
-      ({ id, content_en, cta, image, image_position, tag_en, title_en }) => {
-        const adaptedService: Partial<Service> = { id };
-        if (cta != null) {
-          adaptedService.cta = { href: cta.href, text: cta.text_en };
-        }
-        Object.assign(adaptedService, {
-          content: content_en,
-          image: {
-            position: image_position,
-            url: image.url,
-          },
-          tag: tag_en,
-          title: title_en,
-        });
-        return adaptedService as Service;
-      },
-    ),
+    service: {
+      contentBlocks: data.service.content_blocks.map(
+        ({ id, content_en, cta, image, image_position, tag_en, title_en }) => {
+          const adaptedService: Partial<ContentBlock> = { id };
+          if (cta != null) {
+            adaptedService.cta = { href: cta.href, text: cta.text_en };
+          }
+          Object.assign(adaptedService, {
+            content: content_en,
+            image: {
+              position: image_position,
+              url: image.url,
+            },
+            tag: tag_en,
+            title: title_en,
+          });
+          return adaptedService as ContentBlock;
+        },
+      ),
+    },
   };
 }

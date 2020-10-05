@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export default function ServicesPage({
   headerMenu,
-  services,
+  service,
 }: Props): React.ReactElement {
   return (
     <>
@@ -30,8 +30,8 @@ export default function ServicesPage({
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
         <Container>
-          {services.map((service) => (
-            <ContentBlock key={service.id} {...service} />
+          {service?.contentBlocks.map((contentBlock) => (
+            <ContentBlock key={contentBlock.id} {...contentBlock} />
           ))}
         </Container>
       </MainLayoutContainer>
