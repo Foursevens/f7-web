@@ -16,6 +16,11 @@ export const { styled, css } = createStyled({
       $proxima:
         'ProximaNova, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
     },
+    fontSizes: {
+      $title1: '20px',
+      $title2: '30px',
+      $title3: '45px',
+    },
     fontWeights: {
       $normal: 'normal',
       $medium: '500',
