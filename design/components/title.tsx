@@ -12,9 +12,9 @@ const StyledTitle = styled('div', {
 
   variants: {
     size: {
-      1: { fontSize: '$title3', lineHeight: 1.11 },
+      1: { fontSize: '$title1', lineHeight: 1.11 },
       2: { fontSize: '$title2', lineHeight: 1.27 },
-      3: { fontSize: '$title1', lineHeight: 1.3 },
+      3: { fontSize: '$title3', lineHeight: 1.3 },
     },
   },
 });
