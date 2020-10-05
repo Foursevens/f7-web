@@ -11,6 +11,15 @@ const StyledTitle = styled('div', {
   color: '$primary1',
 
   variants: {
+    fullStop: {
+      true: {
+        '::after': {
+          content: '"."',
+          display: 'inline-block',
+          color: '$secondary1',
+        },
+      },
+    },
     size: {
       1: { fontSize: '$title1', lineHeight: 1.11 },
       2: { fontSize: '$title2', lineHeight: 1.27 },
@@ -36,7 +45,6 @@ export function Title({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     <StyledTitle as={as as any} fullStop={fullStop} size={size}>
       {children.trimEnd().replace(/\.+$/, '')}
-      {fullStop ? <span style={{ color: '#f7b32b' }}>.</span> : null}
     </StyledTitle>
   );
 }
