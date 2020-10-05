@@ -14,7 +14,6 @@ const StyledContentSide = styled('div', {
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'center',
-  maxWidth: '70ch',
 
   '&:first-child': { paddingRight: 96 },
   '&:not(:first-child)': { paddingLeft: 96 },
@@ -31,7 +30,10 @@ const StyledContentSide = styled('div', {
     },
   },
 
-  'main p': { marginBottom: '$medium' },
+  'main p': {
+    maxWidth: '70ch',
+    marginBottom: '$medium',
+  },
 });
 
 const StyledContentBlock = styled('section', {
