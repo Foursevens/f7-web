@@ -33,11 +33,11 @@ export async function getServicesData(): Promise<ServicesData> {
         content_blocks: Array<{
           id: string;
           cta?: { href: string; text_en: string };
-          content_en: string;
-          image: { url: string };
+          content_en?: string;
+          image?: { url: string };
           image_position: 'start' | 'end';
           tag_en?: string;
-          title_en: string;
+          title_en?: string;
         }>;
       };
     };
@@ -55,10 +55,10 @@ export async function getServicesData(): Promise<ServicesData> {
           }
           Object.assign(adaptedService, {
             content: content_en,
-            image: {
-              position: image_position,
-              url: image.url,
-            },
+            image:
+              image == null
+                ? null
+                : { position: image_position, url: image.url },
             tag: tag_en,
             title: title_en,
           });
