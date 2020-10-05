@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Promo's & Discounts
+
+Parameters:
+  Environment:
+    MinLength: 1
+    Type: String
+  ProjectName:
+    Default: f7-web
+    Type: String
+
+Resources:
+  UploadsBucket:
+    Type: AWS::S3::Bucket
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
+    Properties:
+      AccessControl: PublicRead
+      BucketName: !Sub ${ProjectName}-uploads-${Environment}
+
+  UploadsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
+    Properties:
+      Bucket: !Ref UploadsBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Principal: '*'
+            Resource: !Sub arn:aws:s3:::${ProjectName}-uploads-${Environment}/*
+
+  StrapiUser:
+    Type: AWS::IAM::User
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
+    Properties:
+      Policies:
+        - PolicyName: !Sub ${ProjectName}-strapi-user-policy-${Environment}
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              # Logs
+              - Effect: Allow
+                Action: 's3:*'
+                Resource:
+                  - !Sub arn:aws:sr:::${ProjectName}-uploads-${Environment}
+                  - !Sub arn:aws:sr:::${ProjectName}-uploads-${Environment}/*
+      UserName: !Sub ${ProjectName}-strapi-user-${Environment}
+
+  StrapiUserAccessKey:
+    Type: AWS::IAM::AccessKey
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
+    Properties:
+      Serial: 1
+      UserName: !Ref StrapiUser
+
+Outputs:
+  StrapiUserAccessKeyId:
+    Value: !Ref StrapiUserAccessKey
+  StrapiUserSecretAccessKey:
+    Value: !GetAtt StrapiUserAccessKey.SecretAccessKey

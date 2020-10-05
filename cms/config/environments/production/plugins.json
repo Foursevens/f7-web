@@ -1,0 +1,13 @@
+{
+  "upload": {
+    "provider": "aws-s3",
+    "providerOptions": {
+      "accessKeyId": "${process.env.AWS_ACCESS_KEY_ID}",
+      "secretAccessKey": "${process.env.AWS_ACCESS_SECRET}",
+      "region": "eu-west-1",
+      "params": {
+        "Bucket": "${process.env.AWS_UPLOADS_S3_BUCKET_NAME}"
+      }
+    }
+  }
+}

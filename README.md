@@ -18,18 +18,6 @@ Start the docker containers.
 docker-compose start --detach
 ```
 
-### Configure CMS
-
-The media library uploads go to an AWS S3 bucket which needs to be configured before starting the application.
-
-Create `cms/.env` file.
-
-```sh
-AWS_ACCESS_KEY_ID=""
-AWS_ACCESS_SECRET=""
-AWS_UPLOAD_S3_BUCKET_NAME="f7-web-upload-local"
-```
-
 ### Start development
 
 Install all dependencies.
