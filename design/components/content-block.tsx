@@ -14,9 +14,10 @@ const StyledContentSide = styled('div', {
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'center',
+  maxWidth: '70ch',
 
   '&:first-child': { paddingRight: 96 },
-  '&:last-child': { paddingLeft: 96 },
+  '&:not(:first-child)': { paddingLeft: 96 },
 
   header: {
     display: 'flex',
@@ -37,15 +38,15 @@ const StyledContentBlock = styled('section', {
   display: 'flex',
   justifyItems: 'space-around',
 
-  '> *': { width: '50%' },
+  '> *': { flex: '1 0' },
 });
 
 export interface ContentBlockProps {
-  content: string;
+  content?: string;
   cta?: { href: string; target?: string; text: string };
-  image: { position?: 'start' | 'end'; url: string };
+  image?: { position?: 'start' | 'end'; url: string };
   tag?: string;
-  title: string;
+  title?: string;
 }
 
 export function ContentBlock({
@@ -55,30 +56,34 @@ export function ContentBlock({
   tag,
   title,
 }: ContentBlockProps): React.ReactElement {
-  const sides = [
-    <StyledImageSide aria-hidden="true">
-      <img alt="decorative" src={image.url} />
-    </StyledImageSide>,
-    <StyledContentSide>
-      <header>
-        <h1>{title}</h1>
-        {tag == null ? null : <Tag>{tag}</Tag>}
-      </header>
-      <main>
-        <RichText>{content}</RichText>
-        {cta == null ? null : (
-          <ButtonLink href={cta.href} target={cta.target}>
-            {cta.text}
-          </ButtonLink>
-        )}
-      </main>
-    </StyledContentSide>,
-  ];
-  return (
-    <StyledContentBlock>
-      {image.position == null || image.position === 'start'
-        ? sides
-        : sides.reverse()}
-    </StyledContentBlock>
-  );
+  const sides = [];
+  if (tag != null || title != null || content != null || cta != null) {
+    sides.push(
+      <StyledContentSide>
+        <header>
+          <h1>{title}</h1>
+          {tag == null ? null : <Tag>{tag}</Tag>}
+        </header>
+        <main>
+          {content == null ? null : <RichText>{content}</RichText>}
+          {cta == null ? null : (
+            <ButtonLink href={cta.href} target={cta.target}>
+              {cta.text}
+            </ButtonLink>
+          )}
+        </main>
+      </StyledContentSide>,
+    );
+  }
+  if (image != null) {
+    sides.push(
+      <StyledImageSide aria-hidden="true">
+        <img alt="decorative" src={image.url} />
+      </StyledImageSide>,
+    );
+    if ((image.position ?? 'start') === 'start') {
+      sides.reverse();
+    }
+  }
+  return <StyledContentBlock>{sides}</StyledContentBlock>;
 }
