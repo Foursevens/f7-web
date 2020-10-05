@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { apiBaseUrl, client } from '../api';
 import { ContentBlock } from '../types';
 
 export interface ServicesData {
@@ -53,12 +53,14 @@ export async function getServicesData(): Promise<ServicesData> {
           if (cta != null) {
             adaptedService.cta = { href: cta.href, text: cta.text_en };
           }
+          if (image != null) {
+            const imageUrl = image.url.startsWith('http')
+              ? image.url
+              : `${apiBaseUrl}${image.url}`;
+            adaptedService.image = { position: image_position, url: imageUrl };
+          }
           Object.assign(adaptedService, {
             content: content_en,
-            image:
-              image == null
-                ? null
-                : { position: image_position, url: image.url },
             tag: tag_en,
             title: title_en,
           });
