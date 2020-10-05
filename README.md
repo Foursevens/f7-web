@@ -26,7 +26,11 @@ Install all dependencies.
 yarn install
 ```
 
-We will automatically start all processes on post-install with pm2.
+Start development processes.
+
+```sh
+yarn dev
+```
 
 #### CMS
 
