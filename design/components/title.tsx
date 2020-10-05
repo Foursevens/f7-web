@@ -33,7 +33,8 @@ export function Title({
   size = 1,
 }: TitleProps): React.ReactElement {
   return (
-    <StyledTitle as={as} fullStop={fullStop} size={size}>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    <StyledTitle as={as as any} fullStop={fullStop} size={size}>
       {children.trimEnd().replace(/\.+$/, '')}
       {fullStop ? <span style={{ color: '#f7b32b' }}>.</span> : null}
     </StyledTitle>
