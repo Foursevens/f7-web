@@ -4,6 +4,7 @@ import { ButtonLink } from './button-link';
 import { RichText } from './rich-text';
 import { styled } from './stitches.config';
 import { Tag } from './tag';
+import { Title } from './title';
 
 const StyledImageSide = styled('div', {
   img: { maxHeight: 400 },
@@ -63,7 +64,11 @@ export function ContentBlock({
     sides.push(
       <StyledContentSide>
         <header>
-          <h1>{title}</h1>
+          {title == null ? null : (
+            <Title as="h3" size={2}>
+              {title}
+            </Title>
+          )}
           {tag == null ? null : <Tag>{tag}</Tag>}
         </header>
         <main>
