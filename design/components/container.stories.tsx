@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import image from './assets/duurzaamheid.png';
+import image from '../assets/duurzaamheid.png';
 import { Container, ContainerProps } from './container';
 import { ContentBlock } from './content-block';
 import { RICH_TEXT } from './data';

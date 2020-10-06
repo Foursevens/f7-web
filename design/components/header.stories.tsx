@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import logo from './assets/logo-full.png';
+import logo from '../assets/logo-full.png';
 import { Header, HeaderProps } from './header';
 import { Menu, MenuItem } from './menu';
 
@@ -22,7 +22,7 @@ Primary.args = {
       <MenuItem key="key-1">
         <a href="/">Home</a>
       </MenuItem>
-      <MenuItem key="key-2" highlight>
+      <MenuItem key="key-2" highlight="yes">
         <a href="/">Contact</a>
       </MenuItem>
     </Menu>,
