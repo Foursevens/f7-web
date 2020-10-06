@@ -39,7 +39,7 @@ export function Title({
   as = 'div',
   children,
   fullStop = true,
-  size = 1,
+  size,
 }: TitleProps): React.ReactElement {
   return (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
