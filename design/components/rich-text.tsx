@@ -8,7 +8,7 @@ const StyledRichText = styled('div', {
   fontSize: '1em', // 16px
   lineHeight: 1.5625,
 
-  'p, ul': { margin: '1em 0' },
+  'p, ul': { margin: '1.25em 0' },
 });
 
 export interface RichTextProps {
