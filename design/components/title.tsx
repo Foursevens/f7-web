@@ -3,12 +3,11 @@ import React from 'react';
 import { styled } from './stitches.config';
 
 const StyledTitle = styled('div', {
-  fontFamily: '$avenir',
-  fontWeight: '$dark',
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  letterSpacing: 'normal',
   color: '$primary1',
+  fontFamily: '$avenir',
+  fontStretch: 'normal',
+  fontWeight: '$dark',
+  letterSpacing: 'normal',
 
   variants: {
     fullStop: {
