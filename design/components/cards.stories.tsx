@@ -18,7 +18,7 @@ export const CaseWithImage = Template.bind({});
 CaseWithImage.args = {
   service: 'Responsive website',
   image: { url: duurzaamheid },
-  tag: 'cyclo',
+  client: 'cyclo',
   title: 'Eenvoudig fietsparkeren',
 };
 

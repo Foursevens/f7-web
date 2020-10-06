@@ -7,23 +7,41 @@ import { Title } from './title';
 
 const StyledStories = styled('div', {
   img: { height: 324, width: 406 },
+  position: 'relative',
   ':last-child': { textAlign: 'left' },
+  main: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    margin: '$large',
+  },
 });
 
 const StyledCases = styled('div', {
   img: { height: 324, width: 406 },
+  position: 'relative',
   ':last-child': { textAlign: 'left' },
+  main: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    margin: '$large',
+    RichText: {
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
+  },
 });
-const contentContainer = styled('section', {
+const ContentContainer = styled('div', {
   display: 'flex',
+  position: 'absolute',
+  top: 268,
+  left: 0,
   flexFlow: 'column nowrap',
-  marginBottom: '$large',
   width: 376,
-  height: 111,
   backgroundColor: '#ffffff',
 });
 export interface CardsProps {
-  clint?: string;
+  client?: string;
   cta?: { href: string; target?: string; text: string };
   image: { url: string };
   intro?: string;
@@ -33,7 +51,7 @@ export interface CardsProps {
   service?: string;
 }
 export function Cards({
-  clint,
+  client,
   cta,
   image,
   intro,
@@ -42,33 +60,36 @@ export function Cards({
   title,
   service,
 }: CardsProps): React.ReactElement {
-  const sides = [];
-  if (clint != null || service != null) {
-    sides.push(
+  if (client != null || service != null) {
+    return (
       <StyledCases>
         <img alt="decorative" src={image.url} />
-        <header>
-          <Tag>{tag}</Tag>
-          <Title as="h3" size={2}>
-            {title}
-          </Title>
-        </header>
-        <RichText>{service}</RichText>
-      </StyledCases>,
-    );
-  } else {
-    sides.push(
-      <StyledStories>
-        <img alt="decorative" src={image.url} />
-        <header>
-          <Tag>{tag}</Tag>
-          <Title as="h3" size={2}>
-            {title}
-          </Title>
-        </header>
-        <RichText>{intro}</RichText>
-      </StyledStories>,
+        <ContentContainer>
+          <main>
+            <Tag>{client}</Tag>
+            <Title as="h3" size={3}>
+              {title}
+            </Title>
+            <RichText>{service}</RichText>
+          </main>
+        </ContentContainer>
+      </StyledCases>
     );
   }
-  return <contentContainer>{sides}</contentContainer>;
+  const charLimits = 100;
+  const st = intro.slice(0, charLimits);
+  return (
+    <StyledStories>
+      <img alt="decorative" src={image.url} />
+      <ContentContainer>
+        <main>
+          <Tag>{tag}</Tag>
+          <Title as="h3" size={3}>
+            {title}
+          </Title>
+          <RichText>{st}</RichText>
+        </main>
+      </ContentContainer>
+    </StyledStories>
+  );
 }
