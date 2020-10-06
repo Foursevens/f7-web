@@ -8,7 +8,7 @@ import { RICH_TEXT } from './data';
 import { RichText } from './rich-text';
 
 export default {
-  title: 'Example/Container',
+  title: '2. Molecules / Container',
   component: Container,
 };
 

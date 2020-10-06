@@ -4,7 +4,7 @@ import React from 'react';
 import { Title, TitleProps } from './title';
 
 export default {
-  title: 'Example/Title',
+  title: '1. Atoms / Title',
   component: Title,
 };
 

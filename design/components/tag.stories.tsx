@@ -4,7 +4,7 @@ import React from 'react';
 import { Tag, TagProps } from './tag';
 
 export default {
-  title: 'Example/Tag',
+  title: '1. Atoms / Tag',
   component: Tag,
 };
 

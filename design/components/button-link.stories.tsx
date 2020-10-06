@@ -4,7 +4,7 @@ import React from 'react';
 import { ButtonLink, ButtonLinkProps } from './button-link';
 
 export default {
-  title: 'Example/ButtonLink',
+  title: '1. Atoms / ButtonLink',
   component: ButtonLink,
 };
 

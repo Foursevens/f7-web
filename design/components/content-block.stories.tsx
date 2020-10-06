@@ -7,7 +7,7 @@ import { ContentBlock, ContentBlockProps } from './content-block';
 import { RICH_TEXT } from './data';
 
 export default {
-  title: 'Example/ContentBlock',
+  title: '3. Organisms / ContentBlock',
   component: ContentBlock,
 };
 

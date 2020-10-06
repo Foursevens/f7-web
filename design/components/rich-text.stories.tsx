@@ -4,7 +4,7 @@ import React from 'react';
 import { RichText, RichTextProps } from './rich-text';
 
 export default {
-  title: 'Example/Rich Text',
+  title: '1. Atoms / Rich Text',
   component: RichText,
 };
 

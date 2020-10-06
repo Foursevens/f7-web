@@ -6,7 +6,7 @@ import { Header, HeaderProps } from './header';
 import { Menu, MenuItem } from './menu';
 
 export default {
-  title: 'Example/Header',
+  title: '3. Organisms / Header',
   component: Header,
 };
 
