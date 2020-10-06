@@ -1,5 +1,5 @@
 import { apiBaseUrl, client } from '../api';
-import { ContentBlock } from '../types';
+import { ContentBlock } from '../content-block';
 
 export interface ServicesData {
   service: null | {

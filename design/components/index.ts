@@ -6,4 +6,5 @@ export * from './content-block';
 export * from './header';
 export * from './menu';
 export * from './rich-text';
+export * from './title';
 export * from './tag';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from './stitches.config';
 
-const StyledWrapper = styled('div', {
+const StyledWrapper = styled('strong', {
   color: '$secondary1',
   fontFamily: '$avenir',
   fontSize: '0.875em', // 14px

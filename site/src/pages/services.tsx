@@ -1,8 +1,9 @@
-import { Container, ContentBlock } from '@f7-web/design';
+import { Container } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { SiteContentBlock } from '../content-block';
 import {
   MainLayoutData,
   MainLayoutContainer,
@@ -31,7 +32,7 @@ export default function ServicesPage({
       <MainLayoutContainer headerMenu={headerMenu}>
         <Container>
           {service?.contentBlocks.map((contentBlock) => (
-            <ContentBlock key={contentBlock.id} {...contentBlock} />
+            <SiteContentBlock key={contentBlock.id} {...contentBlock} />
           ))}
         </Container>
       </MainLayoutContainer>

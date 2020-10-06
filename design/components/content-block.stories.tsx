@@ -3,8 +3,12 @@ import React from 'react';
 
 import begeleiding from '../assets/begeleiding.png';
 import duurzaamheid from '../assets/duurzaamheid.png';
+import { ButtonLink } from './button-link';
 import { ContentBlock, ContentBlockProps } from './content-block';
 import { RICH_TEXT } from './data';
+import { RichText } from './rich-text';
+import { Tag } from './tag';
+import { Title } from './title';
 
 export default {
   title: '3. Organisms / ContentBlock',
@@ -17,48 +21,75 @@ const Template: Story<ContentBlockProps> = (args): React.ReactElement => (
 
 export const WithText = Template.bind({});
 WithText.args = {
-  content: RICH_TEXT,
+  children: <RichText>{RICH_TEXT}</RichText>,
 };
 
 export const WithTitleAndText = Template.bind({});
 WithTitleAndText.args = {
-  content: RICH_TEXT,
-  title: 'Lorem Ipsum',
+  children: [
+    <Title size={2}>Lorem Ipsum</Title>,
+    <RichText>{RICH_TEXT}</RichText>,
+  ],
 };
 
 export const WithTagTitleAndText = Template.bind({});
 WithTagTitleAndText.args = {
-  content: RICH_TEXT,
-  tag: 'Lorem Ipsum is simply dummy text',
-  title: 'Lorem Ipsum',
+  children: [
+    <Title size={2}>Lorem Ipsum</Title>,
+    <Tag>Lorem Ipsum is simply dummy text</Tag>,
+    <RichText>{RICH_TEXT}</RichText>,
+  ],
+};
+
+export const WithTitleTextAndCta = Template.bind({});
+WithTitleTextAndCta.args = {
+  children: [
+    <Title size={2}>Lorem Ipsum</Title>,
+    <RichText>{RICH_TEXT}</RichText>,
+    <div>
+      <ButtonLink>Go on</ButtonLink>
+    </div>,
+  ],
 };
 
 export const WithImageAtStart = Template.bind({});
 WithImageAtStart.args = {
-  content: RICH_TEXT,
-  cta: { href: '/', text: 'Go on' },
+  children: [
+    <Title as="h3" size={2}>
+      Lorem Ipsum
+    </Title>,
+    <Tag>Lorem Ipsum is simply dummy text</Tag>,
+    <RichText>{RICH_TEXT}</RichText>,
+    <div>
+      <ButtonLink>Go on</ButtonLink>
+    </div>,
+  ],
   image: { position: 'start', url: duurzaamheid },
-  tag: 'Lorem Ipsum is simply dummy text',
-  title: 'Lorem Ipsum',
 };
 
 export const WithImageAtEnd = Template.bind({});
 WithImageAtEnd.args = {
-  content: RICH_TEXT,
-  cta: { href: '/', text: 'Go on' },
+  children: [
+    <Title as="h3" size={2}>
+      Lorem Ipsum
+    </Title>,
+    <Tag>Lorem Ipsum is simply dummy text</Tag>,
+    <RichText>{RICH_TEXT}</RichText>,
+    <div>
+      <ButtonLink>Go on</ButtonLink>
+    </div>,
+  ],
   image: { position: 'end', url: duurzaamheid },
-  tag: 'Lorem Ipsum is simply dummy text',
-  title: 'Lorem Ipsum',
 };
 
 export const WithImageNotLoading = Template.bind({});
 WithImageNotLoading.args = {
-  content: RICH_TEXT,
+  children: [<RichText>{RICH_TEXT}</RichText>],
   image: { position: 'start', url: 'not-found' },
 };
 
 export const WithVeryHighImage = Template.bind({});
 WithVeryHighImage.args = {
-  content: RICH_TEXT,
+  children: [<RichText>{RICH_TEXT}</RichText>],
   image: { position: 'end', url: begeleiding },
 };

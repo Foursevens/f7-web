@@ -1,10 +1,6 @@
 import React from 'react';
 
-import { ButtonLink } from './button-link';
-import { RichText } from './rich-text';
 import { styled } from './stitches.config';
-import { Tag } from './tag';
-import { Title } from './title';
 
 const StyledImageSide = styled('div', {
   img: { maxHeight: 400 },
@@ -19,19 +15,13 @@ const StyledContentSide = styled('div', {
   '&:first-child': { paddingRight: 96 },
   '&:not(:first-child)': { paddingLeft: 96 },
 
-  header: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    marginBottom: '$large',
-
-    // select tag
-    '> *:nth-child(2)': {
-      marginBottom: '$small',
-      order: -1,
-    },
+  'h1, h2, h3, h4, h5, h6': {
+    marginBottom: 20,
   },
 
-  'main p': {
+  strong: { order: -1, marginBottom: 15 },
+
+  p: {
     maxWidth: '70ch',
     marginBottom: '$medium',
   },
@@ -45,46 +35,23 @@ const StyledContentBlock = styled('section', {
 });
 
 export interface ContentBlockProps {
-  content?: string;
-  cta?: { href: string; target?: string; text: string };
+  children: React.ReactNode;
   image?: { position?: 'start' | 'end'; url: string };
-  tag?: string;
-  title?: string;
 }
 
 export function ContentBlock({
-  content,
-  cta,
+  children,
   image,
-  tag,
-  title,
 }: ContentBlockProps): React.ReactElement {
   const sides = [];
-  if (tag != null || title != null || content != null || cta != null) {
+  if (React.Children.count(children) !== 0) {
     sides.push(
-      <StyledContentSide>
-        <header>
-          {title == null ? null : (
-            <Title as="h3" size={2}>
-              {title}
-            </Title>
-          )}
-          {tag == null ? null : <Tag>{tag}</Tag>}
-        </header>
-        <main>
-          {content == null ? null : <RichText>{content}</RichText>}
-          {cta == null ? null : (
-            <ButtonLink href={cta.href} target={cta.target}>
-              {cta.text}
-            </ButtonLink>
-          )}
-        </main>
-      </StyledContentSide>,
+      <StyledContentSide key="content-side">{children}</StyledContentSide>,
     );
   }
   if (image != null) {
     sides.push(
-      <StyledImageSide aria-hidden="true">
+      <StyledImageSide key="image-side" aria-hidden="true">
         <img alt="decorative" src={image.url} />
       </StyledImageSide>,
     );
