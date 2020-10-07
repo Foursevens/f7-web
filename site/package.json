@@ -2,6 +2,9 @@
   "name": "@f7-web/site",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^12 || ^14"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -11,7 +14,12 @@
     "@f7-web/design": "*",
     "apollo-fetch": "^0.7.0",
     "next": "9.5.3",
+    "next-compose-plugins": "^2.2.0",
+    "next-transpile-modules": "^4.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.4.0"
   }
 }

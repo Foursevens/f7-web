@@ -4,6 +4,7 @@ export * from './button-link';
 export * from './container';
 export * from './content-block';
 export * from './header';
+export * from './hero1';
 export * from './menu';
 export * from './rich-text';
 export * from './title';

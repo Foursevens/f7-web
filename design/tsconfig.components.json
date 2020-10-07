@@ -10,6 +10,6 @@
     "sourceMap": true,
     "target": "es2015"
   },
-  "include": ["components/"],
+  "include": ["components/", "types.d.ts"],
   "exclude": ["**/*.stories.tsx"]
 }

@@ -22,7 +22,7 @@
       }
     },
     {
-      "files": ["design/*.js", "design/.storybook/*.js"],
+      "files": ["design/*.js", "design/.storybook/*.js", "site/*.js"],
       "extends": ["noise-node"]
     },
     {

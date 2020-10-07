@@ -1,7 +1,6 @@
-import { Container } from '@f7-web/design';
+import { ButtonLink, Hero1, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 
 import {
@@ -25,21 +24,19 @@ export default function Home({ headerMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <Container>
-          <h2>Homepage</h2>
-          <ul>
-            <li>
-              <Link href="/cases/test">
-                <a>Test case</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/stories/test">
-                <a>Test story</a>
-              </Link>
-            </li>
-          </ul>
-        </Container>
+        <Hero1 image={{ url: '/hero1.png' }}>
+          <Title as="h1" size={1}>
+            Digitaal voor mens en planeet
+          </Title>
+          <RichText>
+            {
+              '<p>Sustainable digital solutions with positive impact on people and planet.</p>'
+            }
+          </RichText>
+          <div>
+            <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+          </div>
+        </Hero1>
       </MainLayoutContainer>
     </>
   );
