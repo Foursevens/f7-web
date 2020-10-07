@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import logo from '../assets/logo-full.png';
+import logo from '../stories-assets/logo-full.png';
 import { Header, HeaderProps } from './header';
 import { Menu, MenuItem } from './menu';
 

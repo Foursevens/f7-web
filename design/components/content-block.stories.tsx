@@ -1,8 +1,8 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import begeleiding from '../assets/begeleiding.png';
-import duurzaamheid from '../assets/duurzaamheid.png';
+import begeleiding from '../stories-assets/begeleiding.png';
+import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import { ButtonLink } from './button-link';
 import { ContentBlock, ContentBlockProps } from './content-block';
 import { RICH_TEXT } from './data';

@@ -1,0 +1,25 @@
+<svg
+  width="40"
+  height="40"
+  viewBox="0 0 40 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect
+    x="40"
+    y="40"
+    width="40"
+    height="40"
+    rx="20"
+    transform="rotate(-180 40 40)"
+    fill="#367D7E"
+    fill-opacity="0.5"
+  />
+  <path
+    d="M22 26L16 20L22 14"
+    stroke="#367D7E"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
