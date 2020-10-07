@@ -1,48 +1,40 @@
-import React from 'react';
+import { useLink } from '@react-aria/link';
+import React, { useRef } from 'react';
 
 import { RichText } from './rich-text';
 import { styled } from './stitches.config';
 import { Tag } from './tag';
 import { Title } from './title';
 
-const StyledStories = styled('div', {
+const StyledStories = styled('a', {
   img: { height: 324, width: 406 },
   position: 'relative',
-  ':last-child': { textAlign: 'left' },
-  main: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    margin: '$large',
-  },
+  outline: 'none',
 });
 
-const StyledCases = styled('div', {
+const StyledCases = styled('a', {
   img: { height: 324, width: 406 },
   position: 'relative',
-  ':last-child': { textAlign: 'left' },
-  main: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    margin: '$large',
-    RichText: {
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-  },
+  outline: 'none',
 });
 const ContentContainer = styled('div', {
   display: 'flex',
   position: 'absolute',
-  top: 268,
+  top: -40,
   left: 0,
   flexFlow: 'column nowrap',
   width: 376,
   backgroundColor: '#ffffff',
+  main: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    alignContent: 'space-between',
+    margin: '$medium',
+  },
 });
 export interface CardsProps {
   client?: string;
-  cta?: { href: string; target?: string; text: string };
+  href?: string;
   image: { url: string };
   intro?: string;
   tag: string;
@@ -52,17 +44,19 @@ export interface CardsProps {
 }
 export function Cards({
   client,
-  cta,
   image,
   intro,
   tag,
-  target,
   title,
   service,
+  ...props
 }: CardsProps): React.ReactElement {
-  if (client != null || service != null) {
+  const reference = useRef<HTMLElement>(null);
+  const { linkProps } = useLink(props as any, reference);
+  const { target, href } = props;
+  if (client != null && service != null) {
     return (
-      <StyledCases>
+      <StyledCases href={href} target={target} {...linkProps}>
         <img alt="decorative" src={image.url} />
         <ContentContainer>
           <main>
@@ -77,9 +71,9 @@ export function Cards({
     );
   }
   const charLimits = 100;
-  const st = intro.slice(0, charLimits);
+  const string = intro.slice(0, charLimits);
   return (
-    <StyledStories>
+    <StyledStories href={href} target={target} {...linkProps}>
       <img alt="decorative" src={image.url} />
       <ContentContainer>
         <main>
@@ -87,7 +81,7 @@ export function Cards({
           <Title as="h3" size={3}>
             {title}
           </Title>
-          <RichText>{st}</RichText>
+          <RichText>{string}</RichText>
         </main>
       </ContentContainer>
     </StyledStories>
