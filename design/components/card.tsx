@@ -29,7 +29,7 @@ export interface CardProps {
   target: string;
   children: React.ReactNode;
 }
-export function Cards({
+export function Card({
   children: [duurzaamheid, ...rest],
   ...props
 }: CardProps): React.ReactElement {
