@@ -4,9 +4,18 @@ import React, { useRef } from 'react';
 import { styled } from './stitches.config';
 
 const StyledCard = styled('a', {
-  img: { height: 324, width: 406 },
-  position: 'relative',
+  display: 'inline-block',
+  img: { height: '100%', width: '100%', transition: `transform .6s ease` },
   outline: 'none',
+  position: 'relative',
+  '.img-container': {
+    height: 324,
+    width: 406,
+    overflow: 'hidden',
+  },
+  ':first-child:hover img': {
+    transform: 'scale(1.2)',
+  },
 });
 
 export const ContentContainer = styled('div', {
@@ -38,7 +47,7 @@ export function Card({
   const { href } = props;
   return (
     <StyledCard {...linkProps} href={href}>
-      <div>{duurzaamheid}</div>
+      <div className="img-container">{duurzaamheid}</div>
       {rest}
     </StyledCard>
   );
