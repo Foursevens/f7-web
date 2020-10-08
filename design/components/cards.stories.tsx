@@ -2,7 +2,7 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import duurzaamheid from './assets/duurzaamheid.png';
-import { CardsProps, Cards, ContentContainer } from './cards';
+import { CardProps, Cards, ContentContainer } from './cards';
 import { RICH_TEXT, SERVICE } from './data';
 import { RichText } from './rich-text';
 import { Tag } from './tag';
@@ -13,7 +13,7 @@ export default {
   component: Cards,
 };
 
-const Template: Story<CardsProps> = (args): React.ReactElement => (
+const Template: Story<CardProps> = (args): React.ReactElement => (
   <Cards {...args} />
 );
 

@@ -24,7 +24,7 @@ export const ContentContainer = styled('div', {
     paddingBottom: 3,
   },
 });
-export interface CardsProps {
+export interface CardProps {
   href: string;
   target: string;
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export interface CardsProps {
 export function Cards({
   children: [duurzaamheid, ...rest],
   ...props
-}: CardsProps): React.ReactElement {
+}: CardProps): React.ReactElement {
   const reference = useRef<HTMLElement>(null);
   const { linkProps } = useLink(props as never, reference);
   const { href } = props;
