@@ -5,9 +5,5 @@
     "icon": "id-card"
   },
   "options": {},
-  "attributes": {
-    "title": {
-      "type": "string"
-    }
-  }
+  "attributes": {}
 }
