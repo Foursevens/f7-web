@@ -31,7 +31,7 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
     }`,
   })) as {
     data: {
-      menus?: Array<{
+      menus: Array<{
         menu_items: Array<{
           id: string;
           highlight: boolean;
@@ -42,7 +42,7 @@ export async function getMainLayoutData(): Promise<MainLayoutData> {
       }>;
     };
   };
-  const mainMenu = data.menus?.find((menu) => menu.reference === 'main');
+  const mainMenu = data.menus.find((menu) => menu.reference === 'main');
   if (mainMenu == null) {
     throw new Error('Menu with reference "main" not found.');
   }

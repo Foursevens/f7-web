@@ -2,8 +2,11 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import duurzaamheid from './assets/duurzaamheid.png';
-import { CardsProps, Cards } from './cards';
+import { CardsProps, Cards, ContentContainer } from './cards';
 import { RICH_TEXT, SERVICE } from './data';
+import { RichText } from './rich-text';
+import { Tag } from './tag';
+import { Title } from './title';
 
 export default {
   title: 'Example/Cards',
@@ -16,20 +19,34 @@ const Template: Story<CardsProps> = (args): React.ReactElement => (
 
 export const CaseWithImage = Template.bind({});
 CaseWithImage.args = {
-  service: SERVICE,
-  image: { url: duurzaamheid },
-  client: 'cyclo',
-  title: 'Eenvoudig fietsparkeren',
   href: '/',
-  target: '_blank',
+  children: [
+    <img alt="decorative" src={duurzaamheid} />,
+    <ContentContainer>
+      <main>
+        <Tag>Cyclo</Tag>
+        <Title as="h3" size={3}>
+          Eenvoudig fietsparkeren
+        </Title>
+        <RichText>{RICH_TEXT}</RichText>
+      </main>
+    </ContentContainer>,
+  ],
 };
 
 export const StoriesWithImage = Template.bind({});
 StoriesWithImage.args = {
-  intro: RICH_TEXT,
-  image: { url: duurzaamheid },
-  tag: 'Theme',
-  title: 'Lorem Ipsum',
   href: '/',
-  target: '_blank',
+  children: [
+    <img alt="decorative" src={duurzaamheid} />,
+    <ContentContainer>
+      <main>
+        <Tag>Theme</Tag>
+        <Title as="h3" size={3}>
+          Eenvoudig fietsparkeren
+        </Title>
+        <RichText>{SERVICE}</RichText>
+      </main>
+    </ContentContainer>,
+  ],
 };
