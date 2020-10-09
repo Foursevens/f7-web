@@ -15,9 +15,7 @@ const StyledCard = styled('section', {
 
   'a::after': { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 },
 
-  '.card-img-container': {
-    height: 324,
-    width: 406,
+  '.card__image-container': {
     overflow: 'hidden',
   },
 
@@ -25,18 +23,17 @@ const StyledCard = styled('section', {
     transform: 'scale(1.2)',
   },
 
-  '.CardContentContainer': {
+  '.card__content-container': {
     display: 'flex',
     flexFlow: 'column nowrap',
     position: 'absolute',
     top: 264,
     left: 0,
-    width: 376,
     backgroundColor: '#ffffff',
     padding: 20,
   },
 
-  '.CardContentContainer > *': {
+  '.card__content-container > *': {
     marginBottom: 3,
   },
 });
@@ -49,11 +46,11 @@ export interface CardProps {
 export function Card({ img, children }: CardProps): React.ReactElement {
   return (
     <StyledCard>
-      <div className="card-img-container">
+      <div className="card__image-container">
         {' '}
-        <img alt="decorative" src={img} />,
+        <img alt="decorative" src={img} />
       </div>
-      <div className="CardContentContainer">{children}</div>
+      <div className="card__content-container">{children}</div>
     </StyledCard>
   );
 }

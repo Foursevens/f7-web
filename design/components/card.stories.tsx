@@ -13,11 +13,13 @@ export default {
 };
 
 const Template: Story<CardProps> = (args): React.ReactElement => (
-  <Card {...args} />
+  <div style={{ maxWidth: 500 }}>
+    <Card {...args} />
+  </div>
 );
 
-export const cardWithImageAndText = Template.bind({});
-cardWithImageAndText.args = {
+export const WithImageAndText = Template.bind({});
+WithImageAndText.args = {
   img: duurzaamheid,
   children: [
     <Tag>Theme</Tag>,
@@ -29,8 +31,18 @@ cardWithImageAndText.args = {
   ],
 };
 
-export const cardWithImage = Template.bind({});
-cardWithImage.args = {
+export const WithImage = Template.bind({});
+WithImage.args = {
+  img: duurzaamheid,
+  children: [
+    <Tag>Cyclo</Tag>,
+    <Title size={3}>Eenvoudig fietsparkeren</Title>,
+    <RichText>Research & Design</RichText>,
+  ],
+};
+
+export const WithImageAndLink = Template.bind({});
+WithImageAndLink.args = {
   img: duurzaamheid,
   children: [
     <Tag>Cyclo</Tag>,
