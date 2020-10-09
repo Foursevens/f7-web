@@ -15,11 +15,15 @@
   },
   "overrides": [
     {
-      "files": ["cms/**", "design/*.js", "design/.storybook/*.js"],
+      "files": ["cms/**"],
       "extends": ["noise-node"],
       "globals": {
         "strapi": true
       }
+    },
+    {
+      "files": ["design/*.js", "design/.storybook/*.js"],
+      "extends": ["noise-node"]
     },
     {
       "files": ["cms/config/**"],
