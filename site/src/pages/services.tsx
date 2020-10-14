@@ -30,7 +30,7 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <MainLayoutContainer headerMenu={headerMenu}>
-        <Container>
+        <Container spacing="xlarge">
           {service?.contentBlocks.map((contentBlock) => (
             <SiteContentBlock key={contentBlock.id} {...contentBlock} />
           ))}

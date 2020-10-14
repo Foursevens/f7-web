@@ -1,14 +1,18 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import begeleiding from '../stories-assets/begeleiding.png';
+import { Container } from '.';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
+import square1500 from '../stories-assets/square-1500.png';
+import square200 from '../stories-assets/square-200.png';
+import square500 from '../stories-assets/square-500.png';
 import { ButtonLink } from './button-link';
 import { ContentBlock, ContentBlockProps } from './content-block';
 import { RICH_TEXT } from './data';
 import { RichText } from './rich-text';
 import { Tag } from './tag';
 import { Title } from './title';
+import { ImageProps } from './types';
 
 export default {
   title: '3. Organisms / ContentBlock',
@@ -52,44 +56,42 @@ WithTitleTextAndCta.args = {
   ],
 };
 
-export const WithImageAtStart = Template.bind({});
-WithImageAtStart.args = {
-  children: [
-    <Title as="h3" size={2}>
-      Lorem Ipsum
-    </Title>,
-    <Tag>Lorem Ipsum is simply dummy text</Tag>,
-    <RichText>{RICH_TEXT}</RichText>,
-    <div>
-      <ButtonLink>Go on</ButtonLink>
-    </div>,
-  ],
-  image: { position: 'start', url: duurzaamheid },
-};
+const WithImagesTemplate: Story<ImageProps> = (image): React.ReactElement => (
+  <>
+    <Container background="white1" spacing="xlarge">
+      <ContentBlock image={{ position: 'start', ...image }}>
+        <Title size={2}>Lorem Ipsum</Title>
+        <Tag>Lorem Ipsum is simply dummy text</Tag>
+        <RichText>{RICH_TEXT}</RichText>
+        <div>
+          <ButtonLink>Go on</ButtonLink>
+        </div>
+      </ContentBlock>
+    </Container>
+    <Container background="white2" spacing="xlarge">
+      <ContentBlock image={{ position: 'end', ...image }}>
+        <Title size={2}>Lorem Ipsum</Title>
+        <Tag>Lorem Ipsum is simply dummy text</Tag>
+        <RichText>{RICH_TEXT}</RichText>
+        <div>
+          <ButtonLink>Go on</ButtonLink>
+        </div>
+      </ContentBlock>
+    </Container>
+  </>
+);
 
-export const WithImageAtEnd = Template.bind({});
-WithImageAtEnd.args = {
-  children: [
-    <Title as="h3" size={2}>
-      Lorem Ipsum
-    </Title>,
-    <Tag>Lorem Ipsum is simply dummy text</Tag>,
-    <RichText>{RICH_TEXT}</RichText>,
-    <div>
-      <ButtonLink>Go on</ButtonLink>
-    </div>,
-  ],
-  image: { position: 'end', url: duurzaamheid },
-};
+export const WithImagesNotLoading = WithImagesTemplate.bind({});
+WithImagesNotLoading.args = { url: 'not-found', width: 200, height: 200 };
 
-export const WithImageNotLoading = Template.bind({});
-WithImageNotLoading.args = {
-  children: [<RichText>{RICH_TEXT}</RichText>],
-  image: { position: 'start', url: 'not-found' },
-};
+export const WithSquareImages = WithImagesTemplate.bind({});
+WithSquareImages.args = { url: square500, width: 500, height: 500 };
 
-export const WithVeryHighImage = Template.bind({});
-WithVeryHighImage.args = {
-  children: [<RichText>{RICH_TEXT}</RichText>],
-  image: { position: 'end', url: begeleiding },
-};
+export const WithNonSquareImages = WithImagesTemplate.bind({});
+WithNonSquareImages.args = { url: duurzaamheid, width: 600, height: 420 };
+
+export const WithVeryBigImages = WithImagesTemplate.bind({});
+WithVeryBigImages.args = { url: square1500, width: 1500, height: 1500 };
+
+export const WithVerySmallImages = WithImagesTemplate.bind({});
+WithVerySmallImages.args = { url: square200, width: 200, height: 200 };

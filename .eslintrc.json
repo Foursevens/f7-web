@@ -44,7 +44,10 @@
     },
     {
       "files": ["**/*.{ts,tsx}"],
-      "extends": ["noise-ts"]
+      "extends": ["noise-ts"],
+      "rules": {
+        "react/prop-types": "off"
+      }
     },
     {
       "files": ["design/components/**.stories.{js,jsx,ts,tsx}"],
