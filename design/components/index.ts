@@ -10,3 +10,5 @@ export * from './menu';
 export * from './rich-text';
 export * from './title';
 export * from './tag';
+
+export * from './types';

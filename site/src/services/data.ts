@@ -19,6 +19,8 @@ export async function getServicesData(): Promise<ServicesData> {
             text_en
           }
           image {
+            height
+            width
             url
           }
           image_position
@@ -34,7 +36,7 @@ export async function getServicesData(): Promise<ServicesData> {
           id: string;
           cta?: { href: string; text_en: string };
           content_en?: string;
-          image?: { url: string };
+          image?: { height: number; url: string; width: number };
           image_position: 'start' | 'end';
           tag_en?: string;
           title_en?: string;
@@ -57,7 +59,11 @@ export async function getServicesData(): Promise<ServicesData> {
             const imageUrl = image.url.startsWith('http')
               ? image.url
               : `${apiBaseUrl}${image.url}`;
-            adaptedService.image = { position: image_position, url: imageUrl };
+            adaptedService.image = {
+              ...image,
+              position: image_position,
+              url: imageUrl,
+            };
           }
           Object.assign(adaptedService, {
             content: content_en,
