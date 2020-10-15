@@ -40,13 +40,3 @@ WithImage.args = {
     <RichText>Research & Design</RichText>,
   ],
 };
-
-export const WithImageAndLink = Template.bind({});
-WithImageAndLink.args = {
-  img: duurzaamheid,
-  children: [
-    <Tag>Cyclo</Tag>,
-    <Title size={3}>Eenvoudig fietsparkeren</Title>,
-    <RichText>Research & Design</RichText>,
-  ],
-};

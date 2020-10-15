@@ -24,6 +24,7 @@ const StyledCard = styled('section', {
   },
 
   '.card__content-container': {
+    width: '90%',
     display: 'flex',
     flexFlow: 'column nowrap',
     position: 'absolute',
