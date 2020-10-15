@@ -38,7 +38,7 @@ export const MenuItem = styled('div', {
   alignItems: 'center',
 
   color: '$primary1',
-  fontFamily: '$avenir',
+  fontFamily: '$lato',
   fontSize: '0.9375em', // 15px
   fontWeight: '$medium',
   textTransform: 'lowercase',

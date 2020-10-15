@@ -4,10 +4,8 @@ import { styled } from './stitches.config';
 
 const StyledTitle = styled('div', {
   color: '$primary1',
-  fontFamily: '$avenir',
-  fontStretch: 'normal',
-  fontWeight: '$dark',
-  letterSpacing: 'normal',
+  fontFamily: '$lato',
+  fontWeight: '$black',
 
   variants: {
     fullStop: {
