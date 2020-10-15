@@ -11,10 +11,8 @@ export const { styled, css } = createStyled({
       $white2: '#f7f7f7',
     },
     fonts: {
-      $avenir:
-        'Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
-      $proxima:
-        'ProximaNova, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+      $lato:
+        'Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
     },
     fontSizes: {
       $title1: '45px',
@@ -22,9 +20,10 @@ export const { styled, css } = createStyled({
       $title3: '20px',
     },
     fontWeights: {
-      $normal: 'normal',
-      $medium: '500',
-      $dark: '900',
+      $book: '300',
+      $medium: '400',
+      $heavy: '700',
+      $black: '900',
     },
     space: {
       $small: '10px',
@@ -33,8 +32,4 @@ export const { styled, css } = createStyled({
       $xlarge: '40px',
     },
   },
-});
-
-css.global({
-  body: { fontFamily: '$avenir' },
 });

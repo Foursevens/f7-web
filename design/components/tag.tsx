@@ -4,9 +4,9 @@ import { styled } from './stitches.config';
 
 const StyledWrapper = styled('strong', {
   color: '$secondary1',
-  fontFamily: '$avenir',
+  fontFamily: '$lato',
   fontSize: '0.875em', // 14px
-  fontWeight: '$dark',
+  fontWeight: '$heavy',
   letterSpacing: 0.7,
   lineHeight: 1.125,
   textTransform: 'uppercase',
