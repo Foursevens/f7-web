@@ -59,6 +59,8 @@ export const MenuItem = styled('div', {
   },
 
   a: {
+    margin: '-$small -$large',
+    padding: '$small $large',
     color: 'inherit',
     fontWeight: '$medium',
     textDecoration: 'none',
