@@ -3,16 +3,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import { MainLayoutMenu } from './data';
+import { SiteMenuModel } from '../cms';
 
 interface Props {
   children: React.ReactNode;
-  headerMenu: MainLayoutMenu;
+  mainMenu: SiteMenuModel;
 }
 
-export function MainLayoutContainer({
+export function LayoutContainer({
   children,
-  headerMenu,
+  mainMenu,
 }: Props): React.ReactElement {
   const router = useRouter();
   const isActive = (href: string): boolean => router.pathname.startsWith(href);
@@ -27,13 +27,13 @@ export function MainLayoutContainer({
             </a>
           </Link>
           <Menu>
-            {headerMenu.menuItems.map((item) => (
+            {mainMenu.items.map(({ id, highlight, link }) => (
               <MenuItem
-                key={item.id}
-                active={isActive(item.href) ? 'yes' : 'no'}
-                highlight={item.highlight ? 'yes' : 'no'}
+                key={id}
+                active={isActive(link.href) ? 'yes' : 'no'}
+                highlight={highlight ? 'yes' : 'no'}
               >
-                <Link href={item.href}>{item.title}</Link>
+                <Link href={link.href}>{link.text}</Link>
               </MenuItem>
             ))}
           </Menu>

@@ -1,18 +1,20 @@
 {
   "kind": "singleType",
-  "collectionName": "services",
+  "collectionName": "services_pages",
   "info": {
-    "name": "Services"
+    "name": "ServicesPage",
+    "icon": "bars"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "content_blocks": {
+    "blocks": {
       "type": "component",
       "repeatable": true,
-      "component": "molecules.content-block"
+      "component": "molecules.content-block",
+      "required": true
     }
   }
 }

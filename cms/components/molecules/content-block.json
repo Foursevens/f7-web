@@ -2,50 +2,35 @@
   "collectionName": "components_molecules_content_blocks",
   "info": {
     "name": "Content Block",
-    "icon": "address-card"
+    "icon": "bars"
   },
   "options": {},
   "attributes": {
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["images", "files", "videos"],
+      "allowedTypes": ["images"],
       "plugin": "upload"
     },
-    "image_position": {
-      "type": "enumeration",
-      "enum": ["start", "end"]
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
     },
-    "title_en": {
-      "type": "string"
+    "tagline": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
     },
-    "tag_en": {
-      "type": "string"
-    },
-    "content_en": {
-      "type": "richtext"
-    },
-    "title_fr": {
-      "type": "string"
-    },
-    "tag_fr": {
-      "type": "string"
-    },
-    "content_fr": {
-      "type": "richtext"
-    },
-    "title_nl": {
-      "type": "string"
-    },
-    "tag_nl": {
-      "type": "string"
-    },
-    "content_nl": {
-      "type": "richtext"
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content"
     },
     "cta": {
       "type": "component",
-      "component": "atoms.button"
+      "repeatable": false,
+      "component": "atoms.link"
     }
   }
 }

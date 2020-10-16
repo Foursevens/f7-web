@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/services",
-      "handler": "services.find",
+      "path": "/services-page",
+      "handler": "services-page.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/services",
-      "handler": "services.update",
+      "path": "/services-page",
+      "handler": "services-page.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/services",
-      "handler": "services.delete",
+      "path": "/services-page",
+      "handler": "services-page.delete",
       "config": {
         "policies": []
       }

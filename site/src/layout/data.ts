@@ -1,60 +1,36 @@
 import { client } from '../api';
+import { CmsMenuModel, cmsMenuToSite, SiteMenuModel } from '../cms';
 
-export interface MainLayoutMenuItem {
-  id: string;
-  highlight: boolean;
-  href: string;
-  title: string;
+export interface LayoutData {
+  mainMenu: SiteMenuModel;
 }
 
-export interface MainLayoutMenu {
-  menuItems: MainLayoutMenuItem[];
-  reference: string;
-}
-
-export interface MainLayoutData {
-  headerMenu: MainLayoutMenu;
-}
-
-export async function getMainLayoutData(): Promise<MainLayoutData> {
+export async function getLayoutData(): Promise<LayoutData> {
   const { data } = (await client({
     query: `query {
-      menus {
-        menu_items {
+      mainMenus: menus(where: { reference: "main" }) {
+        reference
+        title { en }
+        items {
           id
           highlight
-          href
-          title_en
+          link {
+            href
+            text { en }
+          }
         }
-        reference
       }
     }`,
   })) as {
     data: {
-      menus?: Array<{
-        menu_items: Array<{
-          id: string;
-          highlight: boolean;
-          href: string;
-          title_en: string;
-        }>;
-        reference: string;
-      }>;
+      mainMenus: Array<CmsMenuModel | undefined>;
     };
   };
-  const mainMenu = data.menus?.find((menu) => menu.reference === 'main');
-  if (mainMenu == null) {
-    throw new Error('Menu with reference "main" not found.');
-  }
+  const [mainMenu] = data.mainMenus;
   return {
-    headerMenu: {
-      menuItems: mainMenu.menu_items.map(
-        ({ title_en, ...rest }): MainLayoutMenuItem => ({
-          ...rest,
-          title: title_en,
-        }),
-      ),
-      reference: mainMenu.reference,
-    },
+    mainMenu:
+      mainMenu == null
+        ? { reference: 'main', items: [] }
+        : cmsMenuToSite(mainMenu),
   };
 }

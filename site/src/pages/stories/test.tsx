@@ -3,21 +3,17 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import {
-  MainLayoutData,
-  MainLayoutContainer,
-  getMainLayoutData,
-} from '../../layout';
+import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
-interface Props extends MainLayoutData {}
+interface Props extends LayoutData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const layoutData = await getMainLayoutData();
+  const layoutData = await getLayoutData();
   return { props: layoutData };
 };
 
 export default function StoryDetailPage({
-  headerMenu,
+  mainMenu,
 }: Props): React.ReactElement {
   return (
     <>
@@ -25,11 +21,11 @@ export default function StoryDetailPage({
         <title>Foursevens Test Story</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <MainLayoutContainer headerMenu={headerMenu}>
+      <LayoutContainer mainMenu={mainMenu}>
         <Container>
           <h2>Test Story</h2>
         </Container>
-      </MainLayoutContainer>
+      </LayoutContainer>
     </>
   );
 }

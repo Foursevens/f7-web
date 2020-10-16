@@ -1,7 +1,7 @@
-import { MainLayoutData, getMainLayoutData } from './data';
+import { LayoutData, getLayoutData } from './data';
 
-export { MainLayoutContainer } from './main';
+export { LayoutContainer } from './layout';
 
-export type { MainLayoutData };
+export type { LayoutData };
 
-export { getMainLayoutData };
+export { getLayoutData };

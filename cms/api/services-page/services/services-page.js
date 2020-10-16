@@ -9,15 +9,20 @@ const marked = require('marked');
 
 module.exports = {
   async find(populate) {
-    const [services] = await strapi
-      .query('services')
+    const [servicesPage] = await strapi
+      .query('services-page')
       .find({ _limit: 1 }, populate);
-    services.content_blocks = services.content_blocks.map((contentBlock) => {
+
+    servicesPage.blocks = servicesPage.blocks.map((contentBlock) => {
       return {
         ...contentBlock,
-        content_en: marked(contentBlock.content_en),
+        content:
+          contentBlock.content == null
+            ? undefined
+            : { en: marked(contentBlock.content.en) },
       };
     });
-    return services;
+
+    return servicesPage;
   },
 };

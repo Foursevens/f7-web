@@ -3,27 +3,23 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import {
-  MainLayoutData,
-  MainLayoutContainer,
-  getMainLayoutData,
-} from '../layout';
+import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
-interface Props extends MainLayoutData {}
+interface Props extends LayoutData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const layoutData = await getMainLayoutData();
+  const layoutData = await getLayoutData();
   return { props: layoutData };
 };
 
-export default function Home({ headerMenu }: Props): React.ReactElement {
+export default function Homepage({ mainMenu }: Props): React.ReactElement {
   return (
     <>
       <Head>
         <title>Foursevens</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <MainLayoutContainer headerMenu={headerMenu}>
+      <LayoutContainer mainMenu={mainMenu}>
         <Hero1 image={{ url: '/hero1.png' }}>
           <Title as="h1" size={1}>
             Digitaal voor mens en planeet
@@ -37,7 +33,7 @@ export default function Home({ headerMenu }: Props): React.ReactElement {
             <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
           </div>
         </Hero1>
-      </MainLayoutContainer>
+      </LayoutContainer>
     </>
   );
 }

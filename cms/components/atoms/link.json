@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_atoms_links",
+  "info": {
+    "name": "Link",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text",
+      "required": true
+    }
+  }
+}

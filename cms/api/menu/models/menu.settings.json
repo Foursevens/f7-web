@@ -2,33 +2,28 @@
   "kind": "collectionType",
   "collectionName": "menus",
   "info": {
-    "name": "Menu"
+    "name": "Menu",
+    "icon": "bars"
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
-    "menu_items": {
-      "component": "atoms.menu-item",
-      "repeatable": true,
-      "required": true,
-      "type": "component"
-    },
     "reference": {
-      "required": true,
-      "targetField": "title_en",
       "type": "uid"
     },
-    "title_en": {
-      "required": true,
-      "type": "string"
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
     },
-    "title_fr": {
-      "type": "string"
-    },
-    "title_nl": {
-      "type": "string"
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.menu-item",
+      "required": true
     }
   }
 }

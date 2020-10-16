@@ -4,27 +4,23 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import {
-  MainLayoutData,
-  MainLayoutContainer,
-  getMainLayoutData,
-} from '../layout';
+import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
-interface Props extends MainLayoutData {}
+interface Props extends LayoutData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const layoutData = await getMainLayoutData();
+  const layoutData = await getLayoutData();
   return { props: layoutData };
 };
 
-export default function CasesPage({ headerMenu }: Props): React.ReactElement {
+export default function CasesPage({ mainMenu }: Props): React.ReactElement {
   return (
     <>
       <Head>
         <title>Foursevens Cases</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <MainLayoutContainer headerMenu={headerMenu}>
+      <LayoutContainer mainMenu={mainMenu}>
         <Container>
           <h2>Cases</h2>
           <ul>
@@ -35,7 +31,7 @@ export default function CasesPage({ headerMenu }: Props): React.ReactElement {
             </li>
           </ul>
         </Container>
-      </MainLayoutContainer>
+      </LayoutContainer>
     </>
   );
 }
