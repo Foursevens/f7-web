@@ -3,7 +3,7 @@ import React from 'react';
 import FoursevensIcon from '../assets/foursevens-icon.svg';
 import { styled } from './stitches.config';
 
-const Container = styled('div', {
+const ContentArea = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -18,7 +18,7 @@ const Container = styled('div', {
     transform: 'translateX(20%)',
   },
 });
-const Wrapper = styled('div', {
+const ContentAreraWrapper = styled('div', {
   position: 'relative',
   backgroundColor: '$primary2',
   overflow: 'hidden',
@@ -34,11 +34,11 @@ export function ConversationBlock({
   children,
 }: ConversionBlockProps): React.ReactElement {
   return (
-    <Wrapper>
-      <Container>
+    <ContentAreraWrapper>
+      <ContentArea>
         <FoursevensIcon />
         {children}
-      </Container>
-    </Wrapper>
+      </ContentArea>
+    </ContentAreraWrapper>
   );
 }
