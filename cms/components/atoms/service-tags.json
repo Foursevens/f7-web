@@ -1,13 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "components_atoms_service_tags",
   "info": {
-    "name": "Service Tag"
+    "name": "Service Tag",
+    "icon": "tags"
   },
-  "options": {
-    "increments": true,
-    "timestamps": true
-  },
+  "options": {},
   "attributes": {
     "title": {
       "type": "string"
