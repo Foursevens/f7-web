@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_molecules_conversion_blocks",
+  "info": {
+    "name": "Conversion Block",
+    "icon": "file-contract"
+  },
+  "options": {},
+  "attributes": {
+    "title_en": {
+      "type": "string"
+    },
+    "title_fr": {
+      "type": "string"
+    },
+    "title_nl": {
+      "type": "string"
+    },
+    "content_fr": {
+      "type": "richtext"
+    },
+    "content_nl": {
+      "type": "richtext"
+    },
+    "content_en": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.button"
+    }
+  }
+}
