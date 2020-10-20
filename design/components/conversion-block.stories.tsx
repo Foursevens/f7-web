@@ -19,10 +19,12 @@ export const withText = Template.bind({});
 withText.args = {
   children: [
     <Title as="h2" size={2}>
-      Digitaal voor mens en planeet
+      Klinkt als iets voor jou
     </Title>,
     <RichText>
-      {'<p>Sustainable digital solutions with positive.</p>'}
+      {
+        '<p><a href="mailto:info@foursevens.be">info@foursevens.be</a> <br> <a href="tel:+3234508030">+32 3 450 80 30</a></p>'
+      }
     </RichText>,
     <div>
       <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
@@ -30,8 +32,8 @@ withText.args = {
   ],
 };
 
-export const noText = Template.bind({});
-noText.args = {
+export const withNoText = Template.bind({});
+withNoText.args = {
   children: [
     <Title as="h2" size={2}>
       Digitaal voor mens en planeet
