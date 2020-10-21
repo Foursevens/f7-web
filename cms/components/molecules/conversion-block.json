@@ -7,27 +7,34 @@
   "options": {},
   "attributes": {
     "title_en": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title_fr": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title_nl": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "content_fr": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "content_nl": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "content_en": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "atoms.button"
+      "component": "atoms.button",
+      "required": true
     }
   }
 }
