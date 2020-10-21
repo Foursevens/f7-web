@@ -8,22 +8,22 @@ const ContentArea = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-between',
   alignSelf: 'center',
-  height: 145,
+  height: 140,
+});
 
-  '>svg': {
+const ContentAreraWrapper = styled('div', {
+  backgroundColor: '$primary2',
+  overflow: 'hidden',
+  position: 'relative',
+  padding: '0 50px 0 50px',
+
+  '> svg': {
     width: 200,
     position: 'absolute',
-    top: -50,
+    top: -55,
     right: 0,
     transform: 'translateX(20%)',
   },
-});
-const ContentAreraWrapper = styled('div', {
-  position: 'relative',
-  backgroundColor: '$primary2',
-  overflow: 'hidden',
-  paddingLeft: 50,
-  paddingRight: 50,
 });
 
 export interface ConversionBlockProps {
@@ -35,10 +35,8 @@ export function ConversationBlock({
 }: ConversionBlockProps): React.ReactElement {
   return (
     <ContentAreraWrapper>
-      <ContentArea>
-        <FoursevensIcon />
-        {children}
-      </ContentArea>
+      <FoursevensIcon />
+      <ContentArea>{children}</ContentArea>
     </ContentAreraWrapper>
   );
 }
