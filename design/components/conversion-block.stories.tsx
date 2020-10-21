@@ -34,12 +34,12 @@ withText.args = {
 
 export const withNoText = Template.bind({});
 withNoText.args = {
-  children: [
-    <Title as="h2" size={2}>
-      Digitaal voor mens en planeet
-    </Title>,
-    <div>
-      <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
-    </div>,
-  ],
+  children: (
+    <>
+      <Title size={2}>Digitaal voor mens en planeet</Title>
+      <div>
+        <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
+      </div>
+    </>
+  ),
 };
