@@ -19,18 +19,20 @@ const Template: Story<Hero1Props> = (args): React.ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: [
-    <Title as="h1" size={1}>
-      Digitaal voor mens en planeet
-    </Title>,
-    <RichText>
-      {
-        '<p>Sustainable digital solutions with positive impact on people and planet.</p>'
-      }
-    </RichText>,
-    <div>
-      <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
-    </div>,
-  ],
+  children: (
+    <>
+      <Title as="h1" size={1}>
+        Digitaal voor mens en planeet
+      </Title>
+      <RichText>
+        {
+          '<p>Sustainable digital solutions with positive impact on people and planet.</p>'
+        }
+      </RichText>
+      <div>
+        <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+      </div>
+    </>
+  ),
   image: { url: hero1 },
 };
