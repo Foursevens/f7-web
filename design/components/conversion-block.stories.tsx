@@ -27,9 +27,7 @@ Primary.args = {
           '<p><a href="mailto:info@foursevens.be">info@foursevens.be</a> <br> <a href="tel:+3234508030">+32 3 450 80 30</a></p>'
         }
       </RichText>
-      <div>
-        <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
-      </div>
+      <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
     </>
   ),
 };
@@ -68,9 +66,7 @@ WithNoText.args = {
       <Title fullStop={false} size={2}>
         Digitaal voor mens en planeet
       </Title>
-      <div>
-        <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
-      </div>
+      <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
     </>
   ),
 };
