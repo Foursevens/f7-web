@@ -18,8 +18,9 @@ const Template: Story<CardProps> = (args): React.ReactElement => (
   </div>
 );
 
-export const WithImageAndText = Template.bind({});
-WithImageAndText.args = {
+export const WithWhite1 = Template.bind({});
+WithWhite1.args = {
+  background: 'white1',
   img: duurzaamheid,
   children: [
     <Tag>Theme</Tag>,
@@ -33,12 +34,18 @@ WithImageAndText.args = {
   ],
 };
 
-export const WithImage = Template.bind({});
-WithImage.args = {
+export const WithWhite2 = Template.bind({});
+WithWhite2.args = {
+  background: 'white2',
   img: duurzaamheid,
   children: [
-    <Tag>Cyclo</Tag>,
-    <Title size={3}>Eenvoudig fietsparkeren</Title>,
-    <RichText>Research & Design</RichText>,
+    <Tag>Theme</Tag>,
+    <Title size={3}>
+      <a href="/">Eenvoudig fietsparkeren</a>
+    </Title>,
+    <RichText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua
+    </RichText>,
   ],
 };
