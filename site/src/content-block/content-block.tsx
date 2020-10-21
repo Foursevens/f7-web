@@ -15,7 +15,11 @@ export function SiteContentBlock({
       {title == null ? null : <Title>{title}</Title>}
       {tag == null ? null : <Tag>{tag}</Tag>}
       {content == null ? null : <RichText>{content}</RichText>}
-      {cta == null ? null : <ButtonLink href={cta.href}>{cta.text}</ButtonLink>}
+      {cta == null ? null : (
+        <div>
+          <ButtonLink href={cta.href}>{cta.text}</ButtonLink>
+        </div>
+      )}
     </ContentBlock>
   );
 }
