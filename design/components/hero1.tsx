@@ -40,7 +40,7 @@ const StyledWrapper = styled('div', {
 
 export interface Hero1Props {
   children: React.ReactNode;
-  image: { url: string };
+  image?: { url: string };
 }
 
 export function Hero1({ children, image }: Hero1Props): React.ReactElement {
@@ -53,7 +53,7 @@ export function Hero1({ children, image }: Hero1Props): React.ReactElement {
         <ContentBlock>{children}</ContentBlock>
       </ContentArea>
       <ImageArea aria-hidden="true">
-        <img alt="decorative" src={image.url} />
+        {image == null ? null : <img alt="decorative" src={image.url} />}
       </ImageArea>
     </StyledWrapper>
   );
