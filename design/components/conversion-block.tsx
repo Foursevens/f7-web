@@ -7,7 +7,7 @@ const StyledConversionBlock = styled('div', {
   backgroundColor: '$primary2',
   overflow: 'hidden',
   position: 'relative',
-  padding: '0 50px 0 50px',
+  height: 170,
 
   '> svg': {
     position: 'absolute',
@@ -18,11 +18,13 @@ const StyledConversionBlock = styled('div', {
 });
 
 const ContentArea = styled('div', {
+  position: 'absolute',
+  left: 50,
+  right: 50,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  alignSelf: 'center',
-  height: 170,
+  height: '100%',
 });
 
 export interface ConversionBlockProps {
