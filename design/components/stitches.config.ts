@@ -18,6 +18,10 @@ export const { styled, css } = createStyled({
       $title1: '45px',
       $title2: '30px',
       $title3: '20px',
+      '$text-xs': '14px',
+      '$text-sm': '15px',
+      '$text-md': '16px',
+      '$text-lg': '22px',
     },
     fontWeights: {
       $book: '300',

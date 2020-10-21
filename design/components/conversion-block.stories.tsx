@@ -53,7 +53,7 @@ WithOnlyButton.args = {
 export const WithOnlyText = Template.bind({});
 WithOnlyText.args = {
   children: (
-    <RichText>
+    <RichText size="lg">
       {
         '<p><a href="mailto:info@foursevens.be">info@foursevens.be</a> <br> <a href="tel:+3234508030">+32 3 450 80 30</a></p>'
       }

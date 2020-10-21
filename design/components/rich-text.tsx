@@ -10,12 +10,30 @@ const StyledRichText = styled('div', {
   lineHeight: 1.5625,
 
   'p, ul': { margin: '1.25em 0' },
+
+  variants: {
+    size: {
+      xs: { fontSize: '$text-xs' },
+      sm: { fontSize: '$text-sm' },
+      md: { fontSize: '$text-md' },
+      lg: { fontSize: '$text-lg' },
+    },
+  },
 });
 
 export interface RichTextProps {
   children: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg';
 }
 
-export function RichText({ children }: RichTextProps): React.ReactElement {
-  return <StyledRichText dangerouslySetInnerHTML={{ __html: children }} />;
+export function RichText({
+  size = 'md',
+  children,
+}: RichTextProps): React.ReactElement {
+  return (
+    <StyledRichText
+      dangerouslySetInnerHTML={{ __html: children }}
+      size={size}
+    />
+  );
 }
