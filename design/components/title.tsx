@@ -27,7 +27,7 @@ const StyledTitle = styled('div', {
 
 export interface TitleProps {
   as?: string;
-  children: string;
+  children: React.ReactNode;
   fullStop?: boolean;
   size?: 1 | 2 | 3; // eslint-disable-line no-magic-numbers
 }
@@ -41,7 +41,7 @@ export function Title({
   return (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     <StyledTitle as={as as any} fullStop={fullStop} size={size}>
-      {children.trimEnd().replace(/\.+$/, '')}
+      {children}
     </StyledTitle>
   );
 }

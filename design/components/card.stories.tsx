@@ -23,7 +23,9 @@ WithImageAndText.args = {
   img: duurzaamheid,
   children: [
     <Tag>Theme</Tag>,
-    <Title size={3}>Eenvoudig fietsparkeren</Title>,
+    <Title size={3}>
+      <a href="/">Eenvoudig fietsparkeren</a>
+    </Title>,
     <RichText>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua

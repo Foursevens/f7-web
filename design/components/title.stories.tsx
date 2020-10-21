@@ -18,6 +18,12 @@ WithFullStop.args = {
   fullStop: true,
 };
 
+export const WithLinkStop = Template.bind({});
+WithLinkStop.args = {
+  children: <a href="/">Eenvoudig fietsparkeren</a>,
+  fullStop: true,
+};
+
 export const WithoutFullStop = Template.bind({});
 WithoutFullStop.args = {
   children: 'Eenvoudig fietsparkeren',
