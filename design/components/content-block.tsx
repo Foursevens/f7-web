@@ -11,11 +11,7 @@ const ImageEndContainer = styled('div', {
   backgroundColor: '$primary2',
   boxShadow: '15px 15px 0 $primary2',
 
-  img: {
-    objectFit: 'cover',
-    width: '100%',
-    height: '100%',
-  },
+  img: { height: '100%', objectFit: 'cover' },
 });
 
 const StyledContentBlock = styled('div', {
