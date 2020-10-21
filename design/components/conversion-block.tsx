@@ -18,9 +18,8 @@ const ContentAreraWrapper = styled('div', {
   padding: '0 50px 0 50px',
 
   '> svg': {
-    width: 200,
     position: 'absolute',
-    top: -55,
+    top: 20,
     right: 0,
     transform: 'translateX(20%)',
   },
