@@ -6,6 +6,7 @@ export * from './container';
 export * from './content-block';
 export * from './header';
 export * from './hero1';
+export * from './hero2';
 export * from './menu';
 export * from './rich-text';
 export * from './title';
