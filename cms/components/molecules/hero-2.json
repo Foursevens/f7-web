@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_molecules_hero_2s",
+  "info": {
+    "name": "Hero 2",
+    "icon": "award",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": false
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content"
+    }
+  }
+}
