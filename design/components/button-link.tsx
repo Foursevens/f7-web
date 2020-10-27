@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { useLink } from '@react-aria/link';
 import React, { useRef } from 'react';
 
 import { styled } from './stitches.config';
 
-const StyledAnchor = styled('a', {
+const StyledButtonLink = styled('div', {
   display: 'inline-flex',
   height: 40,
   alignItems: 'center',
@@ -30,7 +28,6 @@ const StyledAnchor = styled('a', {
 
 export interface ButtonLinkProps
   extends React.HTMLAttributes<HTMLAnchorElement> {
-  as?: any;
   background?: 'primary' | 'secondary';
   children: React.ReactNode;
   href?: string;
@@ -38,26 +35,20 @@ export interface ButtonLinkProps
 }
 
 export function ButtonLink({
-  as,
   background = 'primary',
   ...props
 }: ButtonLinkProps): React.ReactElement {
-  const reference = useRef<HTMLElement>(null);
-  const { linkProps } = useLink(props as any, reference);
-  const { children, target, href } = props;
+  const reference = useRef<HTMLAnchorElement>(null);
+  const { linkProps } = useLink(props, reference);
+  const { children, href, target } = props;
   return (
-    <StyledAnchor
-      ref={reference as React.RefObject<HTMLAnchorElement>}
-      as={as}
-      background={background}
-      href={href}
-      target={target}
-      {...linkProps}
-    >
-      <svg height="16" style={{ marginRight: 13 }} width="10">
-        <path d="M 2 2 L 8 8 L 2 14" fill="none" strokeWidth="2" />
-      </svg>
-      {children}
-    </StyledAnchor>
+    <StyledButtonLink background={background}>
+      <a {...linkProps} ref={reference} href={href} target={target}>
+        <svg height="16" style={{ marginRight: 13 }} width="10">
+          <path d="M 2 2 L 8 8 L 2 14" fill="none" strokeWidth="2" />
+        </svg>
+        {children}
+      </a>
+    </StyledButtonLink>
   );
 }
