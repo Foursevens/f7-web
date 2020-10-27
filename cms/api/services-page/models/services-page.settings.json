@@ -3,13 +3,20 @@
   "collectionName": "services_pages",
   "info": {
     "name": "ServicesPage",
-    "icon": "bars"
+    "icon": "bars",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.hero-2"
+    },
     "blocks": {
       "type": "component",
       "repeatable": true,
