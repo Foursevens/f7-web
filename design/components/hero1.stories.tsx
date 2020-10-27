@@ -21,7 +21,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: (
     <>
-      <Title size={1}>Digitaal voor mens en planeet</Title>
+      <Title size="xl">Digitaal voor mens en planeet</Title>
       <RichText>
         {
           '<p>Sustainable digital solutions with positive impact on people and planet.</p>'

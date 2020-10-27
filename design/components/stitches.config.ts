@@ -15,13 +15,14 @@ export const { styled, css } = createStyled({
         'Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
     },
     fontSizes: {
-      $title1: '45px',
-      $title2: '30px',
-      $title3: '20px',
       '$text-xs': '14px',
       '$text-sm': '15px',
       '$text-md': '16px',
       '$text-lg': '22px',
+      '$title-sm': '20px',
+      '$title-md': '30px',
+      '$title-lg': '40px',
+      '$title-xl': '45px',
     },
     fontWeights: {
       $book: '300',

@@ -38,7 +38,7 @@ export default function ServicesPage({
             ({ image, title, tagline, content, cta }) => (
               <ContentBlock image={image}>
                 {title == null ? null : (
-                  <Title as="h3" size={2}>
+                  <Title as="h3" size="md">
                     {title}
                   </Title>
                 )}

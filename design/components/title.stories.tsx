@@ -30,22 +30,30 @@ WithoutFullStop.args = {
   fullStop: false,
 };
 
-export const WithSize1 = Template.bind({});
-WithSize1.args = {
+export const WithSizeXl = Template.bind({});
+WithSizeXl.args = {
   as: 'h1',
   children: 'Eenvoudig fietsparkeren',
-  size: 1,
+  size: 'xl',
 };
 
-export const WithSize2 = Template.bind({});
-WithSize2.args = {
+export const WithSizeLg = Template.bind({});
+WithSizeLg.args = {
   as: 'h2',
   children: 'Digitaal advies',
-  size: 2,
+  size: 'lg',
 };
-export const WithSize3 = Template.bind({});
-WithSize3.args = {
+
+export const WithSizeMd = Template.bind({});
+WithSizeMd.args = {
   as: 'h3',
   children: 'Digitaal voor mens en planeet',
-  size: 3,
+  size: 'md',
+};
+
+export const WithSizeSm = Template.bind({});
+WithSizeSm.args = {
+  as: 'h3',
+  children: 'Digitaal voor mens en planeet',
+  size: 'sm',
 };

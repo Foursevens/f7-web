@@ -32,7 +32,7 @@ export const Primary = (): React.ReactElement => (
       </Header>
     </Container>
     <Hero1 image={{ url: hero1 }}>
-      <Title as="h1" size={1}>
+      <Title as="h1" size="xl">
         Digitaal voor mens en planeet
       </Title>
       <RichText>

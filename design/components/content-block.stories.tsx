@@ -32,7 +32,7 @@ export const WithTitleAndText = Template.bind({});
 WithTitleAndText.args = {
   children: (
     <>
-      <Title size={2}>Lorem Ipsum</Title>
+      <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
     </>
   ),
@@ -42,7 +42,7 @@ export const WithTagTitleAndText = Template.bind({});
 WithTagTitleAndText.args = {
   children: (
     <>
-      <Title size={2}>Lorem Ipsum</Title>
+      <Title size="md">Lorem Ipsum</Title>
       <Tag>Lorem Ipsum is simply dummy text</Tag>
       <RichText>{RICH_TEXT}</RichText>
     </>
@@ -53,7 +53,7 @@ export const WithTitleTextAndCta = Template.bind({});
 WithTitleTextAndCta.args = {
   children: (
     <>
-      <Title size={2}>Lorem Ipsum</Title>
+      <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
       <div>
         <ButtonLink>Go on</ButtonLink>
@@ -66,7 +66,7 @@ const WithImagesTemplate: Story<ImageProps> = (image): React.ReactElement => (
   <>
     <Container background="white1" spacing="xlarge">
       <ContentBlock image={{ position: 'start', ...image }}>
-        <Title size={2}>Lorem Ipsum</Title>
+        <Title size="md">Lorem Ipsum</Title>
         <Tag>Lorem Ipsum is simply dummy text</Tag>
         <RichText>{RICH_TEXT}</RichText>
         <div>
@@ -76,7 +76,7 @@ const WithImagesTemplate: Story<ImageProps> = (image): React.ReactElement => (
     </Container>
     <Container background="white2" spacing="xlarge">
       <ContentBlock image={{ position: 'end', ...image }}>
-        <Title size={2}>Lorem Ipsum</Title>
+        <Title size="md">Lorem Ipsum</Title>
         <Tag>Lorem Ipsum is simply dummy text</Tag>
         <RichText>{RICH_TEXT}</RichText>
         <div>
