@@ -53,7 +53,8 @@ export const WithTitleTextAndCta = Template.bind({});
 WithTitleTextAndCta.args = {
   children: (
     <>
-      <Title size={2}>Lorem Ipsum</Title>,<RichText>{RICH_TEXT}</RichText>
+      <Title size={2}>Lorem Ipsum</Title>
+      <RichText>{RICH_TEXT}</RichText>
       <div>
         <ButtonLink>Go on</ButtonLink>
       </div>
