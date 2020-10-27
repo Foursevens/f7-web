@@ -10,8 +10,8 @@ export default {
   component: Header,
 };
 
-const Template: Story<HeaderProps> = (args): React.ReactElement => (
-  <Header {...args} />
+const Template: Story<HeaderProps> = (argumentz): React.ReactElement => (
+  <Header {...argumentz} />
 );
 
 export const Primary = Template.bind({});

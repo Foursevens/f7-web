@@ -12,8 +12,8 @@ export default {
   component: Container,
 };
 
-const Template: Story<ContainerProps> = (args): React.ReactElement => (
-  <Container {...args} />
+const Template: Story<ContainerProps> = (argumentz): React.ReactElement => (
+  <Container {...argumentz} />
 );
 
 export const White1 = Template.bind({});

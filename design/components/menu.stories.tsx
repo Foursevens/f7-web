@@ -8,8 +8,8 @@ export default {
   title: '2. Molecules / Menu',
 };
 
-const Template: Story<MenuProps> = (args): React.ReactElement => (
-  <Menu {...args} />
+const Template: Story<MenuProps> = (argumentz): React.ReactElement => (
+  <Menu {...argumentz} />
 );
 
 export const Default = Template.bind({});

@@ -19,8 +19,8 @@ export default {
   component: ContentBlock,
 };
 
-const Template: Story<ContentBlockProps> = (args): React.ReactElement => (
-  <ContentBlock {...args} />
+const Template: Story<ContentBlockProps> = (argumentz): React.ReactElement => (
+  <ContentBlock {...argumentz} />
 );
 
 export const WithText = Template.bind({});

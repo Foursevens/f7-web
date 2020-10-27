@@ -8,8 +8,8 @@ export default {
   component: ButtonLink,
 };
 
-const Template: Story<ButtonLinkProps> = (args): React.ReactElement => (
-  <ButtonLink {...args} />
+const Template: Story<ButtonLinkProps> = (argumentz): React.ReactElement => (
+  <ButtonLink {...argumentz} />
 );
 
 export const Primary = Template.bind({});

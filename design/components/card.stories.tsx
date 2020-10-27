@@ -12,9 +12,9 @@ export default {
   component: Card,
 };
 
-const Template: Story<CardProps> = (args): React.ReactElement => (
+const Template: Story<CardProps> = (argumentz): React.ReactElement => (
   <div style={{ maxWidth: 500 }}>
-    <Card {...args} />
+    <Card {...argumentz} />
   </div>
 );
 

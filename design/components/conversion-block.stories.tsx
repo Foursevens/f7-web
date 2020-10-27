@@ -11,9 +11,9 @@ export default {
   component: ConvertionBlock,
 };
 
-const Template: Story<ConversionBlockProps> = (args): React.ReactElement => (
-  <ConvertionBlock {...args} />
-);
+const Template: Story<ConversionBlockProps> = (
+  argumentz,
+): React.ReactElement => <ConvertionBlock {...argumentz} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

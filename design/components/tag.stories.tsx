@@ -8,8 +8,8 @@ export default {
   component: Tag,
 };
 
-const Template: Story<TagProps> = (args): React.ReactElement => (
-  <Tag {...args} />
+const Template: Story<TagProps> = (argumentz): React.ReactElement => (
+  <Tag {...argumentz} />
 );
 
 export const Default = Template.bind({});

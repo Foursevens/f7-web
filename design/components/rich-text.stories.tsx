@@ -8,8 +8,8 @@ export default {
   component: RichText,
 };
 
-const Template: Story<RichTextProps> = (args): React.ReactElement => (
-  <RichText {...args} />
+const Template: Story<RichTextProps> = (argumentz): React.ReactElement => (
+  <RichText {...argumentz} />
 );
 
 export const Default = Template.bind({});

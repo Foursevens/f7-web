@@ -13,8 +13,8 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-const Template: Story<Hero1Props> = (args): React.ReactElement => (
-  <Hero1 {...args} />
+const Template: Story<Hero1Props> = (argumentz): React.ReactElement => (
+  <Hero1 {...argumentz} />
 );
 
 export const Default = Template.bind({});

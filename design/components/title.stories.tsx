@@ -8,8 +8,8 @@ export default {
   component: Title,
 };
 
-const Template: Story<TitleProps> = (args): React.ReactElement => (
-  <Title {...args} />
+const Template: Story<TitleProps> = (argumentz): React.ReactElement => (
+  <Title {...argumentz} />
 );
 
 export const WithFullStop = Template.bind({});
