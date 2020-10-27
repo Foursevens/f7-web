@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/string-content */
-
 module.exports = function configurePlop(
   /** @type {import('plop').NodePlopAPI} */
   plop,
