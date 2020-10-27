@@ -28,9 +28,7 @@ export default function Homepage({
       <LayoutContainer mainMenu={mainMenu}>
         <Hero1 image={homepage.hero.image}>
           {homepage.hero.title == null ? null : (
-            <Title as="h1" size={1}>
-              {homepage.hero.title}
-            </Title>
+            <Title size="xl">{homepage.hero.title}</Title>
           )}
           {homepage.hero.content == null ? null : (
             <RichText size="lg">{homepage.hero.content}</RichText>
