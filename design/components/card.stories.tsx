@@ -24,7 +24,7 @@ WithWhite1.args = {
   img: duurzaamheid,
   children: (
     <>
-      <Title size={3}>
+      <Title size="sm">
         <a href="/">Eenvoudig fietsparkeren</a>
       </Title>
       <Tag>Theme</Tag>
@@ -43,7 +43,7 @@ WithWhite2.args = {
   children: (
     <>
       <Tag>Theme</Tag>
-      <Title size={3}>
+      <Title size="sm">
         <a href="/">Eenvoudig fietsparkeren</a>
       </Title>
       <RichText>

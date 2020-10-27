@@ -18,9 +18,10 @@ const StyledTitle = styled('div', {
       },
     },
     size: {
-      1: { fontSize: '$title1', lineHeight: 1.11 },
-      2: { fontSize: '$title2', lineHeight: 1.27 },
-      3: { fontSize: '$title3', lineHeight: 1.3 },
+      sm: { fontSize: '$title-sm', lineHeight: 1.3 },
+      md: { fontSize: '$title-md', lineHeight: 1.27 },
+      lg: { fontSize: '$title-lg', lineHeight: 1.25 },
+      xl: { fontSize: '$title-xl', lineHeight: 1.11 },
     },
   },
 });
@@ -29,14 +30,14 @@ export interface TitleProps {
   as?: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
   children: React.ReactNode;
   fullStop?: boolean;
-  size?: 1 | 2 | 3; // eslint-disable-line no-magic-numbers
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export function Title({
   as = 'div',
   children,
   fullStop = true,
-  size,
+  size = 'md',
 }: TitleProps): React.ReactElement {
   return (
     <StyledTitle as={as} fullStop={fullStop} size={size}>
