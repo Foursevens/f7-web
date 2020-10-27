@@ -33,7 +33,7 @@ const ImageArea = styled('div', {
 
 const StyledWrapper = styled('div', {
   display: 'grid',
-  gridTemplateColumns: '1fr calc(1284px / 2) calc(1284px / 2) 1fr',
+  gridTemplateColumns: '1fr repeat(2, calc(1284px / 2)) 1fr',
   gridTemplateRows: 'calc(100% - 100px) auto',
   height: 'calc(1284px / 2)',
 });

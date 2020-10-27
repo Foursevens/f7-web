@@ -7,7 +7,7 @@ export interface HeaderProps {
 }
 
 const StyledHeader = styled('header', {
-  height: 102,
+  height: 100,
   display: 'flex',
   alignItems: 'center',
   '> * + *': { marginLeft: '$medium' },
