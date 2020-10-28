@@ -10,10 +10,7 @@ export interface CmsImageModel {
 
 export interface SiteImageModel extends CmsImageModel {}
 
-export function cmsImageToSiteModel(
-  image: CmsImageModel,
-  index = 0,
-): SiteImageModel {
+export function cmsImageToSiteModel(image: CmsImageModel): SiteImageModel {
   const url = image.url.startsWith('http')
     ? image.url
     : `${apiBaseUrl}${image.url}`;

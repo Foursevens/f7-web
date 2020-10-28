@@ -1,7 +1,6 @@
-import { Container, Hero2, RichText, Title } from '@f7-web/design';
+import { Card, Container, Hero2, RichText, Tag, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 
 import { getCasesPageData, SiteCasesPageData } from '../cases-page';
@@ -18,6 +17,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 export default function CasesPage({
   mainMenu,
   casesPage,
+  cases,
 }: Props): React.ReactElement {
   return (
     <>
@@ -39,13 +39,19 @@ export default function CasesPage({
           </Container>
         )}
         <Container>
-          <ul>
-            <li>
-              <Link href="/cases/test">
-                <a>Eenvoudig fietsparkeren</a>
-              </Link>
-            </li>
-          </ul>
+          {cases.map(({ id, image, title, tagline, introduction }) => (
+            <Card key={id} background="white1" image={image}>
+              {title == null ? null : (
+                <Title as="h3" size="md">
+                  {title}
+                </Title>
+              )}
+              {tagline == null ? null : <Tag>{tagline}</Tag>}
+              {introduction == null ? null : (
+                <RichText>{introduction}</RichText>
+              )}
+            </Card>
+          ))}
         </Container>
       </LayoutContainer>
     </>

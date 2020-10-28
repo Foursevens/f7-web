@@ -19,7 +19,7 @@ const Template: Story<CardProps> = (argumentz): React.ReactElement => (
 export const WithWhite1 = Template.bind({});
 WithWhite1.args = {
   background: 'white1',
-  img: duurzaamheid,
+  image: { width: 600, height: 420, url: duurzaamheid },
   children: (
     <>
       <Title size="sm">
@@ -37,7 +37,7 @@ WithWhite1.args = {
 export const WithWhite2 = Template.bind({});
 WithWhite2.args = {
   background: 'white2',
-  img: duurzaamheid,
+  image: { width: 600, height: 420, url: duurzaamheid },
   children: (
     <>
       <Tag>Theme</Tag>
