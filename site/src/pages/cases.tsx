@@ -42,7 +42,7 @@ export default function CasesPage({
           <ul>
             <li>
               <Link href="/cases/test">
-                <a>Test case</a>
+                <a>Eenvoudig fietsparkeren</a>
               </Link>
             </li>
           </ul>
