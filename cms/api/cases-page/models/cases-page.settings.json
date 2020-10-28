@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "cases_pages",
+  "info": {
+    "name": "Cases Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.hero-2"
+    }
+  }
+}
