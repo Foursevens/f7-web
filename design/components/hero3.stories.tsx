@@ -17,6 +17,7 @@ const Template: Story<Hero3Props> = (argumentz): React.ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
+  backLink: <a href="/">Back to overview</a>,
   image: { width: 600, height: 420, url: duurzaamheid },
   children: (
     <ContentBlock>
@@ -27,8 +28,21 @@ Default.args = {
   ),
 };
 
-export const WithoutImage = Template.bind({});
-WithoutImage.args = {
+export const WithOnlyBackLink = Template.bind({});
+WithOnlyBackLink.args = {
+  backLink: <a href="/">Back to overview</a>,
+  children: (
+    <ContentBlock>
+      <Title size="lg">Lorem Ipsum</Title>
+      <Tag>Lorem ipsum</Tag>
+      <RichText>{RICH_TEXT}</RichText>
+    </ContentBlock>
+  ),
+};
+
+export const WithOnlyImage = Template.bind({});
+WithOnlyImage.args = {
+  image: { width: 600, height: 420, url: duurzaamheid },
   children: (
     <ContentBlock>
       <Title size="lg">Lorem Ipsum</Title>
@@ -40,12 +54,12 @@ WithoutImage.args = {
 
 export const WithLongContent = Template.bind({});
 WithLongContent.args = {
+  backLink: <a href="/">Back to overview</a>,
   image: { width: 600, height: 420, url: duurzaamheid },
   children: (
     <ContentBlock>
       <Title size="lg">Lorem Ipsum</Title>
       <Tag>Lorem ipsum</Tag>
-      <RichText>{RICH_TEXT}</RichText>
       <RichText>{RICH_TEXT}</RichText>
       <RichText>{RICH_TEXT}</RichText>
       <RichText>{RICH_TEXT}</RichText>
