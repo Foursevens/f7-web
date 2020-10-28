@@ -8,7 +8,7 @@ const StyledWrapper = styled('strong', {
   fontSize: '0.875em', // 14px
   fontWeight: '$heavy',
   letterSpacing: 0.7,
-  lineHeight: 1.125,
+  lineHeight: 1.285,
   textTransform: 'uppercase',
 });
 

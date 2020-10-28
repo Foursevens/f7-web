@@ -35,10 +35,10 @@ const StyledCard = styled('section', {
       right: 0,
       bottom: 0,
     },
-  },
 
-  '.card__content-container > *': {
-    marginBottom: 3,
+    strong: { order: -1, marginBottom: 3 },
+
+    p: { margin: 0 },
   },
 
   variants: {
@@ -50,7 +50,7 @@ const StyledCard = styled('section', {
 });
 
 export interface CardProps {
-  background: 'white1' | 'white2';
+  background?: 'white1' | 'white2';
   children: React.ReactNode;
   image?: ImageProps;
 }

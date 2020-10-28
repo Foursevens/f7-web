@@ -1,4 +1,12 @@
-import { Card, Container, Hero2, RichText, Tag, Title } from '@f7-web/design';
+import {
+  Card,
+  Container,
+  Grid,
+  Hero2,
+  RichText,
+  Tag,
+  Title,
+} from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -39,19 +47,21 @@ export default function CasesPage({
           </Container>
         )}
         <Container>
-          {cases.map(({ id, image, title, tagline, introduction }) => (
-            <Card key={id} background="white1" image={image}>
-              {title == null ? null : (
-                <Title as="h3" size="md">
-                  {title}
-                </Title>
-              )}
-              {tagline == null ? null : <Tag>{tagline}</Tag>}
-              {introduction == null ? null : (
-                <RichText>{introduction}</RichText>
-              )}
-            </Card>
-          ))}
+          <Grid>
+            {cases.map(({ id, image, title, tagline, introduction }) => (
+              <Card key={id} background="white1" image={image}>
+                {title == null ? null : (
+                  <Title as="h3" size="md">
+                    {title}
+                  </Title>
+                )}
+                {tagline == null ? null : <Tag>{tagline}</Tag>}
+                {introduction == null ? null : (
+                  <RichText>{introduction}</RichText>
+                )}
+              </Card>
+            ))}
+          </Grid>
         </Container>
       </LayoutContainer>
     </>

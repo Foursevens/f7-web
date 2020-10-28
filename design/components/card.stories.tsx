@@ -27,8 +27,9 @@ WithWhite1.args = {
       </Title>
       <Tag>Theme</Tag>
       <RichText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
       </RichText>
     </>
   ),
@@ -45,8 +46,9 @@ WithWhite2.args = {
         <a href="/">Eenvoudig fietsparkeren</a>
       </Title>
       <RichText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
       </RichText>
     </>
   ),

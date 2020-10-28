@@ -29,7 +29,7 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
           content { en }
         }
       }
-      cases {
+      cases(publicationState: LIVE) {
         id
         image { alternativeText caption width height url }
         title { en }

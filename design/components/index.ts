@@ -4,6 +4,7 @@ export * from './button-link';
 export * from './card';
 export * from './container';
 export * from './content-block';
+export * from './grid';
 export * from './header';
 export * from './hero1';
 export * from './hero2';
