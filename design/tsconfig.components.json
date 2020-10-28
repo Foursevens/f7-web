@@ -11,5 +11,5 @@
     "target": "es2015"
   },
   "include": ["components/", "types.d.ts"],
-  "exclude": ["**/*.stories.tsx"]
+  "exclude": ["**/*.stories.tsx", "**/data.tsx"]
 }
