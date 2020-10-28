@@ -7,18 +7,20 @@ import { SiteMenuModel } from '../cms';
 
 interface Props {
   children: React.ReactNode;
+  headerBackground?: 'primary2' | 'white1';
   mainMenu: SiteMenuModel;
 }
 
 export function LayoutContainer({
   children,
+  headerBackground = 'white1',
   mainMenu,
 }: Props): React.ReactElement {
   const router = useRouter();
   const isActive = (href: string): boolean => router.pathname.startsWith(href);
   return (
     <>
-      <Container>
+      <Container background={headerBackground}>
         <h1 className="sr-only">Foursevens</h1>
         <Header>
           <Link href="/">

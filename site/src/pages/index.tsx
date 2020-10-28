@@ -25,7 +25,7 @@ export default function Homepage({
         <title>Foursevens</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer headerBackground="primary2" mainMenu={mainMenu}>
         <Hero1 image={homepage.hero.image}>
           {homepage.hero.title == null ? null : (
             <Title size="xl">{homepage.hero.title}</Title>
