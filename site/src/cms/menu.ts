@@ -1,5 +1,5 @@
 import { CmsLinkModel, SiteLinkModel, cmsLinkToSiteModel } from './link';
-import { CmsLocalizedModel, CmsLocalizedToSiteModel } from './localized';
+import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
 export interface CmsMenuModel {
   reference: string;
@@ -23,7 +23,7 @@ export function cmsMenuToSite({
     items: items.map(cmsMenuItemToSite),
   };
   if (title != null) {
-    menu.title = CmsLocalizedToSiteModel(title);
+    menu.title = cmsLocalizedToSiteModel(title);
   }
   return menu;
 }

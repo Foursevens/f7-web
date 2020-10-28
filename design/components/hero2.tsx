@@ -5,7 +5,6 @@ import { styled } from './stitches.config';
 const StyledHero2 = styled('div', {
   display: 'grid',
   gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
-  height: 400,
 
   '.hero2__blue': {
     gridColumn: '1 / 7',
@@ -26,6 +25,7 @@ const StyledHero2 = styled('div', {
   '.hero2__image': {
     gridColumn: '5 / 15',
     gridRow: '1 / 2',
+    minHeight: 400,
 
     img: {
       width: '100%',

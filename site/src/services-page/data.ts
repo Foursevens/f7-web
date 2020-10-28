@@ -15,14 +15,25 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
   } = (await client({
     query: `query {
       servicesPage {
+        hero {
+          image {
+            alternativeText
+            caption
+            width
+            height
+            url
+          }
+          title { en }
+          content { en }
+        }
         blocks {
           id
           image {
             alternativeText
+            caption
             width
             height
             url
-            caption
           }
           title { en }
           tagline { en }
@@ -34,6 +45,6 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
         }
       }
     }`,
-  })) as { data: { servicesPage?: CmsServicesPageModel } };
-  return { servicesPage: cmsServicesPageToSite(servicesPage) };
+  })) as { data: { servicesPage: CmsServicesPageModel | null } };
+  return { servicesPage: cmsServicesPageToSite(servicesPage ?? undefined) };
 }

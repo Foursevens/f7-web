@@ -3,6 +3,7 @@ import React from 'react';
 import { styled } from './stitches.config';
 
 const StyledRichText = styled('div', {
+  maxWidth: '60ch',
   color: '$primaryDark1',
   fontFamily: '$lato',
   fontSize: '1em', // 16px

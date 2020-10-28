@@ -4,7 +4,7 @@ export interface CmsLocalizedModel {
 
 export type DelocalizedText = string;
 
-export function CmsLocalizedToSiteModel(
+export function cmsLocalizedToSiteModel(
   localized: CmsLocalizedModel,
 ): DelocalizedText {
   return localized.en;

@@ -2,6 +2,7 @@ import {
   ButtonLink,
   Container,
   ContentBlock,
+  Hero2,
   RichText,
   Tag,
   Title,
@@ -33,6 +34,18 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
+        <Hero2 image={servicesPage.hero.image}>
+          {servicesPage.hero.title == null ? null : (
+            <Title as="h2" size="md">
+              {servicesPage.hero.title}
+            </Title>
+          )}
+        </Hero2>
+        {servicesPage.hero.content == null ? null : (
+          <Container spacing="xlarge">
+            <RichText>{servicesPage.hero.content}</RichText>
+          </Container>
+        )}
         <Container spacing="xlarge">
           {servicesPage.blocks?.map(
             ({ image, title, tagline, content, cta }) => (
