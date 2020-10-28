@@ -1,5 +1,9 @@
 import { client } from '../api';
-import { SiteCaseModel, CmsCaseModel, cmsCaseToSiteModel } from '../cms';
+import {
+  CmsCaseCardModel,
+  cmsCaseCardToSiteModel,
+  SiteCaseCardModel,
+} from '../cms';
 import {
   CmsCasesPageModel,
   cmsCasesPageToSite,
@@ -8,7 +12,7 @@ import {
 
 export interface SiteCasesPageData {
   casesPage: SiteCasesPageModel;
-  cases: SiteCaseModel[];
+  cases: SiteCaseCardModel[];
 }
 
 export async function getCasesPageData(): Promise<SiteCasesPageData> {
@@ -36,45 +40,13 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
         title { en }
         tagline { en }
         introduction { en }
-        client
-        clientWebsite
-        problem {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          content { en }
-        }
-        solution {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          content { en }
-        }
-        result {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          content { en }
-        }
       }
     }`,
   })) as {
-    data: { casesPage: CmsCasesPageModel | null; cases: CmsCaseModel[] };
+    data: { casesPage: CmsCasesPageModel | null; cases: CmsCaseCardModel[] };
   };
   return {
     casesPage: cmsCasesPageToSite(casesPage ?? undefined),
-    cases: cases.map(cmsCaseToSiteModel),
+    cases: cases.map(cmsCaseCardToSiteModel),
   };
 }

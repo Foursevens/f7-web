@@ -1,8 +1,12 @@
 import { client } from '../api';
-import { CmsCaseModel, cmsCaseToSiteModel, SiteCaseModel } from '../cms';
+import {
+  CmsCaseDetailModel,
+  cmsCaseDetailToSiteModel,
+  SiteCaseDetailModel,
+} from '../cms';
 
 export interface SiteCaseDetailPageData {
-  case: SiteCaseModel;
+  case: SiteCaseDetailModel;
 }
 
 export async function getCaseDetailPageData(
@@ -16,7 +20,6 @@ export async function getCaseDetailPageData(
     query: `query {
       cases(where: { slug: "${slug}" }) {
         id
-        slug
         image { alternativeText caption width height url }
         title { en }
         tagline { en }
@@ -56,9 +59,9 @@ export async function getCaseDetailPageData(
       }
     }`,
   })) as {
-    data: { cases: CmsCaseModel[] };
+    data: { cases: CmsCaseDetailModel[] };
   };
   return {
-    case: cmsCaseToSiteModel(caseDetail),
+    case: cmsCaseDetailToSiteModel(caseDetail),
   };
 }

@@ -21,9 +21,58 @@ function cmsCaseContentToSiteModel({
   };
 }
 
-export interface CmsCaseModel {
+export interface CmsCaseCardModel {
   id: string;
   slug: string;
+  introduction?: CmsLocalizedModel;
+  image?: CmsImageModel;
+  tagline?: CmsLocalizedModel;
+  title?: CmsLocalizedModel;
+}
+
+export interface SiteCaseCardModel {
+  id: string;
+  slug: string;
+  introduction?: string;
+  image?: SiteImageModel;
+  tagline?: string;
+  title?: string;
+}
+
+export function cmsCaseCardToSiteModel({
+  id,
+  slug,
+  image,
+  title,
+  tagline,
+  introduction,
+}: CmsCaseCardModel): SiteCaseCardModel {
+  const caseItem: SiteCaseCardModel = {
+    id,
+    slug,
+  };
+
+  if (image != null) {
+    caseItem.image = cmsImageToSiteModel(image);
+  }
+
+  if (title != null) {
+    caseItem.title = cmsLocalizedToSiteModel(title);
+  }
+
+  if (tagline != null) {
+    caseItem.tagline = cmsLocalizedToSiteModel(tagline);
+  }
+
+  if (introduction != null) {
+    caseItem.introduction = cmsLocalizedToSiteModel(introduction);
+  }
+
+  return caseItem;
+}
+
+export interface CmsCaseDetailModel {
+  id: string;
   client?: string;
   clientWebsite?: string;
   introduction?: CmsLocalizedModel;
@@ -35,9 +84,8 @@ export interface CmsCaseModel {
   result: CmsCaseContentModel;
 }
 
-export interface SiteCaseModel {
+export interface SiteCaseDetailModel {
   id: string;
-  slug: string;
   client?: string;
   clientWebsite?: string;
   introduction?: string;
@@ -49,9 +97,8 @@ export interface SiteCaseModel {
   result: SiteCaseContentModel;
 }
 
-export function cmsCaseToSiteModel({
+export function cmsCaseDetailToSiteModel({
   id,
-  slug,
   image,
   title,
   tagline,
@@ -61,10 +108,9 @@ export function cmsCaseToSiteModel({
   problem,
   solution,
   result,
-}: CmsCaseModel): SiteCaseModel {
-  const caseItem: SiteCaseModel = {
+}: CmsCaseDetailModel): SiteCaseDetailModel {
+  const caseItem: SiteCaseDetailModel = {
     id,
-    slug,
     problem: cmsCaseContentToSiteModel(problem),
     solution: cmsCaseContentToSiteModel(solution),
     result: cmsCaseContentToSiteModel(result),
