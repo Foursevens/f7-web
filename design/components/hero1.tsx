@@ -6,12 +6,11 @@ import { styled } from './stitches.config';
 
 const StyledHero1 = styled('div', {
   display: 'grid',
-  gridTemplateColumns: '1fr repeat(2, calc(1284px / 2)) 1fr',
-  gridTemplateRows: 'calc(100% - 100px) auto',
-  height: 'calc(1284px / 2)',
+  gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
+  gridTemplateRows: 'min(1284px / 2, calc(75vh - 100px)) 100px',
 
   '.hero1__background': {
-    gridColumn: '1 / 4',
+    gridColumn: '1 / 8',
     gridRow: '1 / 2',
     backgroundColor: '$primary2',
 
@@ -26,15 +25,21 @@ const StyledHero1 = styled('div', {
   },
 
   '.hero1__content': {
-    gridColumn: '2 / 3',
+    gridColumn: '2 / 6',
     gridRow: '1 / 2',
     alignSelf: 'center',
-    maxWidth: '62ch',
+    maxWidth: '60ch',
   },
 
   '.hero1__image': {
-    gridColumn: '3 / 5',
+    gridColumn: '8 / 15',
     gridRow: '1 / 3',
+
+    img: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    },
   },
 });
 
