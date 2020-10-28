@@ -1,18 +1,23 @@
-import { Container } from '@f7-web/design';
+import { Container, Hero2, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { getJobsPageData, SiteJobsPageData } from '../jobs-page';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
-interface Props extends LayoutData {}
+interface Props extends LayoutData, SiteJobsPageData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const layoutData = await getLayoutData();
-  return { props: layoutData };
+  const jobsPageData = await getJobsPageData();
+  return { props: { ...layoutData, ...jobsPageData } };
 };
 
-export default function JobsPage({ mainMenu }: Props): React.ReactElement {
+export default function JobsPage({
+  mainMenu,
+  jobsPage,
+}: Props): React.ReactElement {
   return (
     <>
       <Head>
@@ -20,9 +25,18 @@ export default function JobsPage({ mainMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Container>
-          <h2>Jobs</h2>
-        </Container>
+        <Hero2 image={jobsPage.hero.image}>
+          {jobsPage.hero.title == null ? null : (
+            <Title as="h2" size="md">
+              {jobsPage.hero.title}
+            </Title>
+          )}
+        </Hero2>
+        {jobsPage.hero.content == null ? null : (
+          <Container spacing="xlarge">
+            <RichText>{jobsPage.hero.content}</RichText>
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );
