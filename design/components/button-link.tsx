@@ -1,6 +1,7 @@
 import { useLink } from '@react-aria/link';
 import React, { useRef } from 'react';
 
+import ArrowButton from '../assets/arrow-button.svg';
 import { styled } from './stitches.config';
 
 const StyledButtonLink = styled('div', {
@@ -24,6 +25,11 @@ const StyledButtonLink = styled('div', {
       secondary: { backgroundColor: '$secondary1' },
     },
   },
+
+  svg: {
+    marginRight: '$medium',
+    stroke: '$white1',
+  },
 });
 
 export interface ButtonLinkProps
@@ -44,9 +50,7 @@ export function ButtonLink({
   return (
     <StyledButtonLink background={background}>
       <a {...linkProps} ref={reference} href={href} target={target}>
-        <svg height="16" style={{ marginRight: 13 }} width="10">
-          <path d="M 2 2 L 8 8 L 2 14" fill="none" strokeWidth="2" />
-        </svg>
+        <ArrowButton />
         {children}
       </a>
     </StyledButtonLink>

@@ -1,6 +1,7 @@
 import { ContentBlock, Hero3, RichText, Tag, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
@@ -22,7 +23,13 @@ export default function CaseDetailPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero3>
+        <Hero3
+          backLink={
+            <Link href="/cases">
+              <a>Return to cases</a>
+            </Link>
+          }
+        >
           <ContentBlock>
             <Title size="lg">Eenvoudig fietsparkeren</Title>
             <Tag>Cyclo</Tag>

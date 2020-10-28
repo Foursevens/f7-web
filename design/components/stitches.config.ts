@@ -9,6 +9,7 @@ export const { styled, css } = createStyled({
       $secondary1: '#f7b32b',
       $white1: '#fff',
       $white2: '#f7f7f7',
+      $grey1: 'rgba(22, 42, 43, 0.5)',
     },
     fonts: {
       $lato:

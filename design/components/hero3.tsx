@@ -14,27 +14,57 @@ const StyledHero3 = styled('div', {
     marginTop: 100,
   },
 
-  '.hero3__image': {
+  '.hero3__image-area': {
     gridColumn: '8 / 14',
     gridRow: '1 / 2',
+    textAlign: 'right',
 
     img: {
       width: '100%',
     },
   },
+
+  '.hero3__back-link': {
+    display: 'inline-flex',
+    alignItems: 'center',
+    marginTop: '$medium',
+
+    svg: {
+      stroke: '$grey1',
+    },
+
+    a: {
+      display: 'inline-block',
+      marginLeft: '$medium',
+      color: '$grey1',
+    },
+  },
 });
 
 export interface Hero3Props {
+  backLink?: React.ReactNode;
   children: React.ReactNode;
   image?: ImageProps;
 }
 
-export function Hero3({ children, image }: Hero3Props): React.ReactElement {
+export function Hero3({
+  backLink,
+  children,
+  image,
+}: Hero3Props): React.ReactElement {
   return (
     <StyledHero3>
       <div className="hero3__children">{children}</div>
-      <div aria-hidden="true" className="hero3__image">
+      <div aria-hidden="true" className="hero3__image-area">
         {image == null ? null : <img alt="decorative" src={image.url} />}
+        {backLink == null ? null : (
+          <div className="hero3__back-link">
+            <svg height="8" width="5">
+              <path d="M 4 1 L 1 4 L 4 7" fill="none" strokeWidth="2" />
+            </svg>
+            {backLink}
+          </div>
+        )}
       </div>
     </StyledHero3>
   );

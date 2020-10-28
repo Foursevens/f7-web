@@ -9,7 +9,7 @@ const StyledHero1 = styled('div', {
   gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
   gridTemplateRows: 'min(1284px / 2, calc(75vh - 100px)) 100px',
 
-  '.hero1__background': {
+  '.hero1__background-area': {
     gridColumn: '1 / 8',
     gridRow: '1 / 2',
     backgroundColor: '$primary2',
@@ -31,7 +31,7 @@ const StyledHero1 = styled('div', {
     maxWidth: '60ch',
   },
 
-  '.hero1__image': {
+  '.hero1__image-area': {
     gridColumn: '8 / 15',
     gridRow: '1 / 3',
 
@@ -51,13 +51,13 @@ export interface Hero1Props {
 export function Hero1({ children, image }: Hero1Props): React.ReactElement {
   return (
     <StyledHero1>
-      <div aria-hidden="true" className="hero1__background">
+      <div aria-hidden="true" className="hero1__background-area">
         <FoursevensIcon />
       </div>
       <div className="hero1__children">
         <ContentBlock>{children}</ContentBlock>
       </div>
-      <div aria-hidden="true" className="hero1__image">
+      <div aria-hidden="true" className="hero1__image-area">
         {image == null ? null : <img alt="decorative" src={image.url} />}
       </div>
     </StyledHero1>

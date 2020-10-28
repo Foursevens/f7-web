@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { ContentBlock, Tag, Title } from '.';
+import { Title } from '.';
 import hero2 from '../stories-assets/hero2.png';
 import { Hero2, Hero2Props } from './hero2';
 
