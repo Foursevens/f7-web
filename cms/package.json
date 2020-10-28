@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "strapi build",
+    "clean": "rimraf '.cache/', 'build/'",
     "dev": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi"

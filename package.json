@@ -9,13 +9,16 @@
   "scripts": {
     "build:heroku": "yarn design build:components && yarn cms build",
     "build:vercel": "yarn design build:components && yarn site build && mv site/public/ public/",
-    "clean": "rimraf '*/dist' 'site/.next' && yarn dev",
+    "clean": "rimraf workspaces run clean",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
     "dev": "pm2 restart pm2-dev.yml",
+    "dev:stop": "pm2 stop pm2-dev.yml",
     "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
+    "postclean": "yarn dev",
+    "preclean": "yarn run dev:stop",
     "site": "yarn workspace @f7-web/site",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
