@@ -1,3 +1,4 @@
+export * from './case';
 export * from './content-block';
 export * from './hero2';
 export * from './image';

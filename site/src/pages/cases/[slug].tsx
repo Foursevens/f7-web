@@ -4,17 +4,26 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
+import {
+  getCaseDetailPageData,
+  SiteCaseDetailPageData,
+} from '../../case-detail-page';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
-interface Props extends LayoutData {}
+interface Props extends LayoutData, SiteCaseDetailPageData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context,
+) => {
   const layoutData = await getLayoutData();
-  return { props: layoutData };
+  const { slug } = context.params as { slug: string };
+  const caseDetailPageData = await getCaseDetailPageData(slug);
+  return { props: { ...layoutData, ...caseDetailPageData } };
 };
 
 export default function CaseDetailPage({
   mainMenu,
+  case: caseItem,
 }: Props): React.ReactElement {
   return (
     <>
@@ -29,15 +38,16 @@ export default function CaseDetailPage({
               <a>Return to cases</a>
             </Link>
           }
+          image={caseItem.image}
         >
           <ContentBlock>
-            <Title size="lg">Eenvoudig fietsparkeren</Title>
-            <Tag>Cyclo</Tag>
-            <RichText>
-              {
-                '<p>We maakten organisationele groei mogelijk en overwichtelijk via digitalisering van bestaande IT processen.</p>'
-              }
-            </RichText>
+            {caseItem.title == null ? null : (
+              <Title size="lg">{caseItem.title}</Title>
+            )}
+            {caseItem.tagline == null ? null : <Tag>{caseItem.tagline}</Tag>}
+            {caseItem.introduction == null ? null : (
+              <RichText>{caseItem.introduction}</RichText>
+            )}
           </ContentBlock>
         </Hero3>
       </LayoutContainer>

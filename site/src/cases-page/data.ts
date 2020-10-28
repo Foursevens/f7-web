@@ -1,5 +1,5 @@
 import { client } from '../api';
-import { SiteCaseModel, CmsCaseModel, cmsCaseToSiteModel } from '../cases';
+import { SiteCaseModel, CmsCaseModel, cmsCaseToSiteModel } from '../cms';
 import {
   CmsCasesPageModel,
   cmsCasesPageToSite,

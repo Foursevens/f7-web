@@ -1,10 +1,5 @@
-import {
-  CmsImageModel,
-  cmsImageToSiteModel,
-  CmsLocalizedModel,
-  cmsLocalizedToSiteModel,
-  SiteImageModel,
-} from '../cms';
+import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
+import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
 export interface CmsCaseModel {
   id: string;

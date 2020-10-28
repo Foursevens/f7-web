@@ -9,6 +9,7 @@ import {
 } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { getCasesPageData, SiteCasesPageData } from '../cases-page';
@@ -48,11 +49,13 @@ export default function CasesPage({
         )}
         <Container>
           <Grid>
-            {cases.map(({ id, image, title, tagline, introduction }) => (
+            {cases.map(({ id, slug, image, title, tagline, introduction }) => (
               <Card key={id} background="white1" image={image}>
                 {title == null ? null : (
                   <Title as="h3" size="md">
-                    {title}
+                    <Link href={`/cases/${slug}`}>
+                      <a>{title}</a>
+                    </Link>
                   </Title>
                 )}
                 {tagline == null ? null : <Tag>{tagline}</Tag>}
