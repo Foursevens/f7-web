@@ -17,16 +17,16 @@ module.exports = {
         mappedCase.introduction.en = marked(mappedCase.introduction.en);
       }
 
-      if (mappedCase.problem != null) {
-        mappedCase.problem.en = marked(mappedCase.problem.en);
+      if (mappedCase.problem?.content?.en != null) {
+        mappedCase.problem.content.en = marked(mappedCase.problem.content.en);
       }
 
-      if (mappedCase.solution != null) {
-        mappedCase.solution.en = marked(mappedCase.solution.en);
+      if (mappedCase.solution?.content?.en != null) {
+        mappedCase.solution.content.en = marked(mappedCase.solution.content.en);
       }
 
-      if (mappedCase.result != null) {
-        mappedCase.result.en = marked(mappedCase.result.en);
+      if (mappedCase.result?.content?.en != null) {
+        mappedCase.result.content.en = marked(mappedCase.result.content.en);
       }
 
       return mappedCase;

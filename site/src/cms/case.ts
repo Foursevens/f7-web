@@ -1,6 +1,26 @@
 import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
+interface CmsCaseContentModel {
+  image: CmsImageModel;
+  content: CmsLocalizedModel;
+}
+
+interface SiteCaseContentModel {
+  image: SiteImageModel;
+  content: string;
+}
+
+function cmsCaseContentToSiteModel({
+  image,
+  content,
+}: CmsCaseContentModel): SiteCaseContentModel {
+  return {
+    image: cmsImageToSiteModel(image),
+    content: cmsLocalizedToSiteModel(content),
+  };
+}
+
 export interface CmsCaseModel {
   id: string;
   slug: string;
@@ -10,9 +30,9 @@ export interface CmsCaseModel {
   image?: CmsImageModel;
   tagline?: CmsLocalizedModel;
   title?: CmsLocalizedModel;
-  problem: CmsLocalizedModel;
-  solution: CmsLocalizedModel;
-  result: CmsLocalizedModel;
+  problem: CmsCaseContentModel;
+  solution: CmsCaseContentModel;
+  result: CmsCaseContentModel;
 }
 
 export interface SiteCaseModel {
@@ -24,9 +44,9 @@ export interface SiteCaseModel {
   image?: SiteImageModel;
   tagline?: string;
   title?: string;
-  problem: string;
-  solution: string;
-  result: string;
+  problem: SiteCaseContentModel;
+  solution: SiteCaseContentModel;
+  result: SiteCaseContentModel;
 }
 
 export function cmsCaseToSiteModel({
@@ -45,9 +65,9 @@ export function cmsCaseToSiteModel({
   const caseItem: SiteCaseModel = {
     id,
     slug,
-    problem: cmsLocalizedToSiteModel(problem),
-    solution: cmsLocalizedToSiteModel(solution),
-    result: cmsLocalizedToSiteModel(result),
+    problem: cmsCaseContentToSiteModel(problem),
+    solution: cmsCaseContentToSiteModel(solution),
+    result: cmsCaseContentToSiteModel(result),
   };
 
   if (image != null) {

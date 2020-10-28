@@ -38,9 +38,36 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
         introduction { en }
         client
         clientWebsite
-        problem { en }
-        solution { en }
-        result { en }
+        problem {
+          image {
+            alternativeText
+            caption
+            width
+            height
+            url
+          }
+          content { en }
+        }
+        solution {
+          image {
+            alternativeText
+            caption
+            width
+            height
+            url
+          }
+          content { en }
+        }
+        result {
+          image {
+            alternativeText
+            caption
+            width
+            height
+            url
+          }
+          content { en }
+        }
       }
     }`,
   })) as {

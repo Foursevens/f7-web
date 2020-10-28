@@ -1,4 +1,11 @@
-import { ContentBlock, Hero3, RichText, Tag, Title } from '@f7-web/design';
+import {
+  Container,
+  ContentBlock,
+  Hero3,
+  RichText,
+  Tag,
+  Title,
+} from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -50,6 +57,20 @@ export default function CaseDetailPage({
             )}
           </ContentBlock>
         </Hero3>
+        <Container spacing="xlarge">
+          <ContentBlock image={caseItem.problem.image}>
+            <Title>Problem</Title>
+            <RichText>{caseItem.problem.content}</RichText>
+          </ContentBlock>
+          <ContentBlock image={{ ...caseItem.solution.image, position: 'end' }}>
+            <Title>Solution</Title>
+            <RichText>{caseItem.solution.content}</RichText>
+          </ContentBlock>
+          <ContentBlock image={caseItem.result.image}>
+            <Title>Result</Title>
+            <RichText>{caseItem.result.content}</RichText>
+          </ContentBlock>
+        </Container>
       </LayoutContainer>
     </>
   );

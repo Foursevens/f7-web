@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_molecules_case_contents",
+  "info": {
+    "name": "Case Content",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": false
+    },
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content",
+      "required": true
+    }
+  }
+}

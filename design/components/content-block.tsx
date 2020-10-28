@@ -66,12 +66,11 @@ export function ContentBlock({
   children,
   image,
 }: ContentBlockProps): React.ReactElement {
+  const imagePosition = image == null ? undefined : image.position ?? 'start';
   const imageSize =
-    image == null || image.position === 'start'
-      ? Infinity
-      : Math.max(image.width, image.height);
+    image == null ? Infinity : Math.max(image.width, image.height);
   return (
-    <StyledContentBlock imagePosition={image?.position}>
+    <StyledContentBlock imagePosition={imagePosition}>
       {React.Children.count(children) === 0 ? null : (
         <div className="content-block__side content-block__content-side">
           {children}
@@ -79,7 +78,7 @@ export function ContentBlock({
       )}
       {image == null ? null : (
         <div className="content-block__side content-block__image-side">
-          {image.position === 'start' ? (
+          {imagePosition === 'start' ? (
             <img
               alt={image.alternativeText}
               height={image.height}

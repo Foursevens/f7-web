@@ -46,19 +46,19 @@
     "problem": {
       "type": "component",
       "repeatable": false,
-      "component": "atoms.localized-content",
+      "component": "molecules.case-content",
       "required": true
     },
     "solution": {
       "type": "component",
       "repeatable": false,
-      "component": "atoms.localized-content",
+      "component": "molecules.case-content",
       "required": true
     },
     "result": {
       "type": "component",
       "repeatable": false,
-      "component": "atoms.localized-content",
+      "component": "molecules.case-content",
       "required": true
     }
   }
