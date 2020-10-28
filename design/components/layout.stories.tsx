@@ -38,7 +38,7 @@ export const Level1 = (): React.ReactElement => (
     </Container>
     <Hero1 image={{ url: hero1 }}>
       <Title size="xl">Digitaal voor mens en planeet</Title>
-      <RichText>
+      <RichText size="lg">
         {
           '<p>Sustainable digital solutions with positive impact on people and planet.</p>'
         }
