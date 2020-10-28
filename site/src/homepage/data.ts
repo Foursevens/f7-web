@@ -33,6 +33,6 @@ export async function getHomepageData(): Promise<SiteHomepageData> {
         }
       }
     }`,
-  })) as { data: { homepage?: CmsHomepageModel } };
-  return { homepage: cmsHomepageToSite(homepage) };
+  })) as { data: { homepage: CmsHomepageModel | null } };
+  return { homepage: cmsHomepageToSite(homepage ?? undefined) };
 }
