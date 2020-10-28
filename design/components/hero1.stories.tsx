@@ -34,3 +34,20 @@ Default.args = {
   ),
   image: { url: hero1 },
 };
+
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  children: (
+    <>
+      <Title size="xl">Digitaal voor mens en planeet</Title>
+      <RichText>
+        {
+          '<p>Sustainable digital solutions with positive impact on people and planet.</p>'
+        }
+      </RichText>
+      <div>
+        <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+      </div>
+    </>
+  ),
+};

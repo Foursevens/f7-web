@@ -24,7 +24,7 @@ const StyledHero1 = styled('div', {
     },
   },
 
-  '.hero1__content': {
+  '.hero1__children': {
     gridColumn: '2 / 6',
     gridRow: '1 / 2',
     alignSelf: 'center',
@@ -54,7 +54,7 @@ export function Hero1({ children, image }: Hero1Props): React.ReactElement {
       <div aria-hidden="true" className="hero1__background">
         <FoursevensIcon />
       </div>
-      <div className="hero1__content">
+      <div className="hero1__children">
         <ContentBlock>{children}</ContentBlock>
       </div>
       <div aria-hidden="true" className="hero1__image">

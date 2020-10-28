@@ -3,14 +3,18 @@ import React from 'react';
 import {
   ButtonLink,
   Container,
+  ContentBlock,
   Header,
   Hero1,
   Hero2,
+  Hero3,
   Menu,
   MenuItem,
   RichText,
+  Tag,
   Title,
 } from '.';
+import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import hero1 from '../stories-assets/hero1.png';
 import hero2 from '../stories-assets/hero2.png';
 import logo from '../stories-assets/logo-full.png';
@@ -65,8 +69,37 @@ export const Level2 = (): React.ReactElement => (
         </Menu>
       </Header>
     </Container>
-    <Hero2 image={{ url: hero2 }}>
+    <Hero2 image={{ width: 2300, height: 818, url: hero2 }}>
       <Title size="lg">Our services</Title>
     </Hero2>
+  </>
+);
+
+export const Level3 = (): React.ReactElement => (
+  <>
+    <Container>
+      <Header>
+        <img alt="Foursevens logo" src={logo} />
+        <Menu>
+          <MenuItem key="key-1">
+            <a href="/">Home</a>
+          </MenuItem>
+          <MenuItem key="key-2" highlight="yes">
+            <a href="/">Contact</a>
+          </MenuItem>
+        </Menu>
+      </Header>
+    </Container>
+    <Hero3 image={{ width: 600, height: 420, url: duurzaamheid }}>
+      <ContentBlock>
+        <Title size="lg">Eenvoudig fietsparkeren</Title>
+        <Tag>Cyclo</Tag>
+        <RichText>
+          {
+            '<p>We maakten organisationele groei mogelijk en overwichtelijk via digitalisering van bestaande IT processen.</p>'
+          }
+        </RichText>
+      </ContentBlock>
+    </Hero3>
   </>
 );
