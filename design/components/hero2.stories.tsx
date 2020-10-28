@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { Title } from '.';
+import { ContentBlock, Tag, Title } from '.';
 import hero2 from '../stories-assets/hero2.png';
 import { Hero2, Hero2Props } from './hero2';
 
@@ -19,5 +19,10 @@ const Template: Story<Hero2Props> = (argumentz): React.ReactElement => (
 export const Default = Template.bind({});
 Default.args = {
   children: <Title size="lg">Lorem Ipsum</Title>,
-  image: { url: hero2 },
+  image: { width: 2300, height: 818, url: hero2 },
+};
+
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  children: <Title size="lg">Lorem Ipsum</Title>,
 };

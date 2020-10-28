@@ -39,7 +39,6 @@ const StyledContentBlock = styled('div', {
     strong: { order: -1, marginBottom: 15 },
 
     p: {
-      maxWidth: '70ch',
       marginBottom: '$medium',
     },
   },

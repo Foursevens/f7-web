@@ -1,10 +1,12 @@
 import React from 'react';
 
 import { styled } from './stitches.config';
+import { ImageProps } from './types';
 
 const StyledHero2 = styled('div', {
   display: 'grid',
   gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
+  minHeight: 400,
 
   '.hero2__blue': {
     gridColumn: '1 / 7',
@@ -25,7 +27,6 @@ const StyledHero2 = styled('div', {
   '.hero2__image': {
     gridColumn: '5 / 15',
     gridRow: '1 / 2',
-    minHeight: 400,
 
     img: {
       width: '100%',
@@ -37,7 +38,7 @@ const StyledHero2 = styled('div', {
 
 export interface Hero2Props {
   children: React.ReactNode;
-  image?: { url: string };
+  image?: ImageProps;
 }
 
 export function Hero2({ children, image }: Hero2Props): React.ReactElement {
@@ -45,9 +46,11 @@ export function Hero2({ children, image }: Hero2Props): React.ReactElement {
     <StyledHero2>
       <div className="hero2__blue" />
       <div className="hero2__children">{children}</div>
-      <div aria-hidden="true" className="hero2__image">
-        {image == null ? null : <img alt="decorative" src={image.url} />}
-      </div>
+      {image == null ? null : (
+        <div aria-hidden="true" className="hero2__image">
+          <img alt="decorative" src={image.url} />
+        </div>
+      )}
     </StyledHero2>
   );
 }
