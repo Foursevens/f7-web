@@ -9,7 +9,7 @@
   "scripts": {
     "build:heroku": "yarn design build:components && yarn cms build",
     "build:vercel": "yarn design build:components && yarn site build && mv site/public/ public/",
-    "clean": "rimraf workspaces run clean",
+    "clean": "yarn workspaces run clean",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
     "dev": "pm2 restart pm2-dev.yml",
@@ -35,7 +35,6 @@
     "plop": "^2.7.4",
     "pm2": "^4.5.0",
     "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
     "tslib": "^2.0.3",
     "typescript": "^4.0.3"
   },

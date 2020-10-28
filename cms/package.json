@@ -33,6 +33,9 @@
     "strapi-provider-upload-aws-s3": "^3.2.4",
     "strapi-utils": "3.2.4"
   },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
   "strapi": {
     "uuid": "16003262-5bee-430c-9472-abe1b52f45f8"
   }
