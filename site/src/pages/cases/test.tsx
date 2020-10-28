@@ -1,4 +1,4 @@
-import { Container } from '@f7-web/design';
+import { ContentBlock, Hero3, RichText, Tag, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -22,9 +22,17 @@ export default function CaseDetailPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Container>
-          <h2>Test Case</h2>
-        </Container>
+        <Hero3>
+          <ContentBlock>
+            <Title size="lg">Eenvoudig fietsparkeren</Title>
+            <Tag>Cyclo</Tag>
+            <RichText>
+              {
+                '<p>We maakten organisationele groei mogelijk en overwichtelijk via digitalisering van bestaande IT processen.</p>'
+              }
+            </RichText>
+          </ContentBlock>
+        </Hero3>
       </LayoutContainer>
     </>
   );
