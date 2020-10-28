@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cases",
+  "info": {
+    "name": "Case",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
+    },
+    "tagline": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
+    },
+    "introduction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content"
+    },
+    "client": {
+      "type": "string"
+    },
+    "clientWebsite": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content",
+      "required": true
+    },
+    "solution": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content",
+      "required": true
+    },
+    "result": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content",
+      "required": true
+    }
+  }
+}
