@@ -13,7 +13,7 @@ interface Props {
 
 export function LayoutContainer({
   children,
-  headerBackground = 'white1',
+  headerBackground,
   mainMenu,
 }: Props): React.ReactElement {
   const router = useRouter();
