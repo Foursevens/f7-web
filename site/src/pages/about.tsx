@@ -33,7 +33,7 @@ export default function AboutPage({
           )}
         </Hero2>
         {aboutPage.hero.content == null ? null : (
-          <Container spacing="xlarge">
+          <Container padding>
             <RichText>{aboutPage.hero.content}</RichText>
           </Container>
         )}

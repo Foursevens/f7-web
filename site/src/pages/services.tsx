@@ -1,6 +1,7 @@
 import {
   ButtonLink,
   Container,
+  ContainerStack,
   ContentBlock,
   Hero2,
   RichText,
@@ -42,11 +43,11 @@ export default function ServicesPage({
           )}
         </Hero2>
         {servicesPage.hero.content == null ? null : (
-          <Container spacing="xlarge">
+          <Container margin>
             <RichText>{servicesPage.hero.content}</RichText>
           </Container>
         )}
-        <Container spacing="xlarge">
+        <ContainerStack margin padding>
           {servicesPage.blocks?.map(
             ({ id, image, title, tagline, content, cta }) => (
               <ContentBlock key={id} image={image}>
@@ -67,7 +68,7 @@ export default function ServicesPage({
               </ContentBlock>
             ),
           )}
-        </Container>
+        </ContainerStack>
       </LayoutContainer>
     </>
   );

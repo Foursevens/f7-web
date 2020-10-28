@@ -27,7 +27,7 @@ const StyledButtonLink = styled('div', {
   },
 
   svg: {
-    marginRight: '$medium',
+    marginRight: '$sm',
     stroke: '$white1',
   },
 });

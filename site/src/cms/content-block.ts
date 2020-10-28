@@ -31,7 +31,7 @@ export function cmsContentBlockToSite(
   if (image != null) {
     const position = index % EVEN === 0 ? 'start' : 'end';
     contentBlock.image = {
-      ...cmsImageToSiteModel(image, index),
+      ...cmsImageToSiteModel(image),
       position,
     };
   }

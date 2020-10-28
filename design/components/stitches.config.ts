@@ -32,10 +32,11 @@ export const { styled, css } = createStyled({
       $black: '900',
     },
     space: {
-      $small: '10px',
-      $medium: '15px',
-      $large: '20px',
-      $xlarge: '40px',
+      $xs: '10px',
+      $sm: '15px',
+      $md: '20px',
+      $lg: '40px',
+      $xl: '100px',
     },
   },
 });

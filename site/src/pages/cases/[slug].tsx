@@ -1,5 +1,5 @@
 import {
-  Container,
+  ContainerStack,
   ContentBlock,
   Hero3,
   RichText,
@@ -57,7 +57,7 @@ export default function CaseDetailPage({
             )}
           </ContentBlock>
         </Hero3>
-        <Container spacing="xlarge">
+        <ContainerStack margin padding>
           <ContentBlock image={caseItem.problem.image}>
             <Title>Problem</Title>
             <RichText>{caseItem.problem.content}</RichText>
@@ -70,7 +70,7 @@ export default function CaseDetailPage({
             <Title>Result</Title>
             <RichText>{caseItem.result.content}</RichText>
           </ContentBlock>
-        </Container>
+        </ContainerStack>
       </LayoutContainer>
     </>
   );

@@ -25,7 +25,7 @@ const StyledCard = styled('section', {
     flexFlow: 'column nowrap',
     width: '90%',
     transform: 'translateY(-55px)',
-    padding: '$large',
+    padding: '$md',
 
     'a::after': {
       position: 'absolute',

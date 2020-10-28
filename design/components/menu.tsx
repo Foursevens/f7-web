@@ -18,7 +18,7 @@ const List = styled('ul', {
 
 const ListItem = styled('li', {
   display: 'inline-block',
-  '+ li': { marginLeft: '$xlarge' },
+  '+ li': { marginLeft: '$lg' },
 });
 
 export function Menu({ children }: MenuProps): React.ReactElement {
@@ -51,7 +51,7 @@ export const MenuItem = styled('div', {
     highlight: {
       no: {},
       yes: {
-        padding: '$small $large',
+        padding: '$xs $md',
         border: '1px solid $secondary1',
         borderRadius: 100,
       },
@@ -59,8 +59,8 @@ export const MenuItem = styled('div', {
   },
 
   a: {
-    margin: '-$small -$large',
-    padding: '$small $large',
+    margin: '-$xs -$md',
+    padding: '$xs $md',
     color: 'inherit',
     fontWeight: '$medium',
     textDecoration: 'none',

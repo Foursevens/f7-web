@@ -27,7 +27,7 @@ const StyledHero3 = styled('div', {
   '.hero3__back-link': {
     display: 'inline-flex',
     alignItems: 'center',
-    marginTop: '$medium',
+    marginTop: '$sm',
 
     svg: {
       stroke: '$grey1',
@@ -35,7 +35,7 @@ const StyledHero3 = styled('div', {
 
     a: {
       display: 'inline-block',
-      marginLeft: '$medium',
+      marginLeft: '$sm',
       color: '$grey1',
     },
   },

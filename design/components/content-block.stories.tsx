@@ -60,7 +60,7 @@ WithTitleTextAndCta.args = {
 
 const WithImagesTemplate: Story<ImageProps> = (image): React.ReactElement => (
   <>
-    <Container background="white1" spacing="xlarge">
+    <Container background="white1" padding>
       <ContentBlock image={{ position: 'start', ...image }}>
         <Title size="md">Lorem Ipsum</Title>
         <Tag>Lorem Ipsum is simply dummy text</Tag>
@@ -70,7 +70,7 @@ const WithImagesTemplate: Story<ImageProps> = (image): React.ReactElement => (
         </div>
       </ContentBlock>
     </Container>
-    <Container background="white2" spacing="xlarge">
+    <Container background="white2" padding>
       <ContentBlock image={{ position: 'end', ...image }}>
         <Title size="md">Lorem Ipsum</Title>
         <Tag>Lorem Ipsum is simply dummy text</Tag>

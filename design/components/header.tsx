@@ -10,7 +10,7 @@ const StyledHeader = styled('header', {
   height: 100,
   display: 'flex',
   alignItems: 'center',
-  '> * + *': { marginLeft: '$medium' },
+  '> * + *': { marginLeft: '$sm' },
 });
 
 const LogoWrapper = styled('div', {

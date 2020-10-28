@@ -43,7 +43,7 @@ export default function CasesPage({
           )}
         </Hero2>
         {casesPage.hero.content == null ? null : (
-          <Container spacing="xlarge">
+          <Container padding>
             <RichText>{casesPage.hero.content}</RichText>
           </Container>
         )}

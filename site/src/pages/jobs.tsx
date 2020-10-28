@@ -33,7 +33,7 @@ export default function JobsPage({
           )}
         </Hero2>
         {jobsPage.hero.content == null ? null : (
-          <Container spacing="xlarge">
+          <Container padding>
             <RichText>{jobsPage.hero.content}</RichText>
           </Container>
         )}

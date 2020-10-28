@@ -33,37 +33,16 @@ Primary2.args = {
   children: <RichText>{RICH_TEXT}</RichText>,
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  background: 'primary2',
+export const WithSpacing = Template.bind({});
+WithSpacing.args = {
+  background: 'white2',
   children: <RichText>{RICH_TEXT}</RichText>,
-  spacing: 'small',
-};
-
-export const Medium = Template.bind({});
-Medium.args = {
-  background: 'primary2',
-  children: <RichText>{RICH_TEXT}</RichText>,
-  spacing: 'medium',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  background: 'primary2',
-  children: <RichText>{RICH_TEXT}</RichText>,
-  spacing: 'large',
-};
-
-export const ExtraLarge = Template.bind({});
-ExtraLarge.args = {
-  background: 'primary2',
-  children: <RichText>{RICH_TEXT}</RichText>,
-  spacing: 'xlarge',
+  padding: true,
 };
 
 export const WithContentBlock = Template.bind({});
 WithContentBlock.args = {
-  background: 'primary2',
+  background: 'white2',
   children: (
     <ContentBlock image={{ width: 600, height: 420, url: image }}>
       <Title size="md">Lorem Ipsum</Title>
@@ -74,5 +53,5 @@ WithContentBlock.args = {
       </div>
     </ContentBlock>
   ),
-  spacing: 'xlarge',
+  padding: true,
 };

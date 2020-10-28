@@ -33,7 +33,7 @@ export default function TeamPage({
           )}
         </Hero2>
         {teamPage.hero.content == null ? null : (
-          <Container spacing="xlarge">
+          <Container padding>
             <RichText>{teamPage.hero.content}</RichText>
           </Container>
         )}
