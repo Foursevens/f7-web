@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { Title, RichText, ContentBlock, Tag } from '.';
+import { ContentBlock, RichText, Tag, Title } from '.';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import { RICH_TEXT } from './data';
 import { Hero3, Hero3Props } from './hero3';

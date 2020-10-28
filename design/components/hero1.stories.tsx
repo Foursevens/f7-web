@@ -1,11 +1,9 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
+import { ButtonLink, RichText, Title } from '.';
 import hero1 from '../stories-assets/hero1.png';
-import { ButtonLink } from './button-link';
 import { Hero1, Hero1Props } from './hero1';
-import { RichText } from './rich-text';
-import { Title } from './title';
 
 export default {
   title: '3. Organisms / Hero 1',
