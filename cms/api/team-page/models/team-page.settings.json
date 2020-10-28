@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "team_pages",
+  "info": {
+    "name": "Team Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.hero-2"
+    }
+  }
+}
