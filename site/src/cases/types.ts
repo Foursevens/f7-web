@@ -8,6 +8,7 @@ import {
 
 export interface CmsCaseModel {
   id: string;
+  slug: string;
   client?: string;
   clientWebsite?: string;
   introduction?: CmsLocalizedModel;
@@ -21,6 +22,7 @@ export interface CmsCaseModel {
 
 export interface SiteCaseModel {
   id: string;
+  slug: string;
   client?: string;
   clientWebsite?: string;
   introduction?: string;
@@ -34,6 +36,7 @@ export interface SiteCaseModel {
 
 export function cmsCaseToSiteModel({
   id,
+  slug,
   image,
   title,
   tagline,
@@ -46,6 +49,7 @@ export function cmsCaseToSiteModel({
 }: CmsCaseModel): SiteCaseModel {
   const caseItem: SiteCaseModel = {
     id,
+    slug,
     problem: cmsLocalizedToSiteModel(problem),
     solution: cmsLocalizedToSiteModel(solution),
     result: cmsLocalizedToSiteModel(result),

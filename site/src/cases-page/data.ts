@@ -31,6 +31,7 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
       }
       cases(publicationState: LIVE) {
         id
+        slug
         image { alternativeText caption width height url }
         title { en }
         tagline { en }
