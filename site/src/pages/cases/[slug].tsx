@@ -1,4 +1,5 @@
 import {
+  CaseDetails,
   ContainerStack,
   ContentBlock,
   Hero3,
@@ -56,6 +57,18 @@ export default function CaseDetailPage({
             {caseItem.introduction == null ? null : (
               <RichText>{caseItem.introduction}</RichText>
             )}
+            <CaseDetails>
+              {caseItem.client == null ? null : (
+                <p>
+                  <strong>Klant</strong> {caseItem.client}
+                </p>
+              )}
+              {caseItem.clientWebsite == null ? null : (
+                <p>
+                  <a href={caseItem.clientWebsite}>Bezoek de website</a>
+                </p>
+              )}
+            </CaseDetails>
           </TextBlock>
         </Hero3>
         <ContainerStack margin padding>

@@ -2,6 +2,7 @@ export * from './stitches.config';
 
 export * from './button-link';
 export * from './card';
+export * from './case-details';
 export * from './container';
 export * from './container-stack';
 export * from './content-block';
