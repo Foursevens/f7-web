@@ -12,7 +12,8 @@ export * from './hero2';
 export * from './hero3';
 export * from './menu';
 export * from './rich-text';
-export * from './title';
 export * from './tag';
+export * from './title';
+export * from './text-block';
 
 export * from './types';

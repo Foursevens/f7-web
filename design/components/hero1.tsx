@@ -1,8 +1,8 @@
 import React from 'react';
 
 import FoursevensIcon from '../assets/foursevens-icon.svg';
-import { ContentBlock } from './content-block';
 import { styled } from './stitches.config';
+import { TextBlock } from './text-block';
 
 const StyledHero1 = styled('div', {
   display: 'grid',
@@ -55,7 +55,7 @@ export function Hero1({ children, image }: Hero1Props): React.ReactElement {
         <FoursevensIcon />
       </div>
       <div className="hero1__children">
-        <ContentBlock>{children}</ContentBlock>
+        <TextBlock>{children}</TextBlock>
       </div>
       <div aria-hidden="true" className="hero1__image-area">
         {image == null ? null : <img alt="decorative" src={image.url} />}

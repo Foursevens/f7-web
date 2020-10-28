@@ -3,7 +3,6 @@ import React from 'react';
 import {
   ButtonLink,
   Container,
-  ContentBlock,
   Header,
   Hero1,
   Hero2,
@@ -12,6 +11,7 @@ import {
   MenuItem,
   RichText,
   Tag,
+  TextBlock,
   Title,
 } from '.';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
@@ -91,7 +91,7 @@ export const Level3 = (): React.ReactElement => (
       </Header>
     </Container>
     <Hero3 image={{ width: 600, height: 420, url: duurzaamheid }}>
-      <ContentBlock>
+      <TextBlock>
         <Title size="lg">Eenvoudig fietsparkeren</Title>
         <Tag>Cyclo</Tag>
         <RichText>
@@ -99,7 +99,7 @@ export const Level3 = (): React.ReactElement => (
             '<p>We maakten organisationele groei mogelijk en overwichtelijk via digitalisering van bestaande IT processen.</p>'
           }
         </RichText>
-      </ContentBlock>
+      </TextBlock>
     </Hero3>
   </>
 );

@@ -4,6 +4,7 @@ import {
   Hero3,
   RichText,
   Tag,
+  TextBlock,
   Title,
 } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
@@ -47,7 +48,7 @@ export default function CaseDetailPage({
           }
           image={caseItem.image}
         >
-          <ContentBlock>
+          <TextBlock>
             {caseItem.title == null ? null : (
               <Title size="lg">{caseItem.title}</Title>
             )}
@@ -55,7 +56,7 @@ export default function CaseDetailPage({
             {caseItem.introduction == null ? null : (
               <RichText>{caseItem.introduction}</RichText>
             )}
-          </ContentBlock>
+          </TextBlock>
         </Hero3>
         <ContainerStack margin padding>
           <ContentBlock image={caseItem.problem.image}>

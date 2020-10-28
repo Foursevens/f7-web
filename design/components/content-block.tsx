@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { styled } from './stitches.config';
+import { TextBlock } from './text-block';
 import { ImageProps } from './types';
 
 const ImageEndContainer = styled('div', {
@@ -26,21 +27,6 @@ const StyledContentBlock = styled('div', {
   },
   img: {
     maxWidth: 'min(400px, 40vw)',
-  },
-  '.content-block__content-side': {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    justifyContent: 'center',
-
-    'h1, h2, h3, h4, h5, h6': {
-      marginBottom: 20,
-    },
-
-    strong: { order: -1, marginBottom: 15 },
-
-    p: {
-      marginBottom: '$sm',
-    },
   },
 
   variants: {
@@ -73,7 +59,7 @@ export function ContentBlock({
     <StyledContentBlock imagePosition={imagePosition}>
       {React.Children.count(children) === 0 ? null : (
         <div className="content-block__side content-block__content-side">
-          {children}
+          <TextBlock>{children}</TextBlock>
         </div>
       )}
       {image == null ? null : (
