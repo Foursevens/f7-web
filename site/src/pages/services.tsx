@@ -48,8 +48,8 @@ export default function ServicesPage({
         )}
         <Container spacing="xlarge">
           {servicesPage.blocks?.map(
-            ({ image, title, tagline, content, cta }) => (
-              <ContentBlock image={image}>
+            ({ id, image, title, tagline, content, cta }) => (
+              <ContentBlock key={id} image={image}>
                 {title == null ? null : (
                   <Title as="h3" size="md">
                     {title}
