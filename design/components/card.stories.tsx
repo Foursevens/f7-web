@@ -1,11 +1,9 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
+import { RichText, Tag, Title } from '.';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import { CardProps, Card } from './card';
-import { RichText } from './rich-text';
-import { Tag } from './tag';
-import { Title } from './title';
 
 export default {
   title: '3. Organisms / Card',

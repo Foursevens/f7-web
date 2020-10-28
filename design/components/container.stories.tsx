@@ -1,11 +1,10 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
+import { ButtonLink, ContentBlock, RichText, Tag, Title } from '.';
 import image from '../stories-assets/duurzaamheid.png';
 import { Container, ContainerProps } from './container';
-import { ContentBlock } from './content-block';
 import { RICH_TEXT } from './data';
-import { RichText } from './rich-text';
 
 export default {
   title: '2. Molecules / Container',

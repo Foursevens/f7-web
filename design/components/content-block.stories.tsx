@@ -1,17 +1,13 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { Container } from '.';
+import { ButtonLink, Container, RichText, Tag, Title } from '.';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import square1500 from '../stories-assets/square-1500.png';
 import square200 from '../stories-assets/square-200.png';
 import square500 from '../stories-assets/square-500.png';
-import { ButtonLink } from './button-link';
 import { ContentBlock, ContentBlockProps } from './content-block';
 import { RICH_TEXT } from './data';
-import { RichText } from './rich-text';
-import { Tag } from './tag';
-import { Title } from './title';
 import { ImageProps } from './types';
 
 export default {

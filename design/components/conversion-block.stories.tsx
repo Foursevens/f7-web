@@ -1,10 +1,8 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { ButtonLink } from './button-link';
+import { ButtonLink, RichText, Title } from '.';
 import { ConvertionBlock, ConversionBlockProps } from './conversion-block';
-import { RichText } from './rich-text';
-import { Title } from './title';
 
 export default {
   title: '3. Organisms / ConversionBlock',

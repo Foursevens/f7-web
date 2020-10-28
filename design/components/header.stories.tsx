@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
+import { Menu, MenuItem } from '.';
 import logo from '../stories-assets/logo-full.png';
 import { Header, HeaderProps } from './header';
-import { Menu, MenuItem } from './menu';
 
 export default {
   title: '3. Organisms / Header',
