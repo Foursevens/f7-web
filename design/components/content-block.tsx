@@ -82,7 +82,7 @@ export function ContentBlock({
         <div className="content-block__side content-block__image-side">
           {image.position === 'start' ? (
             <img
-              alt="decorative"
+              alt={image.alternativeText}
               height={image.height}
               src={image.url}
               width={image.width}

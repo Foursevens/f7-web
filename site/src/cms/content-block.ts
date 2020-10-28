@@ -2,6 +2,8 @@ import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
 import { CmsLinkModel, SiteLinkModel } from './link';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
+const EVEN = 2;
+
 export interface CmsContentBlockModel {
   id: string;
   image?: CmsImageModel;
@@ -13,7 +15,7 @@ export interface CmsContentBlockModel {
 
 export interface SiteContentBlockModel {
   id: string;
-  image?: SiteImageModel;
+  image?: SiteImageModel & { position?: 'start' | 'end' };
   title?: string;
   tagline?: string;
   content?: string;
@@ -27,7 +29,11 @@ export function cmsContentBlockToSite(
   const contentBlock: SiteContentBlockModel = { id };
 
   if (image != null) {
-    contentBlock.image = cmsImageToSiteModel(image, index);
+    const position = index % EVEN === 0 ? 'start' : 'end';
+    contentBlock.image = {
+      ...cmsImageToSiteModel(image, index),
+      position,
+    };
   }
 
   if (title != null) {
