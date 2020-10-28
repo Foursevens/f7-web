@@ -1,18 +1,23 @@
-import { Container } from '@f7-web/design';
+import { Container, Hero2, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { getAboutPageData, SiteAboutPageData } from '../about-page';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
-interface Props extends LayoutData {}
+interface Props extends LayoutData, SiteAboutPageData {}
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const layoutData = await getLayoutData();
-  return { props: layoutData };
+  const aboutPageData = await getAboutPageData();
+  return { props: { ...layoutData, ...aboutPageData } };
 };
 
-export default function AboutPage({ mainMenu }: Props): React.ReactElement {
+export default function AboutPage({
+  mainMenu,
+  aboutPage,
+}: Props): React.ReactElement {
   return (
     <>
       <Head>
@@ -20,9 +25,18 @@ export default function AboutPage({ mainMenu }: Props): React.ReactElement {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Container>
-          <h2>About</h2>
-        </Container>
+        <Hero2 image={aboutPage.hero.image}>
+          {aboutPage.hero.title == null ? null : (
+            <Title as="h2" size="md">
+              {aboutPage.hero.title}
+            </Title>
+          )}
+        </Hero2>
+        {aboutPage.hero.content == null ? null : (
+          <Container spacing="xlarge">
+            <RichText>{aboutPage.hero.content}</RichText>
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );
