@@ -65,13 +65,14 @@ export const WithContentBlock = Template.bind({});
 WithContentBlock.args = {
   background: 'primary2',
   children: (
-    <ContentBlock
-      content={RICH_TEXT}
-      cta={{ href: '/', text: 'Go on' }}
-      image={{ url: image }}
-      tag="Lorem Ipsum is simply dummy text"
-      title="Lorem Ipsum"
-    />
+    <ContentBlock image={{ width: 600, height: 420, url: image }}>
+      <Title size="md">Lorem Ipsum</Title>
+      <Tag>Lorem Ipsum is simply dummy text</Tag>
+      <RichText>{RICH_TEXT}</RichText>
+      <div>
+        <ButtonLink>Go on</ButtonLink>
+      </div>
+    </ContentBlock>
   ),
   spacing: 'xlarge',
 };
