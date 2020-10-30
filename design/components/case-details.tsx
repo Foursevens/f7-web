@@ -16,6 +16,5 @@ export const CaseDetails = styled('div', {
 
   a: {
     color: '$primary1',
-    textDecoration: 'underline',
   },
 });
