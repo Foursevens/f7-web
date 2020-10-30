@@ -1,3 +1,4 @@
+import { StitchesProps } from '@stitches/react';
 import React from 'react';
 
 import { styled } from './stitches.config';
@@ -33,7 +34,7 @@ export function Menu({ children }: MenuProps): React.ReactElement {
   );
 }
 
-export const MenuItem = styled('div', {
+const StyledMenuItem = styled('div', {
   display: 'flex',
   alignItems: 'center',
 
@@ -67,7 +68,7 @@ export const MenuItem = styled('div', {
   },
 });
 
-MenuItem.compoundVariant(
+StyledMenuItem.compoundVariant(
   { active: 'yes', highlight: 'yes' },
   {
     backgroundColor: '$secondary1',
@@ -75,7 +76,7 @@ MenuItem.compoundVariant(
   },
 );
 
-MenuItem.compoundVariant(
+StyledMenuItem.compoundVariant(
   { active: 'yes', highlight: 'no' },
   {
     position: 'relative',
@@ -91,7 +92,8 @@ MenuItem.compoundVariant(
   },
 );
 
-MenuItem.defaultProps = {
-  active: 'no',
-  highlight: 'no',
-};
+export function MenuItem(
+  props: StitchesProps<typeof StyledMenuItem>,
+): React.ReactElement {
+  return <StyledMenuItem {...props} />;
+}
