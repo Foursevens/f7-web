@@ -13,6 +13,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { getCasesPageData, SiteCasesPageData } from '../cases-page';
+import { SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteCasesPageData {}
@@ -35,7 +36,7 @@ export default function CasesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={casesPage.hero.image}>
+        <Hero2 image={<SiteImage image={casesPage.hero.image} />}>
           {casesPage.hero.title == null ? null : (
             <Title as="h2" size="md">
               {casesPage.hero.title}
@@ -50,7 +51,11 @@ export default function CasesPage({
         <Container>
           <Grid>
             {cases.map(({ id, slug, image, title, tagline, introduction }) => (
-              <Card key={id} background="white1" image={image}>
+              <Card
+                key={id}
+                background="white1"
+                image={<SiteImage image={image} />}
+              >
                 {title == null ? null : (
                   <Title as="h3" size="md">
                     <Link href={`/cases/${slug}`}>

@@ -17,6 +17,7 @@ import {
   getCaseDetailPageData,
   SiteCaseDetailPageData,
 } from '../../case-detail-page';
+import { SiteImage } from '../../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData, SiteCaseDetailPageData {}
@@ -47,7 +48,7 @@ export default function CaseDetailPage({
               <a>Return to cases</a>
             </Link>
           }
-          image={caseItem.image}
+          image={<SiteImage image={caseItem.image} />}
         >
           <TextBlock>
             {caseItem.title == null ? null : (
@@ -72,17 +73,26 @@ export default function CaseDetailPage({
           </TextBlock>
         </Hero3>
         <ContainerStack margin padding>
-          <ContentBlock image={caseItem.problem.image}>
-            <Title>Problem</Title>
-            <RichText>{caseItem.problem.content}</RichText>
+          <ContentBlock>
+            <SiteImage image={caseItem.problem.image} />
+            <TextBlock>
+              <Title>Problem</Title>
+              <RichText>{caseItem.problem.content}</RichText>
+            </TextBlock>
           </ContentBlock>
-          <ContentBlock image={{ ...caseItem.solution.image, position: 'end' }}>
-            <Title>Solution</Title>
-            <RichText>{caseItem.solution.content}</RichText>
+          <ContentBlock>
+            <TextBlock>
+              <Title>Solution</Title>
+              <RichText>{caseItem.solution.content}</RichText>
+            </TextBlock>
+            <SiteImage image={caseItem.solution.image} />
           </ContentBlock>
-          <ContentBlock image={caseItem.result.image}>
-            <Title>Result</Title>
-            <RichText>{caseItem.result.content}</RichText>
+          <ContentBlock>
+            <SiteImage image={caseItem.result.image} />
+            <TextBlock>
+              <Title>Result</Title>
+              <RichText>{caseItem.result.content}</RichText>
+            </TextBlock>
           </ContentBlock>
         </ContainerStack>
       </LayoutContainer>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from './stitches.config';
-import { ImageProps } from './types';
+import { ReactHtmlImageElement } from './types';
 
 const StyledHero3 = styled('div', {
   display: 'grid',
@@ -44,7 +44,7 @@ const StyledHero3 = styled('div', {
 export interface Hero3Props {
   backLink?: React.ReactNode;
   children: React.ReactNode;
-  image?: ImageProps;
+  image?: ReactHtmlImageElement;
 }
 
 export function Hero3({
@@ -56,7 +56,7 @@ export function Hero3({
     <StyledHero3>
       <div className="hero3__children">{children}</div>
       <div aria-hidden="true" className="hero3__image-area">
-        {image == null ? null : <img alt="decorative" src={image.url} />}
+        {image}
         {backLink == null ? null : (
           <div className="hero3__back-link">
             <svg height="8" width="5">

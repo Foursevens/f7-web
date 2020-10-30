@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getTeamPageData, SiteTeamPageData } from '../team-page';
 
@@ -25,7 +26,7 @@ export default function TeamPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={teamPage.hero.image}>
+        <Hero2 image={<SiteImage image={teamPage.hero.image} />}>
           {teamPage.hero.title == null ? null : (
             <Title as="h2" size="md">
               {teamPage.hero.title}

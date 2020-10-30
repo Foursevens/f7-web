@@ -1,11 +1,9 @@
 import React from 'react';
 
 import { styled } from './stitches.config';
-import { ImageProps } from './types';
+import { ReactHtmlImageElement } from './types';
 
 const StyledCard = styled('section', {
-  display: 'inline-block',
-  outline: 'none',
   position: 'relative',
 
   '.card__image-container': {
@@ -52,7 +50,7 @@ const StyledCard = styled('section', {
 export interface CardProps {
   background?: 'white1' | 'white2';
   children: React.ReactNode;
-  image?: ImageProps;
+  image?: ReactHtmlImageElement;
 }
 
 export function Card({
@@ -62,16 +60,7 @@ export function Card({
 }: CardProps): React.ReactElement {
   return (
     <StyledCard background={background}>
-      <div className="card__image-container">
-        {image == null ? null : (
-          <img
-            alt={image.alternativeText ?? 'decorative'}
-            height={image.height}
-            src={image.url}
-            width={image.width}
-          />
-        )}
-      </div>
+      <div className="card__image-container">{image}</div>
       <div className="card__content-container">{children}</div>
     </StyledCard>
   );

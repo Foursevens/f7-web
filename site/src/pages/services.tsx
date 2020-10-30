@@ -6,6 +6,7 @@ import {
   Hero2,
   RichText,
   Tag,
+  TextBlock,
   Title,
 } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
@@ -13,6 +14,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
+import { SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getServicesPageData, SiteServicesPageData } from '../services-page';
 
@@ -35,7 +37,7 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={servicesPage.hero.image}>
+        <Hero2 image={<SiteImage image={servicesPage.hero.image} />}>
           {servicesPage.hero.title == null ? null : (
             <Title as="h2" size="md">
               {servicesPage.hero.title}
@@ -50,21 +52,24 @@ export default function ServicesPage({
         <ContainerStack margin padding>
           {servicesPage.blocks?.map(
             ({ id, image, title, tagline, content, cta }) => (
-              <ContentBlock key={id} image={image}>
-                {title == null ? null : (
-                  <Title as="h3" size="md">
-                    {title}
-                  </Title>
-                )}
-                {tagline == null ? null : <Tag>{tagline}</Tag>}
-                {content == null ? null : <RichText>{content}</RichText>}
-                {cta == null ? null : (
-                  <div>
-                    <Link href={cta.href} passHref>
-                      <ButtonLink>{cta.text}</ButtonLink>
-                    </Link>
-                  </div>
-                )}
+              <ContentBlock key={id}>
+                <SiteImage image={image} />
+                <TextBlock>
+                  {title == null ? null : (
+                    <Title as="h3" size="md">
+                      {title}
+                    </Title>
+                  )}
+                  {tagline == null ? null : <Tag>{tagline}</Tag>}
+                  {content == null ? null : <RichText>{content}</RichText>}
+                  {cta == null ? null : (
+                    <div>
+                      <Link href={cta.href} passHref>
+                        <ButtonLink>{cta.text}</ButtonLink>
+                      </Link>
+                    </div>
+                  )}
+                </TextBlock>
               </ContentBlock>
             ),
           )}

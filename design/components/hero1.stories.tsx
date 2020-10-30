@@ -2,7 +2,7 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import { ButtonLink, RichText, Title } from '.';
-import hero1 from '../stories-assets/hero1.png';
+import { HERO1 } from './data';
 import { Hero1, Hero1Props } from './hero1';
 
 export default {
@@ -30,7 +30,7 @@ Default.args = {
       </div>
     </>
   ),
-  image: { url: hero1 },
+  image: HERO1,
 };
 
 export const WithoutImage = Template.bind({});

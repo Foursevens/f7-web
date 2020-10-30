@@ -2,7 +2,7 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import { Card, RichText, Tag, Title } from '.';
-import duurzaamheid from '../stories-assets/duurzaamheid.png';
+import { DUURZAAMHEID } from './data';
 import { Grid, GridProps } from './grid';
 
 export default {
@@ -16,8 +16,8 @@ const Template: Story<GridProps> = (argumentz): React.ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: Array.from({ length: 5 }, (item, index) => (
-    <Card key={index} image={{ width: 600, height: 420, url: duurzaamheid }}>
+  children: [
+    <Card key={1} image={DUURZAAMHEID}>
       <Title size="sm">Eenvoudig fietsparkeren</Title>
       <Tag>Theme</Tag>
       <RichText>
@@ -25,6 +25,33 @@ Default.args = {
           '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
         }
       </RichText>
-    </Card>
-  )),
+    </Card>,
+    <Card key={2} image={DUURZAAMHEID}>
+      <Title size="sm">Nog veel eenvoudiger fietsparkeren</Title>
+      <Tag>Theme</Tag>
+      <RichText>
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
+      </RichText>
+    </Card>,
+    <Card key={3} image={DUURZAAMHEID}>
+      <Title size="sm">Eenvoudig fietsparkeren</Title>
+      <Tag>Theme</Tag>
+      <RichText>
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
+      </RichText>
+    </Card>,
+    <Card key={4} image={DUURZAAMHEID}>
+      <Title size="sm">Nog veel eenvoudiger fietsparkeren</Title>
+      <Tag>Theme</Tag>
+      <RichText>
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
+      </RichText>
+    </Card>,
+  ],
 };

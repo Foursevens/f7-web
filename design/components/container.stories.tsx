@@ -1,10 +1,9 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { ButtonLink, ContentBlock, RichText, Tag, Title } from '.';
-import image from '../stories-assets/duurzaamheid.png';
+import { ButtonLink, ContentBlock, RichText, Tag, TextBlock, Title } from '.';
 import { Container, ContainerProps } from './container';
-import { RICH_TEXT } from './data';
+import { DUURZAAMHEID, RICH_TEXT } from './data';
 
 export default {
   title: '2. Molecules / Container',
@@ -44,13 +43,16 @@ export const WithContentBlock = Template.bind({});
 WithContentBlock.args = {
   background: 'white2',
   children: (
-    <ContentBlock image={{ width: 600, height: 420, url: image }}>
-      <Title size="md">Lorem Ipsum</Title>
-      <Tag>Lorem Ipsum is simply dummy text</Tag>
-      <RichText>{RICH_TEXT}</RichText>
-      <div>
-        <ButtonLink>Go on</ButtonLink>
-      </div>
+    <ContentBlock>
+      {DUURZAAMHEID}
+      <TextBlock>
+        <Title size="md">Lorem Ipsum</Title>
+        <Tag>Lorem Ipsum is simply dummy text</Tag>
+        <RichText>{RICH_TEXT}</RichText>
+        <div>
+          <ButtonLink>Go on</ButtonLink>
+        </div>
+      </TextBlock>
     </ContentBlock>
   ),
   padding: true,

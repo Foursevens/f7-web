@@ -2,8 +2,8 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import { RichText, Tag, Title } from '.';
-import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import { CardProps, Card } from './card';
+import { DUURZAAMHEID } from './data';
 
 export default {
   title: '3. Organisms / Card',
@@ -19,7 +19,7 @@ const Template: Story<CardProps> = (argumentz): React.ReactElement => (
 export const WithWhite1 = Template.bind({});
 WithWhite1.args = {
   background: 'white1',
-  image: { width: 600, height: 420, url: duurzaamheid },
+  image: DUURZAAMHEID,
   children: (
     <>
       <Title size="sm">
@@ -38,7 +38,7 @@ WithWhite1.args = {
 export const WithWhite2 = Template.bind({});
 WithWhite2.args = {
   background: 'white2',
-  image: { width: 600, height: 420, url: duurzaamheid },
+  image: DUURZAAMHEID,
   children: (
     <>
       <Tag>Theme</Tag>

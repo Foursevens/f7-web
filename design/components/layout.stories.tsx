@@ -14,10 +14,8 @@ import {
   TextBlock,
   Title,
 } from '.';
-import duurzaamheid from '../stories-assets/duurzaamheid.png';
-import hero1 from '../stories-assets/hero1.png';
-import hero2 from '../stories-assets/hero2.png';
 import logo from '../stories-assets/logo-full.png';
+import { DUURZAAMHEID, HERO1, HERO2 } from './data';
 
 export default {
   title: '4. Templates / Layout',
@@ -40,7 +38,7 @@ export const Level1 = (): React.ReactElement => (
         </Menu>
       </Header>
     </Container>
-    <Hero1 image={{ url: hero1 }}>
+    <Hero1 image={HERO1}>
       <Title size="xl">Digitaal voor mens en planeet</Title>
       <RichText size="lg">
         {
@@ -69,7 +67,7 @@ export const Level2 = (): React.ReactElement => (
         </Menu>
       </Header>
     </Container>
-    <Hero2 image={{ width: 2300, height: 818, url: hero2 }}>
+    <Hero2 image={HERO2}>
       <Title size="lg">Our services</Title>
     </Hero2>
   </>
@@ -90,7 +88,7 @@ export const Level3 = (): React.ReactElement => (
         </Menu>
       </Header>
     </Container>
-    <Hero3 image={{ width: 600, height: 420, url: duurzaamheid }}>
+    <Hero3 image={DUURZAAMHEID}>
       <TextBlock>
         <Title size="lg">Eenvoudig fietsparkeren</Title>
         <Tag>Cyclo</Tag>

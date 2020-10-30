@@ -4,6 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { getAboutPageData, SiteAboutPageData } from '../about-page';
+import { SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteAboutPageData {}
@@ -25,7 +26,7 @@ export default function AboutPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={aboutPage.hero.image}>
+        <Hero2 image={<SiteImage image={aboutPage.hero.image} />}>
           {aboutPage.hero.title == null ? null : (
             <Title as="h2" size="md">
               {aboutPage.hero.title}

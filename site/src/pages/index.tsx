@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
+import { SiteImage } from '../cms';
 import { getHomepageData, SiteHomepageData } from '../homepage';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
@@ -26,7 +27,7 @@ export default function Homepage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer headerBackground="primary2" mainMenu={mainMenu}>
-        <Hero1 image={homepage.hero.image}>
+        <Hero1 image={<SiteImage image={homepage.hero.image} />}>
           {homepage.hero.title == null ? null : (
             <Title size="xl">{homepage.hero.title}</Title>
           )}

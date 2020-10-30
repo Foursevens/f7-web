@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { SiteImage } from '../cms';
 import { getJobsPageData, SiteJobsPageData } from '../jobs-page';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
@@ -25,7 +26,7 @@ export default function JobsPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={jobsPage.hero.image}>
+        <Hero2 image={<SiteImage image={jobsPage.hero.image} />}>
           {jobsPage.hero.title == null ? null : (
             <Title as="h2" size="md">
               {jobsPage.hero.title}

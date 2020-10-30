@@ -2,8 +2,7 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import { RichText, Tag, TextBlock, Title } from '.';
-import duurzaamheid from '../stories-assets/duurzaamheid.png';
-import { RICH_TEXT } from './data';
+import { DUURZAAMHEID, RICH_TEXT } from './data';
 import { Hero3, Hero3Props } from './hero3';
 
 export default {
@@ -18,7 +17,7 @@ const Template: Story<Hero3Props> = (argumentz): React.ReactElement => (
 export const Default = Template.bind({});
 Default.args = {
   backLink: <a href="/">Back to overview</a>,
-  image: { width: 600, height: 420, url: duurzaamheid },
+  image: DUURZAAMHEID,
   children: (
     <TextBlock>
       <Title size="lg">Lorem Ipsum</Title>
@@ -42,7 +41,7 @@ WithOnlyBackLink.args = {
 
 export const WithOnlyImage = Template.bind({});
 WithOnlyImage.args = {
-  image: { width: 600, height: 420, url: duurzaamheid },
+  image: DUURZAAMHEID,
   children: (
     <TextBlock>
       <Title size="lg">Lorem Ipsum</Title>
@@ -55,7 +54,7 @@ WithOnlyImage.args = {
 export const WithLongContent = Template.bind({});
 WithLongContent.args = {
   backLink: <a href="/">Back to overview</a>,
-  image: { width: 600, height: 420, url: duurzaamheid },
+  image: DUURZAAMHEID,
   children: (
     <TextBlock>
       <Title size="lg">Lorem Ipsum</Title>

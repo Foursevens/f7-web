@@ -3,6 +3,7 @@ import React from 'react';
 import FoursevensIcon from '../assets/foursevens-icon.svg';
 import { styled } from './stitches.config';
 import { TextBlock } from './text-block';
+import { ReactHtmlImageElement } from './types';
 
 const StyledHero1 = styled('div', {
   display: 'grid',
@@ -45,7 +46,7 @@ const StyledHero1 = styled('div', {
 
 export interface Hero1Props {
   children: React.ReactNode;
-  image?: { url: string };
+  image?: ReactHtmlImageElement;
 }
 
 export function Hero1({ children, image }: Hero1Props): React.ReactElement {
@@ -58,7 +59,7 @@ export function Hero1({ children, image }: Hero1Props): React.ReactElement {
         <TextBlock>{children}</TextBlock>
       </div>
       <div aria-hidden="true" className="hero1__image-area">
-        {image == null ? null : <img alt="decorative" src={image.url} />}
+        {image}
       </div>
     </StyledHero1>
   );

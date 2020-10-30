@@ -1,52 +1,89 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { ButtonLink, ContainerStack, RichText, Tag, Title } from '.';
-import duurzaamheid from '../stories-assets/duurzaamheid.png';
-import square1500 from '../stories-assets/square-1500.png';
-import square200 from '../stories-assets/square-200.png';
-import square500 from '../stories-assets/square-500.png';
-import { ContentBlock } from './content-block';
-import { RICH_TEXT } from './data';
-import { ImageProps } from './types';
+import { RichText, TextBlock, Title } from '.';
+import { ContentBlock, ContentBlockProps } from './content-block';
+import {
+  DUURZAAMHEID,
+  RICH_TEXT,
+  SQUARE200,
+  SQUARE500,
+  SQUARE1500,
+} from './data';
 
 export default {
   title: '3. Organisms / ContentBlock',
   component: ContentBlock,
 };
 
-const Template: Story<ImageProps> = (image): React.ReactElement => (
-  <ContainerStack padding>
-    <ContentBlock image={{ position: 'start', ...image }}>
-      <Title size="md">Lorem Ipsum</Title>
-      <Tag>Lorem Ipsum is simply dummy text</Tag>
-      <RichText>{RICH_TEXT}</RichText>
-      <div>
-        <ButtonLink>Go on</ButtonLink>
-      </div>
-    </ContentBlock>
-    <ContentBlock image={{ position: 'end', ...image }}>
-      <Title size="md">Lorem Ipsum</Title>
-      <Tag>Lorem Ipsum is simply dummy text</Tag>
-      <RichText>{RICH_TEXT}</RichText>
-      <div>
-        <ButtonLink>Go on</ButtonLink>
-      </div>
-    </ContentBlock>
-  </ContainerStack>
+const Template: Story<ContentBlockProps> = (argumentz): React.ReactElement => (
+  <ContentBlock {...argumentz} />
 );
 
-export const WithImagesNotLoading = Template.bind({});
-WithImagesNotLoading.args = { url: 'not-found', width: 200, height: 200 };
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  children: [
+    <TextBlock key="text-block">
+      <Title size="md">Lorem Ipsum</Title>
+      <RichText>{RICH_TEXT}</RichText>
+    </TextBlock>,
+  ],
+};
 
-export const WithSquareImages = Template.bind({});
-WithSquareImages.args = { url: square500, width: 500, height: 500 };
+const WithImageStartTemplate: Story<{
+  image: React.ReactElement<
+    React.DetailedHTMLProps<
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >
+  >;
+}> = ({ image }): React.ReactElement => (
+  <ContentBlock>
+    {image}
+    <TextBlock key="text-block">
+      <Title size="md">Lorem Ipsum</Title>
+      <RichText>{RICH_TEXT}</RichText>
+    </TextBlock>
+  </ContentBlock>
+);
 
-export const WithNonSquareImages = Template.bind({});
-WithNonSquareImages.args = { url: duurzaamheid, width: 600, height: 420 };
+export const WithImageStartBig = WithImageStartTemplate.bind({});
+WithImageStartBig.args = { image: SQUARE1500 };
 
-export const WithVeryBigImages = Template.bind({});
-WithVeryBigImages.args = { url: square1500, width: 1500, height: 1500 };
+export const WithImageStartLandscape = WithImageStartTemplate.bind({});
+WithImageStartLandscape.args = { image: DUURZAAMHEID };
 
-export const WithVerySmallImages = Template.bind({});
-WithVerySmallImages.args = { url: square200, width: 200, height: 200 };
+export const WithImageStartSmall = WithImageStartTemplate.bind({});
+WithImageStartSmall.args = { image: SQUARE200 };
+
+export const WithImageStartSquare = WithImageStartTemplate.bind({});
+WithImageStartSquare.args = { image: SQUARE500 };
+
+const WithImageEndTemplate: Story<{
+  image: React.ReactElement<
+    React.DetailedHTMLProps<
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >
+  >;
+}> = ({ image }): React.ReactElement => (
+  <ContentBlock>
+    <TextBlock key="text-block">
+      <Title size="md">Lorem Ipsum</Title>
+      <RichText>{RICH_TEXT}</RichText>
+    </TextBlock>
+    {image}
+  </ContentBlock>
+);
+
+export const WithImageEndBig = WithImageEndTemplate.bind({});
+WithImageEndBig.args = { image: SQUARE1500 };
+
+export const WithImageEndLandscape = WithImageEndTemplate.bind({});
+WithImageEndLandscape.args = { image: DUURZAAMHEID };
+
+export const WithImageEndSmall = WithImageEndTemplate.bind({});
+WithImageEndSmall.args = { image: SQUARE200 };
+
+export const WithImageEndSquare = WithImageEndTemplate.bind({});
+WithImageEndSquare.args = { image: SQUARE500 };
