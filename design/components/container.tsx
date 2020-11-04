@@ -2,11 +2,16 @@ import React from 'react';
 
 import { styled } from './stitches.config';
 
-const StyledContainer = styled('div', {
-  '.container__inner': {
-    maxWidth: 1284,
-    margin: '0 auto',
-  },
+const StyledOuterContainer = styled('div', {
+  '--inline-gutter': '20px',
+
+  display: 'grid',
+  gridTemplateColumns:
+    'var(--inline-gutter) repeat(12, 1fr) var(--inline-gutter)',
+  gridTemplateRows: 'auto',
+
+  md: { '--inline-gutter': '40px' },
+  xl: { '--inline-gutter': 'max(40px, (100vw - 1280px) / 2)' },
 
   variants: {
     background: {
@@ -14,13 +19,13 @@ const StyledContainer = styled('div', {
       white1: { backgroundColor: '$white1' },
       white2: { backgroundColor: '$white2' },
     },
-    margin: {
-      true: { margin: '$xl 0' },
-    },
-    padding: {
-      true: { padding: '$xl' },
-    },
+    margin: { true: { margin: '$xl 0' } },
+    padding: { true: { padding: '$xl 0' } },
   },
+});
+
+const StyledInnerContainer = styled('div', {
+  gridArea: '1 / 2 / 2 / 14',
 });
 
 export interface ContainerProps {
@@ -37,8 +42,12 @@ export function Container({
   padding,
 }: ContainerProps): React.ReactElement {
   return (
-    <StyledContainer {...{ background, margin, padding }}>
-      <div className="container__inner">{children}</div>
-    </StyledContainer>
+    <StyledOuterContainer {...{ background, margin, padding }}>
+      <StyledInnerContainer>{children}</StyledInnerContainer>
+    </StyledOuterContainer>
   );
 }
+
+Container.Inner = StyledInnerContainer;
+
+Container.Outer = StyledOuterContainer;

@@ -8,11 +8,13 @@ import { DUURZAAMHEID, RICH_TEXT } from './data';
 export default {
   title: '2. Molecules / Container',
   component: Container,
+  parameters: { layout: 'fullscreen' },
 };
 
-const Template: Story<ContainerProps> = (argumentz): React.ReactElement => (
-  <Container {...argumentz} />
-);
+const Template: Story<ContainerProps> = ({
+  children,
+  ...rest
+}): React.ReactElement => <Container {...rest}>{children}</Container>;
 
 export const White1 = Template.bind({});
 White1.args = {

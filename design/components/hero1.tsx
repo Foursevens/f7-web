@@ -1,46 +1,63 @@
 import React from 'react';
 
 import FoursevensIcon from '../assets/foursevens-icon.svg';
+import { Container } from './container';
 import { styled } from './stitches.config';
 import { TextBlock } from './text-block';
 import { ReactHtmlImageElement } from './types';
 
-const StyledHero1 = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
-  gridTemplateRows: 'min(1284px / 2, calc(75vh - 100px)) 100px',
+const StyledHero1 = styled(Container.Outer, {
+  gridTemplateRows: 'auto min(100vw, 50vh)',
 
   '.hero1__background-area': {
-    gridColumn: '1 / 8',
-    gridRow: '1 / 2',
+    gridArea: '1 / 1 / 2 / 15',
     backgroundColor: '$primary2',
 
+    overflow: 'hidden',
     position: 'relative',
     zIndex: -1,
     svg: {
       position: 'absolute',
-      bottom: 0,
-      left: 0,
-      transform: 'translateX(-25%)',
+      width: 200,
+      height: 200,
+      right: 0,
+      top: '50%',
+      transform: 'translate(25%, -50%)',
     },
   },
 
   '.hero1__children': {
-    gridColumn: '2 / 6',
-    gridRow: '1 / 2',
+    gridArea: '1 / 2 / 2 / 14',
     alignSelf: 'center',
     maxWidth: '60ch',
+    paddingBottom: '$lg',
   },
 
   '.hero1__image-area': {
-    gridColumn: '8 / 15',
-    gridRow: '1 / 3',
+    gridArea: '2 / 1 / 3 / 15',
 
-    img: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
+    img: { width: '100%', height: '100%', objectFit: 'cover' },
+  },
+
+  lg: {
+    gridTemplateRows: 'auto 100px',
+    '.hero1__background-area': {
+      gridArea: '1 / 1 / 2 / 8',
+      svg: {
+        width: 250,
+        height: 250,
+        left: 0,
+        bottom: 0,
+        top: 'initial',
+        transform: 'translateX(-25%)',
+      },
     },
+    '.hero1__children': { gridArea: '1 / 2 / 2 / 7' },
+    '.hero1__image-area': { gridArea: '1 / 8 / 3 / 15' },
+  },
+
+  xl: {
+    '.hero1__background-area': { svg: { width: 'initial', height: 'initial' } },
   },
 });
 

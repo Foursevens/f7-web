@@ -1,43 +1,47 @@
 import React from 'react';
 
+import { Container } from './container';
 import { styled } from './stitches.config';
 import { ReactHtmlImageElement } from './types';
 
-const StyledHero3 = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: '1fr repeat(12, calc(1284px / 12)) 1fr',
-  minHeight: 400,
-
+const StyledHero3 = styled(Container.Outer, {
   '.hero3__children': {
-    gridColumn: '2 / 7',
-    gridRow: '1 / 2',
-    marginTop: 100,
+    gridArea: '1 / 2 / 2 / 14',
+    padding: '$md 0',
   },
 
   '.hero3__image-area': {
-    gridColumn: '8 / 14',
-    gridRow: '1 / 2',
+    gridArea: '2 / 1 / 3 / 15',
     textAlign: 'right',
-
-    img: {
-      width: '100%',
-    },
+    img: { width: '100%' },
   },
 
-  '.hero3__back-link': {
-    display: 'inline-flex',
-    alignItems: 'center',
-    marginTop: '$sm',
-
-    svg: {
-      stroke: '$grey1',
+  lg: {
+    '.hero3__children': {
+      gridArea: '1 / 2 / 2 / 6',
+      marginTop: 100,
     },
-
-    a: {
-      display: 'inline-block',
-      marginLeft: '$sm',
-      color: '$grey1',
+    '.hero3__image-area': {
+      gridArea: '1 / 7 / 2 / 14',
+      minHeight: 350,
     },
+  },
+});
+
+const StyledBackLink = styled('div', {
+  display: 'inline-flex',
+  alignItems: 'center',
+  marginTop: '$sm',
+  fontFamily: '$lato',
+  fontSize: '$text-md',
+  fontWeight: '$medium',
+
+  svg: { stroke: '$grey1' },
+
+  a: {
+    display: 'inline-block',
+    marginLeft: '$sm',
+    color: '$grey1',
   },
 });
 
@@ -58,12 +62,12 @@ export function Hero3({
       <div aria-hidden="true" className="hero3__image-area">
         {image}
         {backLink == null ? null : (
-          <div className="hero3__back-link">
+          <StyledBackLink>
             <svg height="8" width="5">
               <path d="M 4 1 L 1 4 L 4 7" fill="none" strokeWidth="2" />
             </svg>
             {backLink}
-          </div>
+          </StyledBackLink>
         )}
       </div>
     </StyledHero3>

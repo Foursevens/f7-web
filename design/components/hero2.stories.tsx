@@ -8,6 +8,7 @@ import { Hero2, Hero2Props } from './hero2';
 export default {
   title: '3. Organisms / Hero 2',
   component: Hero2,
+  parameters: { layout: 'fullscreen' },
 };
 
 const Template: Story<Hero2Props> = (argumentz): React.ReactElement => (
