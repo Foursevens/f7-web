@@ -12,6 +12,7 @@ export * from './hero1';
 export * from './hero2';
 export * from './hero3';
 export * from './menu';
+export * from './aspect-ratio-box';
 export * from './rich-text';
 export * from './tag';
 export * from './title';
