@@ -1,3 +1,5 @@
+import { StitchesProps } from '@stitches/react';
+
 import { styled } from './stitches.config';
 
 const StyledTextBlock = styled('div', {
@@ -21,3 +23,5 @@ const StyledTextBlock = styled('div', {
 });
 
 export const TextBlock = StyledTextBlock;
+
+export type TextBlockProps = StitchesProps<typeof StyledTextBlock>;
