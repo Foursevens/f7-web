@@ -40,7 +40,7 @@ export function Title({
   size = 'md',
 }: TitleProps): React.ReactElement {
   return (
-    <StyledTitle as={as} fullStop={fullStop} size={size}>
+    <StyledTitle as={as} className="title" fullStop={fullStop} size={size}>
       {children}
     </StyledTitle>
   );

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { styled } from './stitches.config';
 
 const StyledTextBlock = styled('div', {
@@ -7,21 +5,19 @@ const StyledTextBlock = styled('div', {
   flexFlow: 'column nowrap',
   justifyContent: 'center',
 
-  'h1, h2, h3, h4, h5, h6': {
-    marginBottom: 20,
-  },
+  '.tag': { order: -1, marginBottom: '$sm' },
+  '.title': { marginBottom: '$md' },
+  p: { marginBottom: '$sm' },
 
-  strong: { order: -1, marginBottom: 15 },
-
-  p: {
-    marginBottom: '$sm',
+  variants: {
+    terse: {
+      true: {
+        '.tag': { marginBottom: 3 },
+        '.title': { margin: 0 },
+        p: { margin: 0 },
+      },
+    },
   },
 });
 
-export interface TextBlockProps {
-  children: React.ReactNode;
-}
-
-export function TextBlock({ children }: TextBlockProps): React.ReactElement {
-  return <StyledTextBlock>{children}</StyledTextBlock>;
-}
+export const TextBlock = StyledTextBlock;

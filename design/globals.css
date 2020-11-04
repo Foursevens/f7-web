@@ -1,10 +1,18 @@
 @import '~minireset.css/minireset.css';
 @import 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap';
 
+/* More reset */
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
+ol {
+  list-style: none;
+}
+
+/* Base styles */
 
 p a {
   text-decoration: underline;
@@ -14,6 +22,8 @@ svg {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* Base utilities */
 
 .sr-only {
   border: 0 !important;

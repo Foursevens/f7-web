@@ -49,25 +49,23 @@ export default function CasesPage({
           </Container>
         )}
         <Container>
-          <Grid>
+          <Grid as="ol">
             {cases.map(({ id, slug, image, title, tagline, introduction }) => (
-              <Card
-                key={id}
-                background="white1"
-                image={<SiteImage image={image} />}
-              >
-                {title == null ? null : (
-                  <Title as="h3" size="md">
-                    <Link href={`/cases/${slug}`}>
-                      <a>{title}</a>
-                    </Link>
-                  </Title>
-                )}
-                {tagline == null ? null : <Tag>{tagline}</Tag>}
-                {introduction == null ? null : (
-                  <RichText>{introduction}</RichText>
-                )}
-              </Card>
+              <li key={id}>
+                <Card image={<SiteImage image={image} />}>
+                  {title == null ? null : (
+                    <Title as="h3" size="sm">
+                      <Link href={`/cases/${slug}`}>
+                        <a>{title}</a>
+                      </Link>
+                    </Title>
+                  )}
+                  {tagline == null ? null : <Tag>{tagline}</Tag>}
+                  {introduction == null ? null : (
+                    <RichText>{introduction}</RichText>
+                  )}
+                </Card>
+              </li>
             ))}
           </Grid>
         </Container>

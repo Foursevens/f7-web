@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from './stitches.config';
 
-const StyledWrapper = styled('strong', {
+const StyledTag = styled('strong', {
   color: '$secondary1',
   fontFamily: '$lato',
   fontSize: '0.875em', // 14px
@@ -17,5 +17,5 @@ export interface TagProps {
 }
 
 export function Tag({ children }: TagProps): React.ReactElement {
-  return <StyledWrapper>{children}</StyledWrapper>;
+  return <StyledTag className="tag">{children}</StyledTag>;
 }

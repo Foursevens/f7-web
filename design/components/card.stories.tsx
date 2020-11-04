@@ -18,13 +18,11 @@ const Template: Story<CardProps> = (argumentz): React.ReactElement => (
 
 export const WithWhite1 = Template.bind({});
 WithWhite1.args = {
-  background: 'white1',
+  background: '$white1',
   image: DUURZAAMHEID,
   children: (
     <>
-      <Title size="sm">
-        <a href="/">Eenvoudig fietsparkeren</a>
-      </Title>
+      <Title size="sm">Eenvoudig fietsparkeren</Title>
       <Tag>Theme</Tag>
       <RichText>
         {
@@ -37,14 +35,31 @@ WithWhite1.args = {
 
 export const WithWhite2 = Template.bind({});
 WithWhite2.args = {
-  background: 'white2',
+  background: '$white2',
   image: DUURZAAMHEID,
   children: (
     <>
+      <Title size="sm">Eenvoudig fietsparkeren</Title>
       <Tag>Theme</Tag>
+      <RichText>
+        {
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+        }
+      </RichText>
+    </>
+  ),
+};
+
+export const WithLink = Template.bind({});
+WithLink.args = {
+  background: '$white2',
+  image: DUURZAAMHEID,
+  children: (
+    <>
       <Title size="sm">
         <a href="/">Eenvoudig fietsparkeren</a>
       </Title>
+      <Tag>Theme</Tag>
       <RichText>
         {
           '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'

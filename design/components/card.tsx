@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { styled } from './stitches.config';
+import { TextBlock } from './text-block';
 import { ReactHtmlImageElement } from './types';
 
-const StyledCard = styled('section', {
-  position: 'relative',
+const StyledCard = styled('article', {
+  cursor: 'pointer',
 
   '.card__image-container': {
     overflow: 'hidden',
@@ -14,54 +15,58 @@ const StyledCard = styled('section', {
     },
   },
 
-  ':hover img': {
-    transform: 'scale(1.2)',
+  '&:hover,:focus-within': {
+    img: { transform: 'scale(1.2)' },
+  },
+  '&:focus-within': {
+    boxShadow: '0 0 0 0.25em $primary1',
   },
 
   '.card__content-container': {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    width: '90%',
-    transform: 'translateY(-55px)',
-    padding: '$md',
-
-    'a::after': {
-      position: 'absolute',
-      content: '""',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    },
-
-    strong: { order: -1, marginBottom: 3 },
-
-    p: { margin: 0 },
-  },
-
-  variants: {
-    background: {
-      white1: { '.card__content-container': { backgroundColor: '$white1' } },
-      white2: { '.card__content-container': { backgroundColor: '$white2' } },
-    },
+    position: 'relative',
+    zIndex: 1,
+    margin: '-$lg $lg 0 0',
   },
 });
 
 export interface CardProps {
-  background?: 'white1' | 'white2';
+  background?: '$white1' | '$white2';
   children: React.ReactNode;
   image?: ReactHtmlImageElement;
 }
 
 export function Card({
-  background = 'white1',
+  background = '$white2',
   children,
   image,
 }: CardProps): React.ReactElement {
+  const cardReference = useRef<HTMLElement>(null);
+  const linkReference = useRef<HTMLAnchorElement>();
+
+  useEffect(() => {
+    linkReference.current =
+      cardReference.current?.querySelector('a') ?? undefined;
+  });
+
+  const handleClick = (event: React.MouseEvent): void => {
+    if (
+      linkReference.current == null ||
+      linkReference.current === event.target
+    ) {
+      return;
+    }
+    event.preventDefault();
+    linkReference.current.click();
+  };
+
   return (
-    <StyledCard background={background}>
+    <StyledCard ref={cardReference} onClick={handleClick}>
       <div className="card__image-container">{image}</div>
-      <div className="card__content-container">{children}</div>
+      <div className="card__content-container">
+        <TextBlock css={{ background, padding: '$md' }} terse>
+          {children}
+        </TextBlock>
+      </div>
     </StyledCard>
   );
 }
