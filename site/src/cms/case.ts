@@ -2,12 +2,12 @@ import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
 interface CmsCaseContentModel {
-  image: CmsImageModel;
+  image?: CmsImageModel;
   content: CmsLocalizedModel;
 }
 
 interface SiteCaseContentModel {
-  image: SiteImageModel;
+  image?: SiteImageModel;
   content: string;
 }
 
@@ -15,10 +15,13 @@ function cmsCaseContentToSiteModel({
   image,
   content,
 }: CmsCaseContentModel): SiteCaseContentModel {
-  return {
-    image: cmsImageToSiteModel(image),
+  const siteCaseContent: SiteCaseContentModel = {
     content: cmsLocalizedToSiteModel(content),
   };
+  if (image != null) {
+    siteCaseContent.image = cmsImageToSiteModel(image);
+  }
+  return siteCaseContent;
 }
 
 export interface CmsCaseCardModel {
