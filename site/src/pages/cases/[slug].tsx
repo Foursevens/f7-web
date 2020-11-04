@@ -9,6 +9,7 @@ import {
   Title,
 } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
+import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
@@ -35,6 +36,9 @@ export default function CaseDetailPage({
   mainMenu,
   case: caseItem,
 }: Props): React.ReactElement {
+  if (caseItem == null) {
+    return <DefaultErrorPage statusCode={404} />;
+  }
   return (
     <>
       <Head>

@@ -6,7 +6,7 @@ import {
 } from '../cms';
 
 export interface SiteCaseDetailPageData {
-  case: SiteCaseDetailModel;
+  case: SiteCaseDetailModel | null;
 }
 
 export async function getCaseDetailPageData(
@@ -59,9 +59,9 @@ export async function getCaseDetailPageData(
       }
     }`,
   })) as {
-    data: { cases: CmsCaseDetailModel[] };
+    data: { cases: Array<CmsCaseDetailModel | undefined> };
   };
   return {
-    case: cmsCaseDetailToSiteModel(caseDetail),
+    case: caseDetail == null ? null : cmsCaseDetailToSiteModel(caseDetail),
   };
 }

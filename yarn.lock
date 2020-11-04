@@ -7344,10 +7344,10 @@ eslint-config-noise-ts@^0.10.2:
     eslint-import-resolver-typescript "^2.3.0"
     eslint-plugin-import "^2.22.0"
 
-eslint-config-noise@^0.10.4:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/eslint-config-noise/-/eslint-config-noise-0.10.4.tgz#d7fcbdc4f6f102121086b8aeecae2666c7fb19e1"
-  integrity sha512-/FMxeEOevZlmX8DS9Rs+dBD4Gkc8o8dAuISPO32TQ/H8yTEidpk0pxQKClYSRiPXXUJ8oEheo7KuzFwA1QIOwA==
+eslint-config-noise@^0.10.5:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-noise/-/eslint-config-noise-0.10.5.tgz#ac7a8718f521cd7192266446661b6264bd260b1c"
+  integrity sha512-+HoSz8RZCZ9RxgUgZGdXt6NdzV+mHdmJzxW5Jzz9ZwbXzYHpt6WAi7Usm1s4pc4mVwtowXWehYlPdnJOPSuxAw==
   dependencies:
     confusing-browser-globals "^1.0.9"
     eslint-config-prettier "^6.11.0"
