@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+import { AspectRatioBox } from './aspect-ratio-box';
 import { styled } from './stitches.config';
 import { TextBlock } from './text-block';
 import { ReactHtmlImageElement } from './types';
@@ -7,16 +8,12 @@ import { ReactHtmlImageElement } from './types';
 const StyledCard = styled('article', {
   cursor: 'pointer',
 
-  '.card__image-container': {
-    overflow: 'hidden',
-    img: {
-      transform: 'scale(1.1)',
-      transition: `transform .6s ease`,
-    },
+  img: {
+    transition: `transform .6s ease`,
   },
 
   '&:hover,:focus-within': {
-    img: { transform: 'scale(1.2)' },
+    img: { transform: 'scale(1.1)' },
   },
   '&:focus-within': {
     boxShadow: '0 0 0 0.25em $primary1',
@@ -61,7 +58,7 @@ export function Card({
 
   return (
     <StyledCard ref={cardReference} onClick={handleClick}>
-      <div className="card__image-container">{image}</div>
+      <AspectRatioBox aspectRatio={1.5}>{image}</AspectRatioBox>
       <div className="card__content-container">
         <TextBlock css={{ background, padding: '$md' }} terse>
           {children}

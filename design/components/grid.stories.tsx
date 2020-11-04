@@ -2,7 +2,7 @@ import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
 import { Card, RichText, Tag, Title } from '.';
-import { DUURZAAMHEID } from './data';
+import { DUURZAAMHEID, HERO2, SQUARE500 } from './data';
 import { Grid, GridProps } from './grid';
 
 export default {
@@ -26,7 +26,7 @@ Default.args = {
         }
       </RichText>
     </Card>,
-    <Card key={2} image={DUURZAAMHEID}>
+    <Card key={2} image={HERO2}>
       <Title size="sm">Nog veel eenvoudiger fietsparkeren</Title>
       <Tag>Theme</Tag>
       <RichText>
@@ -35,17 +35,8 @@ Default.args = {
         }
       </RichText>
     </Card>,
-    <Card key={3} image={DUURZAAMHEID}>
+    <Card key={3} image={SQUARE500}>
       <Title size="sm">Eenvoudig fietsparkeren</Title>
-      <Tag>Theme</Tag>
-      <RichText>
-        {
-          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
-        }
-      </RichText>
-    </Card>,
-    <Card key={4} image={DUURZAAMHEID}>
-      <Title size="sm">Nog veel eenvoudiger fietsparkeren</Title>
       <Tag>Theme</Tag>
       <RichText>
         {
