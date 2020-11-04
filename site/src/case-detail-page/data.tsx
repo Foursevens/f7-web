@@ -18,7 +18,7 @@ export async function getCaseDetailPageData(
     },
   } = (await client({
     query: `query {
-      cases(where: { slug: "${slug}" }) {
+      cases(publicationState: LIVE, where: { slug: "${slug}" }) {
         id
         image { alternativeText caption width height url }
         title { en }
