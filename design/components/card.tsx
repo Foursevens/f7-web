@@ -23,6 +23,14 @@ const StyledCard = styled('article', {
     position: 'relative',
     zIndex: 1,
     margin: '-$lg $lg 0 0',
+
+    'p:not(:first-of-type)': { display: 'none' },
+    'p:first-of-type': {
+      display: '-webkit-box',
+      overflow: 'hidden',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: 3,
+    },
   },
 });
 
@@ -43,7 +51,7 @@ export function Card({
   useEffect(() => {
     linkReference.current =
       cardReference.current?.querySelector('a') ?? undefined;
-  });
+  }, []);
 
   const handleClick = (event: React.MouseEvent): void => {
     if (
