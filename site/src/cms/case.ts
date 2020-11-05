@@ -27,18 +27,18 @@ function cmsCaseContentToSiteModel({
 export interface CmsCaseCardModel {
   id: string;
   slug: string;
+  client: string;
   introduction?: CmsLocalizedModel;
   image?: CmsImageModel;
-  tagline?: CmsLocalizedModel;
   title?: CmsLocalizedModel;
 }
 
 export interface SiteCaseCardModel {
   id: string;
   slug: string;
+  client: string;
   introduction?: string;
   image?: SiteImageModel;
-  tagline?: string;
   title?: string;
 }
 
@@ -46,13 +46,14 @@ export function cmsCaseCardToSiteModel({
   id,
   slug,
   image,
+  client,
   title,
-  tagline,
   introduction,
 }: CmsCaseCardModel): SiteCaseCardModel {
   const caseItem: SiteCaseCardModel = {
     id,
     slug,
+    client,
   };
 
   if (image != null) {
@@ -61,10 +62,6 @@ export function cmsCaseCardToSiteModel({
 
   if (title != null) {
     caseItem.title = cmsLocalizedToSiteModel(title);
-  }
-
-  if (tagline != null) {
-    caseItem.tagline = cmsLocalizedToSiteModel(tagline);
   }
 
   if (introduction != null) {

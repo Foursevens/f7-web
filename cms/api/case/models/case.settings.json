@@ -38,7 +38,8 @@
       "component": "atoms.localized-content"
     },
     "client": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "clientWebsite": {
       "type": "string"

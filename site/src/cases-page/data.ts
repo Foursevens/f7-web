@@ -37,8 +37,8 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
         id
         slug
         image { alternativeText caption width height url }
+        client
         title { en }
-        tagline { en }
         introduction { en }
       }
     }`,

@@ -50,7 +50,7 @@ export default function CasesPage({
         )}
         <Container>
           <Grid as="ol">
-            {cases.map(({ id, slug, image, title, tagline, introduction }) => (
+            {cases.map(({ id, slug, image, client, title, introduction }) => (
               <li key={id}>
                 <Card image={<SiteImage image={image} />}>
                   {title == null ? null : (
@@ -60,7 +60,7 @@ export default function CasesPage({
                       </Link>
                     </Title>
                   )}
-                  {tagline == null ? null : <Tag>{tagline}</Tag>}
+                  <Tag>{client}</Tag>
                   {introduction == null ? null : (
                     <RichText>{introduction}</RichText>
                   )}
