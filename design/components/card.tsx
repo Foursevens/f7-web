@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { AspectRatioBox } from './aspect-ratio-box';
 import { styled } from './stitches.config';
 import { TextBlock } from './text-block';
 import { ReactHtmlImageElement } from './types';
+
+const CLICK_DELTA_MAX = 5;
 
 const StyledCard = styled('article', {
   cursor: 'pointer',
@@ -53,11 +55,28 @@ export function Card({
       cardReference.current?.querySelector('a') ?? undefined;
   }, []);
 
-  const handleClick = (event: React.MouseEvent): void => {
+  const [mouseDown, setMouseDown] = useState<null | {
+    x: number;
+    y: number;
+  }>(null);
+  const handleMouseDown = (event: React.MouseEvent): void => {
+    if (linkReference.current == null) {
+      return;
+    }
+    setMouseDown({ x: event.pageX, y: event.pageY });
+  };
+  const handleMouseUp = (event: React.MouseEvent): void => {
     if (
+      mouseDown == null ||
       linkReference.current == null ||
       linkReference.current === event.target
     ) {
+      return;
+    }
+    const delta = Math.sqrt(
+      Math.abs(event.pageX - mouseDown.x) + Math.abs(event.pageY - mouseDown.y),
+    );
+    if (delta > CLICK_DELTA_MAX) {
       return;
     }
     event.preventDefault();
@@ -65,7 +84,11 @@ export function Card({
   };
 
   return (
-    <StyledCard ref={cardReference} onClick={handleClick}>
+    <StyledCard
+      ref={cardReference}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+    >
       <AspectRatioBox aspectRatio={1.5}>{image}</AspectRatioBox>
       <div className="card__content-container">
         <TextBlock css={{ background, padding: '$md' }} terse>
