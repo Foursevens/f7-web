@@ -1,4 +1,5 @@
 import { client, gql } from '../api';
+import { cmsHero2Fragment, cmsImageFragment } from '../cms';
 import {
   CmsTeamPageModel,
   cmsTeamPageToSite,
@@ -11,22 +12,12 @@ export interface SiteTeamPageData {
 
 export async function getTeamPageData(): Promise<SiteTeamPageData> {
   const { teamPage } = (await client.request(gql`
+    ${cmsHero2Fragment}
+    ${cmsImageFragment}
     {
       teamPage {
         hero {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          title {
-            en
-          }
-          content {
-            en
-          }
+          ...hero2
         }
       }
     }

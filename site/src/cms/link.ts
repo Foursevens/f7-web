@@ -1,4 +1,14 @@
+import { gql } from '../api';
 import { CmsLocalizedModel } from './localized';
+
+export const cmsLinkFragment = gql`
+  fragment link on ComponentAtomsLink {
+    href
+    text {
+      en
+    }
+  }
+`;
 
 export interface CmsLinkModel {
   href: string;

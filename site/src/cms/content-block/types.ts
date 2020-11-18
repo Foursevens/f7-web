@@ -1,8 +1,30 @@
+import { gql } from '../../api';
 import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from '../image';
 import { CmsLinkModel, SiteLinkModel } from '../link';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
 
 const EVEN = 2;
+
+export const cmsContentBlockFragment = gql`
+  fragment contentBlock on ComponentMoleculesContentBlock {
+    id
+    image {
+      ...image
+    }
+    title {
+      en
+    }
+    tagline {
+      en
+    }
+    content {
+      en
+    }
+    cta {
+      ...link
+    }
+  }
+`;
 
 export interface CmsContentBlockModel {
   id: string;

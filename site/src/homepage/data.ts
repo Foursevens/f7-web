@@ -1,4 +1,5 @@
 import { client, gql } from '../api';
+import { cmsImageFragment, cmsLinkFragment } from '../cms';
 import {
   CmsHomepageModel,
   cmsHomepageToSite,
@@ -11,16 +12,14 @@ export interface SiteHomepageData {
 
 export async function getHomepageData(): Promise<SiteHomepageData> {
   const { homepage } = (await client.request(gql`
+    ${cmsImageFragment}
+    ${cmsLinkFragment}
     {
       homepage {
         hero {
           id
           image {
-            alternativeText
-            width
-            height
-            url
-            caption
+            ...image
           }
           title {
             en
@@ -29,10 +28,7 @@ export async function getHomepageData(): Promise<SiteHomepageData> {
             en
           }
           cta {
-            href
-            text {
-              en
-            }
+            ...link
           }
         }
       }

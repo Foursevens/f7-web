@@ -1,4 +1,5 @@
 import { client, gql } from '../api';
+import { cmsHero2Fragment, cmsImageFragment } from '../cms';
 import {
   CmsJobsPageModel,
   cmsJobsPageToSite,
@@ -11,22 +12,12 @@ export interface SiteJobsPageData {
 
 export async function getJobsPageData(): Promise<SiteJobsPageData> {
   const { jobsPage } = (await client.request(gql`
+    ${cmsHero2Fragment}
+    ${cmsImageFragment}
     {
       jobsPage {
         hero {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          title {
-            en
-          }
-          content {
-            en
-          }
+          ...hero2
         }
       }
     }

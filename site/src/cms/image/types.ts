@@ -1,4 +1,14 @@
-import { apiBaseUrl } from '../../api';
+import { apiBaseUrl, gql } from '../../api';
+
+export const cmsImageFragment = gql`
+  fragment image on UploadFile {
+    alternativeText
+    width
+    height
+    url
+    caption
+  }
+`;
 
 export interface CmsImageModel {
   alternativeText?: string;

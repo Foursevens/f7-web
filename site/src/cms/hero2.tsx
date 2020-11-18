@@ -1,5 +1,20 @@
-import { CmsImageModel, SiteImageModel, cmsImageToSiteModel } from './image';
+import { gql } from '../api';
+import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+
+export const cmsHero2Fragment = gql`
+  fragment hero2 on ComponentMoleculesHero2 {
+    image {
+      ...image
+    }
+    title {
+      en
+    }
+    content {
+      en
+    }
+  }
+`;
 
 export interface CmsHero2Model {
   image?: CmsImageModel;

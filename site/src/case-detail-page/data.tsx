@@ -2,6 +2,7 @@ import { client, gql } from '../api';
 import {
   CmsCaseDetailModel,
   cmsCaseDetailToSiteModel,
+  cmsImageFragment,
   SiteCaseDetailModel,
 } from '../cms';
 
@@ -14,47 +15,55 @@ export async function getCaseDetailPageData(
 ): Promise<SiteCaseDetailPageData> {
   const {
     cases: [caseDetail],
-  } = (await client.request(gql`{
-      cases(publicationState: LIVE, where: { slug: "${slug}" }) {
-        id
-        image { alternativeText caption width height url }
-        title { en }
-        tagline { en }
-        introduction { en }
-        client
-        clientWebsite
-        problem {
+  } = (await client.request(
+    gql`
+      ${cmsImageFragment}
+      query getCaseDetail($slug: String!) {
+        cases(publicationState: LIVE, where: { slug: $slug }) {
+          id
           image {
-            alternativeText
-            caption
-            width
-            height
-            url
+            ...image
           }
-          content { en }
-        }
-        solution {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
+          title {
+            en
           }
-          content { en }
-        }
-        result {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
+          tagline {
+            en
           }
-          content { en }
+          introduction {
+            en
+          }
+          client
+          clientWebsite
+          problem {
+            image {
+              ...image
+            }
+            content {
+              en
+            }
+          }
+          solution {
+            image {
+              ...image
+            }
+            content {
+              en
+            }
+          }
+          result {
+            image {
+              ...image
+            }
+            content {
+              en
+            }
+          }
         }
       }
-    }`)) as { cases: Array<CmsCaseDetailModel | undefined> };
+    `,
+    { slug },
+  )) as { cases: Array<CmsCaseDetailModel | undefined> };
   return {
     case: caseDetail == null ? null : cmsCaseDetailToSiteModel(caseDetail),
   };

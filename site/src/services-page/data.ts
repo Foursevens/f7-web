@@ -1,5 +1,11 @@
 import { client, gql } from '../api';
 import {
+  cmsContentBlockFragment,
+  cmsHero2Fragment,
+  cmsImageFragment,
+  cmsLinkFragment,
+} from '../cms';
+import {
   CmsServicesPageModel,
   cmsServicesPageToSite,
   SiteServicesPageModel,
@@ -11,47 +17,17 @@ export interface SiteServicesPageData {
 
 export async function getServicesPageData(): Promise<SiteServicesPageData> {
   const { servicesPage } = (await client.request(gql`
+    ${cmsContentBlockFragment}
+    ${cmsHero2Fragment}
+    ${cmsImageFragment}
+    ${cmsLinkFragment}
     {
       servicesPage {
         hero {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          title {
-            en
-          }
-          content {
-            en
-          }
+          ...hero2
         }
         blocks {
-          id
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          title {
-            en
-          }
-          tagline {
-            en
-          }
-          content {
-            en
-          }
-          cta {
-            href
-            text {
-              en
-            }
-          }
+          ...contentBlock
         }
       }
     }

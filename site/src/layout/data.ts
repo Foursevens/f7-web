@@ -1,5 +1,10 @@
 import { client, gql } from '../api';
-import { CmsMenuModel, cmsMenuToSite, SiteMenuModel } from '../cms';
+import {
+  cmsLinkFragment,
+  CmsMenuModel,
+  cmsMenuToSite,
+  SiteMenuModel,
+} from '../cms';
 
 export interface LayoutData {
   mainMenu: SiteMenuModel;
@@ -9,6 +14,7 @@ export async function getLayoutData(): Promise<LayoutData> {
   const {
     mainMenus: [mainMenu],
   } = (await client.request(gql`
+    ${cmsLinkFragment}
     {
       mainMenus: menus(where: { reference: "main" }) {
         reference
@@ -19,10 +25,7 @@ export async function getLayoutData(): Promise<LayoutData> {
           id
           highlight
           link {
-            href
-            text {
-              en
-            }
+            ...link
           }
         }
       }

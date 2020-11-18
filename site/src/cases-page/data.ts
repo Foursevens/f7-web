@@ -2,6 +2,8 @@ import { client, gql } from '../api';
 import {
   CmsCaseCardModel,
   cmsCaseCardToSiteModel,
+  cmsHero2Fragment,
+  cmsImageFragment,
   SiteCaseCardModel,
 } from '../cms';
 import {
@@ -17,33 +19,19 @@ export interface SiteCasesPageData {
 
 export async function getCasesPageData(): Promise<SiteCasesPageData> {
   const { casesPage, cases } = (await client.request(gql`
+    ${cmsHero2Fragment}
+    ${cmsImageFragment}
     {
       casesPage {
         hero {
-          image {
-            alternativeText
-            caption
-            width
-            height
-            url
-          }
-          title {
-            en
-          }
-          content {
-            en
-          }
+          ...hero2
         }
       }
       cases(publicationState: LIVE) {
         id
         slug
         image {
-          alternativeText
-          caption
-          width
-          height
-          url
+          ...image
         }
         client
         title {
