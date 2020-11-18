@@ -11,9 +11,10 @@ const StyledConversionBlock = styled('div', {
 
   '> svg': {
     position: 'absolute',
-    top: 20,
+    top: '$md',
     right: 0,
-    transform: 'translateX(20%)',
+    transform: 'translateX(25%)',
+    transformOrigin: 'top left',
   },
 });
 
