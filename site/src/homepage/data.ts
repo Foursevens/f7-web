@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsHomepageModel,
   cmsHomepageToSite,
@@ -10,10 +10,8 @@ export interface SiteHomepageData {
 }
 
 export async function getHomepageData(): Promise<SiteHomepageData> {
-  const {
-    data: { homepage },
-  } = (await client({
-    query: `query {
+  const { homepage } = (await client.request(gql`
+    {
       homepage {
         hero {
           id
@@ -24,15 +22,21 @@ export async function getHomepageData(): Promise<SiteHomepageData> {
             url
             caption
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
           cta {
             href
-            text { en }
+            text {
+              en
+            }
           }
         }
       }
-    }`,
-  })) as { data: { homepage: CmsHomepageModel | null } };
+    }
+  `)) as { homepage: CmsHomepageModel | null };
   return { homepage: cmsHomepageToSite(homepage ?? undefined) };
 }

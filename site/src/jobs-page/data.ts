@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsJobsPageModel,
   cmsJobsPageToSite,
@@ -10,10 +10,8 @@ export interface SiteJobsPageData {
 }
 
 export async function getJobsPageData(): Promise<SiteJobsPageData> {
-  const {
-    data: { jobsPage },
-  } = (await client({
-    query: `query {
+  const { jobsPage } = (await client.request(gql`
+    {
       jobsPage {
         hero {
           image {
@@ -23,11 +21,15 @@ export async function getJobsPageData(): Promise<SiteJobsPageData> {
             height
             url
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
         }
       }
-    }`,
-  })) as { data: { jobsPage: CmsJobsPageModel | null } };
+    }
+  `)) as { jobsPage: CmsJobsPageModel | null };
   return { jobsPage: cmsJobsPageToSite(jobsPage ?? undefined) };
 }

@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import { CmsMenuModel, cmsMenuToSite, SiteMenuModel } from '../cms';
 
 export interface LayoutData {
@@ -6,27 +6,28 @@ export interface LayoutData {
 }
 
 export async function getLayoutData(): Promise<LayoutData> {
-  const { data } = (await client({
-    query: `query {
+  const {
+    mainMenus: [mainMenu],
+  } = (await client.request(gql`
+    {
       mainMenus: menus(where: { reference: "main" }) {
         reference
-        title { en }
+        title {
+          en
+        }
         items {
           id
           highlight
           link {
             href
-            text { en }
+            text {
+              en
+            }
           }
         }
       }
-    }`,
-  })) as {
-    data: {
-      mainMenus: Array<CmsMenuModel | undefined>;
-    };
-  };
-  const [mainMenu] = data.mainMenus;
+    }
+  `)) as { mainMenus: Array<CmsMenuModel | undefined> };
   return {
     mainMenu:
       mainMenu == null

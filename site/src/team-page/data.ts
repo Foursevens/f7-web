@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsTeamPageModel,
   cmsTeamPageToSite,
@@ -10,10 +10,8 @@ export interface SiteTeamPageData {
 }
 
 export async function getTeamPageData(): Promise<SiteTeamPageData> {
-  const {
-    data: { teamPage },
-  } = (await client({
-    query: `query {
+  const { teamPage } = (await client.request(gql`
+    {
       teamPage {
         hero {
           image {
@@ -23,11 +21,15 @@ export async function getTeamPageData(): Promise<SiteTeamPageData> {
             height
             url
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
         }
       }
-    }`,
-  })) as { data: { teamPage: CmsTeamPageModel | null } };
+    }
+  `)) as { teamPage: CmsTeamPageModel | null };
   return { teamPage: cmsTeamPageToSite(teamPage ?? undefined) };
 }

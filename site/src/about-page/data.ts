@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsAboutPageModel,
   cmsAboutPageToSite,
@@ -10,10 +10,8 @@ export interface SiteAboutPageData {
 }
 
 export async function getAboutPageData(): Promise<SiteAboutPageData> {
-  const {
-    data: { aboutPage },
-  } = (await client({
-    query: `query {
+  const { aboutPage } = (await client.request(gql`
+    {
       aboutPage {
         hero {
           image {
@@ -23,11 +21,15 @@ export async function getAboutPageData(): Promise<SiteAboutPageData> {
             height
             url
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
         }
       }
-    }`,
-  })) as { data: { aboutPage: CmsAboutPageModel | null } };
+    }
+  `)) as { aboutPage: CmsAboutPageModel | null };
   return { aboutPage: cmsAboutPageToSite(aboutPage ?? undefined) };
 }

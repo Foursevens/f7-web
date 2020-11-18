@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsCaseCardModel,
   cmsCaseCardToSiteModel,
@@ -16,10 +16,8 @@ export interface SiteCasesPageData {
 }
 
 export async function getCasesPageData(): Promise<SiteCasesPageData> {
-  const {
-    data: { casesPage, cases },
-  } = (await client({
-    query: `query {
+  const { casesPage, cases } = (await client.request(gql`
+    {
       casesPage {
         hero {
           image {
@@ -29,22 +27,34 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
             height
             url
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
         }
       }
       cases(publicationState: LIVE) {
         id
         slug
-        image { alternativeText caption width height url }
+        image {
+          alternativeText
+          caption
+          width
+          height
+          url
+        }
         client
-        title { en }
-        introduction { en }
+        title {
+          en
+        }
+        introduction {
+          en
+        }
       }
-    }`,
-  })) as {
-    data: { casesPage: CmsCasesPageModel | null; cases: CmsCaseCardModel[] };
-  };
+    }
+  `)) as { casesPage: CmsCasesPageModel | null; cases: CmsCaseCardModel[] };
   return {
     casesPage: cmsCasesPageToSite(casesPage ?? undefined),
     cases: cases.map(cmsCaseCardToSiteModel),

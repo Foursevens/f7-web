@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsServicesPageModel,
   cmsServicesPageToSite,
@@ -10,10 +10,8 @@ export interface SiteServicesPageData {
 }
 
 export async function getServicesPageData(): Promise<SiteServicesPageData> {
-  const {
-    data: { servicesPage },
-  } = (await client({
-    query: `query {
+  const { servicesPage } = (await client.request(gql`
+    {
       servicesPage {
         hero {
           image {
@@ -23,8 +21,12 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
             height
             url
           }
-          title { en }
-          content { en }
+          title {
+            en
+          }
+          content {
+            en
+          }
         }
         blocks {
           id
@@ -35,16 +37,24 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
             height
             url
           }
-          title { en }
-          tagline { en }
-          content { en }
+          title {
+            en
+          }
+          tagline {
+            en
+          }
+          content {
+            en
+          }
           cta {
             href
-            text { en }
+            text {
+              en
+            }
           }
         }
       }
-    }`,
-  })) as { data: { servicesPage: CmsServicesPageModel | null } };
+    }
+  `)) as { servicesPage: CmsServicesPageModel | null };
   return { servicesPage: cmsServicesPageToSite(servicesPage ?? undefined) };
 }

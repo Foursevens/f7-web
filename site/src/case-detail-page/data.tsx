@@ -1,4 +1,4 @@
-import { client } from '../api';
+import { client, gql } from '../api';
 import {
   CmsCaseDetailModel,
   cmsCaseDetailToSiteModel,
@@ -13,11 +13,8 @@ export async function getCaseDetailPageData(
   slug: string,
 ): Promise<SiteCaseDetailPageData> {
   const {
-    data: {
-      cases: [caseDetail],
-    },
-  } = (await client({
-    query: `query {
+    cases: [caseDetail],
+  } = (await client.request(gql`{
       cases(publicationState: LIVE, where: { slug: "${slug}" }) {
         id
         image { alternativeText caption width height url }
@@ -57,10 +54,7 @@ export async function getCaseDetailPageData(
           content { en }
         }
       }
-    }`,
-  })) as {
-    data: { cases: Array<CmsCaseDetailModel | undefined> };
-  };
+    }`)) as { cases: Array<CmsCaseDetailModel | undefined> };
   return {
     case: caseDetail == null ? null : cmsCaseDetailToSiteModel(caseDetail),
   };
