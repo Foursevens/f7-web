@@ -12,7 +12,7 @@ import {
 } from './data';
 
 export default {
-  title: '3. Organisms / ContentBlock',
+  title: '3. Organisms / Content Block',
   component: ContentBlock,
 };
 

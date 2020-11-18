@@ -5,7 +5,7 @@ import { ButtonLink, RichText, Title } from '.';
 import { ConvertionBlock, ConversionBlockProps } from './conversion-block';
 
 export default {
-  title: '3. Organisms / ConversionBlock',
+  title: '3. Organisms / Conversion Block',
   component: ConvertionBlock,
 };
 
