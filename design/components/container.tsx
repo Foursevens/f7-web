@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from './stitches.config';
 
 const StyledOuterContainer = styled('div', {
-  '--inline-gutter': '20px',
+  '--inline-gutter': '30px',
 
   display: 'grid',
   gridTemplateColumns:

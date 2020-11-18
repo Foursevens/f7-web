@@ -29,6 +29,7 @@ const StyledHero1 = styled(Container.Outer, {
     gridArea: '1 / 2 / 2 / 14',
     alignSelf: 'center',
     maxWidth: '60ch',
+    margin: '$lg 0',
     paddingBottom: '$lg',
   },
 

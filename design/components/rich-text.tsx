@@ -10,7 +10,11 @@ const StyledRichText = styled('div', {
   fontWeight: '$book',
   lineHeight: 1.5625,
 
-  'p, ul': { margin: '1.25em 0' },
+  'p, ul': { margin: '$xs 0' },
+
+  md: {
+    'p, ul': { margin: '$md 0' },
+  },
 
   variants: {
     size: {

@@ -9,8 +9,12 @@ const StyledTextBlock = styled('div', {
   justifyContent: 'center',
 
   '.tag': { order: -1, marginBottom: '$sm' },
-  '.title': { marginBottom: '$md' },
+  '.title': { marginBottom: '$xs' },
   p: { marginBottom: '$sm' },
+
+  md: {
+    '.title': { marginBottom: '$md' },
+  },
 
   variants: {
     terse: {
