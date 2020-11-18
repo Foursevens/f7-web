@@ -9,9 +9,9 @@ export interface SiteTeamPageModel {
 }
 
 export function cmsTeamPageToSite({
-  hero = {},
+  hero,
 }: CmsTeamPageModel = {}): SiteTeamPageModel {
   return {
-    hero: cmsHero2ModelToSite(hero),
+    hero: cmsHero2ModelToSite(hero ?? {}),
   };
 }

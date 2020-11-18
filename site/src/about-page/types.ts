@@ -9,9 +9,9 @@ export interface SiteAboutPageModel {
 }
 
 export function cmsAboutPageToSite({
-  hero = {},
+  hero,
 }: CmsAboutPageModel = {}): SiteAboutPageModel {
   return {
-    hero: cmsHero2ModelToSite(hero),
+    hero: cmsHero2ModelToSite(hero ?? {}),
   };
 }

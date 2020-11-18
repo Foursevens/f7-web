@@ -9,9 +9,9 @@ export interface SiteJobsPageModel {
 }
 
 export function cmsJobsPageToSite({
-  hero = {},
+  hero,
 }: CmsJobsPageModel = {}): SiteJobsPageModel {
   return {
-    hero: cmsHero2ModelToSite(hero),
+    hero: cmsHero2ModelToSite(hero ?? {}),
   };
 }

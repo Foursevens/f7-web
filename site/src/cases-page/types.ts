@@ -9,9 +9,9 @@ export interface SiteCasesPageModel {
 }
 
 export function cmsCasesPageToSite({
-  hero = {},
+  hero,
 }: CmsCasesPageModel = {}): SiteCasesPageModel {
   return {
-    hero: cmsHero2ModelToSite(hero),
+    hero: cmsHero2ModelToSite(hero ?? {}),
   };
 }

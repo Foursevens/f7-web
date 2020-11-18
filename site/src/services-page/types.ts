@@ -18,11 +18,11 @@ export interface SiteServicesPageModel {
 }
 
 export function cmsServicesPageToSite({
-  hero = {},
-  blocks = [],
+  hero,
+  blocks,
 }: CmsServicesPageModel = {}): SiteServicesPageModel {
   return {
-    hero: cmsHero2ModelToSite(hero),
-    blocks: blocks.map(cmsContentBlockToSite),
+    hero: cmsHero2ModelToSite(hero ?? {}),
+    blocks: (blocks ?? []).map(cmsContentBlockToSite),
   };
 }
