@@ -1,4 +1,5 @@
 import { StitchesProps } from '@stitches/react';
+import React from 'react';
 
 import { styled } from './stitches.config';
 
@@ -22,6 +23,10 @@ const StyledTextBlock = styled('div', {
   },
 });
 
-export const TextBlock = StyledTextBlock;
+export function TextBlock(
+  props: StitchesProps<typeof StyledTextBlock>,
+): React.ReactElement {
+  return <StyledTextBlock {...props} />;
+}
 
 export type TextBlockProps = StitchesProps<typeof StyledTextBlock>;

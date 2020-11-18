@@ -53,7 +53,10 @@ export function ContentBlock({
 }: ContentBlockProps): React.ReactElement {
   const childrenList = React.Children.toArray(children) as Child[];
   const imageIndex = childrenList.findIndex(
-    (child) => child != null && child.type === 'img',
+    (child) =>
+      child != null &&
+      typeof child.type === 'function' &&
+      child.type.name !== 'TextBlock',
   );
   const imageElement =
     imageIndex === -1
@@ -68,7 +71,9 @@ export function ContentBlock({
     childrenList.splice(
       imageIndex,
       1,
-      <div className="content-block__image-wrapper">{imageElement}</div>,
+      <div key="image-wrapper" className="content-block__image-wrapper">
+        {imageElement}
+      </div>,
     );
   }
   const imageMaxHeight = Math.min(

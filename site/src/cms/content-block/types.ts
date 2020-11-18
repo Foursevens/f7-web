@@ -1,6 +1,6 @@
-import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
-import { CmsLinkModel, SiteLinkModel } from './link';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from '../image';
+import { CmsLinkModel, SiteLinkModel } from '../link';
+import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
 
 const EVEN = 2;
 
