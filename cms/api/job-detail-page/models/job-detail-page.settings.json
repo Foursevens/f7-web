@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "job_detail_pages",
+  "info": {
+    "name": "Job Detail Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "conversion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.conversion-block"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { Container, Hero2, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { SiteImage } from '../cms';
@@ -38,6 +39,11 @@ export default function JobsPage({
             <RichText>{jobsPage.hero.content}</RichText>
           </Container>
         )}
+        <Container margin>
+          <Link href="/jobs/senior-digital-analyst">
+            Senior Digital Analyst
+          </Link>
+        </Container>
       </LayoutContainer>
     </>
   );
