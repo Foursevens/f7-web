@@ -21,7 +21,7 @@
     "react-dom": "~16.14.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
+    "@babel/core": "^7.12.9",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.2",
     "@storybook/addon-actions": "6.1.0-alpha.24",
     "@storybook/addon-essentials": "^6.1.0-alpha.24",
@@ -32,7 +32,7 @@
     "react-is": "^16.13.1",
     "react-refresh": "^0.8.3",
     "rimraf": "^3.0.2",
-    "typescript": "^4.0.5"
+    "typescript": "^4.1.2"
   },
   "types": "dist/index.d.ts"
 }
