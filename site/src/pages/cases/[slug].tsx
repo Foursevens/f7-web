@@ -77,22 +77,22 @@ export default function CaseDetailPage({
           </TextBlock>
         </Hero3>
         <ContainerStack margin padding>
-          <ContentBlock>
-            <SiteImage image={caseItem.problem.image} />
+          <ContentBlock image={<SiteImage image={caseItem.problem.image} />}>
             <TextBlock>
               <Title>Problem</Title>
               <RichText>{caseItem.problem.content}</RichText>
             </TextBlock>
           </ContentBlock>
-          <ContentBlock>
+          <ContentBlock
+            image={<SiteImage image={caseItem.solution.image} />}
+            imageAtEnd
+          >
             <TextBlock>
               <Title>Solution</Title>
               <RichText>{caseItem.solution.content}</RichText>
             </TextBlock>
-            <SiteImage image={caseItem.solution.image} />
           </ContentBlock>
-          <ContentBlock>
-            <SiteImage image={caseItem.result.image} />
+          <ContentBlock image={<SiteImage image={caseItem.result.image} />}>
             <TextBlock>
               <Title>Result</Title>
               <RichText>{caseItem.result.content}</RichText>

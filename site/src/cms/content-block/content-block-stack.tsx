@@ -22,9 +22,12 @@ interface Props {
 export function SiteContentBlockStack({ blocks }: Props): React.ReactElement {
   return (
     <ContainerStack margin padding>
-      {blocks?.map(({ id, image, title, tagline, content, cta }, index) => {
-        const imageSide = <SiteImage image={image} />;
-        const textBlockSide = (
+      {blocks?.map(({ id, image, title, tagline, content, cta }, index) => (
+        <ContentBlock
+          key={id}
+          image={<SiteImage image={image} />}
+          imageAtEnd={index % EVEN === 1}
+        >
           <TextBlock>
             {title == null ? null : (
               <Title as="h3" size="md">
@@ -41,19 +44,8 @@ export function SiteContentBlockStack({ blocks }: Props): React.ReactElement {
               </div>
             )}
           </TextBlock>
-        );
-        return index % EVEN === 0 ? (
-          <ContentBlock key={id}>
-            {imageSide}
-            {textBlockSide}
-          </ContentBlock>
-        ) : (
-          <ContentBlock key={id}>
-            {textBlockSide}
-            {imageSide}
-          </ContentBlock>
-        );
-      })}
+        </ContentBlock>
+      ))}
     </ContainerStack>
   );
 }

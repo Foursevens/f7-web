@@ -34,19 +34,17 @@ Default.args = {
 export const WithContentBlocks = Template.bind({});
 WithContentBlocks.args = {
   children: [
-    <ContentBlock key={1}>
-      {DUURZAAMHEID}
+    <ContentBlock key={1} image={DUURZAAMHEID}>
       <TextBlock>
         <Title size="md">Lorem Ipsum</Title>
         <RichText>{RICH_TEXT}</RichText>
       </TextBlock>
     </ContentBlock>,
-    <ContentBlock key={2}>
+    <ContentBlock key={2} image={DUURZAAMHEID} imageAtEnd>
       <TextBlock>
         <Title size="md">Lorem Ipsum</Title>
         <RichText>{RICH_TEXT}</RichText>
       </TextBlock>
-      {DUURZAAMHEID}
     </ContentBlock>,
   ],
   padding: true,

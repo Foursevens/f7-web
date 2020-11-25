@@ -32,7 +32,7 @@ const StyledAspectRatioBox = styled('div', {
 
 export interface AspectRatioBoxProps
   extends StitchesProps<typeof StyledAspectRatioBox> {
-  aspectRatio: number;
+  aspectRatio?: number;
 }
 
 export function AspectRatioBox({

@@ -22,12 +22,12 @@ const Template: Story<ContentBlockProps> = (argumentz): React.ReactElement => (
 
 export const WithoutImage = Template.bind({});
 WithoutImage.args = {
-  children: [
+  children: (
     <TextBlock key="text-block">
       <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
-    </TextBlock>,
-  ],
+    </TextBlock>
+  ),
 };
 
 const WithImageStartTemplate: Story<{
@@ -38,9 +38,8 @@ const WithImageStartTemplate: Story<{
     >
   >;
 }> = ({ image }): React.ReactElement => (
-  <ContentBlock>
-    {image}
-    <TextBlock key="text-block">
+  <ContentBlock image={image}>
+    <TextBlock>
       <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
     </TextBlock>
@@ -67,12 +66,11 @@ const WithImageEndTemplate: Story<{
     >
   >;
 }> = ({ image }): React.ReactElement => (
-  <ContentBlock>
+  <ContentBlock image={image} imageAtEnd>
     <TextBlock key="text-block">
       <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
     </TextBlock>
-    {image}
   </ContentBlock>
 );
 

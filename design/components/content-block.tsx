@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
+import { AspectRatioBox } from './aspect-ratio-box';
 import { styled } from './stitches.config';
+import { TextBlockProps } from './text-block';
+import { ReactHtmlImageElement } from './types';
+
+const IMAGE_END_MAX_SIZE = 400;
 
 const StyledContentBlock = styled('div', {
   display: 'grid',
@@ -8,81 +13,69 @@ const StyledContentBlock = styled('div', {
   gridTemplateColumns: 'repeat(12, 1fr)',
   alignItems: 'center',
 
-  // Image at start
-  '&> .content-block__image-wrapper:first-child': {
-    gridColumn: '1 / 6',
-  },
-  '&> :not(.content-block__image-wrapper):not(:only-child):last-child': {
-    gridColumn: '7 / 12',
-  },
-
-  // Image at end
-  '&> :not(.content-block__image-wrapper):first-child': {
-    gridColumn: '1 / 6',
-  },
-  '&> .content-block__image-wrapper:last-child': {
-    gridColumn: '7 / 12',
-    position: 'relative',
-    width: 'min(var(--image-max-height), 40vw)',
-    '&:before': {
-      content: '""',
-      display: 'block',
-      paddingTop: '100%',
-    },
-
-    img: {
-      position: 'absolute',
-      top: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      backgroundColor: '$primary2',
-      boxShadow: '15px 15px 0 $primary2',
-    },
-  },
+  '&> :first-child': { gridColumn: '1 / 6' },
+  '&> :last-child:not(:only-child)': { gridColumn: '7 / 12' },
 });
 
-type Child = React.ReactElement | null | undefined;
+const StyledImageEnd = styled(AspectRatioBox, {
+  backgroundColor: '$primary2',
+  boxShadow: '15px 15px 0 $primary2',
+});
 
 export interface ContentBlockProps {
-  children: Child | Child[];
+  children: React.ReactElement<TextBlockProps>;
+  image?: ReactHtmlImageElement;
+  imageAtEnd?: boolean;
 }
 
 export function ContentBlock({
   children,
+  image,
+  imageAtEnd = false,
 }: ContentBlockProps): React.ReactElement {
-  const childrenList = React.Children.toArray(children) as Child[];
-  const imageIndex = childrenList.findIndex(
-    (child) =>
-      child != null &&
-      typeof child.type === 'function' &&
-      child.type.name !== 'TextBlock',
-  );
-  const imageElement =
-    imageIndex === -1
-      ? null
-      : (childrenList[imageIndex] as React.ReactElement<
-          React.DetailedHTMLProps<
-            React.ImgHTMLAttributes<HTMLImageElement>,
-            HTMLImageElement
-          >
-        >);
-  if (imageElement) {
-    childrenList.splice(
-      imageIndex,
-      1,
-      <div key="image-wrapper" className="content-block__image-wrapper">
-        {imageElement}
-      </div>,
+  const imageSize = useMemo((): number => {
+    if (image == null) {
+      return 0;
+    }
+    let props:
+      | undefined
+      | { width?: string | number; height?: string | number };
+    if (image.type === 'img') {
+      props = image.props;
+    } else if ('image' in image.props) {
+      const { image: imageProperties } = image.props as {
+        image?: { width?: string | number; height?: string | number };
+      };
+      if (imageProperties?.width != null && imageProperties.height != null) {
+        props = imageProperties;
+      }
+    }
+    if (props == null) {
+      // eslint-disable-next-line no-console
+      console.warn('could not determine image size for', image);
+      return 0;
+    }
+    return Math.min(
+      IMAGE_END_MAX_SIZE,
+      Number(props.width),
+      Number(props.height),
     );
-  }
-  const imageMaxHeight = Math.min(
-    Number(imageElement?.props.width),
-    Number(imageElement?.props.height),
-  );
+  }, [image]);
   return (
-    <StyledContentBlock css={{ '--image-max-height': `${imageMaxHeight}px` }}>
-      {childrenList}
+    <StyledContentBlock>
+      {imageAtEnd ? (
+        <>
+          {children}
+          <StyledImageEnd css={{ width: imageSize, height: imageSize }}>
+            {image}
+          </StyledImageEnd>
+        </>
+      ) : (
+        <>
+          {image}
+          {children}
+        </>
+      )}
     </StyledContentBlock>
   );
 }
