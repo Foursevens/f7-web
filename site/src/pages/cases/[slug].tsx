@@ -1,5 +1,6 @@
 import {
   CaseDetails,
+  Container,
   ContainerStack,
   ContentBlock,
   Hero3,
@@ -18,7 +19,7 @@ import {
   getCaseDetailPageData,
   SiteCaseDetailPageData,
 } from '../../case-detail-page';
-import { SiteImage } from '../../cms';
+import { SiteConversionBlock, SiteImage } from '../../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData, SiteCaseDetailPageData {}
@@ -35,6 +36,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 export default function CaseDetailPage({
   mainMenu,
   case: caseItem,
+  caseDetailPage: { conversion },
 }: Props): React.ReactElement {
   if (caseItem == null) {
     return <DefaultErrorPage statusCode={404} />;
@@ -99,6 +101,9 @@ export default function CaseDetailPage({
             </TextBlock>
           </ContentBlock>
         </ContainerStack>
+        <Container margin>
+          <SiteConversionBlock conversion={conversion} />
+        </Container>
       </LayoutContainer>
     </>
   );

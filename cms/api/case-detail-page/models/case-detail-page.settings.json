@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "cast_detail_pages",
+  "info": {
+    "name": "Case Detail Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "conversion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.conversion-block"
+    }
+  }
+}

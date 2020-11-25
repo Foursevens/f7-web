@@ -2,12 +2,20 @@ import { client, gql } from '../api';
 import {
   CmsCaseDetailModel,
   cmsCaseDetailToSiteModel,
+  cmsConversionBlockFragment,
   cmsImageFragment,
+  cmsLinkFragment,
   SiteCaseDetailModel,
 } from '../cms';
+import {
+  CmsCaseDetailPageModel,
+  cmsCaseDetailPageToSiteModel,
+  SiteCaseDetailPageModel,
+} from './types';
 
 export interface SiteCaseDetailPageData {
   case: SiteCaseDetailModel | null;
+  caseDetailPage: SiteCaseDetailPageModel;
 }
 
 export async function getCaseDetailPageData(
@@ -15,9 +23,12 @@ export async function getCaseDetailPageData(
 ): Promise<SiteCaseDetailPageData> {
   const {
     cases: [caseDetail],
+    caseDetailPage,
   } = (await client.request(
     gql`
+      ${cmsConversionBlockFragment}
       ${cmsImageFragment}
+      ${cmsLinkFragment}
       query getCaseDetail($slug: String!) {
         cases(publicationState: LIVE, where: { slug: $slug }) {
           id
@@ -60,11 +71,20 @@ export async function getCaseDetailPageData(
             }
           }
         }
+        caseDetailPage {
+          conversion {
+            ...conversionBlock
+          }
+        }
       }
     `,
     { slug },
-  )) as { cases: Array<CmsCaseDetailModel | undefined> };
+  )) as {
+    cases: Array<CmsCaseDetailModel | undefined>;
+    caseDetailPage?: CmsCaseDetailPageModel;
+  };
   return {
     case: caseDetail == null ? null : cmsCaseDetailToSiteModel(caseDetail),
+    caseDetailPage: cmsCaseDetailPageToSiteModel(caseDetailPage ?? {}),
   };
 }
