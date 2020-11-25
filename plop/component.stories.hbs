@@ -1,15 +1,15 @@
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import { {{ titleCase name }}, {{ titleCase name }}Props } from './{{ kebabCase name }}';
+import { {{ pascalCase name }}, {{ pascalCase name }}Props } from './{{ kebabCase name }}';
 
 export default {
-  title: 'Category / {{  titleCase name }}',
-  component: {{  titleCase name }},
+  title: 'Category / {{ titleCase name }}',
+  component: {{ pascalCase name }},
 };
 
-const Template: Story<{{  titleCase name }}Props> = (argumentz): React.ReactElement => (
-  <{{  titleCase name }} {...argumentz} />
+const Template: Story<{{ pascalCase name }}Props> = (argumentz): React.ReactElement => (
+  <{{ pascalCase name }} {...argumentz} />
 );
 
 export const Default = Template.bind({});
