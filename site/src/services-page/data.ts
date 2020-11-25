@@ -19,10 +19,10 @@ export interface SiteServicesPageData {
 export async function getServicesPageData(): Promise<SiteServicesPageData> {
   const { servicesPage } = (await client.request(gql`
     ${cmsContentBlockFragment}
+    ${cmsConversionBlockFragment}
     ${cmsHero2Fragment}
     ${cmsImageFragment}
     ${cmsLinkFragment}
-    ${cmsConversionBlockFragment}
     {
       servicesPage {
         hero {

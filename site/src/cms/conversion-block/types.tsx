@@ -4,7 +4,6 @@ import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
 
 export const cmsConversionBlockFragment = gql`
   fragment conversionBlock on ComponentMoleculesConversionBlock {
-    __typename
     title {
       en
     }

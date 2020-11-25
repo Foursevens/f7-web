@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { getAboutPageData, SiteAboutPageData } from '../about-page';
-import { SiteImage } from '../cms';
+import { SiteConversionBlock, SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteAboutPageData {}
@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
 export default function AboutPage({
   mainMenu,
-  aboutPage,
+  aboutPage: { hero, conversion },
 }: Props): React.ReactElement {
   return (
     <>
@@ -26,18 +26,21 @@ export default function AboutPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={<SiteImage image={aboutPage.hero.image} />}>
-          {aboutPage.hero.title == null ? null : (
+        <Hero2 image={<SiteImage image={hero.image} />}>
+          {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {aboutPage.hero.title}
+              {hero.title}
             </Title>
           )}
         </Hero2>
-        {aboutPage.hero.content == null ? null : (
+        {hero.content == null ? null : (
           <Container padding>
-            <RichText>{aboutPage.hero.content}</RichText>
+            <RichText>{hero.content}</RichText>
           </Container>
         )}
+        <Container margin>
+          <SiteConversionBlock conversion={conversion} />
+        </Container>
       </LayoutContainer>
     </>
   );
