@@ -1,6 +1,7 @@
 import { Container, Hero2, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { SiteConversionBlock, SiteImage } from '../cms';
@@ -40,6 +41,9 @@ export default function TeamPage({
         )}
         <Container margin>
           <SiteConversionBlock conversion={conversion} />
+        </Container>
+        <Container margin>
+          <Link href="/team/dieter">Dieter</Link>
         </Container>
       </LayoutContainer>
     </>

@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "team_member_pages",
+  "info": {
+    "name": "Team Member Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "conversion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.conversion-block"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/team-member-page",
+      "handler": "team-member-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/team-member-page",
+      "handler": "team-member-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/team-member-page",
+      "handler": "team-member-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
