@@ -16,13 +16,13 @@ import { SiteContentBlockModel } from './types';
 const EVEN = 2;
 
 interface Props {
-  blocks?: SiteContentBlockModel[];
+  blocks: SiteContentBlockModel[];
 }
 
 export function SiteContentBlockStack({ blocks }: Props): React.ReactElement {
   return (
     <ContainerStack margin padding>
-      {blocks?.map(({ id, image, title, tagline, content, cta }, index) => (
+      {blocks.map(({ id, image, title, tagline, content, cta }, index) => (
         <ContentBlock
           key={id}
           image={<SiteImage image={image} />}

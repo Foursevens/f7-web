@@ -1,5 +1,6 @@
 export * from './case';
 export * from './content-block';
+export * from './conversion-block';
 export * from './hero2';
 export * from './image';
 export * from './localized';

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_molecules_conversion_blocks",
+  "info": {
+    "name": "Conversion Block",
+    "icon": "asterisk"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-content"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.link"
+    }
+  }
+}

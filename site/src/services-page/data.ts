@@ -1,6 +1,7 @@
 import { client, gql } from '../api';
 import {
   cmsContentBlockFragment,
+  cmsConversionBlockFragment,
   cmsHero2Fragment,
   cmsImageFragment,
   cmsLinkFragment,
@@ -21,6 +22,7 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
     ${cmsHero2Fragment}
     ${cmsImageFragment}
     ${cmsLinkFragment}
+    ${cmsConversionBlockFragment}
     {
       servicesPage {
         hero {
@@ -28,6 +30,9 @@ export async function getServicesPageData(): Promise<SiteServicesPageData> {
         }
         blocks {
           ...contentBlock
+        }
+        conversion {
+          ...conversionBlock
         }
       }
     }

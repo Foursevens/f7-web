@@ -22,6 +22,11 @@
       "repeatable": true,
       "component": "molecules.content-block",
       "required": true
+    },
+    "conversion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.conversion-block"
     }
   }
 }

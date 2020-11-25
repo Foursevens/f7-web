@@ -29,6 +29,16 @@ module.exports = {
       });
     }
 
+    if (servicesPage.conversion != null) {
+      servicesPage.conversion = {
+        ...servicesPage.conversion,
+        content:
+          servicesPage.conversion.content == null
+            ? undefined
+            : { en: marked(servicesPage.conversion.content.en) },
+      };
+    }
+
     return servicesPage;
   },
 };

@@ -1,6 +1,14 @@
-import { Container, Hero2, RichText, Title } from '@f7-web/design';
+import {
+  ButtonLink,
+  Container,
+  ConversionBlock,
+  Hero2,
+  RichText,
+  Title,
+} from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { SiteContentBlockStack, SiteImage } from '../cms';
@@ -17,7 +25,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
 export default function ServicesPage({
   mainMenu,
-  servicesPage,
+  servicesPage: { hero, blocks, conversion },
 }: Props): React.ReactElement {
   return (
     <>
@@ -26,19 +34,38 @@ export default function ServicesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={<SiteImage image={servicesPage.hero.image} />}>
-          {servicesPage.hero.title == null ? null : (
+        <Hero2 image={<SiteImage image={hero.image} />}>
+          {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {servicesPage.hero.title}
+              {hero.title}
             </Title>
           )}
         </Hero2>
-        {servicesPage.hero.content == null ? null : (
+        {hero.content == null ? null : (
           <Container margin>
-            <RichText>{servicesPage.hero.content}</RichText>
+            <RichText>{hero.content}</RichText>
           </Container>
         )}
-        <SiteContentBlockStack blocks={servicesPage.blocks} />
+        <SiteContentBlockStack blocks={blocks} />
+        <Container margin>
+          <ConversionBlock>
+            {conversion.title == null ? null : (
+              <Title fullStop={false} size="md">
+                {conversion.title}
+              </Title>
+            )}
+            {conversion.content == null ? null : (
+              <RichText size="lg">{conversion.content}</RichText>
+            )}
+            {conversion.cta == null ? null : (
+              <Link href={conversion.cta.href} passHref>
+                <ButtonLink background="secondary">
+                  {conversion.cta.text}
+                </ButtonLink>
+              </Link>
+            )}
+          </ConversionBlock>
+        </Container>
       </LayoutContainer>
     </>
   );

@@ -32,7 +32,7 @@ export interface ConversionBlockProps {
   children: React.ReactNode;
 }
 
-export function ConvertionBlock({
+export function ConversionBlock({
   children,
 }: ConversionBlockProps): React.ReactElement {
   return (
