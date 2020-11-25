@@ -1,9 +1,9 @@
 apps:
   - name: cms
-    script: 'yarn cms dev'
+    script: 'yarn cms run dev'
   - name: design
-    script: 'yarn design dev'
+    script: 'yarn design run dev'
   - name: design-build
     script: 'yarn design build:components --watch'
   - name: site
-    script: 'yarn site dev'
+    script: 'yarn site run dev'

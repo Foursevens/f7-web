@@ -7,17 +7,21 @@
     "node": "^12 || ^14"
   },
   "scripts": {
+    "build": "yarn workspaces foreach --parallel --topological run build",
     "build:heroku": "yarn design build:components && yarn cms build",
     "build:vercel": "yarn design build:components && yarn site build && mv site/public/ public/",
     "clean": "yarn workspaces foreach --parallel run clean",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
-    "dev": "pm2 restart pm2-dev.yml",
-    "dev:stop": "pm2 stop pm2-dev.yml",
+    "dev": "yarn run start:dev",
     "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
     "site": "yarn workspace @f7-web/site",
+    "start": "pm2 start pm2.yml",
+    "start:dev": "pm2 restart pm2-dev.yml",
+    "stop": "pm2 stop pm2.yml",
+    "stop:dev": "pm2 stop pm2-dev.yml",
     "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {

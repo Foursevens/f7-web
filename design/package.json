@@ -8,7 +8,8 @@
     "build:components": "tsc -b tsconfig.components.json",
     "build:storybook": "build-storybook",
     "clean": "rimraf 'dist/' 'storybook-static/'",
-    "dev": "start-storybook --ci -p 6006"
+    "dev": "start-storybook --ci -p 6006",
+    "start": "serve storybook-static/"
   },
   "files": [
     "dist/"
@@ -32,6 +33,7 @@
     "react-is": "^17.0.1",
     "react-refresh": "^0.9.0",
     "rimraf": "^3.0.2",
+    "serve": "^11.3.2",
     "typescript": "^4.1.2"
   },
   "types": "dist/index.d.ts"

@@ -1,0 +1,7 @@
+apps:
+  - name: cms
+    script: 'yarn cms run start'
+  - name: design
+    script: 'yarn design run start'
+  - name: site
+    script: 'yarn site run start'
