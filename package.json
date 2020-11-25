@@ -17,8 +17,6 @@
     "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
-    "postclean": "yarn dev",
-    "preclean": "yarn run dev:stop",
     "site": "yarn workspace @f7-web/site",
     "start": "pm2 start pm2.yml",
     "start:dev": "pm2 restart pm2-dev.yml",
