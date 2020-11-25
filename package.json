@@ -7,16 +7,18 @@
     "node": "^12 || ^14"
   },
   "scripts": {
-    "build": "yarn workspaces foreach --parallel --topological run build",
+    "build": "yarn workspaces run build",
     "build:heroku": "yarn design build:components && yarn cms build",
     "build:vercel": "yarn design build:components && yarn site build && mv site/public/ public/",
-    "clean": "yarn workspaces foreach --parallel run clean",
+    "clean": "yarn workspaces run clean",
     "cms": "yarn workspace @f7-web/cms",
     "design": "yarn workspace @f7-web/design",
     "dev": "yarn run start:dev",
     "heroku-postbuild": "yarn build:heroku",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
+    "postclean": "yarn dev",
+    "preclean": "yarn run dev:stop",
     "site": "yarn workspace @f7-web/site",
     "start": "pm2 start pm2.yml",
     "start:dev": "pm2 restart pm2-dev.yml",
@@ -39,6 +41,10 @@
     "prettier": "^2.1.0",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2"
+  },
+  "resolutions": {
+    "**/react": "^17.0.1",
+    "**/react-dom": "^17.0.1"
   },
   "workspaces": [
     "cms/",
