@@ -1,5 +1,10 @@
 import { client, gql } from '../api';
-import { cmsHero2Fragment, cmsImageFragment } from '../cms';
+import {
+  cmsConversionBlockFragment,
+  cmsHero2Fragment,
+  cmsImageFragment,
+  cmsLinkFragment,
+} from '../cms';
 import {
   CmsTeamPageModel,
   cmsTeamPageToSite,
@@ -12,12 +17,17 @@ export interface SiteTeamPageData {
 
 export async function getTeamPageData(): Promise<SiteTeamPageData> {
   const { teamPage } = (await client.request(gql`
+    ${cmsConversionBlockFragment}
     ${cmsHero2Fragment}
     ${cmsImageFragment}
+    ${cmsLinkFragment}
     {
       teamPage {
         hero {
           ...hero2
+        }
+        conversion {
+          ...conversionBlock
         }
       }
     }

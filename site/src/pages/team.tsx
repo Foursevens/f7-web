@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import { SiteImage } from '../cms';
+import { SiteConversionBlock, SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getTeamPageData, SiteTeamPageData } from '../team-page';
 
@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
 export default function TeamPage({
   mainMenu,
-  teamPage,
+  teamPage: { hero, conversion },
 }: Props): React.ReactElement {
   return (
     <>
@@ -26,18 +26,21 @@ export default function TeamPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={<SiteImage image={teamPage.hero.image} />}>
-          {teamPage.hero.title == null ? null : (
+        <Hero2 image={<SiteImage image={hero.image} />}>
+          {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {teamPage.hero.title}
+              {hero.title}
             </Title>
           )}
         </Hero2>
-        {teamPage.hero.content == null ? null : (
+        {hero.content == null ? null : (
           <Container padding>
-            <RichText>{teamPage.hero.content}</RichText>
+            <RichText>{hero.content}</RichText>
           </Container>
         )}
+        <Container margin>
+          <SiteConversionBlock conversion={conversion} />
+        </Container>
       </LayoutContainer>
     </>
   );
