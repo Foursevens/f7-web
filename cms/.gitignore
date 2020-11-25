@@ -1,3 +1,4 @@
+.strapi-updater.json
 build/
 exports/
 public/uploads/
