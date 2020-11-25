@@ -1,17 +1,9 @@
-import {
-  ButtonLink,
-  Container,
-  ConversionBlock,
-  Hero2,
-  RichText,
-  Title,
-} from '@f7-web/design';
+import { Container, Hero2, RichText, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 
-import { SiteContentBlockStack, SiteImage } from '../cms';
+import { SiteContentBlockStack, SiteConversionBlock, SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getServicesPageData, SiteServicesPageData } from '../services-page';
 
@@ -48,23 +40,7 @@ export default function ServicesPage({
         )}
         <SiteContentBlockStack blocks={blocks} />
         <Container margin>
-          <ConversionBlock>
-            {conversion.title == null ? null : (
-              <Title fullStop={false} size="md">
-                {conversion.title}
-              </Title>
-            )}
-            {conversion.content == null ? null : (
-              <RichText size="lg">{conversion.content}</RichText>
-            )}
-            {conversion.cta == null ? null : (
-              <Link href={conversion.cta.href} passHref>
-                <ButtonLink background="secondary">
-                  {conversion.cta.text}
-                </ButtonLink>
-              </Link>
-            )}
-          </ConversionBlock>
+          <SiteConversionBlock conversion={conversion} />
         </Container>
       </LayoutContainer>
     </>

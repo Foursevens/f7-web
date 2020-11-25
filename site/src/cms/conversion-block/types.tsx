@@ -1,6 +1,6 @@
-import { gql } from '../api';
-import { CmsLinkModel, cmsLinkToSiteModel, SiteLinkModel } from './link';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import { gql } from '../../api';
+import { CmsLinkModel, cmsLinkToSiteModel, SiteLinkModel } from '../link';
+import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
 
 export const cmsConversionBlockFragment = gql`
   fragment conversionBlock on ComponentMoleculesConversionBlock {
