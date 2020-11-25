@@ -1,6 +1,10 @@
 'use strict';
 
-const marked = require('marked');
+const {
+  formatContentBlock,
+  formatConversionBlock,
+  formatHero2,
+} = require('../../../formatters');
 
 /**
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/services.html#core-services)
@@ -13,30 +17,16 @@ module.exports = {
       .query('services-page')
       .find({ _limit: 1 }, populate);
 
-    if (servicesPage.hero?.content != null) {
-      servicesPage.hero.content.en = marked(servicesPage.hero.content.en);
+    if (servicesPage.hero != null) {
+      servicesPage.hero = formatHero2(servicesPage.hero);
     }
 
     if (servicesPage.blocks != null) {
-      servicesPage.blocks = servicesPage.blocks.map((contentBlock) => {
-        return {
-          ...contentBlock,
-          content:
-            contentBlock.content == null
-              ? undefined
-              : { en: marked(contentBlock.content.en) },
-        };
-      });
+      servicesPage.blocks = servicesPage.blocks.map(formatContentBlock);
     }
 
     if (servicesPage.conversion != null) {
-      servicesPage.conversion = {
-        ...servicesPage.conversion,
-        content:
-          servicesPage.conversion.content == null
-            ? undefined
-            : { en: marked(servicesPage.conversion.content.en) },
-      };
+      servicesPage.conversion = formatConversionBlock(servicesPage.conversion);
     }
 
     return servicesPage;
