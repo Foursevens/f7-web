@@ -17,9 +17,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: (
     <>
-      <Title fullStop={false} size="md">
-        Klinkt als iets voor jou?
-      </Title>
+      <Title size="md">Klinkt als iets voor jou?</Title>
       <RichText size="lg">
         {`<p>
             <a href="mailto:info@foursevens.be">info@foursevens.be</a><br/>
@@ -33,11 +31,7 @@ Primary.args = {
 
 export const WithOnlyTitle = Template.bind({});
 WithOnlyTitle.args = {
-  children: (
-    <Title fullStop={false} size="md">
-      Klinkt als iets voor jou?
-    </Title>
-  ),
+  children: <Title size="md">Klinkt als iets voor jou?</Title>,
 };
 
 export const WithOnlyButton = Template.bind({});
@@ -63,9 +57,7 @@ export const WithNoText = Template.bind({});
 WithNoText.args = {
   children: (
     <>
-      <Title fullStop={false} size="md">
-        Digitaal voor mens en planeet
-      </Title>
+      <Title size="md">Digitaal voor mens en planeet</Title>
       <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
     </>
   ),

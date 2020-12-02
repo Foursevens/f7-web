@@ -12,14 +12,26 @@ const Template: Story<TitleProps> = (argumentz): React.ReactElement => (
   <Title {...argumentz} />
 );
 
+export const WithAutoFullStop = Template.bind({});
+WithAutoFullStop.args = {
+  children: 'Eenvoudig fietsparkeren',
+  fullStop: 'auto',
+};
+
+export const WithoutAutoFullStop = Template.bind({});
+WithoutAutoFullStop.args = {
+  children: 'Do you have questions?',
+  fullStop: 'auto',
+};
+
 export const WithFullStop = Template.bind({});
 WithFullStop.args = {
   children: 'Eenvoudig fietsparkeren',
   fullStop: true,
 };
 
-export const WithLinkStop = Template.bind({});
-WithLinkStop.args = {
+export const WithLinkFullStop = Template.bind({});
+WithLinkFullStop.args = {
   children: <a href="/">Eenvoudig fietsparkeren</a>,
   fullStop: true,
 };

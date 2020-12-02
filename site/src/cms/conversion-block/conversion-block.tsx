@@ -12,9 +12,7 @@ export function SiteConversionBlock({ conversion }: Props): ReactElement {
   return (
     <ConversionBlock>
       {conversion.title == null ? null : (
-        <Title fullStop={false} size="md">
-          {conversion.title}
-        </Title>
+        <Title size="md">{conversion.title}</Title>
       )}
       {conversion.content == null ? null : (
         <RichText size="lg">{conversion.content}</RichText>

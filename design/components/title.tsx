@@ -2,6 +2,8 @@ import React from 'react';
 
 import { styled } from './stitches.config';
 
+const PUNCTUATION_END = /[!.?](?=$)/;
+
 const StyledTitle = styled('div', {
   color: '$primary1',
   fontFamily: '$lato',
@@ -29,18 +31,29 @@ const StyledTitle = styled('div', {
 export interface TitleProps {
   as?: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
   children: React.ReactNode;
-  fullStop?: boolean;
+  fullStop?: 'auto' | boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export function Title({
   as = 'div',
   children,
-  fullStop = true,
+  fullStop = 'auto',
   size = 'md',
 }: TitleProps): React.ReactElement {
+  const detectedFullStop =
+    typeof children === 'string'
+      ? fullStop === 'auto'
+        ? !PUNCTUATION_END.test(children)
+        : fullStop
+      : Boolean(fullStop);
   return (
-    <StyledTitle as={as} className="title" fullStop={fullStop} size={size}>
+    <StyledTitle
+      as={as}
+      className="title"
+      fullStop={detectedFullStop}
+      size={size}
+    >
       {children}
     </StyledTitle>
   );
