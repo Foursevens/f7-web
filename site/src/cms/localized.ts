@@ -2,10 +2,10 @@ export interface CmsLocalizedModel {
   en: string;
 }
 
-export type DelocalizedText = string;
+export type SiteDelocalizedModel = string;
 
 export function cmsLocalizedToSiteModel(
   localized: CmsLocalizedModel,
-): DelocalizedText {
+): SiteDelocalizedModel {
   return localized.en;
 }
