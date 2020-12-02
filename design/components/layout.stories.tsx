@@ -7,6 +7,7 @@ import {
   Hero1,
   Hero2,
   Hero3,
+  HeroContact,
   Menu,
   MenuItem,
   RichText,
@@ -29,10 +30,10 @@ export const Level1 = (): React.ReactElement => (
       <Header>
         <img alt="Foursevens logo" src={logo} />
         <Menu>
-          <MenuItem key="key-1">
-            <a href="/">Home</a>
+          <MenuItem key="1">
+            <a href="/">Cases</a>
           </MenuItem>
-          <MenuItem key="key-2" highlight="yes">
+          <MenuItem key="2" highlight="yes">
             <a href="/">Contact</a>
           </MenuItem>
         </Menu>
@@ -58,17 +59,17 @@ export const Level2 = (): React.ReactElement => (
       <Header>
         <img alt="Foursevens logo" src={logo} />
         <Menu>
-          <MenuItem key="key-1">
-            <a href="/">Home</a>
+          <MenuItem key="1" active="yes">
+            <a href="/">Cases</a>
           </MenuItem>
-          <MenuItem key="key-2" highlight="yes">
+          <MenuItem key="2" highlight="yes">
             <a href="/">Contact</a>
           </MenuItem>
         </Menu>
       </Header>
     </Container>
     <Hero2 image={HERO2}>
-      <Title size="lg">Our services</Title>
+      <Title size="lg">Cases</Title>
     </Hero2>
   </>
 );
@@ -79,10 +80,10 @@ export const Level3 = (): React.ReactElement => (
       <Header>
         <img alt="Foursevens logo" src={logo} />
         <Menu>
-          <MenuItem key="key-1">
-            <a href="/">Home</a>
+          <MenuItem key="1" active="yes">
+            <a href="/">Cases</a>
           </MenuItem>
-          <MenuItem key="key-2" highlight="yes">
+          <MenuItem key="2" highlight="yes">
             <a href="/">Contact</a>
           </MenuItem>
         </Menu>
@@ -99,5 +100,78 @@ export const Level3 = (): React.ReactElement => (
         </RichText>
       </TextBlock>
     </Hero3>
+  </>
+);
+
+export const Contact = (): React.ReactElement => (
+  <>
+    <Container background="primary2">
+      <Header>
+        <img alt="Foursevens logo" src={logo} />
+        <Menu>
+          <MenuItem key="1">
+            <a href="/">Cases</a>
+          </MenuItem>
+          <MenuItem key="2" active="yes" highlight="yes">
+            <a href="/">Contact</a>
+          </MenuItem>
+        </Menu>
+      </Header>
+    </Container>
+    <HeroContact>
+      <Title size="lg">Do you have any questions?</Title>
+      <Title size="lg">Contact us, or let&apos;s grab a coffee</Title>
+      <ul>
+        <li>
+          <HeroContact.Channel>
+            <Tag>Mail us</Tag>
+            <p>
+              <a href="mailto:info@foursevens.be">info@foursevens.be</a>
+            </p>
+          </HeroContact.Channel>
+        </li>
+        <li>
+          <HeroContact.Channel>
+            <Tag>Call us</Tag>
+            <p>
+              <a href="tel:+3234508030">+32 3 450 80 30</a>
+            </p>
+          </HeroContact.Channel>
+        </li>
+        <li>
+          <HeroContact.Channel>
+            <Tag>Address</Tag>
+            <ul>
+              <li>
+                Rue du Houblon 63
+                <br />
+                1000 Brussels
+              </li>
+              <li>
+                Kasteellaan 349A
+                <br />
+                9000 Gent
+              </li>
+            </ul>
+          </HeroContact.Channel>
+        </li>
+        <li>
+          <HeroContact.Channel>
+            <Tag>Social Media</Tag>
+            <ul>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/foursevens"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </HeroContact.Channel>
+        </li>
+      </ul>
+    </HeroContact>
   </>
 );
