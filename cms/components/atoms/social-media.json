@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_atoms_social_medias",
+  "info": {
+    "name": "Social Media",
+    "icon": "network-wired"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_pages",
+  "info": {
+    "name": "Contact Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.localized-text"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_molecules_adresses",
+  "info": {
+    "name": "Address",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "lines": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.localized-text"
+    }
+  }
+}

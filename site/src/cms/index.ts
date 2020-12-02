@@ -1,4 +1,5 @@
 export * from './case';
+export * from './contact';
 export * from './content-block';
 export * from './conversion-block';
 export * from './hero2';
