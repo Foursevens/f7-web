@@ -16,8 +16,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function ServicesPage({
-  layout: { mainMenu },
   servicesPage: { hero, blocks, conversion },
+  ...layoutData
 }: Props): React.ReactElement {
   return (
     <>
@@ -25,7 +25,7 @@ export default function ServicesPage({
         <title>Foursevens Services</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer {...layoutData}>
         <Hero2 image={<SiteImage image={hero.image} />}>
           {hero.title == null ? null : (
             <Title as="h2" size="md">

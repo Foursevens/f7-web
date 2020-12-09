@@ -22,8 +22,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export default function TeamMemberPage({
-  layout: { mainMenu },
   teamMemberPage: { conversion },
+  ...layoutData
 }: Props): React.ReactElement {
   return (
     <>
@@ -31,7 +31,7 @@ export default function TeamMemberPage({
         <title>Foursevens Test Case</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer {...layoutData}>
         <Container margin>
           <SiteConversionBlock conversion={conversion} />
         </Container>

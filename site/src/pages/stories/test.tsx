@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function StoryDetailPage({
-  layout: { mainMenu },
+  ...layoutData
 }: Props): React.ReactElement {
   return (
     <>
@@ -21,7 +21,7 @@ export default function StoryDetailPage({
         <title>Foursevens Test Story</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer {...layoutData}>
         <Container>
           <h2>Test Story</h2>
         </Container>

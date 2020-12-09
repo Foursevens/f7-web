@@ -11,24 +11,31 @@ export const cmsContactFragment = gql`
       }
     }
     socialMedia {
+      id
       title
       link
     }
   }
 `;
 
+interface SocialMedia {
+  id: string;
+  link: string;
+  title: string;
+}
+
 export interface CmsContactModel {
   address?: Array<{ lines: CmsLocalizedModel[] }>;
   email?: string;
   phone?: string;
-  socialMedia?: Array<{ title: string; link: string }>;
+  socialMedia?: SocialMedia[];
 }
 
 export interface SiteContactModel {
   address: string[][];
   email?: string;
   phone?: string;
-  socialMedia: Array<{ title: string; link: string }>;
+  socialMedia: SocialMedia[];
 }
 
 export function cmsContactToSite({

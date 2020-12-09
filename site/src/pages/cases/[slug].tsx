@@ -34,9 +34,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export default function CaseDetailPage({
-  layout: { mainMenu },
   caseDetailPage: { conversion },
   case: caseItem,
+  ...layoutData
 }: Props): React.ReactElement {
   if (caseItem == null) {
     return <DefaultErrorPage statusCode={404} />;
@@ -47,7 +47,7 @@ export default function CaseDetailPage({
         <title>Foursevens Test Case</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer {...layoutData}>
         <Hero3
           backLink={
             <Link href="/cases">

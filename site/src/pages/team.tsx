@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function TeamPage({
-  layout: { mainMenu },
   teamPage: { hero, conversion },
+  ...layoutData
 }: Props): React.ReactElement {
   return (
     <>
@@ -26,7 +26,7 @@ export default function TeamPage({
         <title>Foursevens Team</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer mainMenu={mainMenu}>
+      <LayoutContainer {...layoutData}>
         <Hero2 image={<SiteImage image={hero.image} />}>
           {hero.title == null ? null : (
             <Title as="h2" size="md">

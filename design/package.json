@@ -12,6 +12,7 @@
     "start": "serve storybook-static/"
   },
   "files": [
+    "assets/",
     "dist/"
   ],
   "dependencies": {

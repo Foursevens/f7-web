@@ -1,9 +1,10 @@
 import { HeroContact, Tag, Title } from '@f7-web/design';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import { getContactPageData, SiteContactPageData } from '../contact-page';
+import { joinStringsWithLineBreaks } from '../jsx-utils';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteContactPageData {}
@@ -14,19 +15,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props: { ...layoutData, ...contactPageData } };
 };
 
-function joinStringsWithLineBreaks(list: string[]): ReactElement[] {
-  return list.map((item) => (
-    <span key={item}>
-      {item}
-      <br />
-    </span>
-  ));
-}
-
 export default function ContactPage({
-  layout: { mainMenu },
   contactPage,
   contact,
+  ...layoutData
 }: Props): React.ReactElement {
   return (
     <>
@@ -34,7 +26,11 @@ export default function ContactPage({
         <title>Foursevens Contact</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <LayoutContainer headerBackground="primary2" mainMenu={mainMenu}>
+      <LayoutContainer
+        contact={contact}
+        headerBackground="primary2"
+        {...layoutData}
+      >
         <HeroContact>
           {contactPage.title.map((title) => (
             <Title key={title} size="lg">

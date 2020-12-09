@@ -1,4 +1,5 @@
 export * from './stitches.config';
+export * from './types';
 
 export * from './button-link';
 export * from './card';
@@ -21,5 +22,3 @@ export * from './separator';
 export * from './tag';
 export * from './title';
 export * from './text-block';
-
-export * from './types';
