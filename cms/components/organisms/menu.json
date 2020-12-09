@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_organisms_menus",
+  "info": {
+    "name": "Menu",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.localized-text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "component": "molecules.menu-item"
+    }
+  }
+}
