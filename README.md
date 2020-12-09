@@ -1,5 +1,12 @@
 # Foursevens Web
 
+## Design assets
+
+The [contact page](http://localhost:3000/contact) map is generated with [Snazzy Maps](https://snazzymaps.com/style/239641/light-blue).
+
+- `design/stories-assets/map.png`
+- `site/public/map.png`
+
 ## Local Development
 
 ### Setup CMS database

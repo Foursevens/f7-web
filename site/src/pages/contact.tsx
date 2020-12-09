@@ -1,4 +1,4 @@
-import { HeroContact, Tag, Title } from '@f7-web/design';
+import { HeroContact, Map, Tag, Title } from '@f7-web/design';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -90,6 +90,14 @@ export default function ContactPage({
             )}
           </ul>
         </HeroContact>
+        <Map>
+          <img
+            alt="foursevens address on map"
+            height={690}
+            src="/map.png"
+            width={3360}
+          />
+        </Map>
       </LayoutContainer>
     </>
   );
