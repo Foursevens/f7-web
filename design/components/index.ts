@@ -16,6 +16,7 @@ export * from './hero-contact';
 export * from './menu';
 export * from './aspect-ratio-box';
 export * from './rich-text';
+export * from './separator';
 export * from './tag';
 export * from './title';
 export * from './text-block';
