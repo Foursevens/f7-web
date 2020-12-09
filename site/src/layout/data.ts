@@ -39,13 +39,13 @@ export async function getLayoutData(): Promise<LayoutData> {
     }
   `)) as {
     contact?: CmsContactModel;
-    layout: { mainMenu?: CmsMenuModel; footerMenus?: CmsMenuModel[] };
+    layout?: { mainMenu?: CmsMenuModel; footerMenus?: CmsMenuModel[] };
   };
   return {
     contact: cmsContactToSite(contact),
     layout: {
-      mainMenu: cmsMenuToSite(layout.mainMenu ?? {}),
-      footerMenus: (layout.footerMenus ?? []).map(cmsMenuToSite),
+      mainMenu: cmsMenuToSite(layout?.mainMenu ?? {}),
+      footerMenus: (layout?.footerMenus ?? []).map(cmsMenuToSite),
     },
   };
 }
