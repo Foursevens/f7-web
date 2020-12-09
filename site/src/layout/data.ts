@@ -1,6 +1,7 @@
 import { client, gql } from '../api';
 import {
   cmsLinkFragment,
+  cmsMenuFragment,
   CmsMenuModel,
   cmsMenuToSite,
   SiteMenuModel,
@@ -12,29 +13,19 @@ export interface LayoutData {
 
 export async function getLayoutData(): Promise<LayoutData> {
   const {
-    mainMenus: [mainMenu],
+    layout: { mainMenu },
   } = (await client.request(gql`
     ${cmsLinkFragment}
+    ${cmsMenuFragment}
     {
-      mainMenus: menus(where: { reference: "main" }) {
-        reference
-        title {
-          en
-        }
-        items {
-          id
-          highlight
-          link {
-            ...link
-          }
+      layout {
+        mainMenu {
+          ...menu
         }
       }
     }
-  `)) as { mainMenus: Array<CmsMenuModel | undefined> };
+  `)) as { layout: { mainMenu?: CmsMenuModel } };
   return {
-    mainMenu:
-      mainMenu == null
-        ? { reference: 'main', items: [] }
-        : cmsMenuToSite(mainMenu),
+    mainMenu: cmsMenuToSite(mainMenu ?? {}),
   };
 }

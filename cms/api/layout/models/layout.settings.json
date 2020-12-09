@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "layouts",
+  "info": {
+    "name": "Layout"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mainMenu": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "organisms.menu"
+    }
+  }
+}

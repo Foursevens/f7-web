@@ -1,30 +1,44 @@
+import { gql } from '../api';
 import { CmsLinkModel, SiteLinkModel, cmsLinkToSiteModel } from './link';
 import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
 
+export const cmsMenuFragment = gql`
+  fragment menu on ComponentOrganismsMenu {
+    title {
+      en
+    }
+    items {
+      id
+      highlight
+      link {
+        ...link
+      }
+    }
+  }
+`;
+
 export interface CmsMenuModel {
-  reference: string;
   title?: CmsLocalizedModel;
-  items: CmsMenuItemModel[];
+  items?: CmsMenuItemModel[];
 }
 
 export interface SiteMenuModel {
-  reference: string;
   title?: string;
   items: SiteMenuItemModel[];
 }
 
 export function cmsMenuToSite({
-  reference,
   title,
-  items,
+  items = [],
 }: CmsMenuModel): SiteMenuModel {
   const menu: SiteMenuModel = {
-    reference,
     items: items.map(cmsMenuItemToSite),
   };
+
   if (title != null) {
     menu.title = cmsLocalizedToSiteModel(title);
   }
+
   return menu;
 }
 
