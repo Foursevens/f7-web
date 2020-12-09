@@ -14,6 +14,13 @@ const StyledFooter1Inner = styled(Container.Inner, {
   flexFlow: 'column nowrap',
   padding: '$lg 0',
 
+  lg: {
+    flexFlow: 'row nowrap',
+    justifyContent: 'space-between',
+
+    '&> hr': { display: 'none' },
+  },
+
   color: '$white1',
   fontFamily: '$lato',
 
