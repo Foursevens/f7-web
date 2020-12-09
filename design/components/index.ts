@@ -7,6 +7,7 @@ export * from './container';
 export * from './container-stack';
 export * from './content-block';
 export * from './conversion-block';
+export * from './footer';
 export * from './grid';
 export * from './header';
 export * from './hero1';
