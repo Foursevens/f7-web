@@ -9,7 +9,7 @@
     "build:storybook": "build-storybook",
     "clean": "rimraf 'dist/' 'storybook-static/'",
     "dev": "start-storybook --ci -p 6006",
-    "start": "serve storybook-static/"
+    "start": "serve -l 6006 storybook-static/"
   },
   "files": [
     "assets/",
