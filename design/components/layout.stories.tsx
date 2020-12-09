@@ -8,6 +8,7 @@ import {
   Hero2,
   Hero3,
   HeroContact,
+  Map,
   Menu,
   MenuItem,
   RichText,
@@ -16,7 +17,7 @@ import {
   Title,
 } from '.';
 import logo from '../stories-assets/logo-full.png';
-import { DUURZAAMHEID, HERO1, HERO2 } from './data';
+import { DUURZAAMHEID, HERO1, HERO2, MAP } from './data';
 
 export default {
   title: '4. Templates / Layout',
@@ -173,5 +174,6 @@ export const Contact = (): React.ReactElement => (
         </li>
       </ul>
     </HeroContact>
+    <Map>{MAP}</Map>
   </>
 );

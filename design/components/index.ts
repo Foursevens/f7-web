@@ -15,6 +15,7 @@ export * from './hero1';
 export * from './hero2';
 export * from './hero3';
 export * from './hero-contact';
+export * from './map';
 export * from './menu';
 export * from './aspect-ratio-box';
 export * from './rich-text';
