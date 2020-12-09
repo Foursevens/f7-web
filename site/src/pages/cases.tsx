@@ -25,8 +25,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function CasesPage({
-  mainMenu,
-  casesPage,
+  layout: { mainMenu },
+  casesPage: { hero },
   cases,
 }: Props): React.ReactElement {
   return (
@@ -36,16 +36,16 @@ export default function CasesPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer mainMenu={mainMenu}>
-        <Hero2 image={<SiteImage image={casesPage.hero.image} />}>
-          {casesPage.hero.title == null ? null : (
+        <Hero2 image={<SiteImage image={hero.image} />}>
+          {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {casesPage.hero.title}
+              {hero.title}
             </Title>
           )}
         </Hero2>
-        {casesPage.hero.content == null ? null : (
+        {hero.content == null ? null : (
           <Container padding>
-            <RichText>{casesPage.hero.content}</RichText>
+            <RichText>{hero.content}</RichText>
           </Container>
         )}
         <Container>

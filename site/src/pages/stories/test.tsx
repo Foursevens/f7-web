@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function StoryDetailPage({
-  mainMenu,
+  layout: { mainMenu },
 }: Props): React.ReactElement {
   return (
     <>

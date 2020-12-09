@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export default function TeamMemberPage({
-  mainMenu,
+  layout: { mainMenu },
   teamMemberPage: { conversion },
 }: Props): React.ReactElement {
   return (

@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function Homepage({
-  homepage,
-  mainMenu,
+  layout: { mainMenu },
+  homepage: { hero },
 }: Props): React.ReactElement {
   return (
     <>
@@ -27,19 +27,15 @@ export default function Homepage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer headerBackground="primary2" mainMenu={mainMenu}>
-        <Hero1 image={<SiteImage image={homepage.hero.image} />}>
-          {homepage.hero.title == null ? null : (
-            <Title size="xl">{homepage.hero.title}</Title>
+        <Hero1 image={<SiteImage image={hero.image} />}>
+          {hero.title == null ? null : <Title size="xl">{hero.title}</Title>}
+          {hero.content == null ? null : (
+            <RichText size="lg">{hero.content}</RichText>
           )}
-          {homepage.hero.content == null ? null : (
-            <RichText size="lg">{homepage.hero.content}</RichText>
-          )}
-          {homepage.hero.cta == null ? null : (
+          {hero.cta == null ? null : (
             <div>
-              <Link href={homepage.hero.cta.href} passHref>
-                <ButtonLink background="secondary">
-                  {homepage.hero.cta.text}
-                </ButtonLink>
+              <Link href={hero.cta.href} passHref>
+                <ButtonLink background="secondary">{hero.cta.text}</ButtonLink>
               </Link>
             </div>
           )}

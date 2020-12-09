@@ -24,9 +24,9 @@ function joinStringsWithLineBreaks(list: string[]): ReactElement[] {
 }
 
 export default function ContactPage({
-  mainMenu,
-  contact,
+  layout: { mainMenu },
   contactPage,
+  contact,
 }: Props): React.ReactElement {
   return (
     <>

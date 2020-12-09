@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export default function JobDetailPage({
-  mainMenu,
+  layout: { mainMenu },
   jobDetailPage: { conversion },
 }: Props): React.ReactElement {
   return (

@@ -8,13 +8,13 @@ import {
 } from '../cms';
 
 export interface LayoutData {
-  mainMenu: SiteMenuModel;
+  layout: {
+    mainMenu: SiteMenuModel;
+  };
 }
 
 export async function getLayoutData(): Promise<LayoutData> {
-  const {
-    layout: { mainMenu },
-  } = (await client.request(gql`
+  const { layout } = (await client.request(gql`
     ${cmsLinkFragment}
     ${cmsMenuFragment}
     {
@@ -26,6 +26,8 @@ export async function getLayoutData(): Promise<LayoutData> {
     }
   `)) as { layout: { mainMenu?: CmsMenuModel } };
   return {
-    mainMenu: cmsMenuToSite(mainMenu ?? {}),
+    layout: {
+      mainMenu: cmsMenuToSite(layout.mainMenu ?? {}),
+    },
   };
 }

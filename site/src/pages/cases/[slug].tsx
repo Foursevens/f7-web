@@ -34,9 +34,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export default function CaseDetailPage({
-  mainMenu,
-  case: caseItem,
+  layout: { mainMenu },
   caseDetailPage: { conversion },
+  case: caseItem,
 }: Props): React.ReactElement {
   if (caseItem == null) {
     return <DefaultErrorPage statusCode={404} />;
