@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "layouts",
   "info": {
-    "name": "Layout"
+    "name": "Layout",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,6 +15,11 @@
       "type": "component",
       "repeatable": false,
       "required": true,
+      "component": "organisms.menu"
+    },
+    "footerMenus": {
+      "type": "component",
+      "repeatable": true,
       "component": "organisms.menu"
     }
   }
