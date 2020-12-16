@@ -3,31 +3,58 @@ import React from 'react';
 
 import { styled } from './stitches.config';
 
+const List = styled('ul', {
+  display: 'inline-flex',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  margin: 0,
+  padding: 0,
+
+  variants: {
+    mobile: {
+      true: {
+        flexDirection: 'column',
+      },
+      false: {
+        flexDirection: 'row',
+        height: 40,
+      },
+    },
+  },
+});
+
+const ListItem = styled('li', {
+  variants: {
+    mobile: {
+      true: {
+        '+ li': { marginTop: '$md' },
+      },
+      false: {
+        display: 'inline-block',
+        '+ li': { marginLeft: '$lg' },
+      },
+    },
+  },
+});
+
 export interface MenuProps {
   children:
     | React.ReactElement<{ key: string }>
     | Array<React.ReactElement<{ key: string }>>;
+  mobile?: boolean;
 }
 
-const List = styled('ul', {
-  display: 'inline-flex',
-  alignItems: 'center',
-  height: 40,
-  margin: 0,
-  padding: 0,
-});
-
-const ListItem = styled('li', {
-  display: 'inline-block',
-  '+ li': { marginLeft: '$lg' },
-});
-
-export function Menu({ children }: MenuProps): React.ReactElement {
+export function Menu({
+  children,
+  mobile = false,
+}: MenuProps): React.ReactElement {
   return (
     <nav>
-      <List>
-        {(Array.isArray(children) ? children : [children]).map((child) => (
-          <ListItem key={child.key ?? undefined}>{child}</ListItem>
+      <List mobile={mobile}>
+        {React.Children.map(children, (child) => (
+          <ListItem key={child.key ?? undefined} mobile={mobile}>
+            {child}
+          </ListItem>
         ))}
       </List>
     </nav>

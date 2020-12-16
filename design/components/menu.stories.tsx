@@ -77,3 +77,22 @@ WithActiveHighlight.args = {
     </MenuItem>,
   ],
 };
+
+export const WithMobile = Template.bind({});
+WithMobile.args = {
+  children: [
+    <MenuItem key="1">
+      <a href="/">Home</a>
+    </MenuItem>,
+    <MenuItem key="2">
+      <a href="/">Cases</a>
+    </MenuItem>,
+    <MenuItem key="3">
+      <a href="/">Services</a>
+    </MenuItem>,
+    <MenuItem key="4" active="yes" highlight="yes">
+      <a href="/">Contact</a>
+    </MenuItem>,
+  ],
+  mobile: true,
+};

@@ -3,6 +3,7 @@ import React from 'react';
 import duurzaamheid from '../stories-assets/duurzaamheid.png';
 import hero1 from '../stories-assets/hero1.png';
 import hero2 from '../stories-assets/hero2.png';
+import logo from '../stories-assets/logo-full.png';
 import map from '../stories-assets/map.png';
 import square1500 from '../stories-assets/square-1500.png';
 import square200 from '../stories-assets/square-200.png';
@@ -24,6 +25,10 @@ export const HERO1 = (
 
 export const HERO2 = (
   <img key="hero 2" alt="hero 2" height={818} src={hero2} width={2300} />
+);
+
+export const LOGO = (
+  <img key="logo" alt="Foursevens logo" height={98} src={logo} width={400} />
 );
 
 export const MAP = (

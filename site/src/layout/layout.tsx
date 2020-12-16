@@ -1,11 +1,4 @@
-import {
-  Container,
-  Footer,
-  Header,
-  Menu,
-  MenuItem,
-  Separator,
-} from '@f7-web/design';
+import { Container, Footer, Header, MenuItem, Separator } from '@f7-web/design';
 // @ts-expect-error: Cannot find module
 import LinkedInIcon from '@f7-web/design/assets/linkedin.svg';
 // @ts-expect-error: Cannot find module
@@ -36,23 +29,24 @@ export function LayoutContainer({
     <>
       <Container background={headerBackground}>
         <h1 className="sr-only">Foursevens</h1>
-        <Header>
-          <Link href="/">
-            <a>
-              <img alt="Foursevens logo" src="/logo-full.png" />
-            </a>
-          </Link>
-          <Menu>
-            {mainMenu.items.map(({ id, highlight, link }) => (
-              <MenuItem
-                key={id}
-                active={isActive(link.href) ? 'yes' : 'no'}
-                highlight={highlight ? 'yes' : 'no'}
-              >
-                <Link href={link.href}>{link.text}</Link>
-              </MenuItem>
-            ))}
-          </Menu>
+        <Header
+          logo={
+            <Link href="/">
+              <a>
+                <img alt="Foursevens logo" src="/logo-full.png" />
+              </a>
+            </Link>
+          }
+        >
+          {mainMenu.items.map(({ id, highlight, link }) => (
+            <MenuItem
+              key={id}
+              active={isActive(link.href) ? 'yes' : 'no'}
+              highlight={highlight ? 'yes' : 'no'}
+            >
+              <Link href={link.href}>{link.text}</Link>
+            </MenuItem>
+          ))}
         </Header>
       </Container>
       <main>{children}</main>
