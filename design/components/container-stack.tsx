@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './container';
 import { styled } from './stitches.config';
 
-const EVEN = 2;
+const BACKGROUNDS = ['white1' as const, 'white2' as const];
 
 const StyledContainerStack = styled('div', {
   variants: {
@@ -17,25 +17,30 @@ export interface ContainerStackProps {
   children: React.ReactNode;
   margin?: boolean;
   padding?: boolean;
+  reverse?: boolean;
 }
 
 export function ContainerStack({
   children,
   margin,
   padding,
+  reverse = false,
 }: ContainerStackProps): React.ReactElement {
   return (
     <StyledContainerStack margin={margin}>
       {React.Children.map(
         children,
-        (child, index): React.ReactElement => (
-          <Container
-            background={index % EVEN === 0 ? 'white2' : 'white1'}
-            padding={padding}
-          >
-            {child}
-          </Container>
-        ),
+        (child, index): React.ReactElement => {
+          const toggle = index % BACKGROUNDS.length;
+          return (
+            <Container
+              background={BACKGROUNDS[reverse ? toggle : 1 - toggle]}
+              padding={padding}
+            >
+              {child}
+            </Container>
+          );
+        },
       )}
     </StyledContainerStack>
   );
