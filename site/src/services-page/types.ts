@@ -1,6 +1,6 @@
 import {
   CmsContentBlockModel,
-  cmsContentBlockToSite,
+  cmsContentBlockToSiteModel,
   CmsConversionBlockModel,
   cmsConversionBlockToSiteModel,
   CmsHero2Model,
@@ -29,7 +29,7 @@ export function cmsServicesPageToSite({
 }: CmsServicesPageModel = {}): SiteServicesPageModel {
   return {
     hero: cmsHero2ModelToSite(hero ?? {}),
-    blocks: (blocks ?? []).map(cmsContentBlockToSite),
+    blocks: (blocks ?? []).map(cmsContentBlockToSiteModel),
     conversion: cmsConversionBlockToSiteModel(conversion ?? {}),
   };
 }

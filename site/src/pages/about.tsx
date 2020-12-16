@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { getAboutPageData, SiteAboutPageData } from '../about-page';
-import { SiteConversionBlock, SiteImage } from '../cms';
+import { SiteContentBlockStack, SiteConversionBlock, SiteImage } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteAboutPageData {}
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export default function AboutPage({
-  aboutPage: { hero, conversion },
+  aboutPage: { hero, blocks, conversion },
   ...layoutData
 }: Props): React.ReactElement {
   return (
@@ -38,6 +38,7 @@ export default function AboutPage({
             <RichText>{hero.content}</RichText>
           </Container>
         )}
+        <SiteContentBlockStack blocks={blocks} />
         <Container margin>
           <SiteConversionBlock conversion={conversion} />
         </Container>

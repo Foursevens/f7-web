@@ -16,6 +16,11 @@
       "repeatable": false,
       "component": "molecules.hero-2"
     },
+    "blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.content-block"
+    },
     "conversion": {
       "type": "component",
       "repeatable": false,

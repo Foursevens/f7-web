@@ -1,10 +1,10 @@
-import { ButtonLink, Hero1, RichText, Title } from '@f7-web/design';
+import { ButtonLink, Container, Hero1, RichText, Title } from '@f7-web/design';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { SiteImage } from '../cms';
+import { SiteContentBlockStack, SiteConversionBlock, SiteImage } from '../cms';
 import { getHomepageData, SiteHomepageData } from '../homepage';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export default function Homepage({
-  homepage: { hero },
+  homepage: { hero, blocks, conversion },
   ...layoutData
 }: Props): React.ReactElement {
   return (
@@ -40,6 +40,10 @@ export default function Homepage({
             </div>
           )}
         </Hero1>
+        <SiteContentBlockStack blocks={blocks} reverse />
+        <Container margin>
+          <SiteConversionBlock conversion={conversion} />
+        </Container>
       </LayoutContainer>
     </>
   );

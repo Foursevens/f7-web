@@ -1,5 +1,6 @@
 import { client, gql } from '../api';
 import {
+  cmsContentBlockFragment,
   cmsConversionBlockFragment,
   cmsHero2Fragment,
   cmsImageFragment,
@@ -17,6 +18,7 @@ export interface SiteAboutPageData {
 
 export async function getAboutPageData(): Promise<SiteAboutPageData> {
   const { aboutPage } = (await client.request(gql`
+    ${cmsContentBlockFragment}
     ${cmsConversionBlockFragment}
     ${cmsHero2Fragment}
     ${cmsImageFragment}
@@ -25,6 +27,9 @@ export async function getAboutPageData(): Promise<SiteAboutPageData> {
       aboutPage {
         hero {
           ...hero2
+        }
+        blocks {
+          ...contentBlock
         }
         conversion {
           ...conversionBlock

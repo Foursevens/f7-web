@@ -44,7 +44,7 @@ export interface SiteContentBlockModel {
   cta?: SiteLinkModel;
 }
 
-export function cmsContentBlockToSite(
+export function cmsContentBlockToSiteModel(
   { id, image, title, tagline, content, cta }: CmsContentBlockModel,
   index = 0,
 ): SiteContentBlockModel {
