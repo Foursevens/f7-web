@@ -16,6 +16,16 @@
       "repeatable": false,
       "component": "molecules.content-block",
       "required": true
+    },
+    "blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.content-block"
+    },
+    "conversion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.conversion-block"
     }
   }
 }
