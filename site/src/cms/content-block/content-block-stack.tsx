@@ -17,16 +17,20 @@ const EVEN = 2;
 
 interface Props {
   blocks: SiteContentBlockModel[];
+  reverse?: boolean;
 }
 
-export function SiteContentBlockStack({ blocks }: Props): React.ReactElement {
+export function SiteContentBlockStack({
+  blocks,
+  reverse = false,
+}: Props): React.ReactElement {
   return (
-    <ContainerStack margin padding>
+    <ContainerStack margin padding reverse={reverse}>
       {blocks.map(({ id, image, title, tagline, content, cta }, index) => (
         <ContentBlock
           key={id}
           image={<SiteImage image={image} />}
-          imageAtEnd={index % EVEN === 1}
+          imageAtEnd={index % EVEN === (reverse ? 0 : 1)}
         >
           <TextBlock>
             {title == null ? null : (

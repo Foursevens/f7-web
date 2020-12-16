@@ -49,3 +49,23 @@ WithContentBlocks.args = {
   ],
   padding: true,
 };
+
+export const WithReverseContentBlocks = Template.bind({});
+WithReverseContentBlocks.args = {
+  children: [
+    <ContentBlock key={1} image={DUURZAAMHEID} imageAtEnd>
+      <TextBlock>
+        <Title size="md">Lorem Ipsum</Title>
+        <RichText>{RICH_TEXT}</RichText>
+      </TextBlock>
+    </ContentBlock>,
+    <ContentBlock key={2} image={DUURZAAMHEID}>
+      <TextBlock>
+        <Title size="md">Lorem Ipsum</Title>
+        <RichText>{RICH_TEXT}</RichText>
+      </TextBlock>
+    </ContentBlock>,
+  ],
+  padding: true,
+  reverse: true,
+};
