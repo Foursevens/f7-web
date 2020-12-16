@@ -9,15 +9,13 @@ import {
   Hero3,
   HeroContact,
   Map,
-  Menu,
   MenuItem,
   RichText,
   Tag,
   TextBlock,
   Title,
 } from '.';
-import logo from '../stories-assets/logo-full.png';
-import { DUURZAAMHEID, HERO1, HERO2, MAP } from './data';
+import { DUURZAAMHEID, HERO1, HERO2, LOGO, MAP } from './data';
 
 export default {
   title: '4. Templates / Layout',
@@ -28,16 +26,13 @@ export default {
 export const Level1 = (): React.ReactElement => (
   <>
     <Container background="primary2">
-      <Header>
-        <img alt="Foursevens logo" src={logo} />
-        <Menu>
-          <MenuItem key="1">
-            <a href="/">Cases</a>
-          </MenuItem>
-          <MenuItem key="2" highlight="yes">
-            <a href="/">Contact</a>
-          </MenuItem>
-        </Menu>
+      <Header logo={LOGO}>
+        <MenuItem key="1">
+          <a href="/">Cases</a>
+        </MenuItem>
+        <MenuItem key="2" highlight="yes">
+          <a href="/">Contact</a>
+        </MenuItem>
       </Header>
     </Container>
     <Hero1 image={HERO1}>
@@ -57,16 +52,13 @@ export const Level1 = (): React.ReactElement => (
 export const Level2 = (): React.ReactElement => (
   <>
     <Container>
-      <Header>
-        <img alt="Foursevens logo" src={logo} />
-        <Menu>
-          <MenuItem key="1" active="yes">
-            <a href="/">Cases</a>
-          </MenuItem>
-          <MenuItem key="2" highlight="yes">
-            <a href="/">Contact</a>
-          </MenuItem>
-        </Menu>
+      <Header logo={LOGO}>
+        <MenuItem key="1" active="yes">
+          <a href="/">Cases</a>
+        </MenuItem>
+        <MenuItem key="2" highlight="yes">
+          <a href="/">Contact</a>
+        </MenuItem>
       </Header>
     </Container>
     <Hero2 image={HERO2}>
@@ -78,16 +70,13 @@ export const Level2 = (): React.ReactElement => (
 export const Level3 = (): React.ReactElement => (
   <>
     <Container>
-      <Header>
-        <img alt="Foursevens logo" src={logo} />
-        <Menu>
-          <MenuItem key="1" active="yes">
-            <a href="/">Cases</a>
-          </MenuItem>
-          <MenuItem key="2" highlight="yes">
-            <a href="/">Contact</a>
-          </MenuItem>
-        </Menu>
+      <Header logo={LOGO}>
+        <MenuItem key="1" active="yes">
+          <a href="/">Cases</a>
+        </MenuItem>
+        <MenuItem key="2" highlight="yes">
+          <a href="/">Contact</a>
+        </MenuItem>
       </Header>
     </Container>
     <Hero3 image={DUURZAAMHEID}>
@@ -107,16 +96,13 @@ export const Level3 = (): React.ReactElement => (
 export const Contact = (): React.ReactElement => (
   <>
     <Container background="primary2">
-      <Header>
-        <img alt="Foursevens logo" src={logo} />
-        <Menu>
-          <MenuItem key="1">
-            <a href="/">Cases</a>
-          </MenuItem>
-          <MenuItem key="2" active="yes" highlight="yes">
-            <a href="/">Contact</a>
-          </MenuItem>
-        </Menu>
+      <Header logo={LOGO}>
+        <MenuItem key="1">
+          <a href="/">Cases</a>
+        </MenuItem>
+        <MenuItem key="2" active="yes" highlight="yes">
+          <a href="/">Contact</a>
+        </MenuItem>
       </Header>
     </Container>
     <HeroContact>

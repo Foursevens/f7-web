@@ -1,31 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { BreakPoint, useBreakPoint } from './hooks';
+import { Menu } from './menu';
 import { styled } from './stitches.config';
 
-export interface HeaderProps {
-  children: React.ReactElement[];
-}
+const BREAK_POINTS_MOBILE_MENU: BreakPoint[] = ['xs', 'sm'];
 
 const StyledHeader = styled('header', {
   height: 100,
   display: 'flex',
   alignItems: 'center',
-  '> * + *': { marginLeft: '$sm' },
+
+  svg: {
+    cursor: 'pointer',
+    color: '$primary1',
+    fontSize: 30,
+  },
+
+  '.mobile-menu': {
+    position: 'fixed',
+    top: 100,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '$primary2',
+  },
+
+  variants: {
+    mobileMenuOpen: {
+      true: {
+        '.fa-bars': { display: 'none' },
+      },
+      false: {
+        '.fa-times, .mobile-menu': { display: 'none' },
+      },
+    },
+  },
 });
 
 const LogoWrapper = styled('div', {
-  height: 45,
   flexGrow: 1,
-  img: { maxHeight: '100%' },
+  img: { maxWidth: 200 },
 });
 
-export function Header({
-  children: [logo, ...rest],
-}: HeaderProps): React.ReactElement {
+export interface HeaderProps {
+  children: React.ReactElement[];
+  logo?: React.ReactNode;
+}
+
+export function Header({ children, logo }: HeaderProps): React.ReactElement {
+  const breakpoint = useBreakPoint();
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMenuTogglePress = (): void => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <StyledHeader>
+    <StyledHeader mobileMenuOpen={isMobileMenuOpen}>
       <LogoWrapper>{logo}</LogoWrapper>
-      {rest}
+      {BREAK_POINTS_MOBILE_MENU.includes(breakpoint) ? (
+        <>
+          <button onClick={handleMenuTogglePress} type="button">
+            <i className="fal fa-bars" />
+            <i className="fal fa-times" />
+          </button>
+          <div className="mobile-menu">
+            <Menu mobile>{children}</Menu>
+          </div>
+        </>
+      ) : (
+        <Menu>{children}</Menu>
+      )}
     </StyledHeader>
   );
 }
