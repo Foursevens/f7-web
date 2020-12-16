@@ -1,5 +1,5 @@
 import { Container } from '@f7-web/design';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
@@ -7,9 +7,9 @@ import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const layoutData = await getLayoutData();
-  return { props: layoutData };
+  return { props: layoutData, revalidate: 60 };
 };
 
 export default function StoryDetailPage({

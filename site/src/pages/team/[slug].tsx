@@ -12,13 +12,11 @@ import {
 
 interface Props extends LayoutData, SiteTeamMemberPageData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context,
-) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const layoutData = await getLayoutData();
   const { slug } = context.params as { slug: string };
   const teamMemberPageData = await getTeamMemberPageData(slug);
-  return { props: { ...layoutData, ...teamMemberPageData } };
+  return { props: { ...layoutData, ...teamMemberPageData }, revalidate: 60 };
 };
 
 export default function TeamMemberPage({

@@ -1,5 +1,5 @@
 import { Container, Hero2, RichText, Title } from '@f7-web/design';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
@@ -9,10 +9,10 @@ import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteAboutPageData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const layoutData = await getLayoutData();
   const aboutPageData = await getAboutPageData();
-  return { props: { ...layoutData, ...aboutPageData } };
+  return { props: { ...layoutData, ...aboutPageData }, revalidate: 60 };
 };
 
 export default function AboutPage({

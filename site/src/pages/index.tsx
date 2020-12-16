@@ -1,5 +1,5 @@
 import { ButtonLink, Hero1, RichText, Title } from '@f7-web/design';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
@@ -10,10 +10,10 @@ import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteHomepageData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const layoutData = await getLayoutData();
   const homepageData = await getHomepageData();
-  return { props: { ...layoutData, ...homepageData } };
+  return { props: { ...layoutData, ...homepageData }, revalidate: 60 };
 };
 
 export default function Homepage({
