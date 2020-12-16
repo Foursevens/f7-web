@@ -12,7 +12,9 @@ import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData, SiteJobDetailPageData {}
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context,
+) => {
   const layoutData = await getLayoutData();
   const { slug } = context.params as { slug: string };
   const jobDetailPageData = await getJobDetailPageData(slug);
