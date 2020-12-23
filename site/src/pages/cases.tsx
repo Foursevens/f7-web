@@ -48,7 +48,7 @@ export default function CasesPage({
             <RichText>{hero.content}</RichText>
           </Container>
         )}
-        <Container>
+        <Container padding>
           <Grid as="ol">
             {cases.map(({ id, slug, image, client, title, introduction }) => (
               <li key={id}>
