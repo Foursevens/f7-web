@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "knex": "^0.20.15",
+    "lodash": "^4.17.20",
     "marked": "^1.2.4",
     "pg": "latest",
     "strapi": "3.3.3",

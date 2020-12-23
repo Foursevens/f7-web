@@ -1,0 +1,20 @@
+{
+  "marked": {
+    "case": {
+      "properties": [
+        "introduction.en",
+        "introduction.fr",
+        "introduction.nl",
+        "problem.content.en",
+        "problem.content.fr",
+        "problem.content.nl",
+        "solution.content.en",
+        "solution.content.fr",
+        "solution.content.nl",
+        "result.content.en",
+        "result.content.fr",
+        "result.content.nl"
+      ]
+    }
+  }
+}

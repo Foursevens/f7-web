@@ -1,0 +1,17 @@
+{
+  "marked": {
+    "homepage": {
+      "properties": [
+        "hero.content.en",
+        "hero.content.fr",
+        "hero.content.nl",
+        "blocks[*].content.en",
+        "blocks[*].content.fr",
+        "blocks[*].content.nl",
+        "conversion.content.en",
+        "conversion.content.fr",
+        "conversion.content.nl"
+      ]
+    }
+  }
+}

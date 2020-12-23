@@ -19,6 +19,9 @@
       "extends": ["noise-node"],
       "globals": {
         "strapi": true
+      },
+      "rules": {
+        "unicorn/consistent-function-scoping": "off"
       }
     },
     {

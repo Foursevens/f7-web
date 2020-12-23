@@ -1,0 +1,11 @@
+{
+  "marked": {
+    "job-detail-page": {
+      "properties": [
+        "conversion.content.en",
+        "conversion.content.fr",
+        "conversion.content.nl"
+      ]
+    }
+  }
+}

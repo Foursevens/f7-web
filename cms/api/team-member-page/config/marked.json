@@ -1,0 +1,11 @@
+{
+  "marked": {
+    "team-member-page": {
+      "properties": [
+        "conversion.content.en",
+        "conversion.content.fr",
+        "conversion.content.nl"
+      ]
+    }
+  }
+}

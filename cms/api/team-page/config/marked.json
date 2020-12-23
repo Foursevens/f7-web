@@ -1,0 +1,14 @@
+{
+  "marked": {
+    "team-page": {
+      "properties": [
+        "hero.content.en",
+        "hero.content.fr",
+        "hero.content.nl",
+        "conversion.content.en",
+        "conversion.content.fr",
+        "conversion.content.nl"
+      ]
+    }
+  }
+}

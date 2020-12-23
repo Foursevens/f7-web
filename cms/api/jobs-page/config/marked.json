@@ -1,0 +1,7 @@
+{
+  "marked": {
+    "jobs-page": {
+      "properties": ["hero.content.en", "hero.content.fr", "hero.content.nl"]
+    }
+  }
+}
