@@ -4,7 +4,8 @@ import { styled } from './stitches.config';
 
 const StyledGrid = styled('div', {
   display: 'grid',
-  gap: '$md',
+  gap: 30,
+
   gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
 });
 
