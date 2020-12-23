@@ -1,6 +1,10 @@
 import { gql } from '../api';
-import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import { CmsImageModel, cmsImageToSiteModel } from './image';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from './localized';
 
 export const cmsHero2Fragment = gql`
   fragment hero2 on ComponentMoleculesHero2 {
@@ -8,10 +12,10 @@ export const cmsHero2Fragment = gql`
       ...image
     }
     title {
-      en
+      ...localizedText
     }
     content {
-      en
+      ...localizedContent
     }
   }
 `;
@@ -23,9 +27,9 @@ export interface CmsHero2Model {
 }
 
 export interface SiteHero2Model {
-  image?: SiteImageModel;
-  content?: string;
-  title?: string;
+  image?: CmsImageModel;
+  title?: SiteLocalizedModel;
+  content?: SiteLocalizedModel;
 }
 
 export function cmsHero2ModelToSite({

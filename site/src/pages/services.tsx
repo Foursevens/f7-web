@@ -3,7 +3,12 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import { SiteContentBlockStack, SiteConversionBlock, SiteImage } from '../cms';
+import {
+  SiteContentBlockStack,
+  SiteConversionBlock,
+  SiteImage,
+  useLocale,
+} from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getServicesPageData, SiteServicesPageData } from '../services-page';
 
@@ -19,6 +24,8 @@ export default function ServicesPage({
   servicesPage: { hero, blocks, conversion },
   ...layoutData
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   return (
     <>
       <Head>
@@ -29,13 +36,13 @@ export default function ServicesPage({
         <Hero2 image={<SiteImage image={hero.image} />}>
           {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {hero.title}
+              {hero.title[locale]}
             </Title>
           )}
         </Hero2>
         {hero.content == null ? null : (
           <Container margin>
-            <RichText>{hero.content}</RichText>
+            <RichText>{hero.content[locale]}</RichText>
           </Container>
         )}
         <SiteContentBlockStack blocks={blocks} />

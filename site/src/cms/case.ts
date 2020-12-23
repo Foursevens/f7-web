@@ -1,5 +1,9 @@
-import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from './image';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import { CmsImageModel, cmsImageToSiteModel } from './image';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from './localized';
 
 interface CmsCaseContentModel {
   image?: CmsImageModel;
@@ -7,8 +11,8 @@ interface CmsCaseContentModel {
 }
 
 interface SiteCaseContentModel {
-  image?: SiteImageModel;
-  content: string;
+  image?: CmsImageModel;
+  content: SiteLocalizedModel;
 }
 
 function cmsCaseContentToSiteModel({
@@ -18,9 +22,11 @@ function cmsCaseContentToSiteModel({
   const siteCaseContent: SiteCaseContentModel = {
     content: cmsLocalizedToSiteModel(content),
   };
+
   if (image != null) {
     siteCaseContent.image = cmsImageToSiteModel(image);
   }
+
   return siteCaseContent;
 }
 
@@ -37,9 +43,9 @@ export interface SiteCaseCardModel {
   id: string;
   slug: string;
   client: string;
-  introduction?: string;
-  image?: SiteImageModel;
-  title?: string;
+  introduction?: SiteLocalizedModel;
+  image?: CmsImageModel;
+  title?: SiteLocalizedModel;
 }
 
 export function cmsCaseCardToSiteModel({
@@ -88,10 +94,10 @@ export interface SiteCaseDetailModel {
   id: string;
   client?: string;
   clientWebsite?: string;
-  introduction?: string;
-  image?: SiteImageModel;
-  tagline?: string;
-  title?: string;
+  introduction?: SiteLocalizedModel;
+  image?: CmsImageModel;
+  tagline?: SiteLocalizedModel;
+  title?: SiteLocalizedModel;
   problem: SiteCaseContentModel;
   solution: SiteCaseContentModel;
   result: SiteCaseContentModel;

@@ -1,5 +1,10 @@
 import { client, gql } from '../api';
-import { cmsHero2Fragment, cmsImageFragment } from '../cms';
+import {
+  cmsHero2Fragment,
+  cmsImageFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
+} from '../cms';
 import {
   CmsJobsPageModel,
   cmsJobsPageToSite,
@@ -14,6 +19,8 @@ export async function getJobsPageData(): Promise<SiteJobsPageData> {
   const { jobsPage } = (await client.request(gql`
     ${cmsHero2Fragment}
     ${cmsImageFragment}
+    ${cmsLocalizedContentFragment}
+    ${cmsLocalizedTextFragment}
     {
       jobsPage {
         hero {

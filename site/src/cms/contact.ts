@@ -1,5 +1,9 @@
 import { gql } from '../api';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from './localized';
 
 export const cmsContactFragment = gql`
   fragment contact on Contact {
@@ -7,7 +11,7 @@ export const cmsContactFragment = gql`
     phone
     address {
       lines {
-        en
+        ...localizedText
       }
     }
     socialMedia {
@@ -32,7 +36,7 @@ export interface CmsContactModel {
 }
 
 export interface SiteContactModel {
-  address: string[][];
+  address: SiteLocalizedModel[][];
   email?: string;
   phone?: string;
   socialMedia: SocialMedia[];

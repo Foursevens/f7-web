@@ -3,6 +3,7 @@ import {
   cmsContactFragment,
   CmsContactModel,
   cmsContactToSite,
+  cmsLocalizedTextFragment,
   SiteContactModel,
 } from '../cms';
 import {
@@ -19,13 +20,14 @@ export interface SiteContactPageData {
 export async function getContactPageData(): Promise<SiteContactPageData> {
   const { contact, contactPage } = (await client.request(gql`
     ${cmsContactFragment}
+    ${cmsLocalizedTextFragment}
     {
       contact {
         ...contact
       }
       contactPage {
         title {
-          en
+          ...localizedText
         }
       }
     }

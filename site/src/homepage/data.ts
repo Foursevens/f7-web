@@ -4,6 +4,8 @@ import {
   cmsConversionBlockFragment,
   cmsImageFragment,
   cmsLinkFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
 } from '../cms';
 import {
   CmsHomepageModel,
@@ -21,6 +23,8 @@ export async function getHomepageData(): Promise<SiteHomepageData> {
     ${cmsConversionBlockFragment}
     ${cmsImageFragment}
     ${cmsLinkFragment}
+    ${cmsLocalizedContentFragment}
+    ${cmsLocalizedTextFragment}
     {
       homepage {
         hero {

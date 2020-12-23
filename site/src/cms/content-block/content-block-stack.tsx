@@ -11,6 +11,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { SiteImage } from '../image';
+import { useLocale } from '../localized';
 import { SiteContentBlockModel } from './types';
 
 const EVEN = 2;
@@ -24,6 +25,8 @@ export function SiteContentBlockStack({
   blocks,
   reverse = false,
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   return (
     <ContainerStack margin padding reverse={reverse}>
       {blocks.map(({ id, image, title, tagline, content, cta }, index) => (
@@ -35,15 +38,15 @@ export function SiteContentBlockStack({
           <TextBlock>
             {title == null ? null : (
               <Title as="h3" size="md">
-                {title}
+                {title[locale]}
               </Title>
             )}
-            {tagline == null ? null : <Tag>{tagline}</Tag>}
-            {content == null ? null : <RichText>{content}</RichText>}
+            {tagline == null ? null : <Tag>{tagline[locale]}</Tag>}
+            {content == null ? null : <RichText>{content[locale]}</RichText>}
             {cta == null ? null : (
               <div>
                 <Link href={cta.href} passHref>
-                  <ButtonLink>{cta.text}</ButtonLink>
+                  <ButtonLink>{cta.text[locale]}</ButtonLink>
                 </Link>
               </div>
             )}

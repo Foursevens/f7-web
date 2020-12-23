@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { SiteConversionBlock, SiteImage } from '../cms';
+import { SiteConversionBlock, SiteImage, useLocale } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 import { getTeamPageData, SiteTeamPageData } from '../team-page';
 
@@ -20,6 +20,8 @@ export default function TeamPage({
   teamPage: { hero, conversion },
   ...layoutData
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   return (
     <>
       <Head>
@@ -30,13 +32,13 @@ export default function TeamPage({
         <Hero2 image={<SiteImage image={hero.image} />}>
           {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {hero.title}
+              {hero.title[locale]}
             </Title>
           )}
         </Hero2>
         {hero.content == null ? null : (
           <Container padding>
-            <RichText>{hero.content}</RichText>
+            <RichText>{hero.content[locale]}</RichText>
           </Container>
         )}
         <Container margin>

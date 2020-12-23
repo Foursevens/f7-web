@@ -4,6 +4,7 @@ import {
   CmsContactModel,
   cmsContactToSite,
   cmsLinkFragment,
+  cmsLocalizedTextFragment,
   cmsMenuFragment,
   CmsMenuModel,
   cmsMenuToSite,
@@ -23,6 +24,7 @@ export async function getLayoutData(): Promise<LayoutData> {
   const { contact, layout } = (await client.request(gql`
     ${cmsContactFragment}
     ${cmsLinkFragment}
+    ${cmsLocalizedTextFragment}
     ${cmsMenuFragment}
     {
       contact {

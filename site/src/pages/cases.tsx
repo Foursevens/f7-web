@@ -13,7 +13,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { getCasesPageData, SiteCasesPageData } from '../cases-page';
-import { SiteImage } from '../cms';
+import { SiteImage, useLocale } from '../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteCasesPageData {}
@@ -29,6 +29,8 @@ export default function CasesPage({
   cases,
   ...layoutData
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   return (
     <>
       <Head>
@@ -39,13 +41,13 @@ export default function CasesPage({
         <Hero2 image={<SiteImage image={hero.image} />}>
           {hero.title == null ? null : (
             <Title as="h2" size="md">
-              {hero.title}
+              {hero.title[locale]}
             </Title>
           )}
         </Hero2>
         {hero.content == null ? null : (
           <Container padding>
-            <RichText>{hero.content}</RichText>
+            <RichText>{hero.content[locale]}</RichText>
           </Container>
         )}
         <Container padding>
@@ -56,13 +58,13 @@ export default function CasesPage({
                   {title == null ? null : (
                     <Title as="h3" size="sm">
                       <Link href={`/cases/${slug}`}>
-                        <a>{title}</a>
+                        <a>{title[locale]}</a>
                       </Link>
                     </Title>
                   )}
                   <Tag>{client}</Tag>
                   {introduction == null ? null : (
-                    <RichText>{introduction}</RichText>
+                    <RichText>{introduction[locale]}</RichText>
                   )}
                 </Card>
               </li>

@@ -1,11 +1,15 @@
 import { gql } from '../api';
-import { CmsLocalizedModel } from './localized';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from './localized';
 
 export const cmsLinkFragment = gql`
   fragment link on ComponentAtomsLink {
     href
     text {
-      en
+      ...localizedText
     }
   }
 `;
@@ -17,12 +21,12 @@ export interface CmsLinkModel {
 
 export interface SiteLinkModel {
   href: string;
-  text: string;
+  text: SiteLocalizedModel;
 }
 
 export function cmsLinkToSiteModel({
   href,
   text,
 }: CmsLinkModel): SiteLinkModel {
-  return { href, text: text.en };
+  return { href, text: cmsLocalizedToSiteModel(text) };
 }

@@ -1,5 +1,10 @@
 import { client, gql } from '../api';
-import { cmsConversionBlockFragment, cmsLinkFragment } from '../cms';
+import {
+  cmsConversionBlockFragment,
+  cmsLinkFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
+} from '../cms';
 import {
   SiteTeamMemberPageModel,
   CmsTeamMemberPageModel,
@@ -17,6 +22,8 @@ export async function getTeamMemberPageData(
     gql`
       ${cmsConversionBlockFragment}
       ${cmsLinkFragment}
+      ${cmsLocalizedContentFragment}
+      ${cmsLocalizedTextFragment}
       query getTeamMember {
         teamMemberPage {
           conversion {

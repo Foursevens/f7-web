@@ -5,6 +5,8 @@ import {
   cmsConversionBlockFragment,
   cmsImageFragment,
   cmsLinkFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
   SiteCaseDetailModel,
 } from '../cms';
 import {
@@ -29,6 +31,8 @@ export async function getCaseDetailPageData(
       ${cmsConversionBlockFragment}
       ${cmsImageFragment}
       ${cmsLinkFragment}
+      ${cmsLocalizedContentFragment}
+      ${cmsLocalizedTextFragment}
       query getCaseDetail($slug: String!) {
         cases(publicationState: LIVE, where: { slug: $slug }) {
           id
@@ -36,13 +40,13 @@ export async function getCaseDetailPageData(
             ...image
           }
           title {
-            en
+            ...localizedText
           }
           tagline {
-            en
+            ...localizedText
           }
           introduction {
-            en
+            ...localizedContent
           }
           client
           clientWebsite
@@ -51,7 +55,7 @@ export async function getCaseDetailPageData(
               ...image
             }
             content {
-              en
+              ...localizedContent
             }
           }
           solution {
@@ -59,7 +63,7 @@ export async function getCaseDetailPageData(
               ...image
             }
             content {
-              en
+              ...localizedContent
             }
           }
           result {
@@ -67,7 +71,7 @@ export async function getCaseDetailPageData(
               ...image
             }
             content {
-              en
+              ...localizedContent
             }
           }
         }

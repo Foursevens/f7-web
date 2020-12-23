@@ -4,7 +4,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { SiteContentBlockStack, SiteConversionBlock, SiteImage } from '../cms';
+import {
+  SiteContentBlockStack,
+  SiteConversionBlock,
+  SiteImage,
+  useLocale,
+} from '../cms';
 import { getHomepageData, SiteHomepageData } from '../homepage';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
@@ -20,6 +25,8 @@ export default function Homepage({
   homepage: { hero, blocks, conversion },
   ...layoutData
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   return (
     <>
       <Head>
@@ -28,14 +35,18 @@ export default function Homepage({
       </Head>
       <LayoutContainer headerBackground="primary2" {...layoutData}>
         <Hero1 image={<SiteImage image={hero.image} />}>
-          {hero.title == null ? null : <Title size="xl">{hero.title}</Title>}
+          {hero.title == null ? null : (
+            <Title size="xl">{hero.title[locale]}</Title>
+          )}
           {hero.content == null ? null : (
-            <RichText size="lg">{hero.content}</RichText>
+            <RichText size="lg">{hero.content[locale]}</RichText>
           )}
           {hero.cta == null ? null : (
             <div>
               <Link href={hero.cta.href} passHref>
-                <ButtonLink background="secondary">{hero.cta.text}</ButtonLink>
+                <ButtonLink background="secondary">
+                  {hero.cta.text[locale]}
+                </ButtonLink>
               </Link>
             </div>
           )}

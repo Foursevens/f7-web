@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import { useLocale } from '../cms';
 import { joinStringsWithLineBreaks } from '../jsx-utils';
 import { LayoutData } from './data';
 
@@ -23,8 +24,11 @@ export function LayoutContainer({
   headerBackground,
   layout: { footerMenus, mainMenu },
 }: Props): React.ReactElement {
+  const locale = useLocale();
   const router = useRouter();
+
   const isActive = (href: string): boolean => router.pathname.startsWith(href);
+
   return (
     <>
       <Container background={headerBackground}>
@@ -44,7 +48,7 @@ export function LayoutContainer({
               active={isActive(link.href) ? 'yes' : 'no'}
               highlight={highlight ? 'yes' : 'no'}
             >
-              <Link href={link.href}>{link.text}</Link>
+              <Link href={link.href}>{link.text[locale]}</Link>
             </MenuItem>
           ))}
         </Header>
@@ -56,7 +60,9 @@ export function LayoutContainer({
           <main>
             <Footer.AddressList>
               {contact.address.map((lines) => (
-                <li>{joinStringsWithLineBreaks(lines)}</li>
+                <li>
+                  {joinStringsWithLineBreaks(lines.map((line) => line[locale]))}
+                </li>
               ))}
             </Footer.AddressList>
             <Separator />
@@ -90,13 +96,13 @@ export function LayoutContainer({
           <>
             <Separator />
             <Footer.Section>
-              {title == null ? null : <header>{title}</header>}
+              {title == null ? null : <header>{title[locale]}</header>}
               <main>
                 <Footer.MenuList>
                   {items.map(({ id, link }) => (
                     <li key={id}>
                       <Link href={link.href}>
-                        <a>{link.text}</a>
+                        <a>{link.text[locale]}</a>
                       </Link>
                     </li>
                   ))}

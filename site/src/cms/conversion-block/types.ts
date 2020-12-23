@@ -1,14 +1,18 @@
 import { gql } from '../../api';
 import { CmsLinkModel, cmsLinkToSiteModel, SiteLinkModel } from '../link';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from '../localized';
 
 export const cmsConversionBlockFragment = gql`
   fragment conversionBlock on ComponentMoleculesConversionBlock {
     title {
-      en
+      ...localizedText
     }
     content {
-      en
+      ...localizedContent
     }
     cta {
       ...link
@@ -23,8 +27,8 @@ export interface CmsConversionBlockModel {
 }
 
 export interface SiteConversionBlockModel {
-  title?: string;
-  content?: string;
+  title?: SiteLocalizedModel;
+  content?: SiteLocalizedModel;
   cta?: SiteLinkModel;
 }
 

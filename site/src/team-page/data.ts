@@ -4,6 +4,8 @@ import {
   cmsHero2Fragment,
   cmsImageFragment,
   cmsLinkFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
 } from '../cms';
 import {
   CmsTeamPageModel,
@@ -21,6 +23,8 @@ export async function getTeamPageData(): Promise<SiteTeamPageData> {
     ${cmsHero2Fragment}
     ${cmsImageFragment}
     ${cmsLinkFragment}
+    ${cmsLocalizedContentFragment}
+    ${cmsLocalizedTextFragment}
     {
       teamPage {
         hero {

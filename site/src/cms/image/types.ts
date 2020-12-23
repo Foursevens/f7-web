@@ -3,24 +3,22 @@ import { apiBaseUrl, gql } from '../../api';
 export const cmsImageFragment = gql`
   fragment image on UploadFile {
     alternativeText
-    width
+    caption
     height
     url
-    caption
+    width
   }
 `;
 
 export interface CmsImageModel {
   alternativeText?: string;
   caption?: string;
-  width: number;
   height: number;
   url: string;
+  width: number;
 }
 
-export interface SiteImageModel extends CmsImageModel {}
-
-export function cmsImageToSiteModel(image: CmsImageModel): SiteImageModel {
+export function cmsImageToSiteModel(image: CmsImageModel): CmsImageModel {
   const url = image.url.startsWith('http')
     ? image.url
     : `${apiBaseUrl}${image.url}`;

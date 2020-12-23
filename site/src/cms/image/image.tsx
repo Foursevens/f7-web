@@ -1,10 +1,10 @@
 import { ReactHtmlImageElement } from '@f7-web/design';
 import React from 'react';
 
-import { SiteImageModel } from './types';
+import { CmsImageModel } from './types';
 
 interface Props {
-  image?: SiteImageModel;
+  image?: CmsImageModel;
 }
 
 export function SiteImage({ image }: Props): ReactHtmlImageElement | null {

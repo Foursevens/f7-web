@@ -5,6 +5,8 @@ import {
   cmsHero2Fragment,
   cmsImageFragment,
   cmsLinkFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
 } from '../cms';
 import {
   CmsAboutPageModel,
@@ -23,6 +25,8 @@ export async function getAboutPageData(): Promise<SiteAboutPageData> {
     ${cmsHero2Fragment}
     ${cmsImageFragment}
     ${cmsLinkFragment}
+    ${cmsLocalizedContentFragment}
+    ${cmsLocalizedTextFragment}
     {
       aboutPage {
         hero {

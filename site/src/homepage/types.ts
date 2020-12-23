@@ -3,8 +3,8 @@ import {
   SiteContentBlockModel,
   cmsContentBlockToSiteModel,
   CmsConversionBlockModel,
-  SiteConversionBlockModel,
   cmsConversionBlockToSiteModel,
+  SiteConversionBlockModel,
 } from '../cms';
 
 export interface CmsHomepageModel {

@@ -4,6 +4,8 @@ import {
   cmsCaseCardToSiteModel,
   cmsHero2Fragment,
   cmsImageFragment,
+  cmsLocalizedContentFragment,
+  cmsLocalizedTextFragment,
   SiteCaseCardModel,
 } from '../cms';
 import {
@@ -21,6 +23,8 @@ export async function getCasesPageData(): Promise<SiteCasesPageData> {
   const { casesPage, cases } = (await client.request(gql`
     ${cmsHero2Fragment}
     ${cmsImageFragment}
+    ${cmsLocalizedContentFragment}
+    ${cmsLocalizedTextFragment}
     {
       casesPage {
         hero {

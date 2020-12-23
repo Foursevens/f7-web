@@ -1,11 +1,15 @@
 import { gql } from '../api';
-import { CmsLinkModel, SiteLinkModel, cmsLinkToSiteModel } from './link';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from './localized';
+import { CmsLinkModel, cmsLinkToSiteModel, SiteLinkModel } from './link';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from './localized';
 
 export const cmsMenuFragment = gql`
   fragment menu on ComponentOrganismsMenu {
     title {
-      en
+      ...localizedText
     }
     items {
       id
@@ -23,7 +27,7 @@ export interface CmsMenuModel {
 }
 
 export interface SiteMenuModel {
-  title?: string;
+  title?: SiteLocalizedModel;
   items: SiteMenuItemModel[];
 }
 

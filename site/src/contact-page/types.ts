@@ -1,11 +1,15 @@
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../cms';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from '../cms';
 
 export interface CmsContactPageModel {
   title?: CmsLocalizedModel[];
 }
 
 export interface SiteContactPageModel {
-  title: string[];
+  title: SiteLocalizedModel[];
 }
 
 export function cmsContactPageToSite({

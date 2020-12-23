@@ -19,7 +19,7 @@ import {
   getCaseDetailPageData,
   SiteCaseDetailPageData,
 } from '../../case-detail-page';
-import { SiteConversionBlock, SiteImage } from '../../cms';
+import { SiteConversionBlock, SiteImage, useLocale } from '../../cms';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData, SiteCaseDetailPageData {}
@@ -38,9 +38,12 @@ export default function CaseDetailPage({
   case: caseItem,
   ...layoutData
 }: Props): React.ReactElement {
+  const locale = useLocale();
+
   if (caseItem == null) {
     return <DefaultErrorPage statusCode={404} />;
   }
+
   return (
     <>
       <Head>
@@ -58,11 +61,13 @@ export default function CaseDetailPage({
         >
           <TextBlock>
             {caseItem.title == null ? null : (
-              <Title size="lg">{caseItem.title}</Title>
+              <Title size="lg">{caseItem.title[locale]}</Title>
             )}
-            {caseItem.tagline == null ? null : <Tag>{caseItem.tagline}</Tag>}
+            {caseItem.tagline == null ? null : (
+              <Tag>{caseItem.tagline[locale]}</Tag>
+            )}
             {caseItem.introduction == null ? null : (
-              <RichText>{caseItem.introduction}</RichText>
+              <RichText>{caseItem.introduction[locale]}</RichText>
             )}
             <CaseDetails>
               {caseItem.client == null ? null : (
@@ -82,7 +87,7 @@ export default function CaseDetailPage({
           <ContentBlock image={<SiteImage image={caseItem.problem.image} />}>
             <TextBlock>
               <Title>Problem</Title>
-              <RichText>{caseItem.problem.content}</RichText>
+              <RichText>{caseItem.problem.content[locale]}</RichText>
             </TextBlock>
           </ContentBlock>
           <ContentBlock
@@ -91,13 +96,13 @@ export default function CaseDetailPage({
           >
             <TextBlock>
               <Title>Solution</Title>
-              <RichText>{caseItem.solution.content}</RichText>
+              <RichText>{caseItem.solution.content[locale]}</RichText>
             </TextBlock>
           </ContentBlock>
           <ContentBlock image={<SiteImage image={caseItem.result.image} />}>
             <TextBlock>
               <Title>Result</Title>
-              <RichText>{caseItem.result.content}</RichText>
+              <RichText>{caseItem.result.content[locale]}</RichText>
             </TextBlock>
           </ContentBlock>
         </ContainerStack>

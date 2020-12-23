@@ -1,7 +1,11 @@
 import { gql } from '../../api';
-import { CmsImageModel, cmsImageToSiteModel, SiteImageModel } from '../image';
-import { CmsLinkModel, SiteLinkModel } from '../link';
-import { CmsLocalizedModel, cmsLocalizedToSiteModel } from '../localized';
+import { CmsImageModel, cmsImageToSiteModel } from '../image';
+import { CmsLinkModel, cmsLinkToSiteModel, SiteLinkModel } from '../link';
+import {
+  CmsLocalizedModel,
+  cmsLocalizedToSiteModel,
+  SiteLocalizedModel,
+} from '../localized';
 
 const EVEN = 2;
 
@@ -12,13 +16,13 @@ export const cmsContentBlockFragment = gql`
       ...image
     }
     title {
-      en
+      ...localizedText
     }
     tagline {
-      en
+      ...localizedText
     }
     content {
-      en
+      ...localizedContent
     }
     cta {
       ...link
@@ -37,10 +41,10 @@ export interface CmsContentBlockModel {
 
 export interface SiteContentBlockModel {
   id: string;
-  image?: SiteImageModel & { position?: 'start' | 'end' };
-  title?: string;
-  tagline?: string;
-  content?: string;
+  image?: CmsImageModel & { position?: 'start' | 'end' };
+  title?: SiteLocalizedModel;
+  tagline?: SiteLocalizedModel;
+  content?: SiteLocalizedModel;
   cta?: SiteLinkModel;
 }
 
@@ -71,7 +75,7 @@ export function cmsContentBlockToSiteModel(
   }
 
   if (cta != null) {
-    contentBlock.cta = { href: cta.href, text: cta.text.en };
+    contentBlock.cta = cmsLinkToSiteModel(cta);
   }
 
   return contentBlock;
