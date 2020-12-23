@@ -22,7 +22,7 @@
     "start:dev": "pm2 restart pm2-dev.yml",
     "stop": "pm2 stop pm2.yml",
     "stop:dev": "pm2 stop pm2-dev.yml",
-    "test": "eslint --cache '**/*.{js,jsx,ts,tsx}'"
+    "test": "eslint '**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@types/node": "^12.19.9",
