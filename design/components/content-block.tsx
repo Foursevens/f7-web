@@ -5,16 +5,25 @@ import { styled } from './stitches.config';
 import { TextBlockProps } from './text-block';
 import { ReactHtmlImageElement } from './types';
 
-const IMAGE_END_MAX_SIZE = 400;
-
 const StyledContentBlock = styled('div', {
   display: 'grid',
   gap: 20,
   gridTemplateColumns: 'repeat(12, 1fr)',
   alignItems: 'center',
 
-  '&> :first-child': { gridColumn: '1 / 6' },
-  '&> :last-child:not(:only-child)': { gridColumn: '7 / 12' },
+  '&> :first-child': {
+    gridArea: '1 / 1 / 2 / 13',
+    justifySelf: 'center',
+  },
+  '&> :last-child:not(:only-child)': {
+    gridArea: '2 / 1 / 3 / 13',
+    justifySelf: 'center',
+  },
+
+  md: {
+    '&> :first-child': { gridArea: '1 / 1 / 2 / 6' },
+    '&> :last-child:not(:only-child)': { gridArea: '1 / 7 / 2 / 13' },
+  },
 });
 
 const StyledImageEnd = styled(AspectRatioBox, {
@@ -33,9 +42,9 @@ export function ContentBlock({
   image,
   imageAtEnd = false,
 }: ContentBlockProps): React.ReactElement {
-  const imageSize = useMemo((): number => {
+  const imageSize = useMemo((): number | string => {
     if (image == null) {
-      return 0;
+      return -1;
     }
     let props:
       | undefined
@@ -53,22 +62,17 @@ export function ContentBlock({
     if (props == null) {
       // eslint-disable-next-line no-console
       console.warn('could not determine image size for', image);
-      return 0;
+      return -1;
     }
-    return Math.min(
-      IMAGE_END_MAX_SIZE,
-      Number(props.width),
-      Number(props.height),
-    );
+    const minSize = Math.min(Number(props.width), Number(props.height));
+    return `min(100%, ${minSize}px)`;
   }, [image]);
   return (
     <StyledContentBlock>
       {imageAtEnd ? (
         <>
           {children}
-          <StyledImageEnd css={{ width: imageSize, height: imageSize }}>
-            {image}
-          </StyledImageEnd>
+          <StyledImageEnd css={{ width: imageSize }}>{image}</StyledImageEnd>
         </>
       ) : (
         <>
