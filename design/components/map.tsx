@@ -10,12 +10,14 @@ const StyledMap = styled('div', {
   svg: {
     position: 'absolute',
     color: '$secondary1',
+    transform: 'translate(-50%, -100%)',
+    transformOrigin: 'bottom center',
   },
 
   // Rue du Houblon 63, Brussel
-  'svg:nth-of-type(1)': { left: '58%', top: '58%' },
+  'svg:nth-of-type(1)': { left: '52.5%', top: '71%' },
   // Kasteellaan 349A, Gent
-  'svg:nth-of-type(2)': { left: '35.9%', top: '-3%' },
+  'svg:nth-of-type(2)': { left: '39.4%', top: '38.5%' },
 });
 
 export interface MapProps {
