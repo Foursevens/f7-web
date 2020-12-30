@@ -45,8 +45,7 @@ export const WithContentBlock = Template.bind({});
 WithContentBlock.args = {
   background: 'white2',
   children: (
-    <ContentBlock>
-      {DUURZAAMHEID}
+    <ContentBlock image={DUURZAAMHEID}>
       <TextBlock>
         <Title size="md">Lorem Ipsum</Title>
         <Tag>Lorem Ipsum is simply dummy text</Tag>
