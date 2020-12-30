@@ -44,7 +44,7 @@ export default function Homepage({
           {hero.cta == null ? null : (
             <div>
               <Link href={hero.cta.href} passHref>
-                <ButtonLink background="secondary">
+                <ButtonLink design="secondary">
                   {hero.cta.text[locale]}
                 </ButtonLink>
               </Link>

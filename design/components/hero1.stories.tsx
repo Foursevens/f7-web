@@ -26,7 +26,7 @@ Default.args = {
         }
       </RichText>
       <div>
-        <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+        <ButtonLink design="secondary">Ontdek onze cases</ButtonLink>
       </div>
     </>
   ),
@@ -44,7 +44,7 @@ WithoutImage.args = {
         }
       </RichText>
       <div>
-        <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+        <ButtonLink design="secondary">Ontdek onze cases</ButtonLink>
       </div>
     </>
   ),

@@ -52,7 +52,7 @@ WithContentBlock.args = {
         <Tag>Lorem Ipsum is simply dummy text</Tag>
         <RichText>{RICH_TEXT}</RichText>
         <div>
-          <ButtonLink>Go on</ButtonLink>
+          <ButtonLink design="secondary">Go on</ButtonLink>
         </div>
       </TextBlock>
     </ContentBlock>

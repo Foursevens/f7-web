@@ -47,7 +47,7 @@ WithTitleTextAndCta.args = {
       <Title size="md">Lorem Ipsum</Title>
       <RichText>{RICH_TEXT}</RichText>
       <div>
-        <ButtonLink>Go on</ButtonLink>
+        <ButtonLink design="secondary">Go on</ButtonLink>
       </div>
     </>
   ),

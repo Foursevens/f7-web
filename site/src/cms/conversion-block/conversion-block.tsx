@@ -22,7 +22,7 @@ export function SiteConversionBlock({ conversion }: Props): ReactElement {
       )}
       {conversion.cta == null ? null : (
         <Link href={conversion.cta.href} passHref>
-          <ButtonLink background="secondary">
+          <ButtonLink design="secondary">
             {conversion.cta.text[locale]}
           </ButtonLink>
         </Link>

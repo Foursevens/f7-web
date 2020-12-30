@@ -24,7 +24,7 @@ Primary.args = {
             <a href="tel:+3234508030">+32 3 450 80 30</a>
           </p>`}
       </RichText>
-      <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
+      <ButtonLink design="secondary">Bekijk onze vacatures</ButtonLink>
     </>
   ),
 };
@@ -36,9 +36,7 @@ WithOnlyTitle.args = {
 
 export const WithOnlyButton = Template.bind({});
 WithOnlyButton.args = {
-  children: (
-    <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
-  ),
+  children: <ButtonLink design="secondary">Bekijk onze vacatures</ButtonLink>,
 };
 
 export const WithOnlyText = Template.bind({});
@@ -58,7 +56,7 @@ WithNoText.args = {
   children: (
     <>
       <Title size="md">Digitaal voor mens en planeet</Title>
-      <ButtonLink background="secondary">Bekijk onze vacatures</ButtonLink>
+      <ButtonLink design="secondary">Bekijk onze vacatures</ButtonLink>
     </>
   ),
 };

@@ -46,7 +46,7 @@ export function SiteContentBlockStack({
             {cta == null ? null : (
               <div>
                 <Link href={cta.href} passHref>
-                  <ButtonLink>{cta.text[locale]}</ButtonLink>
+                  <ButtonLink design="secondary">{cta.text[locale]}</ButtonLink>
                 </Link>
               </div>
             )}

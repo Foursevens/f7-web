@@ -43,7 +43,7 @@ export const Level1 = (): React.ReactElement => (
         }
       </RichText>
       <div>
-        <ButtonLink background="secondary">Ontdek onze cases</ButtonLink>
+        <ButtonLink design="secondary">Ontdek onze cases</ButtonLink>
       </div>
     </Hero1>
   </>
