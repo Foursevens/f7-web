@@ -101,7 +101,7 @@ export default function ContactPage({
           <img
             alt="foursevens address on map"
             height={690}
-            src="/map.png"
+            src="/map@2x.png"
             width={3360}
           />
         </Map>

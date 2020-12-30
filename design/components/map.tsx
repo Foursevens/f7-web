@@ -5,6 +5,7 @@ import { styled } from './stitches.config';
 
 const StyledMap = styled('div', {
   position: 'relative',
+  marginBottom: -5,
 
   svg: {
     position: 'absolute',
