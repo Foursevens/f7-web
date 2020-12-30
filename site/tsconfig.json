@@ -2,11 +2,11 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
+    "isolatedModules": true,
     "jsx": "preserve",
-    "module": "esnext",
+    "module": "ESNext",
     "noEmit": true,
-    "target": "esnext",
-    "isolatedModules": true
+    "target": "ESNext"
   },
   "include": ["next-environment.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
