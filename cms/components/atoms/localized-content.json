@@ -11,10 +11,12 @@
       "required": true
     },
     "fr": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "nl": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     }
   }
 }

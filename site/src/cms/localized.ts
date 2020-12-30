@@ -20,8 +20,8 @@ export const cmsLocalizedTextFragment = gql`
 
 export interface CmsLocalizedModel {
   en: string;
-  fr?: string;
-  nl?: string;
+  fr: string;
+  nl: string;
 }
 
 export interface SiteLocalizedModel {
@@ -39,8 +39,8 @@ export function cmsLocalizedToSiteModel({
 }: CmsLocalizedModel): SiteLocalizedModel {
   return {
     en,
-    fr: fr ?? en,
-    nl: nl ?? en,
+    fr,
+    nl,
   };
 }
 

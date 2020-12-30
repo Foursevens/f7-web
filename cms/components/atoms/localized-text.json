@@ -11,10 +11,12 @@
       "required": true
     },
     "fr": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "nl": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }
