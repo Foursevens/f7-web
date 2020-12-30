@@ -1,0 +1,10 @@
+node_modules/
+
+cms/.cache
+cms/build/
+cms/exports/
+
+design/storybook-static/
+design/dist/
+
+site/.next/
