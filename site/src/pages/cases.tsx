@@ -12,8 +12,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { getCasesPageData, SiteCasesPageData } from '../cases-page';
-import { SiteImage, useLocale } from '../cms';
+import { useLocale } from '../cms';
+import { SiteImage } from '../components';
+import { getCasesPageData, SiteCasesPageData } from '../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteCasesPageData {}
@@ -25,8 +26,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function CasesPage({
-  casesPage: { hero },
   cases,
+  casesPage: { hero },
   ...layoutData
 }: Props): React.ReactElement {
   const locale = useLocale();

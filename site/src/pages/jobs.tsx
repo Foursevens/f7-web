@@ -4,8 +4,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { SiteImage, useLocale } from '../cms';
-import { getJobsPageData, SiteJobsPageData } from '../jobs-page';
+import { useLocale } from '../cms';
+import { SiteImage } from '../components';
+import { getJobsPageData, SiteJobsPageData } from '../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteJobsPageData {}

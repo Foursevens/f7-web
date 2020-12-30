@@ -4,9 +4,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { SiteConversionBlock, SiteImage, useLocale } from '../cms';
+import { useLocale } from '../cms';
+import { SiteConversionBlock, SiteImage } from '../components';
+import { getTeamPageData, SiteTeamPageData } from '../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
-import { getTeamPageData, SiteTeamPageData } from '../team-page';
 
 interface Props extends LayoutData, SiteTeamPageData {}
 
@@ -41,9 +42,11 @@ export default function TeamPage({
             <RichText>{hero.content[locale]}</RichText>
           </Container>
         )}
-        <Container margin>
-          <SiteConversionBlock conversion={conversion} />
-        </Container>
+        {conversion == null ? null : (
+          <Container margin>
+            <SiteConversionBlock conversion={conversion} />
+          </Container>
+        )}
         <Container margin>
           <Link href="/team/dieter">Dieter</Link>
         </Container>

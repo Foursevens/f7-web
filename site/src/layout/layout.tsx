@@ -42,7 +42,7 @@ export function LayoutContainer({
             </Link>
           }
         >
-          {mainMenu.items.map(({ id, highlight, link }) => (
+          {(mainMenu.items ?? []).map(({ id, highlight, link }) => (
             <MenuItem
               key={id}
               active={isActive(link.href) ? 'yes' : 'no'}
@@ -59,7 +59,7 @@ export function LayoutContainer({
           <header>Contact Us</header>
           <main>
             <Footer.AddressList>
-              {contact.address.map((lines) => (
+              {contact.address.map(({ lines }) => (
                 <li>
                   {joinStringsWithLineBreaks(lines.map((line) => line[locale]))}
                 </li>
@@ -99,7 +99,7 @@ export function LayoutContainer({
               {title == null ? null : <header>{title[locale]}</header>}
               <main>
                 <Footer.MenuList>
-                  {items.map(({ id, link }) => (
+                  {items?.map(({ id, link }) => (
                     <li key={id}>
                       <Link href={link.href}>
                         <a>{link.text[locale]}</a>

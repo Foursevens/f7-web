@@ -3,11 +3,8 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import { SiteConversionBlock } from '../../cms';
-import {
-  SiteJobDetailPageData,
-  getJobDetailPageData,
-} from '../../job-detail-page';
+import { SiteConversionBlock } from '../../components';
+import { SiteJobDetailPageData, getJobDetailPageData } from '../../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
 
 interface Props extends LayoutData, SiteJobDetailPageData {}
@@ -32,9 +29,11 @@ export default function JobDetailPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer {...layoutData}>
-        <Container margin>
-          <SiteConversionBlock conversion={conversion} />
-        </Container>
+        {conversion == null ? null : (
+          <Container margin>
+            <SiteConversionBlock conversion={conversion} />
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );

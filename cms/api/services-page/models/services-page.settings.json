@@ -15,7 +15,8 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "molecules.hero-2"
+      "component": "molecules.hero-2",
+      "required": true
     },
     "blocks": {
       "type": "component",

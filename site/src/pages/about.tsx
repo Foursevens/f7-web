@@ -3,13 +3,13 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import { getAboutPageData, SiteAboutPageData } from '../about-page';
+import { useLocale } from '../cms';
 import {
   SiteContentBlockStack,
   SiteConversionBlock,
   SiteImage,
-  useLocale,
-} from '../cms';
+} from '../components';
+import { getAboutPageData, SiteAboutPageData } from '../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
 interface Props extends LayoutData, SiteAboutPageData {}
@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function AboutPage({
-  aboutPage: { hero, blocks, conversion },
+  aboutPage: { blocks, conversion, hero },
   ...layoutData
 }: Props): React.ReactElement {
   const locale = useLocale();
@@ -46,9 +46,11 @@ export default function AboutPage({
           </Container>
         )}
         <SiteContentBlockStack blocks={blocks} />
-        <Container margin>
-          <SiteConversionBlock conversion={conversion} />
-        </Container>
+        {conversion == null ? null : (
+          <Container margin>
+            <SiteConversionBlock conversion={conversion} />
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );

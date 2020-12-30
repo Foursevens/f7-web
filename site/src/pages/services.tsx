@@ -3,14 +3,14 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
+import { useLocale } from '../cms';
 import {
   SiteContentBlockStack,
   SiteConversionBlock,
   SiteImage,
-  useLocale,
-} from '../cms';
+} from '../components';
+import { getServicesPageData, SiteServicesPageData } from '../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
-import { getServicesPageData, SiteServicesPageData } from '../services-page';
 
 interface Props extends LayoutData, SiteServicesPageData {}
 
@@ -46,9 +46,11 @@ export default function ServicesPage({
           </Container>
         )}
         <SiteContentBlockStack blocks={blocks} />
-        <Container margin>
-          <SiteConversionBlock conversion={conversion} />
-        </Container>
+        {conversion == null ? null : (
+          <Container margin>
+            <SiteConversionBlock conversion={conversion} />
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );

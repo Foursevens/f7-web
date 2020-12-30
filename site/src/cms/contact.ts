@@ -1,9 +1,5 @@
 import { gql } from '../api';
-import {
-  CmsLocalizedModel,
-  cmsLocalizedToSiteModel,
-  SiteLocalizedModel,
-} from './localized';
+import { CmsLocalizedModel } from './localized';
 
 export const cmsContactFragment = gql`
   fragment contact on Contact {
@@ -29,39 +25,8 @@ interface SocialMedia {
 }
 
 export interface CmsContactModel {
-  address?: Array<{ lines: CmsLocalizedModel[] }>;
-  email?: string;
-  phone?: string;
-  socialMedia?: SocialMedia[];
-}
-
-export interface SiteContactModel {
-  address: SiteLocalizedModel[][];
-  email?: string;
-  phone?: string;
+  address: Array<{ lines: CmsLocalizedModel[] }>;
+  email: string | null;
+  phone: string | null;
   socialMedia: SocialMedia[];
-}
-
-export function cmsContactToSite({
-  address,
-  email,
-  phone,
-  socialMedia,
-}: CmsContactModel = {}): SiteContactModel {
-  const contact: SiteContactModel = {
-    address: (address ?? []).map(({ lines }) =>
-      lines.map(cmsLocalizedToSiteModel),
-    ),
-    socialMedia: socialMedia ?? [],
-  };
-
-  if (email != null) {
-    contact.email = email;
-  }
-
-  if (phone != null) {
-    contact.phone = phone;
-  }
-
-  return contact;
 }

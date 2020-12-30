@@ -3,12 +3,9 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-import { SiteConversionBlock } from '../../cms';
+import { SiteConversionBlock } from '../../components';
+import { SiteTeamMemberPageData, getTeamMemberPageData } from '../../data';
 import { LayoutData, LayoutContainer, getLayoutData } from '../../layout';
-import {
-  SiteTeamMemberPageData,
-  getTeamMemberPageData,
-} from '../../team-member-page';
 
 interface Props extends LayoutData, SiteTeamMemberPageData {}
 
@@ -32,9 +29,11 @@ export default function TeamMemberPage({
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <LayoutContainer {...layoutData}>
-        <Container margin>
-          <SiteConversionBlock conversion={conversion} />
-        </Container>
+        {conversion == null ? null : (
+          <Container margin>
+            <SiteConversionBlock conversion={conversion} />
+          </Container>
+        )}
       </LayoutContainer>
     </>
   );

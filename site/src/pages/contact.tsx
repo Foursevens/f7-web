@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { useLocale } from '../cms';
-import { getContactPageData, SiteContactPageData } from '../contact-page';
+import { getContactPageData, SiteContactPageData } from '../data';
 import { joinStringsWithLineBreaks } from '../jsx-utils';
 import { LayoutData, LayoutContainer, getLayoutData } from '../layout';
 
@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 export default function ContactPage({
-  contactPage,
   contact,
+  contactPage,
   ...layoutData
 }: Props): React.ReactElement {
   const locale = useLocale();
@@ -35,9 +35,9 @@ export default function ContactPage({
         {...layoutData}
       >
         <HeroContact>
-          {contactPage.title.map((title) => (
-            <Title key={title[locale]} size="lg">
-              {title[locale]}
+          {contactPage.title.map((line) => (
+            <Title key={line[locale]} size="lg">
+              {line[locale]}
             </Title>
           ))}
           <ul>
@@ -68,7 +68,7 @@ export default function ContactPage({
                 <HeroContact.Channel>
                   <Tag>Address</Tag>
                   <ul>
-                    {contact.address.map((lines) => (
+                    {contact.address.map(({ lines }) => (
                       <li>
                         {joinStringsWithLineBreaks(
                           lines.map((line) => line[locale]),
