@@ -6,7 +6,10 @@ import { styled } from './stitches.config';
 const StyledMap = styled('div', {
   position: 'relative',
 
-  svg: { position: 'absolute' },
+  svg: {
+    position: 'absolute',
+    color: '$secondary1',
+  },
 
   // Rue du Houblon 63, Brussel
   'svg:nth-of-type(1)': { left: '58%', top: '58%' },
