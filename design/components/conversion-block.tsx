@@ -7,25 +7,39 @@ const StyledConversionBlock = styled('div', {
   backgroundColor: '$primary2',
   overflow: 'hidden',
   position: 'relative',
-  height: 170,
+  padding: '$lg',
+  xl: { padding: '$lg $xl' },
 
   '> svg': {
     position: 'absolute',
-    top: '$md',
     right: 0,
-    transform: 'translateX(25%)',
-    transformOrigin: 'top left',
+    top: '50%',
+    transform: 'translateX(25%) scale(0.75)',
+    transformOrigin: 'top right',
+
+    md: { transform: 'translateX(25%)' },
+    lg: {
+      top: '20%',
+      transform: 'translateX(20%) scale(0.75)',
+    },
   },
 });
 
 const ContentArea = styled('div', {
-  position: 'absolute',
-  left: 50,
-  right: 50,
   display: 'flex',
   alignItems: 'center',
+  flexDirection: 'column',
   justifyContent: 'space-between',
-  height: '100%',
+  lg: { flexDirection: 'row' },
+
+  '> *': {
+    margin: '$xs 0',
+    textAlign: 'center',
+    lg: { margin: '0' },
+  },
+
+  p: { color: '$primary1' },
+  a: { textDecoration: 'none' },
 });
 
 export interface ConversionBlockProps {
