@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ArrowBack from '../assets/arrow-back.svg';
 import { Container } from './container';
 import { styled } from './stitches.config';
 import { ReactHtmlImageElement } from './types';
@@ -32,16 +33,14 @@ const StyledBackLink = styled('div', {
   display: 'inline-flex',
   alignItems: 'center',
   marginTop: '$sm',
+  color: '$grey1',
   fontFamily: '$lato',
   fontSize: '$text-md',
   fontWeight: '$medium',
 
-  svg: { stroke: '$grey1' },
-
   a: {
     display: 'inline-block',
     marginLeft: '$sm',
-    color: '$grey1',
   },
 });
 
@@ -63,9 +62,7 @@ export function Hero3({
         {image}
         {backLink == null ? null : (
           <StyledBackLink>
-            <svg height="8" width="5">
-              <path d="M 4 1 L 1 4 L 4 7" fill="none" strokeWidth="2" />
-            </svg>
+            <ArrowBack />
             {backLink}
           </StyledBackLink>
         )}
