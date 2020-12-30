@@ -16,6 +16,7 @@
     "dev": "yarn run start:dev",
     "format:svg": "yarn prettier --write 'design/assets/*.svg'",
     "heroku-postbuild": "yarn build:heroku",
+    "knex": "knex --cwd cms/",
     "lint": "eslint --cache --fix '**/*.{js,jsx,ts,tsx}'",
     "pm2": "pm2",
     "site": "yarn workspace @f7-web/site",

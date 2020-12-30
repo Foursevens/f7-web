@@ -25,6 +25,15 @@
       }
     },
     {
+      "files": ["cms/migrations/**"],
+      "rules": {
+        "unicorn/filename-case": "off"
+      },
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    },
+    {
       "files": ["design/*.js", "design/.storybook/*.js", "site/*.js"],
       "extends": ["noise-node"]
     },
