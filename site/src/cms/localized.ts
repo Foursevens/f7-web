@@ -18,6 +18,9 @@ export const cmsLocalizedTextFragment = gql`
   }
 `;
 
+// NOTE: The CMS model actually has all fields required. But since we enabled
+// this feature there was already content with missing translation we have to
+// take into account.
 export interface CmsLocalizedModel {
   en: string;
   fr?: string;
