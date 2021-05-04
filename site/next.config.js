@@ -6,7 +6,7 @@ const withModules = require('next-transpile-modules');
 module.exports = withPlugins([withModules(['@f7-web/design'])], {
   i18n: {
     locales: ['en', 'fr', 'nl'],
-    defaultLocale: 'en',
+    defaultLocale: 'nl',
   },
   target: 'serverless',
   webpack(config) {
